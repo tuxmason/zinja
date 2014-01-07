@@ -1,0 +1,48 @@
+. correct the path to the Cracklib dictionary
+. use SHA512 instead of DES for password hashing
+
+Upstream status: not submitted
+
+signed-off-by: Tux Mason <tuxmason@gmail.com>
+
+diff -urN shadow-4.1.5.1/etc/login.defs shadow-4.1.5.1.mod/etc/login.defs
+--- shadow-4.1.5.1/etc/login.defs	2010-03-31 00:22:16.000000000 +0300
++++ shadow-4.1.5.1.mod/etc/login.defs	2013-12-31 05:14:46.003142546 +0300
+@@ -118,7 +118,7 @@
+ #   Directory where mailboxes reside, _or_ name of file, relative to the
+ #   home directory.  If you _do_ define both, MAIL_DIR takes precedence.
+ #
+-MAIL_DIR	/var/spool/mail
++MAIL_DIR	/var/mail
+ #MAIL_FILE	.mail
+ 
+ #
+@@ -149,8 +149,8 @@
+ # *REQUIRED*  The default PATH settings, for superuser and normal users.
+ #
+ # (they are minimal, add the rest in the shell startup files)
+-ENV_SUPATH	PATH=/sbin:/bin:/usr/sbin:/usr/bin
+-ENV_PATH	PATH=/bin:/usr/bin
++ENV_SUPATH	PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
++ENV_PATH	PATH=/bin:/usr/bin:/usr/local/bin
+ 
+ #
+ # Terminal permissions
+@@ -216,7 +216,7 @@
+ #
+ # If compiled with cracklib support, where are the dictionaries
+ #
+-CRACKLIB_DICTPATH	/var/cache/cracklib/cracklib_dict
++CRACKLIB_DICTPATH	/lib/cracklib/pw_dict
+ 
+ #
+ # Min/max values for automatic uid selection in useradd
+@@ -309,7 +309,7 @@
+ # Note: If you use PAM, it is recommended to use a value consistent with
+ # the PAM modules configuration.
+ #
+-#ENCRYPT_METHOD DES
++ENCRYPT_METHOD SHA512
+ 
+ #
+ # Only works if ENCRYPT_METHOD is set to SHA256 or SHA512.

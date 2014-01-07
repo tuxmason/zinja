@@ -1,0 +1,17 @@
+change the default editor from ed to vim
+
+Upstream status: not submitted
+
+signed-off-by: Tux Mason <tuxmason@gmail.com>
+
+--- ./configure.orig	2013-12-03 19:32:27.941993961 +0300
++++ ./configure	2013-12-03 19:32:39.283994624 +0300
+@@ -32289,7 +32289,7 @@
+ 
+ 
+ 
+-printf "%s\n" "#define DEFAULT_EDITOR_PROGRAM \"ed\"" >>confdefs.h
++printf "%s\n" "#define DEFAULT_EDITOR_PROGRAM \"vi\"" >>confdefs.h
+ 
+ 
+ # Extract the first word of "pr", so it can be a program name with args.

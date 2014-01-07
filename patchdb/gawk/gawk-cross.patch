@@ -1,0 +1,17 @@
+disable check for extensions shared libraries when cross compiling. 
+
+Upstream status: inappropriate
+
+signed-off-by: Tux Mason <tuxmason@gmail.com
+
+--- ./extension/Makefile.in.orig	2013-12-30 15:45:52.018696842 +0300
++++ ./extension/Makefile.in	2013-12-30 15:45:55.548696974 +0300
+@@ -1194,7 +1194,7 @@
+ #
+ # Given the workaround in configure, this isn't strictly necessary, but
+ # we're leaving it in, in case of some other system needing it.
+-check-recursive all-recursive: check-for-shared-lib-support
++check-recursive all-recursive:
+ 
+ check-for-shared-lib-support:
+ 	@if ../gawk$(EXEEXT) --version | sed 1q | grep API > /dev/null; \

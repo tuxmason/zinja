@@ -1,0 +1,10 @@
+The configure system causes Bison to be built without 
+support for internationalization of error messages if 
+a bison program is not already in ${PATH}. This patch 
+corrects this.
+
+diff -uraN a/config.h b/config.h
+--- a/config.h	1970-01-01 03:00:00.000000000 +0300
++++ b/config.h	2013-04-09 21:46:26.890385947 +0300
+@@ -0,0 +1 @@
++#define YYENABLE_NLS 1

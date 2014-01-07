@@ -1,0 +1,13 @@
+purpose: disables the building of bison.help when cross-compiling
+
+--- bison-3.0.1/Makefile.in.orig	2013-11-24 00:13:45.401267080 +0300
++++ bison-3.0.1/Makefile.in	2013-11-24 00:13:47.864267482 +0300
+@@ -5133,7 +5133,7 @@
+ 
+ doc/refcard.pdf: doc/refcard.tex
+ 	$(AM_V_GEN) cd doc && pdftex $(abs_top_srcdir)/doc/refcard.tex
+-$(top_srcdir)/doc/bison.help: src/bison$(EXEEXT)
++# $(top_srcdir)/doc/bison.help: src/bison$(EXEEXT)
+ 	$(AM_V_GEN)src/bison$(EXEEXT) --version >doc/bison.help.tmp
+ 	$(AM_V_at) src/bison$(EXEEXT) --help   >>doc/bison.help.tmp
+ 	$(AM_V_at)$(top_srcdir)/build-aux/move-if-change doc/bison.help.tmp $@

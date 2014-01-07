@@ -1,0 +1,3 @@
+bzip2-disable-tests.patch
+bzip2-fix-man-path.patch
+bzip2-relative-paths.patch

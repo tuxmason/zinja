@@ -1,0 +1,11 @@
+--- bzip2-1.0.6/Makefile.orig	2010-09-11 01:46:02.000000000 +0300
++++ bzip2-1.0.6/Makefile	2012-11-14 10:14:08.047755095 +0300
+@@ -35,7 +35,7 @@
+       decompress.o \
+       bzlib.o
+ 
+-all: libbz2.a bzip2 bzip2recover test
++all: libbz2.a bzip2 bzip2recover
+ 
+ bzip2: libbz2.a bzip2.o
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o bzip2 bzip2.o -L. -lbz2

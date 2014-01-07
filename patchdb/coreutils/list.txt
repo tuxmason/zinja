@@ -1,0 +1,4 @@
+0001-local.mk-Add-ltr-and-lpthread-for-getting-spawn-func.patch
+0001-sys_time.in.h-Fix-use-of-restrict-keyword.patch
+coreutils-disable-manpages.patch
+remove-usr-local-lib-from-m4.patch

@@ -1,0 +1,87 @@
+Since we've patched some files, the make process will try to re-build the 
+manpages by running `./bin --help`.  When doing a cross-compile, we can't 
+do that since 'bin' isn't a native bin. So, completely disable the generation
+of manpages.
+
+Upstream status: Inappropriate
+
+Signed-off-by: Tux Mason <tuxmason@gmail.com>
+
+diff -ur coreutils-8.22/Makefile.am coreutils-8.22.mod/Makefile.am
+--- coreutils-8.22/Makefile.am	2013-12-04 17:48:30.000000000 +0300
++++ coreutils-8.22.mod/Makefile.am	2013-12-30 09:37:47.306872057 +0300
+@@ -187,5 +187,4 @@
+ include $(top_srcdir)/lib/local.mk
+ include $(top_srcdir)/src/local.mk
+ include $(top_srcdir)/doc/local.mk
+-include $(top_srcdir)/man/local.mk
+ include $(top_srcdir)/tests/local.mk
+diff -ur coreutils-8.22/Makefile.in coreutils-8.22.mod/Makefile.in
+--- coreutils-8.22/Makefile.in	2013-12-13 18:20:00.000000000 +0300
++++ coreutils-8.22.mod/Makefile.in	2013-12-30 09:37:22.876871145 +0300
+@@ -1211,7 +1211,7 @@
+   }
+ man1dir = $(mandir)/man1
+ NROFF = nroff
+-MANS = $(man1_MANS)
++MANS =
+ HEADERS = $(noinst_HEADERS)
+ RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
+   distclean-recursive maintainer-clean-recursive
+@@ -2749,7 +2749,7 @@
+ lispdir = @lispdir@
+ localedir = @localedir@
+ localstatedir = @localstatedir@
+-man1_MANS = @man1_MANS@
++man1_MANS =
+ mandir = @mandir@
+ mkdir_p = @mkdir_p@
+ oldincludedir = @oldincludedir@
+@@ -3608,7 +3608,7 @@
+ 
+ @HAVE_PERL_FALSE@run_help2man = $(SHELL) $(srcdir)/man/dummy-man
+ @HAVE_PERL_TRUE@run_help2man = $(PERL) -- $(srcdir)/man/help2man
+-ALL_MANS = $(man1_MANS) $(EXTRA_MANS)
++ALL_MANS =
+ 
+ # Dependencies common to all man pages.  Updated below.
+ 
+@@ -7558,7 +7558,7 @@
+ 	    install-info --info-dir="$(DESTDIR)$(infodir)" "$(DESTDIR)$(infodir)/$$relfile" || :;\
+ 	  done; \
+ 	else : ; fi
+-install-man: install-man1
++install-man:
+ 
+ install-pdf: install-pdf-recursive
+ 
+@@ -7619,7 +7619,7 @@
+ 	uninstall-info-am uninstall-local uninstall-man \
+ 	uninstall-pdf-am uninstall-pkglibexecPROGRAMS uninstall-ps-am
+ 
+-uninstall-man: uninstall-man1
++uninstall-man:
+ 
+ .MAKE: $(am__recursive_targets) all check check-am install install-am \
+ 	install-strip
+diff -ur coreutils-8.22/gnulib-tests/Makefile.in coreutils-8.22.mod/gnulib-tests/Makefile.in
+--- coreutils-8.22/gnulib-tests/Makefile.in	2013-12-13 17:16:05.000000000 +0300
++++ coreutils-8.22.mod/gnulib-tests/Makefile.in	2013-12-30 09:39:46.001876490 +0300
+@@ -2154,7 +2154,7 @@
+   }
+ man1dir = $(mandir)/man1
+ NROFF = nroff
+-MANS = $(man1_MANS)
++MANS =
+ HEADERS = $(noinst_HEADERS)
+ RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
+   distclean-recursive maintainer-clean-recursive
+@@ -8431,7 +8431,7 @@
+ 
+ install-info-am:
+ 
+-install-man: install-man1
++install-man:
+ 
+ install-pdf: install-pdf-recursive
+ 

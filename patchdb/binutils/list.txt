@@ -1,0 +1,1 @@
+binutils-ld-fix-static-linking.patch

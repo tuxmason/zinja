@@ -1,0 +1,9 @@
+12_all_default-warn-trampolines.patch
+15_all_libgfortran-Werror.patch
+48_all_x86_pr53113_libitm-avx.patch
+74_all_gcc48_cloog-dl.patch
+boehm-gc-uclibc.patch
+libgcc-always-build-gcceh.a.patch
+pr49423.patch
+pt_gnu_eh_frame.patch
+uclibc-getipinfo.patch

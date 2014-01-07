@@ -1,0 +1,4 @@
+bash-4.2-upstream-fixes.patch
+bash-4.2-execute-job-control.patch
+bash-4.2-no-readline.patch
+bash-4.2-parallel-build.patch

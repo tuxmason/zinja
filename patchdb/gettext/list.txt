@@ -1,0 +1,3 @@
+gettext-glibc-2.16.0-compat.patch
+gettext-uclibc.patch
+001-no_examples_and_tests.patch

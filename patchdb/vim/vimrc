@@ -1,0 +1,7 @@
+" Begin /etc/vim/vimrc
+set nocompatible
+set backspace=2
+set ruler
+set nobackup
+syntax on
+" End /etc/vim/vimrc

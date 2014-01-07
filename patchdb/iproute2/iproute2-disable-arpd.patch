@@ -1,0 +1,42 @@
+diff -ura iproute2-3.8.0/Makefile iproute2-3.8.0.mod/Makefile
+--- iproute2-3.8.0/Makefile	2013-02-21 19:41:20.000000000 +0300
++++ iproute2-3.8.0.mod/Makefile	2013-04-15 16:48:25.962778440 +0300
+@@ -6,7 +6,6 @@
+ DATADIR=$(PREFIX)/share
+ DOCDIR=$(DATADIR)/doc/iproute2
+ MANDIR=$(DATADIR)/man
+-ARPDDIR=/var/lib/arpd
+ 
+ # Path to db_185.h include
+ DBM_INCLUDE:=$(ROOTDIR)/usr/include
+@@ -52,7 +51,6 @@
+ install: all
+ 	install -m 0755 -d $(DESTDIR)$(SBINDIR)
+ 	install -m 0755 -d $(DESTDIR)$(CONFDIR)
+-	install -m 0755 -d $(DESTDIR)$(ARPDDIR)
+ 	install -m 0755 -d $(DESTDIR)$(DOCDIR)/examples
+ 	install -m 0755 -d $(DESTDIR)$(DOCDIR)/examples/diffserv
+ 	install -m 0644 README.iproute2+tc $(shell find examples -maxdepth 1 -type f) \
+diff -ura iproute2-3.8.0/man/man8/Makefile iproute2-3.8.0.mod/man/man8/Makefile
+--- iproute2-3.8.0/man/man8/Makefile	2013-02-21 19:41:20.000000000 +0300
++++ iproute2-3.8.0.mod/man/man8/Makefile	2013-04-15 16:48:26.634778401 +0300
+@@ -1,6 +1,6 @@
+ TARGETS = ip-address.8 ip-link.8 ip-route.8
+ 
+-MAN8PAGES = $(TARGETS) ip.8 arpd.8 lnstat.8 routel.8 rtacct.8 rtmon.8 ss.8 \
++MAN8PAGES = $(TARGETS) ip.8  lnstat.8 routel.8 rtacct.8 rtmon.8 ss.8 \
+ 	tc.8 tc-bfifo.8 tc-cbq.8 tc-cbq-details.8 tc-choke.8 tc-codel.8 \
+ 	tc-drr.8 tc-ematch.8 tc-fq_codel.8 tc-hfsc.8 tc-htb.8 \
+ 	tc-netem.8 tc-pfifo.8 tc-pfifo_fast.8 tc-prio.8 tc-red.8 \
+diff -ura iproute2-3.8.0/misc/Makefile iproute2-3.8.0.mod/misc/Makefile
+--- iproute2-3.8.0/misc/Makefile	2013-02-21 19:41:20.000000000 +0300
++++ iproute2-3.8.0.mod/misc/Makefile	2013-04-15 16:48:25.960778440 +0300
+@@ -1,7 +1,7 @@
+ SSOBJ=ss.o ssfilter.o
+ LNSTATOBJ=lnstat.o lnstat_util.o
+ 
+-TARGETS=ss nstat ifstat rtacct arpd lnstat
++TARGETS=ss nstat ifstat rtacct  lnstat
+ 
+ include ../Config
+ 

@@ -1,0 +1,112 @@
+source url: http://manpages.ubuntu.com/manpages.gz/hardy/man1/vlock.1.gz
+
+diff -urN a/man/man1/vlock.1 b/man/man1/vlock.1
+--- a/man/man1/vlock.1	1970-01-01 03:00:00.000000000 +0300
++++ b/man/man1/vlock.1	2007-10-26 04:32:25.000000000 +0300
+@@ -0,0 +1,106 @@
++.TH VLOCK 1 "28 July 2007" "Linux" "Linux User's Manual"
++.SH NAME
++vlock \- Virtual Console lock program
++.SH SYNOPSIS
++.B vlock
++.PP
++.B vlock [ -a,--all ] [ -c,--current ] [ -n,--new] [ -s,--disable-sysrq ] [ -h,--help ] [ -v,--version ]
++.SH DESCRIPTION
++.B vlock
++is a program to lock one or more sessions on the Linux console.  This is
++especially useful for Linux machines which have multiple users with access
++to the console.  One user may lock his or her session(s) while still allowing
++other users to use the system on other virtual consoles.  If desired, the
++entire console may be locked and virtual console switching disabled.
++.PP
++By default, only the current VC (virtual console) is locked.  With the
++\fB-a,--all\fR option all VCs are locked.  The locked VCs cannot be unlocked
++without the invoker's password or the root password.  The root password will
++always be able to unlock any or all sessions, unless disabled at compile time.
++.PP
++Please note that it is entirely possible to completely lock yourself out of
++the console with the \fB-a,--all\fR option if you cannot remember your
++password!  Unless you are able to kill vlock by logging in remotely via a
++serial terminal or network, a hard reset is the only method of ``unlocking''
++the display.
++.PP
++When locking the entire console display it is sometimes still possible to kill
++vlock using the Secure Access Key (SAK) or other commands that are available
++through the SysRq mechanism.  When the \fB-s,--disable-sysrq\fR and
++\fB-a,--all\fR options are given the SysRq mechanism is disabled while vlock is
++running.  See /usr/src/linux/Documentation/sysrq.txt for more details.
++.PP
++\fBvlock\fR works for console sessions primarily.  To lock the entire console
++display from an X session use the \fB-n,--new\fR option. \fBvlock\fR will then
++switch to an empty virtual console before locking.  Giving this option implies
++the \fB-a,--all\fR option.
++.SH OPTIONS
++.B -a,--all
++.IP
++Lock all console sessions and disable VC switching.
++.PP
++.B -c,--current
++.IP
++Lock the current session (this is the default).
++.PP
++.B -n,--new
++.IP
++Switch to a new virtual console before locking all console sessions.
++.PP
++.B -s,--disable-sysrq
++.IP
++Disable sysrq while consoles are locked.  Does not have effect unless
++the \fB-a,--all\fR option is also specified.
++.PP
++.B -h,--help
++.IP
++Print a brief help message.
++.PP
++.B -v,--version
++.IP
++Print the version number of \fBvlock\fR.
++.PP
++.SH "ENVIRONMENT VARIABLES"
++.B USER
++.IP
++When \fBvlock\fR is run as root (uid 0) and the \fBUSER\fR environment variable
++is set, \fBvlock\fR prompts for this user's password.
++.PP
++.B VLOCK_MESSAGE
++.IP
++Set this variable to replace vlock's default locking messages.  Example use:
++.IP
++$ alias vlock=\(aqenv VLOCK_MESSAGE="$(fortune)" vlock\(aq
++.PP
++.B VLOCK_PROMPT_TIMEOUT
++.IP
++Set this variable to specify the amount of time (in seconds) you will have to
++enter your password at the password prompt.  \fBWarning\fR: If this value is too
++low, you will have trouble unlocking your machine.
++.SH FILES
++.B ~/.vlockrc
++.IP
++If existent, this file is read by \fBvlock\fR on startup.  All the 
++variables mentioned above can be set here.
++.SH SECURITY
++\fBvlock\fR consists of several programs.  To use the \fB-n,--new\fR and
++\fB-s,--disable-sysrq\fR options you need to be able to execute vlock-new(8)
++and vlock-nosysrq(8), respectively.  Access to the other programs, vlock-all(8)
++for \fB-a,--all\fR and vlock-current(8), should be unrestricted.  See the
++SECURITY file in the \fBvlock\fR distribution for more information.
++.PP
++.SH NOTES
++Long options depend on the availability of an enhanced getopt(1) command.  On
++systems without it only the short options will work and long options will cause
++errors.
++.PP
++.SH "SEE ALSO"
++.BR vlock-all (8),
++.BR vlock-current (8),
++.BR vlock-new (8),
++.BR vlock-nosysrq (8),
++.BR getopt (1)
++.SH AUTHORS
++Michael K. Johnson <http://danlj.org/mkj/>
++.PP
++Frank Benkstein <frank-vlock@benkstein.net>

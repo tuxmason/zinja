@@ -1,0 +1,2 @@
+kbd-vlock-manpage.patch
+uclibc-stdarg.patch

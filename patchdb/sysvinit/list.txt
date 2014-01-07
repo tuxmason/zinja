@@ -1,0 +1,2 @@
+sysvinit-afs.patch
+sysvinit-cross.patch

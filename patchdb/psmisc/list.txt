@@ -1,0 +1,2 @@
+psmisc-link-against-libintl.patch
+psmisc-no-__progname.patch

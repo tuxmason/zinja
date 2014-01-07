@@ -1,6 +1,4 @@
 cross-tools.arm
 sysroot
 toolchain-build
-*.1
-*.2
-*.3
+*.swp

@@ -1,0 +1,2 @@
+gl_cv_func_wcwidth_works=yes
+ac_cv_func_fnmatch_gnu=yes

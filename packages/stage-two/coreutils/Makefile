@@ -48,7 +48,7 @@ install: build
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/bin/chroot $(SYSROOTDIR)/usr/sbin || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/bin/{cat,chgrp,chmod,chown,cp,date} $(SYSROOTDIR)/bin || exit 1 ;\
-		mv -v $(SYSROOTDIR)/usr/bin/{dd,df,echo,false,hostname,ln,ls,mkdir} $(SYSROOTDIR)/bin || exit 1 ;\
+		mv -v $(SYSROOTDIR)/usr/bin/{dd,df,echo,false,ln,ls,mkdir} $(SYSROOTDIR)/bin || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/bin/{mv,pwd,rm,rmdir,stty,true,uname} $(SYSROOTDIR)/bin || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/bin/{[,basename,head,install,nice} $(SYSROOTDIR)/bin || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/bin/{readlink,arch,sleep,sync,test,touch} $(SYSROOTDIR)/bin || exit 1 ;\

@@ -1,5 +1,0 @@
-AutoLFS (Automated Linux From Scratch)
-
-Build scripts for building uClibc based GNU cross toolchains.
-
-The generated toolchain can be used to create a Linux distrubution from scratch. 

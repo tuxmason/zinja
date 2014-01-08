@@ -7,7 +7,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build install
+targets: clean extract patch autoconf configure build install
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -30,7 +30,14 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-configure: patch
+autoconf: patch
+	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
+		cd $(PKGSRCDIR) ;\
+		autoreconf -vif || exit 1 ;\
+		touch $(PKGOBJDIR)/autoconf-stamp ;\
+	fi
+
+configure: autoconf
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
 		( PATH=$(PATH) CC=$(CC) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\

@@ -16,4 +16,5 @@ COPTS := --prefix=/usr \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
 CC := "${CC} "
 CXX := "${CXX} "
+CFLAGS := "-I$(SYSROOTDIR)/usr/include/json-c"
 PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig"

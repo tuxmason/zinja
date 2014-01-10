@@ -3,10 +3,8 @@ include ../../conf/environment.mk
 
 all: cross-tools
 
-#cross-tools: bc.o kheaders.o file.o m4.o ncurses.o gmp.o mpfr.o mpc.o binutils.o gcc-stage1.o \
-#       	     uClibc.o gcc-stage2.o
-
-cross-tools: bc.o kheaders.o file.o m4.o ncurses.o gmp.o mpfr.o mpc.o binutils.o gcc-stage1.o
+cross-tools: bc.o kheaders.o file.o m4.o ncurses.o gmp.o mpfr.o mpc.o binutils.o gcc-stage1.o \
+	uClibc.o gcc-stage2.o
 
 #==================== Cross Toolchain ================================================
 bc.o: 

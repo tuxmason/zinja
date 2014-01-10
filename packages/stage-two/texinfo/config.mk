@@ -10,3 +10,4 @@ COPTS := --prefix=/usr  \
 	--host=$(TARGETARCH)
 CC := "${CC} "
 CXX := "${CXX} "
+LIBS := "-lpthread"

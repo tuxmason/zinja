@@ -1,0 +1,23 @@
+fix a couple of syntax errors that prevent the documentation from 
+building with Texinfo-5.1
+
+--- ./bfd/doc/bfd.texinfo.orig	2010-10-28 14:40:25.000000000 +0300
++++ ./bfd/doc/bfd.texinfo	2014-01-12 19:30:48.673804251 +0300
+@@ -322,7 +322,7 @@
+ @printindex cp
+ 
+ @tex
+-% I think something like @colophon should be in texinfo.  In the
++% I think something like @@colophon should be in texinfo.  In the
+ % meantime:
+ \long\def\colophon{\hbox to0pt{}\vfill
+ \centerline{The body of this manual is set in}
+@@ -333,7 +333,7 @@
+ \centerline{{\sl\fontname\tensl\/}}
+ \centerline{are used for emphasis.}\vfill}
+ \page\colophon
+-% Blame: doc@cygnus.com, 28mar91.
++% Blame: doc@@cygnus.com, 28mar91.
+ @end tex
+ 
+ @bye

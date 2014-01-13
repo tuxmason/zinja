@@ -47,7 +47,7 @@ install: build
 		chmod 755 $(SYSROOTDIR)/lib/libattr.so.1.1.0 || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/{libattr.la,libattr.so} || exit 1 ;\
 		mv -v $(SYSROOTDIR)/lib/libattr.a $(SYSROOTDIR)/usr/lib || exit 1 ;\
-		ln -sv ../../lib/libattr.so.1 $(SYSROOTDIR)/usr/lib/libattr.so || exit 1 ;\
+		ln -sfv ../../lib/libattr.so.1 $(SYSROOTDIR)/usr/lib/libattr.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

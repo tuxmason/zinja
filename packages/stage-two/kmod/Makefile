@@ -48,7 +48,8 @@ install: build
 			ln -sfv /bin/kmod $(SYSROOTDIR)/sbin/$$target || exit 1 ;\
 		done ;\
 		ln -sfv /bin/kmod $(SYSROOTDIR)/bin/lsmod || exit 1 ;\
-		rm -v $(SYSROOTDIR)/lib/libkmod.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/lib/{libkmod.la,libkmod.so} || exit 1 ;\
+		ln -svf ../../lib/libkmod.so.2 $(SYSROOTDIR)/usr/lib/libkmod.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

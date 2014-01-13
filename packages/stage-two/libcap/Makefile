@@ -45,7 +45,7 @@ install: build
 		DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/libcap.so || exit 1 ;\
 		mv -v $(SYSROOTDIR)/lib/libcap.a $(SYSROOTDIR)/usr/lib || exit 1 ;\
-		ln -sv ../../lib/libcap.so.2 $(SYSROOTDIR)/usr/lib/libcap.so || exit 1 ;\
+		ln -sfv ../../lib/libcap.so.2 $(SYSROOTDIR)/usr/lib/libcap.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

@@ -47,7 +47,7 @@ install: build
 		chmod 755 $(SYSROOTDIR)/lib/libacl.so.1.1.0 || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/{libacl.a,libacl.so,libacl.la} || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libacl.so,libacl.la} || exit 1 ;\
-		ln -sv ../../lib/libacl.so.1 $(SYSROOTDIR)/usr/lib/libacl.so || exit 1 ;\
+		ln -sfv ../../lib/libacl.so.1 $(SYSROOTDIR)/usr/lib/libacl.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

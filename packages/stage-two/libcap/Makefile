@@ -35,13 +35,13 @@ configure: patch
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make BUILD_CC="gcc" CC=$(CC) -C $(PKGSRCDIR) DESTDIR=$(SYSROOTDIR) ) || exit 1 ;\
+		( PATH=$(PATH) make BUILD_CC="gcc" CC=$(CC) lib=$(LIB) -C $(PKGSRCDIR) DESTDIR=$(SYSROOTDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make BUILD_CC="gcc" CC=$(CC) -C $(PKGSRCDIR) RAISE_SETFCAP=no \
+		( PATH=$(PATH) make BUILD_CC="gcc" CC=$(CC) lib=$(LIB) -C $(PKGSRCDIR) RAISE_SETFCAP=no \
 		DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/libcap.so || exit 1 ;\
 		mv -v $(SYSROOTDIR)/lib/libcap.a $(SYSROOTDIR)/usr/lib || exit 1 ;\

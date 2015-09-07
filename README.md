@@ -1,13 +1,13 @@
 zinja
 =====
 
-Zinja is a set of Makefiles and patches used to build a complete Zimba Linux 
-root filesystem.
+Zinja is a set of Makefiles and patches designed to automate the process of 
+building a custom Linux distribution. 
 
 Zinja generates a cross toolchain which is used to build tools for the target 
 filesystem. Zinja uses modified build rules and base patches from the CLFS 
-project. Also incorporated are patches from various projects, namely Alpine, 
-Gentoo and Openwrt.
+project. Also incorporated are some patches from various projects, namely, 
+Alpine, Gentoo and Openwrt.
 
 Features
 --------

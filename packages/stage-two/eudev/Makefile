@@ -44,10 +44,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		ln -sfv /bin/udevadm $(SYSROOTDIR)/sbin/udevadm || exit 1 ;\
-		install -dv $(SYSROOTDIR)/lib/firmware || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/libudev.la || exit 1 ;\
-		install -v -m 655 $(PATCHDIR)/*.rules $(SYSROOTDIR)/etc/udev/rules.d/ || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

@@ -1,6 +1,6 @@
 PKGNAME := eudev
-PKGVER := 1.3
-PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
+PKGVER := 2.1.1
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
@@ -15,12 +15,13 @@ COPTS := --prefix=/usr \
 	--bindir=/bin \
 	--sbindir=/sbin \
 	--disable-gudev \
-	--disable-keymap \
+	--enable-keymap \
 	--enable-libkmod \
+	--enable-split-usr \
 	--disable-gtk-doc-html \
 	--with-rootlibdir=/lib \
 	--enable-rule_generator \
 	--disable-introspection \
 	--with-firmware-path=/lib/firmware/updates:/lib/firmware
 CC := "${CC} "
-LDFLAGS := "-lrt"
+LDFLAGS := "-lrt -lblkid"

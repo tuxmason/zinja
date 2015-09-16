@@ -40,20 +40,23 @@ build: configure
 		( PATH=$(PATH) make -j$(NPROCS) ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" zImage modules ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
-uimage: configure
+uimage: build
 	@if [ ! -f $(PKGOBJDIR)/uimage-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) make -j$(NPROCS) ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" LOADADDR=0x80008000 uImage V=1 ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" uImage V=1 ) || exit 1 ;\
+		( PATH=$(PATH) make ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" dtbs V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/uimage-stamp ;\
 	fi
 
-install: build
+install: uimage 
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
 		( install -vd $(SYSROOTDIR)/boot ) ;\
-		( install -v arch/$(ARCH)/boot/zImage $(SYSROOTDIR)/boot ) ;\
-		( install -v System.map $(SYSROOTDIR)/boot ) ;\
-		( install -v .config $(SYSROOTDIR)/boot/$(PKGNAME)-config-$(PKGVER) ) ;\
+		( install -v arch/$(ARCH)/boot/zImage $(SYSROOTDIR)/boot/zImage-c1 ) ;\
+		( install -v System.map $(SYSROOTDIR)/boot/System-c1.map ) ;\
+		( install -v .config $(SYSROOTDIR)/boot/config-$(PKGVER)-c1 ) || exit 1 ;\
+		( cp -v arch/$(ARCH)/boot/uImage $(SYSROOTDIR)/boot/uImage-c1 ) || exit 1 ;\
+		( cp -v arch/$(ARCH)/boot/dts/meson8b_odroidc.dtb $(SYSROOTDIR)/boot/meson8b_odroidc1.dtb ) || exit 1 ;\
 		( PATH=$(PATH) make ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" INSTALL_MOD_PATH=$(SYSROOTDIR) modules_install V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

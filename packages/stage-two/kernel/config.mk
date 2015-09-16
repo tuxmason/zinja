@@ -1,8 +1,8 @@
 PKGNAME := linux
-PKGVER := 3.10.20
+PKGVER := odroidc-3.10.y
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
-PATCHLIST := $(PATCHDB)/kernel/list.txt
+PATCHLIST := $(PATCHDB)/kernel/$(PKGNAME)-list.txt
 PATCHDIR := $(PATCHDB)/kernel
 CONF := $(PATCHDB)/kernel/kconfig.arm
 PKGOBJDIR := $(TCBUILDROOT)/kernel-obj

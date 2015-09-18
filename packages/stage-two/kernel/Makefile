@@ -51,12 +51,12 @@ uimage: build
 install: uimage 
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( install -vd $(SYSROOTDIR)/boot ) ;\
-		( install -v arch/$(ARCH)/boot/zImage $(SYSROOTDIR)/boot/zImage-c1 ) ;\
-		( install -v System.map $(SYSROOTDIR)/boot/System-c1.map ) ;\
-		( install -v .config $(SYSROOTDIR)/boot/config-$(PKGVER)-c1 ) || exit 1 ;\
-		( cp -v arch/$(ARCH)/boot/uImage $(SYSROOTDIR)/boot/uImage-c1 ) || exit 1 ;\
-		( cp -v arch/$(ARCH)/boot/dts/meson8b_odroidc.dtb $(SYSROOTDIR)/boot/meson8b_odroidc1.dtb ) || exit 1 ;\
+		( install -vd $(SYSROOTDIR)/boot/dtbs ) ;\
+		( install -v arch/$(ARCH)/boot/zImage $(SYSROOTDIR)/boot ) ;\
+		( install -v System.map $(SYSROOTDIR)/boot ) ;\
+		( install -v .config $(SYSROOTDIR)/boot/config-$(PKGVER) ) || exit 1 ;\
+		( cp -v arch/$(ARCH)/boot/uImage $(SYSROOTDIR)/boot ) || exit 1 ;\
+		( cp -v arch/$(ARCH)/boot/dts/meson8b_odroidc.dtb $(SYSROOTDIR)/boot/dtbs ) || exit 1 ;\
 		( PATH=$(PATH) make ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" INSTALL_MOD_PATH=$(SYSROOTDIR) modules_install V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

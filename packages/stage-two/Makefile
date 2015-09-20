@@ -10,7 +10,7 @@ targetfs: fhs.o gmp.o mpfr.o mpc.o zlib.o binutils.o gcc.o sed.o libffi.o libico
 	iproute2.o readline.o autoconf.o automake.o bash.o bc.o bzip2.o diffutils.o file.o gawk.o \
 	findutils.o gettext.o grep.o groff.o less.o gzip.o inetutils.o net-tools.o kbd.o make.o \
 	xz.o kmod.o patch.o psmisc.o libestr.o libee.o json-c.o rsyslog.o sysvinit.o tar.o texinfo.o \
-	eudev.o vim.o kernel.o bootscripts.o sysconfig.o
+	eudev.o vim.o kernel.o u-boot.o bootscripts.o sysconfig.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:
@@ -322,6 +322,11 @@ kernel.o:
 	@echo "Linux started $(shell date -R) "
 	(make -C kernel 2>&1 | tee $(PKGLOGDIR)/kernel.log && exit $$PIPESTATUS)
 	@echo "Linux finished $(shell date -R) "
+
+u-boot.o:
+	@echo "U-boot started $(shell date -R) "
+	(make -C u-boot 2>&1 | tee $(PKGLOGDIR)/u-boot.log && exit $$PIPESTATUS)
+	@echo "U-boot finished $(shell date -R) "
 
 bootscripts.o:
 	@echo "CLFS bootscripts started $(shell date -R) "

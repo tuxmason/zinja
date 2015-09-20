@@ -3,8 +3,8 @@ include ../../conf/environment.mk
 
 all: cross-tools
 
-cross-tools: bc.o kheaders.o file.o m4.o ncurses.o gmp.o mpfr.o mpc.o binutils.o gcc-stage1.o \
-	uClibc.o gcc-stage2.o
+cross-tools: bc.o kheaders.o file.o m4.o ncurses.o u-boot-tools.o gmp.o mpfr.o mpc.o \
+	binutils.o gcc-stage1.o uClibc.o gcc-stage2.o
 
 #==================== Cross Toolchain ================================================
 bc.o: 
@@ -66,6 +66,11 @@ gcc-stage2.o:
 	@echo "GCC (Stage Two) started $(shell date -R) "
 	( make -C gcc-stage2 2>&1  | tee $(PKGLOGDIR)/gcc-stage2.log && exit $$PIPESTATUS )
 	@echo "GCC (Stage Two) finished $(shell date -R) "
+
+u-boot-tools.o:
+	@echo "U-boot tools started $(shell date -R) "
+	( make -C u-boot 2>&1  | tee $(PKGLOGDIR)/u-boot-tools.log && exit $$PIPESTATUS )
+	@echo "U-boot tools finished $(shell date -R) "
 
 #==================== End Cross Toolchain ============================================
 

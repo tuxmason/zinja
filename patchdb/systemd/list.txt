@@ -1,0 +1,11 @@
+0001-uClibc-doesn-t-implement-pwritev-preadv.patch
+binfmt-install.patch
+optional_secure_getenv.patch
+systemd-older-kernel.patch
+systemd-pam-configure-check-uclibc.patch
+systemd-pam-fix-execvpe.patch
+systemd-pam-fix-fallocate.patch
+systemd-pam-fix-getty-unit.patch
+systemd-pam-fix-mkostemp.patch
+uclibc-get-physmem.patch
+uclibc-sysinfo_h.patch

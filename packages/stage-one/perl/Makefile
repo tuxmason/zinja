@@ -24,7 +24,6 @@ patch: extract
 				echo -e " --- done --- \n"  ;\
 			done ;\
 		fi ;\
-		sed -i 's@/usr/include@/$(SYSROOT)/usr/include@g' $(PKGSRCDIR)/ext/Errno/Errno_pm.PL ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 

@@ -41,7 +41,7 @@ install: build
 	fi
 
 clean:
-	@if [ -d $(PKGSRCDIR) ]; then rm -r $(PKGSRCDIR); fi
-	@if [ -d $(PKGOBJDIR) ]; then rm -r $(PKGOBJDIR); fi
+	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
+	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 
 PHONY: all targets

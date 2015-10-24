@@ -1,8 +1,0 @@
-0001-Compatible-stack-protector-for-non-Thread-Local-stor.patch
-0003-resolv-fix-resolver-to-return-TRY_AGAIN-on-timeout.patch
-0004-libm-x86_64-implement-some-fenv-functions.patch
-0007-libc-x86-fix-stack-unwinding-and-backtrace-informati.patch
-uclibc-dlclose-fix.patch
-0001-libm-x86_64-implement-fegetround.patch
-0001-ldd-subdepends-check-stderr.patch
-avoid-forced-unwind.patch

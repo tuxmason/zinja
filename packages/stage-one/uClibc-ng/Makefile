@@ -47,7 +47,7 @@ install: build
 		( install -vd $(SYSROOTDIR)/{s,}bin ) || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGSRCDIR) CROSS="$(TARGETARCH)-" PREFIX=$(SYSROOTDIR) install ) || exit 1 ;\
 		( install -v $(PKGSRCDIR)/utils/ldconfig $(SYSROOTDIR)/sbin ) || exit 1 ;\
-		( install -v $(PKGSRCDIR)/utils/{ldd,getconf} $(SYSROOTDIR)/bin ) || exit 1 ;\
+		( install -v $(PKGSRCDIR)/utils/{ldd,getconf,iconv} $(SYSROOTDIR)/bin ) || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

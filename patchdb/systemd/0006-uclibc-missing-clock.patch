@@ -1,0 +1,16 @@
+--- a/src/shared/missing.h	2015-08-05 11:32:46.470994722 +0200
++++ b/src/shared/missing.h	2015-08-05 11:34:49.201282794 +0200
+@@ -598,3 +598,13 @@ static inline int setns(int fd, int nsty
+ #ifndef NET_NAME_RENAMED
+ #  define NET_NAME_RENAMED 4
+ #endif
++
++#ifndef CLOCK_BOOTTIME
++#  define CLOCK_BOOTTIME 7
++#endif
++#ifndef CLOCK_REALTIME_ALARM
++#  define CLOCK_REALTIME_ALARM 8
++#endif
++#ifndef CLOCK_BOOTTIME_ALARM
++#  define CLOCK_BOOTTIME_ALARM 9
++#endif

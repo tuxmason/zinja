@@ -25,9 +25,6 @@ patch: extract
 				echo -e " --- done --- \n"  ;\
 			done ;\
 		fi ;\
-		sed -i '/virt-install-hook /d' $(PKGSRCDIR)/Makefile.in || exit 1 ;\
-		sed -i '/timesyncd.conf/d' $(PKGSRCDIR)/src/timesync/timesyncd.conf.in || exit 1 ;\
-		sed -i '/-l/d' $(PKGSRCDIR)/src/fsck/fsck.c || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
@@ -35,21 +32,29 @@ configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
 		autoreconf -vif || exit 1 ;\
+		cd $(PKGOBJDIR) ;\
 		cp -v $(PATCHDIR)/$(PKGNAME).cache $(PKGOBJDIR) || exit 1 ;\
-		( PATH=$(PATH) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) KMOD_LIBS=$(KMOD_LIBS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) make V=1 ) || exit 1 ;\
+		( PATH=$(PATH) KMOD_LIBS=$(KMOD_LIBS) make -C $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		rm -rfv $(SYSROOTDIR)/usr/lib/rpm || exit 1 ;\
+		for tool in runlevel reboot shutdown poweroff halt telinit; do \
+			ln -sfv /bin/systemctl $(SYSROOTDIR)/sbin/$$tool || exit 1 ;\
+		done ;\
+		ln -sfv /lib/systemd/systemd $(SYSROOTDIR)/sbin/init || exit 1 ;\
+		sed -i "s@root lock@root root@g" $(SYSROOTDIR)/usr/lib/tmpfiles.d/legacy.conf || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libsystemd.la,libudev.la} || exit 1 ;\
+		touch $(SYSROOTDIR)/etc/machine-id || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

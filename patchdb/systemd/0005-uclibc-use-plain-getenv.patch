@@ -1,0 +1,27 @@
+From a2fbd49c5d0b73e2f6c1a0482fc7c3d40b23829e Mon Sep 17 00:00:00 2001
+From: Aleksander Morgado <aleksander at lanedo.com>
+Date: Mon, 11 Feb 2013 14:47:49 +0100
+Subject: [PATCH 2/8] uclibc: use plain getenv() instead
+
+uclibc doesn't implement secure_getenv(), fallback to getenv() instead just to
+get this compiled.
+---
+ src/shared/missing.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/shared/missing.h b/src/shared/missing.h
+index d4ba0d3..865f16b 100644
+--- a/src/shared/missing.h
++++ b/src/shared/missing.h
+@@ -358,7 +358,7 @@
+ #  ifdef HAVE___SECURE_GETENV
+ #    define secure_getenv __secure_getenv
+ #  else
+-#    error "neither secure_getenv nor __secure_getenv are available"
++#    define secure_getenv getenv
+ #  endif
+ #endif
+
+--
+1.8.1.2
+

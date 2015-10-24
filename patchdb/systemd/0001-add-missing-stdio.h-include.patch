@@ -1,0 +1,24 @@
+From 7149ac0dc37a7adcfca6563067389c8e60a01313 Mon Sep 17 00:00:00 2001
+From: Wojciech Nizinski <w.nizinski@grinn-global.com>
+Date: Thu, 15 Oct 2015 11:32:39 +0200
+Subject: [PATCH] add missing stdio.h include
+
+---
+ src/shared/label.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/shared/label.c b/src/shared/label.c
+index 25a8b36..e860315 100644
+--- a/src/shared/label.c
++++ b/src/shared/label.c
+@@ -19,6 +19,7 @@
+   along with systemd; If not, see <http://www.gnu.org/licenses/>.
+ ***/
+ 
++#include <stdio.h>
+ #include <errno.h>
+ #include <unistd.h>
+ #include <malloc.h>
+-- 
+2.1.4
+

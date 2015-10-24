@@ -1,0 +1,41 @@
+--- a/src/shared/missing.h      2015-08-05 13:14:40.416977556 +0200
++++ a/src/shared/missing.h	2015-08-05 13:18:58.777794199 +0200
+@@ -612,3 +612,38 @@ static inline int setns(int fd, int nsty
+ #ifndef AT_NO_AUTOMOUNT
+ #  define AT_NO_AUTOMOUNT         0x800   /* Suppress terminal automount traversal */
+ #endif
++
++#ifndef IPTOS_CLASS_MASK
++#  define IPTOS_CLASS_MASK                0xe0
++#endif
++#ifndef IPTOS_CLASS
++#  define IPTOS_CLASS(class)              ((class) & IPTOS_CLASS_MASK)
++#endif
++#ifndef IPTOS_CLASS_CS0
++#  define IPTOS_CLASS_CS0                 0x00
++#endif
++#ifndef IPTOS_CLASS_CS1
++#  define IPTOS_CLASS_CS1                 0x20
++#endif
++#ifndef IPTOS_CLASS_CS2
++#  define IPTOS_CLASS_CS2                 0x40
++#endif
++#ifndef IPTOS_CLASS_CS3
++#  define IPTOS_CLASS_CS3                 0x60
++#endif
++#ifndef IPTOS_CLASS_CS4
++#  define IPTOS_CLASS_CS4                 0x80
++#endif
++#ifndef IPTOS_CLASS_CS5
++#  define IPTOS_CLASS_CS5                 0xa0
++#endif
++#ifndef IPTOS_CLASS_CS6
++#  define IPTOS_CLASS_CS6                 0xc0
++#endif
++#ifndef IPTOS_CLASS_CS7
++#  define IPTOS_CLASS_CS7                 0xe0
++#endif
++#ifndef IPTOS_CLASS_DEFAULT
++#  define IPTOS_CLASS_DEFAULT             IPTOS_CLASS_CS0
++#endif
++

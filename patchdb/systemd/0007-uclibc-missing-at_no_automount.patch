@@ -1,0 +1,10 @@
+--- a/src/shared/missing.h	2015-08-05 11:55:34.416497451 +0200
++++ a/src/shared/missing.h	2015-08-05 11:56:11.225183679 +0200
+@@ -608,3 +608,7 @@ static inline int setns(int fd, int nsty
+ #ifndef CLOCK_BOOTTIME_ALARM
+ #  define CLOCK_BOOTTIME_ALARM 9
+ #endif
++
++#ifndef AT_NO_AUTOMOUNT
++#  define AT_NO_AUTOMOUNT         0x800   /* Suppress terminal automount traversal */
++#endif

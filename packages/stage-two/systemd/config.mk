@@ -1,5 +1,5 @@
 PKGNAME := systemd
-PKGVER := 213
+PKGVER := 216
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -11,16 +11,25 @@ COPTS := --prefix=/usr \
 	--sysconfdir=/etc \
 	--localstatedir=/var \
 	--libexecdir=/usr/lib \
-	--docdir=/usr/share/doc/systemd-213 \
+	--docdir=/usr/share/doc/systemd-216 \
 	--with-rootprefix="" \
 	--with-rootlibdir=/lib \
 	--enable-split-usr \
 	--disable-gudev \
-	--disable-nls \
-	--disable-localed \
-	--with-distro=other \
 	--disable-efi \
-	--disable-gnuefi \
+	--disable-libcryptsetup \
+	--disable-gcrypt \
+	--without-python \
+	--disable-readahead \
+	--disable-manpages \
+	--enable-static=no \
+	--without-python \
+	--disable-libcurl \
+	--disable-myhostname \
+	--disable-machined \
+	--disable-resolved \
+	--disable-sysusers \
+	--enable-introspection=no \
 	--with-kbd-loadkeys=/bin/loadkeys \
 	--with-kbd-setfont=/bin/setfont \
 	--with-dbuspolicydir=/etc/dbus-1/system.d \
@@ -28,3 +37,5 @@ COPTS := --prefix=/usr \
 	--with-dbussessionservicedir=/usr/share/dbus-1/services \
 	--with-dbussystemservicedir=/usr/share/dbus-1/system-services \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
+
+KMOD_LIBS = -lkmod

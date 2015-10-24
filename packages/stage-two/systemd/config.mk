@@ -17,6 +17,7 @@ COPTS := --prefix=/usr \
 	--enable-split-usr \
 	--disable-gudev \
 	--disable-efi \
+	--disable-gnutls \
 	--disable-libcryptsetup \
 	--disable-gcrypt \
 	--without-python \
@@ -24,7 +25,6 @@ COPTS := --prefix=/usr \
 	--disable-manpages \
 	--enable-static=no \
 	--without-python \
-	--disable-libcurl \
 	--disable-myhostname \
 	--disable-machined \
 	--disable-resolved \

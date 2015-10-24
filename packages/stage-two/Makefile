@@ -4,13 +4,13 @@ include ../../conf/shell-env.mk
 
 all: targetfs
 
-targetfs: fhs.o gmp.o mpfr.o mpc.o zlib.o binutils.o gcc.o sed.o libffi.o libiconv.o ncurses.o \
+targetfs: fhs.o gmp.o mpfr.o mpc.o zlib.o binutils.o gcc.o sed.o libffi.o ncurses.o \
 	pkg-config-lite.o check.o attr.o acl.o libcap.o util-linux.o procps-ng.o e2fsprogs.o \
 	cracklib.o m4.o bison.o flex.o linux-pam.o shadow.o coreutils.o iana-etc.o libtool.o \
 	iproute2.o readline.o autoconf.o automake.o bash.o bc.o bzip2.o diffutils.o file.o gawk.o \
 	findutils.o gettext.o grep.o groff.o less.o gzip.o inetutils.o net-tools.o kbd.o make.o \
-	xz.o kmod.o patch.o psmisc.o libestr.o libee.o json-c.o rsyslog.o sysvinit.o tar.o texinfo.o \
-	eudev.o vim.o kernel.o bootscripts.o sysconfig.o
+	xz.o kmod.o patch.o psmisc.o libestr.o libee.o json-c.o tar.o texinfo.o vim.o \
+	libmicrohttpd.o expat.o openssl.o curl.o dbus.o systemd.o kernel.o sysconfig.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:
@@ -57,11 +57,6 @@ libffi.o:
 	@echo "Libffi started $(shell date -R) "
 	(make -C libffi 2>&1 | tee $(PKGLOGDIR)/libffi.log && exit $$PIPESTATUS)
 	@echo "Libffi finished $(shell date -R) "
-
-libiconv.o:
-	@echo "Libiconv started $(shell date -R) "
-	(make -C libiconv 2>&1 | tee $(PKGLOGDIR)/libiconv.log && exit $$PIPESTATUS)
-	@echo "Libiconv finished $(shell date -R) "
 
 ncurses.o:
 	@echo "Ncurses started $(shell date -R) "
@@ -288,16 +283,6 @@ json-c.o:
 	(make -C json-c 2>&1 | tee $(PKGLOGDIR)/json-c.log && exit $$PIPESTATUS)
 	@echo "Json-c finished $(shell date -R) "
 
-rsyslog.o:
-	@echo "Rsyslog started $(shell date -R) "
-	(make -C rsyslog 2>&1 | tee $(PKGLOGDIR)/rsyslog.log && exit $$PIPESTATUS)
-	@echo "Rsyslog finished $(shell date -R) "
-
-sysvinit.o:
-	@echo "Sysvinit started $(shell date -R) "
-	(make -C sysvinit 2>&1 | tee $(PKGLOGDIR)/sysvinit.log && exit $$PIPESTATUS)
-	@echo "Sysvinit finished $(shell date -R) "
-
 tar.o:
 	@echo "Tar started $(shell date -R) "
 	(make -C tar 2>&1 | tee $(PKGLOGDIR)/tar.log && exit $$PIPESTATUS)
@@ -307,11 +292,6 @@ texinfo.o:
 	@echo "Texinfo started $(shell date -R) "
 	(make -C texinfo 2>&1 | tee $(PKGLOGDIR)/texinfo.log && exit $$PIPESTATUS)
 	@echo "Texinfo finished $(shell date -R) "
-
-eudev.o:
-	@echo "Eudev started $(shell date -R) "
-	(make -C eudev 2>&1 | tee $(PKGLOGDIR)/eudev.log && exit $$PIPESTATUS)
-	@echo "Eudev finished $(shell date -R) "
 
 vim.o:
 	@echo "Vim started $(shell date -R) "
@@ -323,10 +303,35 @@ kernel.o:
 	(make -C kernel 2>&1 | tee $(PKGLOGDIR)/kernel.log && exit $$PIPESTATUS)
 	@echo "Linux finished $(shell date -R) "
 
-bootscripts.o:
-	@echo "CLFS bootscripts started $(shell date -R) "
-	(make -C bootscripts 2>&1 | tee $(PKGLOGDIR)/bootscripts.log && exit $$PIPESTATUS)
-	@echo "CLFS bootscripts finished $(shell date -R) "
+libmicrohttpd.o:
+	@echo "libmicrohttpd started $(shell date -R) "
+	(make -C libmicrohttpd 2>&1 | tee $(PKGLOGDIR)/libmicrohttpd.log && exit $$PIPESTATUS)
+	@echo "libmicrohttpd finished $(shell date -R) "
+
+expat.o:
+	@echo "expat started $(shell date -R) "
+	(make -C expat 2>&1 | tee $(PKGLOGDIR)/expat.log && exit $$PIPESTATUS)
+	@echo "expat finished $(shell date -R) "
+
+openssl.o:
+	@echo "OpenSSL started $(shell date -R) "
+	(make -C openssl 2>&1 | tee $(PKGLOGDIR)/openssl.log && exit $$PIPESTATUS)
+	@echo "OpenSSL finished $(shell date -R) "
+
+curl.o:
+	@echo "curl started $(shell date -R) "
+	(make -C curl 2>&1 | tee $(PKGLOGDIR)/curl.log && exit $$PIPESTATUS)
+	@echo "curl finished $(shell date -R) "
+
+dbus.o:
+	@echo "D-bus started $(shell date -R) "
+	(make -C dbus 2>&1 | tee $(PKGLOGDIR)/dbus.log && exit $$PIPESTATUS)
+	@echo "D-bus finished $(shell date -R) "
+
+systemd.o:
+	@echo "systemd started $(shell date -R) "
+	(make -C systemd 2>&1 | tee $(PKGLOGDIR)/systemd.log && exit $$PIPESTATUS)
+	@echo "systemd finished $(shell date -R) "
 
 sysconfig.o:
 	@echo "Sysconfig started $(shell date -R) "

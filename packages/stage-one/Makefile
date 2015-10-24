@@ -3,8 +3,8 @@ include ../../conf/environment.mk
 
 all: cross-tools
 
-cross-tools: bc.o kheaders.o file.o m4.o ncurses.o u-boot-tools.o gmp.o mpfr.o mpc.o \
-	binutils.o gcc-stage1.o uClibc.o gcc-stage2.o
+cross-tools: bc.o kheaders.o file.o m4.o ncurses.o u-boot-tools.o perl.o xml-parser.o \
+	gmp.o mpfr.o mpc.o binutils.o gcc-stage1.o uClibc-ng.o gcc-stage2.o
 
 #==================== Cross Toolchain ================================================
 bc.o: 
@@ -37,6 +37,16 @@ u-boot-tools.o:
 	( make -C u-boot-tools 2>&1 | tee $(PKGLOGDIR)/u-boot-tools.log && exit $$PIPESTATUS )
 	@echo "U-boot tools finished $(shell date -R) "
 
+perl.o: 
+	@echo "Perl started $(shell date -R) "
+	( make -C perl 2>&1 | tee $(PKGLOGDIR)/perl.log && exit $$PIPESTATUS )
+	@echo "Perl finished $(shell date -R) "
+
+xml-parser.o: 
+	@echo "XML-Parser started $(shell date -R) "
+	( make -C xml-parser 2>&1 | tee $(PKGLOGDIR)/xml-parser.log && exit $$PIPESTATUS )
+	@echo "XML-Parser finished $(shell date -R) "
+
 gmp.o: 
 	@echo "GMP started $(shell date -R) "
 	( make -C gmp 2>&1 | tee $(PKGLOGDIR)/gmp.log && exit $$PIPESTATUS )
@@ -62,10 +72,10 @@ gcc-stage1.o:
 	( make -C gcc-stage1 2>&1  | tee $(PKGLOGDIR)/gcc-stage1.log && exit $$PIPESTATUS )
 	@echo "GCC (Stage One) finished $(shell date -R) "
 
-uClibc.o:
-	@echo "uClibc started $(shell date -R) "
-	( make -C uClibc 2>&1  | tee $(PKGLOGDIR)/uClibc.log && exit $$PIPESTATUS )
-	@echo "uClibc finished $(shell date -R) "
+uClibc-ng.o:
+	@echo "uClibc-ng started $(shell date -R) "
+	( make -C uClibc-ng 2>&1  | tee $(PKGLOGDIR)/uClibc-ng.log && exit $$PIPESTATUS )
+	@echo "uClibc-ng finished $(shell date -R) "
 
 gcc-stage2.o:
 	@echo "GCC (Stage Two) started $(shell date -R) "

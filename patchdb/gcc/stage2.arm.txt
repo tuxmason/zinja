@@ -7,10 +7,3 @@ libgcc-always-build-gcceh.a.patch
 pr49423.patch
 pt_gnu_eh_frame.patch
 uclibc-getipinfo.patch
-0002-uclibc-conf.patch
-0003-gcc-uclibc-locale-ctype_touplow_t.patch
-0004-uclibc-locale.patch
-0005-uclibc-locale-no__x.patch
-0006-uclibc-locale-wchar_fix.patch
-0007-uclibc-locale-update.patch
-0013-libstdc-namespace.patch

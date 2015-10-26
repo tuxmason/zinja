@@ -11,6 +11,11 @@ COPTS := --prefix=/usr \
 	--localstatedir=/var \
 	--enable-abstract-sockets \
 	--enable-tests=no \
+	--enable-systemd \
+	--disable-xml-docs \
+	--disable-doxygen-docs \
+	--with-init-scripts=none \
+	--with-console-auth-dir=/run/console \
 	--with-systemdsystemunitdir=/lib/systemd/system \
 	--docdir=/usr/share/doc/dbus-1.10.0 \
 	--build=$(BUILDARCH) \
@@ -18,3 +23,4 @@ COPTS := --prefix=/usr \
 
 CC := "${CC} "
 CXX := "${CXX} "
+PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig"

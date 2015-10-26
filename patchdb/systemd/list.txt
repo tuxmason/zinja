@@ -1,6 +1,5 @@
 systemd-216-compat-1.patch
 0001-add-missing-stdio.h-include.patch
-0001-fix-getty-unit.patch
 0002-build-sys-revert-use-of-ln-relative-option.patch
 0003-fix-am-path-libgcrypt-no-found.patch
 0004-Properly-define-the-__NR_memfd_create-macro-for-MIPS.patch

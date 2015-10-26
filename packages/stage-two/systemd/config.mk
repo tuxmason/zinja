@@ -29,6 +29,13 @@ COPTS := --prefix=/usr \
 	--disable-machined \
 	--disable-resolved \
 	--disable-sysusers \
+	--disable-tests \
+	--disable-localed \
+	--disable-selinux \
+	--disable-firstboot \
+	--disable-ldconfig \
+	--disable-logind \
+	--disable-coredump \
 	--enable-introspection=no \
 	--with-kbd-loadkeys=/bin/loadkeys \
 	--with-kbd-setfont=/bin/setfont \

@@ -10,7 +10,7 @@ targetfs: fhs.o gmp.o mpfr.o mpc.o zlib.o binutils.o gcc.o sed.o libffi.o ncurse
 	iproute2.o readline.o autoconf.o automake.o bash.o bc.o bzip2.o diffutils.o file.o gawk.o \
 	findutils.o gettext.o grep.o groff.o less.o gzip.o inetutils.o net-tools.o kbd.o make.o \
 	xz.o kmod.o patch.o psmisc.o libestr.o libee.o json-c.o tar.o texinfo.o vim.o \
-	libmicrohttpd.o expat.o openssl.o curl.o dbus.o systemd.o kernel.o sysconfig.o
+	libmicrohttpd.o expat.o openssl.o curl.o systemd.o dbus.o kernel.o sysconfig.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:

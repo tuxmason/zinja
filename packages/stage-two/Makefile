@@ -342,6 +342,7 @@ sysconfig.o:
 
 strip.o:
 	@echo "Stripping targetfs"
+	find $(SYSROOTDIR)/{,usr/}{bin,lib,sbin} -type f -exec $(CROSSTOOLS)/bin/$(TARGETARCH)-strip --strip-debug '{}' ';'
 
 clean:
 	for pkg in `ls | grep -v Makefile`; do \

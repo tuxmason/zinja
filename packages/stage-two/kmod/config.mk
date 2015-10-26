@@ -6,7 +6,7 @@ PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 COPTS := --prefix=/usr \
-	--bindir=/bin \
+	--bindir=/sbin \
 	--libdir=/lib \
 	--sysconfdir=/etc \
 	--disable-manpages \

@@ -7,7 +7,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build install
+targets: clean extract patch autoconf configure build install
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -25,15 +25,20 @@ patch: extract
 				echo -e " --- done --- \n"  ;\
 			done ;\
 		fi ;\
+		cp -v $(PATCHDIR)/$(PKGNAME).cache $(PKGOBJDIR) || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-configure: patch
-	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
+autoconf: patch
+	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
 		autoreconf -vif || exit 1 ;\
+		touch $(PKGOBJDIR)/autoconf-stamp ;\
+	fi
+
+configure: autoconf
+	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		cp -v $(PATCHDIR)/$(PKGNAME).cache $(PKGOBJDIR) || exit 1 ;\
 		( PATH=$(PATH) KMOD_LIBS=$(KMOD_LIBS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi

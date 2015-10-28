@@ -1,0 +1,5 @@
+0001-fix-pam-uclibc-pthreads-clash.patch
+0002-fix-howmany-include.patch
+openssh-fix-utmp.diff
+openssh-sftp-interactive.diff
+openssh6.5-peaktput.diff

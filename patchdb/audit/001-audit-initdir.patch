@@ -1,0 +1,29 @@
+Submitted By: Mwanguhya Daniel Murungi <tuxmason@gmail.com>
+Date: 2015-10-28
+Initial Package Version: 2.4.4
+Upstream Status: Not applicable
+Origin: Self
+Description: change systemd initdir to /lib/systemd/system
+
+--- audit-2.4.4/init.d/Makefile.am.orig	2015-10-28 21:22:26.355268399 +0300
++++ audit-2.4.4/init.d/Makefile.am	2015-10-28 21:23:23.049269937 +0300
+@@ -28,7 +28,7 @@
+ dispconfig = audispd.conf
+ dispconfigdir = $(sysconfdir)/audisp
+ if ENABLE_SYSTEMD
+-initdir = /usr/lib/systemd/system
++initdir = /lib/systemd/system
+ legacydir = $(libexecdir)/initscripts/legacy-actions/auditd
+ else
+ initdir = $(sysconfdir)/rc.d/init.d
+--- audit-2.4.4/init.d/Makefile.in.orig	2015-10-28 21:21:50.474267425 +0300
++++ audit-2.4.4/init.d/Makefile.in	2015-10-28 21:23:11.737269630 +0300
+@@ -344,7 +344,7 @@
+ dispconfig = audispd.conf
+ dispconfigdir = $(sysconfdir)/audisp
+ @ENABLE_SYSTEMD_FALSE@initdir = $(sysconfdir)/rc.d/init.d
+-@ENABLE_SYSTEMD_TRUE@initdir = /usr/lib/systemd/system
++@ENABLE_SYSTEMD_TRUE@initdir = /lib/systemd/system
+ @ENABLE_SYSTEMD_TRUE@legacydir = $(libexecdir)/initscripts/legacy-actions/auditd
+ @ENABLE_SYSTEMD_FALSE@sysconfigdir = $(sysconfdir)/sysconfig
+ auditdir = $(sysconfdir)/audit

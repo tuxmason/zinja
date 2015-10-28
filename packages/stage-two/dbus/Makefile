@@ -44,6 +44,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		ln -sfv /etc/machine-id $(SYSROOTDIR)/var/lib/dbus || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/lib/libdbus-1.so.* $(SYSROOTDIR)/lib || exit 1 ;\
 		ln -sfv ../../lib/libdbus-1.so.3 $(SYSROOTDIR)/usr/lib/libdbus-1.so || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/libdbus-1.la || exit 1 ;\

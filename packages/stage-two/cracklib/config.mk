@@ -5,7 +5,6 @@ PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
-DICT := $(SRCDIR)/$(PKGNAME)-words-20080507.xz
 COPTS := --prefix=/usr \
 	--disable-static \
 	--without-python \

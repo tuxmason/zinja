@@ -46,7 +46,6 @@ install: build
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/lib/libcrack.so.2* $(SYSROOTDIR)/lib || exit 1 ;\
 		ln -svf ../../lib/libcrack.so.2 $(SYSROOTDIR)/usr/lib/libcrack.so || exit 1 ;\
-		install -v -m644 -D $(DICT) $(SYSROOTDIR)/usr/share/dict/cracklib-words.xz || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/libcrack.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

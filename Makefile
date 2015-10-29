@@ -16,7 +16,7 @@ all: base
 
 base: cross-tools core
 
-cross-tools: base-dirs 
+cross-tools: config
 	make -C packages/stage-one
 
 core:

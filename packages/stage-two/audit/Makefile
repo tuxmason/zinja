@@ -49,6 +49,7 @@ install: build
 		mv -v $(SYSROOTDIR)/lib/{libaudit,libauparse}.a $(SYSROOTDIR)/usr/lib || exit 1;\
 		ln -sfv ../../lib/libaudit.so.1 $(SYSROOTDIR)/usr/lib/libaudit.so || exit 1 ;\
 		ln -sfv ../../lib/libauparse.so.0 $(SYSROOTDIR)/usr/lib/libauparse.so|| exit 1 ;\
+		ln -svf /lib/systemd/system/auditd.service $(SYSROOTDIR)/etc/systemd/system/multi-user.target.wants/auditd.service || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

@@ -44,6 +44,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		install -vd $(SYSROOTDIR)/var/log/audit || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/{libaudit,libauparse}.la || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/{libaudit,libauparse}.so || exit 1 ;\
 		mv -v $(SYSROOTDIR)/lib/{libaudit,libauparse}.a $(SYSROOTDIR)/usr/lib || exit 1;\

@@ -48,7 +48,7 @@ install: build
 		cp -v $(PATCHDIR)/sshd.pam $(SYSROOTDIR)/etc/pam.d/sshd || exit 1 ;\
 		echo -e "sshd:x:50:" >> $(SYSROOTDIR)/etc/group || exit 1 ;\
 		install -v -m 755 $(PKGSRCDIR)/contrib/ssh-copy-id $(SYSROOTDIR)/usr/bin || exit 1 ;\
-		install -v -m 655 $(PATCHDIR)/sshd.service $(SYSROOTDIR)/lib/systemd/system || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/sshd.service $(SYSROOTDIR)/lib/systemd/system || exit 1 ;\
 		echo -e "sshd:x:50:50:sshd privilege separation:/var/lib/sshd:/bin/false" >> $(SYSROOTDIR)/etc/passwd || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

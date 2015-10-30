@@ -57,6 +57,7 @@ install: build
 			ln -sfv /bin/systemctl $(SYSROOTDIR)/sbin/$$tool || exit 1 ;\
 		done ;\
 		ln -sfv /lib/systemd/systemd $(SYSROOTDIR)/sbin/init || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/sysconfig.service $(SYSROOTDIR)/lib/systemd/system || exit 1 ;\
 		ln -sfv /lib/systemd/system/multi-user.target $(SYSROOTDIR)/etc/systemd/system/default.target || exit 1 ;\
 		sed -i "s@root lock@root root@g" $(SYSROOTDIR)/usr/lib/tmpfiles.d/legacy.conf || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libsystemd.la,libudev.la} || exit 1 ;\

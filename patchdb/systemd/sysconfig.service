@@ -1,0 +1,15 @@
+[Unit]
+Description= Zinja first boot configuration
+DefaultDependencies=no
+After=systemd-remount-fs.service systemd-tmpfiles-setup.service tmp.mount
+Before=sysinit.target
+
+[Service]
+Type=oneshot
+ExecStart=/firstboot
+ExecStartPost=/bin/bash -c "rm /firstboot"
+RemainAfterExit=No
+
+[Install]
+WantedBy=basic.target
+WantedBy=sysinit.target

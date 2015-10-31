@@ -47,7 +47,7 @@ install: build
 		install -vd $(SYSROOTDIR)/var/log/audit || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/{libaudit,libauparse}.la || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/{libaudit,libauparse}.so || exit 1 ;\
-		chmod -v 655 $(SYSROOTDIR)/lib/systemd/system/auditd.service || exit 1 ;\
+		chmod -v 644 $(SYSROOTDIR)/lib/systemd/system/auditd.service || exit 1 ;\
 		mv -v $(SYSROOTDIR)/lib/{libaudit,libauparse}.a $(SYSROOTDIR)/usr/lib || exit 1;\
 		ln -sfv ../../lib/libaudit.so.1 $(SYSROOTDIR)/usr/lib/libaudit.so || exit 1 ;\
 		ln -sfv ../../lib/libauparse.so.0 $(SYSROOTDIR)/usr/lib/libauparse.so|| exit 1 ;\

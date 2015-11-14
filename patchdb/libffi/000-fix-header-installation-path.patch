@@ -3,12 +3,12 @@ Date: 2015-11-14
 Initial Package Version: 3.0.3
 Upstream Status: not submitted
 Origin: Self
-Description: install headers into /usr/include instead of /usr/lib/libffi-VERSION/include 
+Description: install headers into /usr/include instead of /usr/lib/libffi-VERSION/include
 
-diff -ura libffi-3.0.13/include/Makefile.in libffi-3.0.13.mod/include/Makefile.in
---- libffi-3.0.13/include/Makefile.in	2013-03-18 01:36:21.000000000 +0300
-+++ libffi-3.0.13.mod/include/Makefile.in	2015-11-14 17:50:45.658281945 +0300
-@@ -250,7 +250,7 @@
+diff -ura libffi-3.2.1/include/Makefile.in libffi-3.2.1.mod/include/Makefile.in
+--- libffi-3.2.1/include/Makefile.in	2014-11-12 14:59:58.000000000 +0300
++++ libffi-3.2.1.mod/include/Makefile.in	2015-11-14 18:15:10.363161183 +0300
+@@ -314,7 +314,7 @@
  AUTOMAKE_OPTIONS = foreign
  DISTCLEANFILES = ffitarget.h
  EXTRA_DIST = ffi.h.in ffi_common.h
@@ -17,19 +17,19 @@ diff -ura libffi-3.0.13/include/Makefile.in libffi-3.0.13.mod/include/Makefile.i
  nodist_includes_HEADERS = ffi.h ffitarget.h
  all: all-am
  
-diff -ura libffi-3.0.13/libffi.pc.in libffi-3.0.13.mod/libffi.pc.in
---- libffi-3.0.13/libffi.pc.in	2013-03-16 14:19:39.000000000 +0300
-+++ libffi-3.0.13.mod/libffi.pc.in	2015-11-14 17:50:15.775284409 +0300
-@@ -1,10 +1,10 @@
- prefix=@prefix@
+diff -ura libffi-3.2.1/libffi.pc.in libffi-3.2.1.mod/libffi.pc.in
+--- libffi-3.2.1/libffi.pc.in	2014-11-08 15:47:24.000000000 +0300
++++ libffi-3.2.1.mod/libffi.pc.in	2015-11-14 18:15:10.365161183 +0300
+@@ -2,10 +2,10 @@
  exec_prefix=@exec_prefix@
  libdir=@libdir@
+ toolexeclibdir=@toolexeclibdir@
 -includedir=${libdir}/@PACKAGE_NAME@-@PACKAGE_VERSION@/include
 +includedir=@includedir@
  
  Name: @PACKAGE_NAME@
  Description: Library supporting Foreign Function Interfaces
  Version: @PACKAGE_VERSION@
- Libs: -L${libdir} -lffi
+ Libs: -L${toolexeclibdir} -lffi
 -Cflags: -I${includedir}
 +Cflags:

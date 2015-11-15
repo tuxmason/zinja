@@ -44,9 +44,10 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/lib/{liblzma.la,liblzma.so} || exit 1 ;\
+		mv -v $(SYSROOTDIR)/usr/lib/liblzma.so.* $(SYSROOTDIR)/lib || exit 1 ;\
 		ln -sfv ../../lib/liblzma.so.5 $(SYSROOTDIR)/usr/lib/liblzma.so || exit 1;\
 		mv -v $(SYSROOTDIR)/usr/bin/{xz,lzma,lzcat,unlzma,unxz,xzcat} $(SYSROOTDIR)/bin || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/liblzma.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

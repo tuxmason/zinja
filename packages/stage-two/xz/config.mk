@@ -7,8 +7,7 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 COPTS := --prefix=/usr \
 	--disable-static \
-	--libdir=/lib \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH)
+
 CC := "${CC} "
-PKGCONFDIR := "/usr/lib/pkgconfig"

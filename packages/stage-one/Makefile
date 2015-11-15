@@ -3,8 +3,9 @@ include ../../conf/environment.mk
 
 all: cross-tools
 
-cross-tools: bc.o kheaders.o file.o m4.o ncurses.o u-boot-tools.o perl.o xml-parser.o \
-	gmp.o mpfr.o mpc.o binutils.o gcc-stage1.o uClibc-ng.o gcc-stage2.o
+cross-tools: bc.o kheaders.o file.o m4.o ncurses.o pkg-config-lite.o u-boot-tools.o \
+	perl.o xml-parser.o gmp.o mpfr.o mpc.o binutils.o gcc-stage1.o uClibc-ng.o \
+	gcc-stage2.o
 
 #==================== Cross Toolchain ================================================
 bc.o: 
@@ -31,6 +32,11 @@ ncurses.o:
 	@echo "Ncurses started $(shell date -R) "
 	( make -C ncurses 2>&1 | tee $(PKGLOGDIR)/ncurses.log && exit $$PIPESTATUS )
 	@echo "Ncurses finished $(shell date -R) "
+
+pkg-config-lite.o: 
+	@echo "Pkg-config-lite started $(shell date -R) "
+	( make -C pkg-config-lite 2>&1 | tee $(PKGLOGDIR)/pkg-config-lite.log && exit $$PIPESTATUS )
+	@echo "Pkg-config-lite finished $(shell date -R) "
 
 u-boot-tools.o: 
 	@echo "U-boot tools started $(shell date -R) "

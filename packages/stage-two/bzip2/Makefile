@@ -48,6 +48,7 @@ install: build
 		( PATH=$(PATH) make -C $(PKGOBJDIR) PREFIX=$(SYSROOTDIR)/usr install ) || exit 1 ;\
 		( install -v $(PKGOBJDIR)/bzip2-shared $(SYSROOTDIR)/bin/bzip2 ) || exit 1 ;\
 		( cp -va $(PKGOBJDIR)/libbz2.so* $(SYSROOTDIR)/lib ) || exit 1 ;\
+		ln -svf ../../lib/libbz2.so.1.0 $(SYSROOTDIR)/usr/lib/libbz2.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

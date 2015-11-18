@@ -1,0 +1,31 @@
+# HG changeset patch
+# Parent df1a439b9058b07024ca556225d55535f5feb5dd
+Use the generic implementation of libstdc++ primitives when we're on musl, not the glibc one.
+
+diff -r df1a439b9058 libstdc++-v3/configure.host
+--- a/libstdc++-v3/configure.host	Tue Dec 31 14:52:24 2013 -0500
++++ b/libstdc++-v3/configure.host	Tue Dec 31 14:54:49 2013 -0500
+@@ -264,6 +264,13 @@
+     os_include_dir="os/bsd/freebsd"
+     ;;
+   gnu* | linux* | kfreebsd*-gnu | knetbsd*-gnu)
++    # check for musl by target
++    case "${host_os}" in
++      *-musl*)
++        os_include_dir="os/generic"
++        ;;
++      *)
++
+     if [ "$uclibc" = "yes" ]; then
+       os_include_dir="os/uclibc"
+     elif [ "$bionic" = "yes" ]; then
+@@ -272,6 +279,9 @@
+       os_include_dir="os/gnu-linux"
+     fi
+     ;;
++
++    esac
++    ;;
+   hpux*)
+     os_include_dir="os/hpux"
+     ;;

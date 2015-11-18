@@ -1,0 +1,4 @@
+0001-link-libtheoradec.patch
+0002-fix-autoreconf.patch
+fix-timeb.patch
+libtheora-flags.patch

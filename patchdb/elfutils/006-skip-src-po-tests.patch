@@ -1,0 +1,25 @@
+diff -ura elfutils-0.161/Makefile.am elfutils-0.161.mod/Makefile.am
+--- elfutils-0.161/Makefile.am	2014-06-17 21:51:09.000000000 +0300
++++ elfutils-0.161.mod/Makefile.am	2015-11-14 20:18:12.573552536 +0300
+@@ -24,7 +24,7 @@
+ 
+ # Add doc back when we have some real content.
+ SUBDIRS = config m4 lib libelf libebl libdwelf libdwfl libdw libcpu libasm \
+-	  backends src po tests
++	     backends
+ 
+ EXTRA_DIST = elfutils.spec GPG-KEY NOTES CONTRIBUTING \
+ 	     COPYING COPYING-GPLV2 COPYING-LGPLV3
+diff -ura elfutils-0.161/Makefile.in elfutils-0.161.mod/Makefile.in
+--- elfutils-0.161/Makefile.in	2014-12-19 23:44:12.000000000 +0300
++++ elfutils-0.161.mod/Makefile.in	2015-11-14 20:18:12.573552536 +0300
+@@ -358,7 +358,7 @@
+ 
+ # Add doc back when we have some real content.
+ SUBDIRS = config m4 lib libelf libebl libdwelf libdwfl libdw libcpu libasm \
+-	  backends src po tests
++	     backends
+ 
+ EXTRA_DIST = elfutils.spec GPG-KEY NOTES CONTRIBUTING \
+ 	     COPYING COPYING-GPLV2 COPYING-LGPLV3
+Only in elfutils-0.161.mod: Makefile.in.orig

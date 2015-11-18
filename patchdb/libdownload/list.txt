@@ -1,0 +1,2 @@
+000-install-versioned-lib.patch
+001-libdownload-no-libio.patch

@@ -1,0 +1,28 @@
+Submitted By: Mwanguhya Daniel Murungi <tuxmason@gmail.com>
+Date: 2015-11-15
+Initial Package Version: 2.6.1
+Upstream Status: not submitted
+Origin: http://www.linuxfromscratch.org/blfs/view/svn/general/freetype2.html
+Description: enables GX/AAT and OpenType table validation
+
+diff -ura freetype-2.6.1/modules.cfg freetype-2.6.1.mod/modules.cfg
+--- freetype-2.6.1/modules.cfg	2015-09-25 08:58:57.000000000 +0300
++++ freetype-2.6.1.mod/modules.cfg	2015-11-15 03:27:36.609428349 +0300
+@@ -110,7 +110,7 @@
+ AUX_MODULES += cache
+ 
+ # TrueType GX/AAT table validation.  Needs ftgxval.c below.
+-# AUX_MODULES += gxvalid
++AUX_MODULES += gxvalid
+ 
+ # Support for streams compressed with gzip (files with suffix .gz).
+ #
+@@ -129,7 +129,7 @@
+ 
+ # OpenType table validation.  Needs ftotval.c below.
+ #
+-# AUX_MODULES += otvalid
++AUX_MODULES += otvalid
+ 
+ # Auxiliary PostScript driver component to share common code.
+ #

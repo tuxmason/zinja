@@ -1,0 +1,2 @@
+0001-configure-don-t-try-to-unset-g-from-CFLAGS.patch
+sigemptyset.patch

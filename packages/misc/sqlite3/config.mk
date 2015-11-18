@@ -1,0 +1,21 @@
+PKGNAME := sqlite
+PKGVER := autoconf-3090200
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+COPTS := --prefix=/usr \
+	--enable-readline \
+	--build=$(BUILDARCH) \
+	--host=$(TARGETARCH) \
+	--enable-threadsafe 
+
+CC := "${CC} "
+CXX := "${CXX} "
+CFLAGS := "-g -O2 -DSQLITE_ENABLE_FTS3=1 \
+	-DSQLITE_ENABLE_COLUMN_METADATA=1 \
+	-DSQLITE_ENABLE_UNLOCK_NOTIFY=1 \
+	-DSQLITE_SECURE_DELETE=1 \
+	-DSQLITE_ENABLE_DBSTAT_VTAB=1"
+PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig"

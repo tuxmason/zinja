@@ -1,0 +1,28 @@
+Submitted By: Mwanguhya Daniel Murungi <tuxmason@gmail.com>
+Date: 2015-11-15
+Initial Package Version: 2.6.1
+Upstream Status: not submitted
+Origin: http://www.linuxfromscratch.org/blfs/view/svn/general/freetype2.html
+Description: enables Subpixel Rendering and Subpixel Hinting in order to improve font rendering
+
+diff -ura freetype-2.6.1/include/freetype/config/ftoption.h freetype-2.6.1.mod/include/freetype/config/ftoption.h
+--- freetype-2.6.1/include/freetype/config/ftoption.h	2015-09-25 08:58:57.000000000 +0300
++++ freetype-2.6.1.mod/include/freetype/config/ftoption.h	2015-11-15 03:32:16.581405266 +0300
+@@ -92,7 +92,7 @@
+   /* This is done to allow FreeType clients to run unmodified, forcing     */
+   /* them to display normal gray-level anti-aliased glyphs.                */
+   /*                                                                       */
+-/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */
++#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING
+ 
+ 
+   /*************************************************************************/
+@@ -602,7 +602,7 @@
+   /*   This option requires TT_CONFIG_OPTION_BYTECODE_INTERPRETER to be    */
+   /*   defined.                                                            */
+   /*                                                                       */
+-/* #define TT_CONFIG_OPTION_SUBPIXEL_HINTING */
++#define TT_CONFIG_OPTION_SUBPIXEL_HINTING
+ 
+ 
+   /*************************************************************************/

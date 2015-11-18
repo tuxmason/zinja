@@ -1,0 +1,13 @@
+diff -ura elfutils-0.161/libdw/Makefile.in elfutils-0.161.mod/libdw/Makefile.in
+--- elfutils-0.161/libdw/Makefile.in	2014-12-19 23:44:12.000000000 +0300
++++ elfutils-0.161.mod/libdw/Makefile.in	2015-11-14 20:19:17.318547198 +0300
+@@ -965,7 +965,7 @@
+ 		-Wl,--enable-new-dtags,-rpath,$(pkglibdir) \
+ 		-Wl,--version-script,$<,--no-undefined \
+ 		-Wl,--whole-archive $(filter-out $<,$^) -Wl,--no-whole-archive\
+-		-ldl $(zip_LIBS)
++		-ldl $(zip_LIBS) $(LIBS)
+ 	@$(textrel_check)
+ 	ln -fs $@ $@.$(VERSION)
+ 
+Only in elfutils-0.161.mod/libdw: Makefile.in.orig

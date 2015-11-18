@@ -1,0 +1,2 @@
+0001-enable-table-validation.patch
+0002-enable-subpixel-rendering-and-hinting.patch

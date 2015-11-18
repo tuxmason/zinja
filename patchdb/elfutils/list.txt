@@ -1,0 +1,7 @@
+001-elfutils-portability.patch
+002-argp-standalone.patch
+003-libint-stub.patch
+004-maybe-uninitialized.patch
+005-memcpy-def.patch
+006-skip-src-po-tests.patch
+007-libdw-add-libs.patch

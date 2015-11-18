@@ -1,0 +1,12 @@
+diff -ura elfutils-0.161/libelf/elf_getarsym.c elfutils-0.161.mod/libelf/elf_getarsym.c
+--- elfutils-0.161/libelf/elf_getarsym.c	2014-12-19 20:06:04.000000000 +0300
++++ elfutils-0.161.mod/libelf/elf_getarsym.c	2015-11-14 20:16:09.253562704 +0300
+@@ -166,7 +166,7 @@
+ 
+       /* We have an archive.  The first word in there is the number of
+ 	 entries in the table.  */
+-      uint64_t n;
++      uint64_t n = 0;
+       size_t off = elf->start_offset + SARMAG + sizeof (struct ar_hdr);
+       if (read_number_entries (&n, elf, &off, index64_p) < 0)
+ 	{

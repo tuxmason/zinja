@@ -1,0 +1,5 @@
+ac_cv_func_malloc_0_nonnull=yes
+jm_cv_func_working_malloc=yes
+ac_cv_func_posix_spawn=yes
+ac_cv_func_posix_spawn_works=yes
+ac_cv_search_clock_gettime=no

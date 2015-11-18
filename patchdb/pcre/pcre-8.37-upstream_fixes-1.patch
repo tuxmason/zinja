@@ -1,0 +1,282 @@
+Submitted By: Ken Moffat <ken at linuxfromscratch dot org>
+Date: 2015-09-03
+Initial Package Version: 8.37
+Upstream Status: Applied
+Origin: Upstream, via fedora
+Description: Various buffer overflows, including CVE-2015-3210 and CVE-2015-5073.
+Some of fixes these were backported to 8.37 by fedora.  Some, or all, of the
+issues also apply to several earlier versions of PCRE.
+
+This contains the following patches, applied in this order:
+
+pcre-8.37-Fix-buffer-overflow-for-named-recursive-back-referen.patch
+(fixes CVE-2015-3210)
+
+pcre-8.37-Fix-buffer-overflow-for-forward-reference-within-bac.patch
+(fixes CVE-2015-5073)
+
+pcre-8.37-Fix-named-forward-reference-to-duplicate-group-numbe.patch
+pcre-8.37-Fix-another-buffer-overflow.patch
+(these two are both required for this next one -)
+pcre-8.37-Fix-buffer-overflow-for-named-references-in-situatio.patch
+(prevents crashes, e.g. in pcretest or php, with a crafted regex)
+
+pcre-8.37-Hack-in-yet-other-patch-for-a-bug-in-size-computatio.patch
+
+
+diff -Naur pcre-8.37.orig/pcre_compile.c pcre-8.37.patched/pcre_compile.c
+--- pcre-8.37.orig/pcre_compile.c	2015-04-13 16:54:01.000000000 +0100
++++ pcre-8.37.patched/pcre_compile.c	2015-09-03 18:35:01.007810651 +0100
+@@ -6641,6 +6641,7 @@
+         /* ------------------------------------------------------------ */
+         case CHAR_VERTICAL_LINE:  /* Reset capture count for each branch */
+         reset_bracount = TRUE;
++        cd->dupgroups = TRUE;     /* Record (?| encountered */ 
+         /* Fall through */
+ 
+         /* ------------------------------------------------------------ */
+@@ -7151,7 +7152,8 @@
+         if (lengthptr != NULL)
+           {
+           named_group *ng;
+-
++          recno = 0;
++           
+           if (namelen == 0)
+             {
+             *errorcodeptr = ERR62;
+@@ -7168,20 +7170,6 @@
+             goto FAILED;
+             }
+ 
+-          /* The name table does not exist in the first pass; instead we must
+-          scan the list of names encountered so far in order to get the
+-          number. If the name is not found, set the value to 0 for a forward
+-          reference. */
+-
+-          ng = cd->named_groups;
+-          for (i = 0; i < cd->names_found; i++, ng++)
+-            {
+-            if (namelen == ng->length &&
+-                STRNCMP_UC_UC(name, ng->name, namelen) == 0)
+-              break;
+-            }
+-          recno = (i < cd->names_found)? ng->number : 0;
+-
+           /* Count named back references. */
+ 
+           if (!is_recurse) cd->namedrefcount++;
+@@ -7191,6 +7179,56 @@
+           16-bit data item. */
+ 
+           *lengthptr += IMM2_SIZE;
++
++          /* If this is a forward reference and we are within a (?|...) group,
++          the reference may end up as the number of a group which we are
++          currently inside, that is, it could be a recursive reference. In the
++          real compile this will be picked up and the reference wrapped with
++          OP_ONCE to make it atomic, so we must space in case this occurs. */
++
++          /* In fact, this can happen for a non-forward reference because
++          another group with the same number might be created later. This
++          issue is fixed "properly" in PCRE2. As PCRE1 is now in maintenance
++          only mode, we finesse the bug by allowing more memory always. */
++
++          *lengthptr += 2 + 2*LINK_SIZE;
++          
++          /* It is even worse than that. The current reference may be to an
++          existing named group with a different number (so apparently not
++          recursive) but which later on is also attached to a group with the
++          current number. This can only happen if $(| has been previous 
++          encountered. In that case, we allow yet more memory, just in case. 
++          (Again, this is fixed "properly" in PCRE2. */
++          
++          if (cd->dupgroups) *lengthptr += 4 + 4*LINK_SIZE;
++
++          /* Otherwise, check for recursion here. The name table does not exist
++          in the first pass; instead we must scan the list of names encountered
++          so far in order to get the number. If the name is not found, leave
++          the value of recno as 0 for a forward reference. */
++           
++          else
++            { 
++            ng = cd->named_groups;
++            for (i = 0; i < cd->names_found; i++, ng++)
++              {
++              if (namelen == ng->length &&
++                  STRNCMP_UC_UC(name, ng->name, namelen) == 0)
++                {
++                open_capitem *oc;
++                recno = ng->number;
++                if (is_recurse) break;
++                for (oc = cd->open_caps; oc != NULL; oc = oc->next)
++                  {
++                  if (oc->number == recno)
++                    {
++                    oc->flag = TRUE;
++                    break;
++                    }
++                  }
++                }
++              }
++            }   
+           }
+ 
+         /* In the real compile, search the name table. We check the name
+@@ -7237,8 +7275,6 @@
+           for (i++; i < cd->names_found; i++)
+             {
+             if (STRCMP_UC_UC(slot + IMM2_SIZE, cslot + IMM2_SIZE) != 0) break;
+-
+-
+             count++;
+             cslot += cd->name_entry_size;
+             }
+@@ -9164,6 +9200,7 @@
+ cd->name_entry_size = 0;
+ cd->name_table = NULL;
+ cd->dupnames = FALSE;
++cd->dupgroups = FALSE;
+ cd->namedrefcount = 0;
+ cd->start_code = cworkspace;
+ cd->hwm = cworkspace;
+@@ -9198,7 +9235,7 @@
+ 
+ DPRINTF(("end pre-compile: length=%d workspace=%d\n", length,
+   (int)(cd->hwm - cworkspace)));
+-
++  
+ if (length > MAX_PATTERN_SIZE)
+   {
+   errorcode = ERR20;
+@@ -9366,7 +9403,7 @@
+ "const" attribute if the cast (pcre_uchar *)codestart is used directly in the
+ function call. */
+ 
+-if ((options & PCRE_NO_AUTO_POSSESS) == 0)
++if (errorcode == 0 && (options & PCRE_NO_AUTO_POSSESS) == 0)
+   {
+   pcre_uchar *temp = (pcre_uchar *)codestart;
+   auto_possessify(temp, utf, cd);
+@@ -9380,7 +9417,7 @@
+ exceptional ones forgo this. We scan the pattern to check that they are fixed
+ length, and set their lengths. */
+ 
+-if (cd->check_lookbehind)
++if (errorcode == 0 && cd->check_lookbehind)
+   {
+   pcre_uchar *cc = (pcre_uchar *)codestart;
+ 
+@@ -9593,4 +9630,3 @@
+ }
+ 
+ /* End of pcre_compile.c */
+-
+diff -Naur pcre-8.37.orig/pcre_internal.h pcre-8.37.patched/pcre_internal.h
+--- pcre-8.37.orig/pcre_internal.h	2015-04-14 18:06:44.000000000 +0100
++++ pcre-8.37.patched/pcre_internal.h	2015-09-03 18:34:38.903811043 +0100
+@@ -2446,6 +2446,7 @@
+   BOOL had_pruneorskip;             /* (*PRUNE) or (*SKIP) encountered */
+   BOOL check_lookbehind;            /* Lookbehinds need later checking */
+   BOOL dupnames;                    /* Duplicate names exist */
++  BOOL dupgroups;                   /* Duplicate groups exist: (?| found */ 
+   BOOL iscondassert;                /* Next assert is a condition */
+   int  nltype;                      /* Newline type */
+   int  nllen;                       /* Newline string length */
+diff -Naur pcre-8.37.orig/testdata/testinput1 pcre-8.37.patched/testdata/testinput1
+--- pcre-8.37.orig/testdata/testinput1	2015-03-29 12:25:15.000000000 +0100
++++ pcre-8.37.patched/testdata/testinput1	2015-09-03 18:33:59.227811748 +0100
+@@ -5730,4 +5730,7 @@
+ "(?1)(?#?'){8}(a)"
+     baaaaaaaaac
+ 
++"(?|(\k'Pm')|(?'Pm'))"
++    abcd
++
+ /-- End of testinput1 --/
+diff -Naur pcre-8.37.orig/testdata/testinput2 pcre-8.37.patched/testdata/testinput2
+--- pcre-8.37.orig/testdata/testinput2	2015-04-13 10:36:15.000000000 +0100
++++ pcre-8.37.patched/testdata/testinput2	2015-09-03 18:35:01.007810651 +0100
+@@ -4152,4 +4152,14 @@
+ 
+ /((?2){73}(?2))((?1))/
+ 
++"(?J)(?'d'(?'d'\g{d}))"
++
++/(?=di(?<=(?1))|(?=(.))))/
++
++"(?J:(?|(?'R')(\k'R')|((?'R'))))"
++
++/(?J:(?|(:(?|(?'R')(\k'R')|((?'R')))H'Rk'Rf)|s(?'R')))/
++
++/(?J:(?|(:(?|(?'R')(\z(?|(?'R')(\k'R')|((?'R')))k'R')|((?'R')))H'Ak'Rf)|s(?'R')))/
++
+ /-- End of testinput2 --/
+diff -Naur pcre-8.37.orig/testdata/testoutput1 pcre-8.37.patched/testdata/testoutput1
+--- pcre-8.37.orig/testdata/testoutput1	2015-03-29 12:25:26.000000000 +0100
++++ pcre-8.37.patched/testdata/testoutput1	2015-09-03 18:33:59.227811748 +0100
+@@ -9429,4 +9429,9 @@
+  0: aaaaaaaaa
+  1: a
+ 
++"(?|(\k'Pm')|(?'Pm'))"
++    abcd
++ 0: 
++ 1: 
++
+ /-- End of testinput1 --/
+diff -Naur pcre-8.37.orig/testdata/testoutput11-16 pcre-8.37.patched/testdata/testoutput11-16
+--- pcre-8.37.orig/testdata/testoutput11-16	2015-03-02 17:09:21.000000000 +0000
++++ pcre-8.37.patched/testdata/testoutput11-16	2015-09-03 18:34:19.207811393 +0100
+@@ -231,7 +231,7 @@
+ ------------------------------------------------------------------
+ 
+ /(?P<a>a)...(?P=a)bbb(?P>a)d/BM
+-Memory allocation (code space): 61
++Memory allocation (code space): 77
+ ------------------------------------------------------------------
+   0  24 Bra
+   2   5 CBra 1
+diff -Naur pcre-8.37.orig/testdata/testoutput11-32 pcre-8.37.patched/testdata/testoutput11-32
+--- pcre-8.37.orig/testdata/testoutput11-32	2015-03-02 17:09:30.000000000 +0000
++++ pcre-8.37.patched/testdata/testoutput11-32	2015-09-03 18:34:19.207811393 +0100
+@@ -231,7 +231,7 @@
+ ------------------------------------------------------------------
+ 
+ /(?P<a>a)...(?P=a)bbb(?P>a)d/BM
+-Memory allocation (code space): 125
++Memory allocation (code space): 157
+ ------------------------------------------------------------------
+   0  24 Bra
+   2   5 CBra 1
+diff -Naur pcre-8.37.orig/testdata/testoutput11-8 pcre-8.37.patched/testdata/testoutput11-8
+--- pcre-8.37.orig/testdata/testoutput11-8	2015-03-02 17:09:13.000000000 +0000
++++ pcre-8.37.patched/testdata/testoutput11-8	2015-09-03 18:34:19.207811393 +0100
+@@ -231,7 +231,7 @@
+ ------------------------------------------------------------------
+ 
+ /(?P<a>a)...(?P=a)bbb(?P>a)d/BM
+-Memory allocation (code space): 38
++Memory allocation (code space): 50
+ ------------------------------------------------------------------
+   0  30 Bra
+   3   7 CBra 1
+diff -Naur pcre-8.37.orig/testdata/testoutput2 pcre-8.37.patched/testdata/testoutput2
+--- pcre-8.37.orig/testdata/testoutput2	2015-04-13 10:36:27.000000000 +0100
++++ pcre-8.37.patched/testdata/testoutput2	2015-09-03 18:35:01.007810651 +0100
+@@ -14423,4 +14423,15 @@
+ 
+ /((?2){73}(?2))((?1))/
+ 
++"(?J)(?'d'(?'d'\g{d}))"
++
++/(?=di(?<=(?1))|(?=(.))))/
++Failed: unmatched parentheses at offset 23
++
++"(?J:(?|(?'R')(\k'R')|((?'R'))))"
++
++/(?J:(?|(:(?|(?'R')(\k'R')|((?'R')))H'Rk'Rf)|s(?'R')))/
++
++/(?J:(?|(:(?|(?'R')(\z(?|(?'R')(\k'R')|((?'R')))k'R')|((?'R')))H'Ak'Rf)|s(?'R')))/
++
+ /-- End of testinput2 --/

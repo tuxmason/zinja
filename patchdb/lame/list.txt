@@ -1,0 +1,2 @@
+lame-automake-1.12.patch
+sse.patch

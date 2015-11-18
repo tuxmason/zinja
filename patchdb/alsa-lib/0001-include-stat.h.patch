@@ -1,0 +1,11 @@
+--- alsa-lib-1.1.0/src/topology/parser.c.orig	2015-11-14 23:44:20.644532816 +0300
++++ alsa-lib-1.1.0/src/topology/parser.c	2015-11-14 23:44:51.043530310 +0300
+@@ -16,6 +16,8 @@
+            Liam Girdwood <liam.r.girdwood@linux.intel.com>
+ */
+ 
++#include <sys/stat.h>
++
+ #include "list.h"
+ #include "tplg_local.h"
+ 

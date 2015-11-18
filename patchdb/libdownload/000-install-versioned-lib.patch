@@ -1,0 +1,45 @@
+--- libdownload-1.3/Makefile.orig	2015-11-13 23:03:27.528858558 +0300
++++ libdownload-1.3/Makefile	2015-11-13 23:12:11.103815390 +0300
+@@ -25,6 +25,7 @@
+ RANLIB = ranlib
+ INSTALL = install -c -D
+ 
++SONAME = libdownload.so.1.3
+ OBJS= download.o common.o ftp.o http.o file.o
+ INCS= download.h common.h
+ GEN = ftperr.h httperr.h
+@@ -65,9 +66,9 @@
+ 	@/bin/echo -e "    { -1, DLERR_UNKNOWN, \"Unknown HTTP error\" }\n};" >> $@
+ 
+ libdownload.so: $(GEN) $(INCS) $(OBJS)
+-	$(E) "  build     " $@
+-	$(Q) rm -f $@
+-	$(Q) $(LD) $(LDFLAGS) *.o -shared -o $@
++	$(E) "  build     " $(SONAME)
++	$(Q) rm -f $(SONAME) 
++	$(Q) $(LD) $(LDFLAGS) *.o -shared -o $(SONAME)
+ 
+ libdownload.a: $(GEN) $(INCS) $(OBJS)
+ 	$(E) "  build     " $@
+@@ -77,18 +78,18 @@
+ 
+ clean:
+ 	$(E) "  clean     "
+-	$(Q) rm -f libdownload.so libdownload.a *.o $(GEN)
++	$(Q) rm -f $(SONAME) libdownload.a *.o $(GEN)
+ .PHONY: clean
+ 
+ install: all
+-	$(Q) $(INSTALL) -m 755 libdownload.so $(DESTDIR)$(prefix)/lib/libdownload.so
++	$(Q) $(INSTALL) -m 755 $(SONAME) $(DESTDIR)$(prefix)/lib/$(SONAME)
+ 	$(Q) $(INSTALL) -m 644 libdownload.a $(DESTDIR)$(prefix)/lib/libdownload.a
+ 	$(Q) $(INSTALL) -m 644 download.h $(DESTDIR)$(prefix)/include/download.h
+ 	$(Q) $(INSTALL) -m 644 libdownload.3 $(DESTDIR)$(prefix)/man/man3/libdownload.3
+ .PHONY: install
+ 
+ uninstall:
+-	$(Q) rm -f $(DESTDIR)$(prefix)/lib/libdownload.so
++	$(Q) rm -f $(DESTDIR)$(prefix)/lib/$(SONAME)
+ 	$(Q) rm -f $(DESTDIR)$(prefix)/lib/libdownload.a
+ 	$(Q) rm -f $(DESTDIR)$(prefix)/include/download.h
+ 	$(Q) rm -f $(DESTDIR)$(prefix)/man/man3/libdownload.3

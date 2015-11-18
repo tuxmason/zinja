@@ -1,0 +1,15 @@
+diff -uar elfutils-0.161/lib/color.c elfutils-0.161.mod/lib/color.c
+--- elfutils-0.161/lib/color.c	2014-11-07 20:47:47.000000000 +0300
++++ elfutils-0.161.mod/lib/color.c	2015-11-14 20:13:42.845574775 +0300
+@@ -131,8 +131,10 @@
+   - 'never', 'no', 'none'\n\
+   - 'auto', 'tty', 'if-tty'\n"),
+ 		     program_invocation_short_name, arg);
++          char program_invocation_short_name_nonconst[sizeof(program_invocation_short_name)];
++          strcpy(program_invocation_short_name_nonconst, program_invocation_short_name);
+ 	      argp_help (&color_argp, stderr, ARGP_HELP_SEE,
+-			 program_invocation_short_name);
++			 program_invocation_short_name_nonconst);
+ 	      exit (EXIT_FAILURE);
+ 	    }
+ 	}

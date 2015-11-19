@@ -30,22 +30,21 @@ patch: extract
 
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
-		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) LIBS=$(LIBS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		cd $(PKGOBJDIR) ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j1 -C $(PKGSRCDIR) ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGSRCDIR) DESTDIR=$(SYSROOTDIR) install-all ) || exit 1 ;\
-		chmod -v 755 $(SYSROOTDIR)/usr/lib/libslang.so.2.2.4 \
-			$(SYSROOTDIR)/usr/lib/slang/v2/modules/*.so || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/libmusicbrainz.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

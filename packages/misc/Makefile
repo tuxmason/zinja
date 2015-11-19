@@ -4,10 +4,10 @@ include ../../conf/shell-env.mk
 
 all: targetfs
 
-targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o libxml2.o glib2.o fribidi.o sqlite3.o babl.o exiv2.o ijs.o \
+targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o libxml2.o neon.o glib2.o fribidi.o sqlite3.o babl.o exiv2.o ijs.o \
 	libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o openjpeg.o openjpeg2.o LibRaw.o libmng.o \
 	libexif.o libwebp.o freetype.o fontconfig.o graphite2.o harfbuzz.o slang.o alsa-lib.o gstreamer.o opus.o a52dec.o \
-	libdiscid.o libdvdcss.o libdvdread.o libdvdnav.o libcddb.o libcdio.o libcdio-paranoia.o libass.o fdk-aac.o faac.o libogg.o libvorbis.o flac.o audiofile.o \
+	libdiscid.o libdvdcss.o libdvdread.o libdvdnav.o libcddb.o libcdio.o libcdio-paranoia.o libmad.o libmusicbrainz.o libass.o fdk-aac.o faac.o libogg.o libvorbis.o flac.o audiofile.o \
 	libsndfile.o libsamplerate.o alsa-utils.o speexdsp.o speex.o sbc.o libtheora.o lame.o xvidcore.o
 
 #============== [ targetfs packages ] ========================================================
@@ -45,6 +45,11 @@ libxml2.o:
 	@echo "libxml2 started $(shell date -R) "
 	(make -C libxml2 2>&1 | tee $(PKGLOGDIR)/libxml2.log && exit $$PIPESTATUS)
 	@echo "libxml2 finished $(shell date -R) "
+
+neon.o:
+	@echo "neon started $(shell date -R) "
+	(make -C neon 2>&1 | tee $(PKGLOGDIR)/neon.log && exit $$PIPESTATUS)
+	@echo "neon finished $(shell date -R) "
 
 glib2.o:
 	@echo "glib2 started $(shell date -R) "
@@ -300,6 +305,16 @@ libcdio-paranoia.o:
 	@echo "libcdio-paranoia started $(shell date -R) "
 	(make -C libcdio-paranoia 2>&1 | tee $(PKGLOGDIR)/libcdio-paranoia.log && exit $$PIPESTATUS)
 	@echo "libcdio-paranoia finished $(shell date -R) "
+
+libmad.o:
+	@echo "libmad started $(shell date -R) "
+	(make -C libmad 2>&1 | tee $(PKGLOGDIR)/libmad.log && exit $$PIPESTATUS)
+	@echo "libmad finished $(shell date -R) "
+
+libmusicbrainz.o:
+	@echo "libmusicbrainz started $(shell date -R) "
+	(make -C libmusicbrainz 2>&1 | tee $(PKGLOGDIR)/libmusicbrainz.log && exit $$PIPESTATUS)
+	@echo "libmusicbrainz finished $(shell date -R) "
 
 #============== [ targetfs packages ] ========================================================
 

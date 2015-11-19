@@ -7,7 +7,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build install
+targets: clean extract patch autoconf configure build install
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -25,27 +25,36 @@ patch: extract
 				echo -e " --- done --- \n"  ;\
 			done ;\
 		fi ;\
+		sed "s@AM_CONFIG_HEADER@AC_CONFIG_HEADERS@g" -i $(PKGSRCDIR)/configure.ac || exit 1 ;\
+		touch $(PKGSRCDIR)/{NEWS,AUTHORS,ChangeLog} || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-configure: patch
-	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
+autoconf: patch
+	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) LIBS=$(LIBS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		autoreconf -fi || exit 1 ;\
+		touch $(PKGOBJDIR)/autoconf-stamp ;\
+	fi
+
+configure: autoconf
+	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
+		cd $(PKGOBJDIR) ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j1 -C $(PKGSRCDIR) ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGSRCDIR) DESTDIR=$(SYSROOTDIR) install-all ) || exit 1 ;\
-		chmod -v 755 $(SYSROOTDIR)/usr/lib/libslang.so.2.2.4 \
-			$(SYSROOTDIR)/usr/lib/slang/v2/modules/*.so || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/mad.pc $(SYSROOTDIR)/usr/lib/pkgconfig || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/libmad.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

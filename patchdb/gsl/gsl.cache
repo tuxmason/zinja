@@ -1,0 +1,2 @@
+ac_cv_have_decl_feenableexcept=no
+ac_cv_have_decl_fesettrapenable=no

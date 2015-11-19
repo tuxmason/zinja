@@ -4,19 +4,27 @@ include ../../conf/shell-env.mk
 
 all: targetfs
 
-targetfs: giflib.o libwebp.o
-
-#targetfs: which.o libssh2.o pcre.o libxml2.o glib2.o fribidi.o sqlite3.o babl.o exiv2.o ijs.o \
-# libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o libmng.o libexif.o libwebp.o\
-# freetype.o fontconfig.o graphite2.o harfbuzz.o alsa-lib.o opus.o libcddb.o libcdio.o \
-# libcdio-paranoia.o libass.o fdk-aac.o faac.o libogg.o libvorbis.o flac.o \
-#	libsndfile.o libsamplerate.o alsa-utils.o speexdsp.o speex.o sbc.o libtheora.o lame.o
+targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o libxml2.o glib2.o fribidi.o sqlite3.o babl.o exiv2.o ijs.o \
+	libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o openjpeg.o openjpeg2.o LibRaw.o libmng.o \
+	libexif.o libwebp.o freetype.o fontconfig.o graphite2.o harfbuzz.o slang.o alsa-lib.o gstreamer.o opus.o a52dec.o \
+	libdiscid.o libdvdcss.o libdvdread.o libdvdnav.o libcddb.o libcdio.o libcdio-paranoia.o libass.o fdk-aac.o faac.o libogg.o libvorbis.o flac.o audiofile.o \
+	libsndfile.o libsamplerate.o alsa-utils.o speexdsp.o speex.o sbc.o libtheora.o lame.o xvidcore.o
 
 #============== [ targetfs packages ] ========================================================
 which.o:
 	@echo "which started $(shell date -R) "
 	(make -C which 2>&1 | tee $(PKGLOGDIR)/which.log && exit $$PIPESTATUS)
 	@echo "which finished $(shell date -R) "
+
+gpm.o:
+	@echo "gpm started $(shell date -R) "
+	(make -C gpm 2>&1 | tee $(PKGLOGDIR)/gpm.log && exit $$PIPESTATUS)
+	@echo "gpm finished $(shell date -R) "
+
+popt.o:
+	@echo "popt started $(shell date -R) "
+	(make -C popt 2>&1 | tee $(PKGLOGDIR)/popt.log && exit $$PIPESTATUS)
+	@echo "popt finished $(shell date -R) "
 
 libssh2.o:
 	@echo "libssh2 started $(shell date -R) "
@@ -27,6 +35,11 @@ pcre.o:
 	@echo "pcre started $(shell date -R) "
 	(make -C pcre 2>&1 | tee $(PKGLOGDIR)/pcre.log && exit $$PIPESTATUS)
 	@echo "pcre finished $(shell date -R) "
+
+gsl.o:
+	@echo "gsl started $(shell date -R) "
+	(make -C gsl 2>&1 | tee $(PKGLOGDIR)/gsl.log && exit $$PIPESTATUS)
+	@echo "gsl finished $(shell date -R) "
 
 libxml2.o:
 	@echo "libxml2 started $(shell date -R) "
@@ -88,10 +101,25 @@ tiff.o:
 	(make -C tiff 2>&1 | tee $(PKGLOGDIR)/tiff.log && exit $$PIPESTATUS)
 	@echo "tiff finished $(shell date -R) "
 
-lcsm2.o:
+lcms2.o:
 	@echo "lcms2 started $(shell date -R) "
 	(make -C lcms2 2>&1 | tee $(PKGLOGDIR)/lcms2.log && exit $$PIPESTATUS)
 	@echo "lcms2 finished $(shell date -R) "
+
+openjpeg.o:
+	@echo "openjpeg started $(shell date -R) "
+	(make -C openjpeg 2>&1 | tee $(PKGLOGDIR)/openjpeg.log && exit $$PIPESTATUS)
+	@echo "openjpeg finished $(shell date -R) "
+
+openjpeg2.o:
+	@echo "openjpeg2 started $(shell date -R) "
+	(make -C openjpeg2 2>&1 | tee $(PKGLOGDIR)/openjpeg2.log && exit $$PIPESTATUS)
+	@echo "openjpeg2 finished $(shell date -R) "
+
+LibRaw.o:
+	@echo "LibRaw started $(shell date -R) "
+	(make -C LibRaw 2>&1 | tee $(PKGLOGDIR)/LibRaw.log && exit $$PIPESTATUS)
+	@echo "LibRaw finished $(shell date -R) "
 
 libmng.o:
 	@echo "libmng started $(shell date -R) "
@@ -128,10 +156,25 @@ harfbuzz.o:
 	(make -C harfbuzz 2>&1 | tee $(PKGLOGDIR)/harfbuzz.log && exit $$PIPESTATUS)
 	@echo "harfbuzz finished $(shell date -R) "
 
+slang.o:
+	@echo "slang started $(shell date -R) "
+	(make -C slang 2>&1 | tee $(PKGLOGDIR)/slang.log && exit $$PIPESTATUS)
+	@echo "slang finished $(shell date -R) "
+
+aalib.o:
+	@echo "aalib started $(shell date -R) "
+	(make -C aalib 2>&1 | tee $(PKGLOGDIR)/aalib.log && exit $$PIPESTATUS)
+	@echo "aalib finished $(shell date -R) "
+
 alsa-lib.o:
 	@echo "alsa-lib started $(shell date -R) "
 	(make -C alsa-lib 2>&1 | tee $(PKGLOGDIR)/alsa-lib.log && exit $$PIPESTATUS)
 	@echo "alsa-lib finished $(shell date -R) "
+
+gstreamer.o:
+	@echo "gstreamer started $(shell date -R) "
+	(make -C gstreamer 2>&1 | tee $(PKGLOGDIR)/gstreamer.log && exit $$PIPESTATUS)
+	@echo "gstreamer finished $(shell date -R) "
 
 libass.o:
 	@echo "libass started $(shell date -R) "
@@ -162,6 +205,11 @@ flac.o:
 	@echo "flac started $(shell date -R) "
 	(make -C flac 2>&1 | tee $(PKGLOGDIR)/flac.log && exit $$PIPESTATUS)
 	@echo "flac finished $(shell date -R) "
+
+audiofile.o:
+	@echo "audiofile started $(shell date -R) "
+	(make -C audiofile 2>&1 | tee $(PKGLOGDIR)/audiofile.log && exit $$PIPESTATUS)
+	@echo "audiofile finished $(shell date -R) "
 
 libsndfile.o:
 	@echo "libsndfile started $(shell date -R) "
@@ -203,10 +251,40 @@ lame.o:
 	(make -C lame 2>&1 | tee $(PKGLOGDIR)/libtheora.log && exit $$PIPESTATUS)
 	@echo "lame finished $(shell date -R) "
 
+xvidcore.o:
+	@echo "xvidcore started $(shell date -R) "
+	(make -C xvidcore 2>&1 | tee $(PKGLOGDIR)/xvidcore.log && exit $$PIPESTATUS)
+	@echo "xvidcore finished $(shell date -R) "
+
 opus.o:
 	@echo "opus started $(shell date -R) "
 	(make -C opus 2>&1 | tee $(PKGLOGDIR)/opus.log && exit $$PIPESTATUS)
 	@echo "opus finished $(shell date -R) "
+
+a52dec.o:
+	@echo "a52dec started $(shell date -R) "
+	(make -C a52dec 2>&1 | tee $(PKGLOGDIR)/a52dec.log && exit $$PIPESTATUS)
+	@echo "a52dec finished $(shell date -R) "
+
+libdiscid.o:
+	@echo "libdiscid started $(shell date -R) "
+	(make -C libdiscid 2>&1 | tee $(PKGLOGDIR)/libdiscid.log && exit $$PIPESTATUS)
+	@echo "libdiscid finished $(shell date -R) "
+
+libdvdcss.o:
+	@echo "libdvdcss started $(shell date -R) "
+	(make -C libdvdcss 2>&1 | tee $(PKGLOGDIR)/libdvdcss.log && exit $$PIPESTATUS)
+	@echo "libdvdcss finished $(shell date -R) "
+
+libdvdread.o:
+	@echo "libdvdread started $(shell date -R) "
+	(make -C libdvdread 2>&1 | tee $(PKGLOGDIR)/libdvdread.log && exit $$PIPESTATUS)
+	@echo "libdvdread finished $(shell date -R) "
+
+libdvdnav.o:
+	@echo "libdvdnav started $(shell date -R) "
+	(make -C libdvdnav 2>&1 | tee $(PKGLOGDIR)/libdvdnav.log && exit $$PIPESTATUS)
+	@echo "libdvdnav finished $(shell date -R) "
 
 libcddb.o:
 	@echo "libcddb started $(shell date -R) "

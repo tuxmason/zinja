@@ -1,0 +1,2 @@
+automake.patch
+faad2-2.7-mp4ff-1.patch

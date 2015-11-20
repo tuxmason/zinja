@@ -1,0 +1,13 @@
+PKGNAME := faad2
+PKGVER := 2.7
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+COPTS := --prefix=/usr \
+	--build=$(BUILDARCH) \
+	--host=$(TARGETARCH)
+
+CC := "${CC} "
+CXX := "${CXX} "

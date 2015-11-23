@@ -1,0 +1,2 @@
+0002-Fix-runtime-error-with-uClibc.patch
+mesa-11.0.2-add_xdemos-1.patch

@@ -1,0 +1,14 @@
+--- luit-1.1.1/sys.c.orig	2015-11-22 10:20:24.262336165 +0300
++++ luit-1.1.1/sys.c	2015-11-22 10:21:25.814337835 +0300
+@@ -20,6 +20,11 @@
+ THE SOFTWARE.
+ */
+ 
++#ifdef _XOPEN_SOURCE
++#  undef _XOPEN_SOURCE
++#  define _XOPEN_SOURCE 600
++#endif
++
+ #ifdef HAVE_CONFIG_H
+ # include "config.h"
+ #endif

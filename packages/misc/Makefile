@@ -4,8 +4,8 @@ include ../../conf/shell-env.mk
 
 all: targetfs
 
-targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o libxml2.o neon.o glib2.o fribidi.o sqlite3.o babl.o exiv2.o ijs.o \
-	libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o openjpeg.o openjpeg2.o LibRaw.o libmng.o \
+targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o nettle.o libxml2.o libxslt.o neon.o libatomic_ops.o libpciaccess.o glib2.o fribidi.o sqlite3.o babl.o exiv2.o ijs.o \
+	libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o openjpeg.o openjpeg2.o pixman.o LibRaw.o libmng.o \
 	libexif.o libwebp.o freetype.o fontconfig.o graphite2.o harfbuzz.o slang.o alsa-lib.o gstreamer.o opus.o a52dec.o \
 	libdiscid.o libdvdcss.o libdvdread.o libdvdnav.o libcddb.o libcdio.o libcdio-paranoia.o libmad.o libmusicbrainz.o \
 	libass.o fdk-aac.o faac.o faad2.o libogg.o libvorbis.o soundtouch.o flac.o audiofile.o libsndfile.o libsamplerate.o alsa-utils.o \
@@ -42,15 +42,35 @@ gsl.o:
 	(make -C gsl 2>&1 | tee $(PKGLOGDIR)/gsl.log && exit $$PIPESTATUS)
 	@echo "gsl finished $(shell date -R) "
 
+nettle.o:
+	@echo "nettle started $(shell date -R) "
+	(make -C nettle 2>&1 | tee $(PKGLOGDIR)/nettle.log && exit $$PIPESTATUS)
+	@echo "nettle finished $(shell date -R) "
+
 libxml2.o:
 	@echo "libxml2 started $(shell date -R) "
 	(make -C libxml2 2>&1 | tee $(PKGLOGDIR)/libxml2.log && exit $$PIPESTATUS)
 	@echo "libxml2 finished $(shell date -R) "
 
+libxslt.o:
+	@echo "libxslt started $(shell date -R) "
+	(make -C libxslt 2>&1 | tee $(PKGLOGDIR)/libxslt.log && exit $$PIPESTATUS)
+	@echo "libxslt finished $(shell date -R) "
+
 neon.o:
 	@echo "neon started $(shell date -R) "
 	(make -C neon 2>&1 | tee $(PKGLOGDIR)/neon.log && exit $$PIPESTATUS)
 	@echo "neon finished $(shell date -R) "
+
+libatomic_ops.o:
+	@echo "libatomic_ops started $(shell date -R) "
+	(make -C libatomic_ops 2>&1 | tee $(PKGLOGDIR)/libatomic_ops.log && exit $$PIPESTATUS)
+	@echo "libatomic_ops finished $(shell date -R) "
+
+libpciaccess.o:
+	@echo "libpciaccess started $(shell date -R) "
+	(make -C libpciaccess 2>&1 | tee $(PKGLOGDIR)/libpciaccess.log && exit $$PIPESTATUS)
+	@echo "libpciaccess finished $(shell date -R) "
 
 glib2.o:
 	@echo "glib2 started $(shell date -R) "
@@ -121,6 +141,11 @@ openjpeg2.o:
 	@echo "openjpeg2 started $(shell date -R) "
 	(make -C openjpeg2 2>&1 | tee $(PKGLOGDIR)/openjpeg2.log && exit $$PIPESTATUS)
 	@echo "openjpeg2 finished $(shell date -R) "
+
+pixman.o:
+	@echo "pixman started $(shell date -R) "
+	(make -C pixman 2>&1 | tee $(PKGLOGDIR)/pixman.log && exit $$PIPESTATUS)
+	@echo "pixman finished $(shell date -R) "
 
 LibRaw.o:
 	@echo "LibRaw started $(shell date -R) "

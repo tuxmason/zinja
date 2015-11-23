@@ -1,0 +1,2 @@
+0001-modesettings-needs-dri2.patch
+xorg-server-1.17.2-add_prime_support-1.patch

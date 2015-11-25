@@ -4,12 +4,15 @@ include ../../conf/shell-env.mk
 
 all: targetfs
 
-targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o nettle.o libxml2.o libxslt.o neon.o libatomic_ops.o libpciaccess.o glib2.o fribidi.o sqlite3.o babl.o exiv2.o ijs.o \
-	libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o openjpeg.o openjpeg2.o pixman.o LibRaw.o libmng.o \
-	libexif.o libwebp.o freetype.o fontconfig.o graphite2.o harfbuzz.o slang.o alsa-lib.o gstreamer.o opus.o a52dec.o \
-	libdiscid.o libdvdcss.o libdvdread.o libdvdnav.o libcddb.o libcdio.o libcdio-paranoia.o libmad.o libmusicbrainz.o \
-	libass.o fdk-aac.o faac.o faad2.o libogg.o libvorbis.o soundtouch.o flac.o audiofile.o libsndfile.o libsamplerate.o alsa-utils.o \
-	speexdsp.o speex.o taglib.o sbc.o libtheora.o lame.o xvidcore.o mpg123.o
+targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o nettle.o libxml2.o libxslt.o neon.o \
+	libatomic_ops.o libpciaccess.o libsigcplusplus.o glib2.o dbus-glib.o fribidi.o sqlite3.o babl.o exiv2.o \
+	ijs.o libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o openjpeg.o openjpeg2.o \
+	pixman.o LibRaw.o libmng.o libexif.o libwebp.o freetype.o fontconfig.o graphite2.o \
+	harfbuzz.o slang.o alsa-lib.o gstreamer.o opus.o a52dec.o libdiscid.o libdvdcss.o \
+	libdvdread.o libdvdnav.o libcddb.o libcdio.o libcdio-paranoia.o libmad.o libmusicbrainz.o \
+	libass.o fdk-aac.o faac.o faad2.o libogg.o libvorbis.o soundtouch.o flac.o audiofile.o \
+	libsndfile.o libsamplerate.o alsa-utils.o speexdsp.o speex.o taglib.o sbc.o libtheora.o \
+	lame.o xvidcore.o mpg123.o
 
 #============== [ targetfs packages ] ========================================================
 which.o:
@@ -72,10 +75,20 @@ libpciaccess.o:
 	(make -C libpciaccess 2>&1 | tee $(PKGLOGDIR)/libpciaccess.log && exit $$PIPESTATUS)
 	@echo "libpciaccess finished $(shell date -R) "
 
+libsigcplusplus.o:
+	@echo "libsigc++ started $(shell date -R) "
+	(make -C libsigc++ 2>&1 | tee $(PKGLOGDIR)/libsigc++.log && exit $$PIPESTATUS)
+	@echo "libsigc++ finished $(shell date -R) "
+
 glib2.o:
 	@echo "glib2 started $(shell date -R) "
 	(make -C glib2 2>&1 | tee $(PKGLOGDIR)/glib2.log && exit $$PIPESTATUS)
 	@echo "glib2 finished $(shell date -R) "
+
+dbus-glib.o:
+	@echo "dbus-glib started $(shell date -R) "
+	(make -C dbus-glib 2>&1 | tee $(PKGLOGDIR)/dbus-glib.log && exit $$PIPESTATUS)
+	@echo "dbus-glib finished $(shell date -R) "
 
 fribidi.o:
 	@echo "fribidi started $(shell date -R) "

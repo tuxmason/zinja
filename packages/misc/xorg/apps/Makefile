@@ -1,16 +1,15 @@
 #include general config file
-include ../../../conf/environment.mk
-include ../../../conf/shell-env.mk
+include ../../../../conf/environment.mk
+include ../../../../conf/shell-env.mk
 
-all: targetfs
+all: xorg-apps
 
-targetfs: bdftopcf.o iceauth.o luit.o mkfontdir.o mkfontscale.o sessreg.o setxkbmap.o smproxy.o \
+xorg-apps: bdftopcf.o iceauth.o luit.o mkfontdir.o mkfontscale.o sessreg.o setxkbmap.o smproxy.o \
 	x11perf.o xauth.o xbacklight.o xcmsdb.o xcursorgen.o xdpyinfo.o xdriinfo.o xev.o xgamma.o \
 	xhost.o xinput.o xkbcomp.o xkbevd.o xkbutils.o xkill.o xlsatoms.o xlsclients.o xmessage.o \
 	xmodmap.o xpr.o xprop.o xrandr.o xrdb.o xrefresh.o xset.o xsetroot.o xvinfo.o xwd.o \
 	xwininfo.o xwud.o 
 
-#============== [ targetfs packages ] ========================================================
 
 bdftopcf.o:
 	@echo "bdftopcf started $(shell date -R)"
@@ -202,11 +201,10 @@ xwud.o:
 	(make -C xwud 2>&1 | tee $(PKGLOGDIR)/xwud.log && exit $$PIPESTATUS)
 	@echo "xwud finished $(shell date -R)"
 
-#============== [ targetfs packages ] ========================================================
 
 clean:
-	for pkg in `ls | grep -v Makefile`; do \
+	@for pkg in `ls | grep -v Makefile`; do \
 		make -C $$pkg clean ;\
 	done ;\
   
-PHONY: all targetfs
+PHONY: all xorg-apps

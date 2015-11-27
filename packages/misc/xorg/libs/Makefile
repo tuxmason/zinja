@@ -1,16 +1,15 @@
 #include general config file
-include ../../../conf/environment.mk
-include ../../../conf/shell-env.mk
+include ../../../../conf/environment.mk
+include ../../../../conf/shell-env.mk
 
-all: targetfs
+all: xorg-libs
 
-targetfs: libXau.o libXdmcp.o libxcb.o xtrans.o libX11.o libXext.o libFS.o libICE.o libSM.o \
+xorg-libs: libXau.o libXdmcp.o libxcb.o xtrans.o libX11.o libXext.o libFS.o libICE.o libSM.o \
 	libXScrnSaver.o libXt.o libXmu.o libXpm.o libXaw.o libXfixes.o libXcomposite.o \
 	libXrender.o libXcursor.o libXdamage.o libfontenc.o libXfont.o libXft.o libXi.o \
 	libXinerama.o libXrandr.o libXres.o libXtst.o libXv.o libXvMC.o libXxf86dga.o \
 	libXxf86vm.o libdmx.o libxkbfile.o libxshmfence.o
 
-#============== [ targetfs packages ] ========================================================
 
 libXau.o:
 	@echo "libXau started $(shell date -R)"
@@ -182,11 +181,10 @@ libxshmfence.o:
 	(make -C libxshmfence 2>&1 | tee $(PKGLOGDIR)/libxshmfence.log && exit $$PIPESTATUS)
 	@echo "libxshmfence finished $(shell date -R)"
 
-#============== [ targetfs packages ] ========================================================
 
 clean:
-	for pkg in `ls | grep -v Makefile`; do \
+	@for pkg in `ls | grep -v Makefile`; do \
 		make -C $$pkg clean ;\
 	done ;\
   
-PHONY: all targetfs
+PHONY: all xorg-libs

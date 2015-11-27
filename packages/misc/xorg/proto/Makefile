@@ -1,16 +1,15 @@
 #include general config file
-include ../../../conf/environment.mk
-include ../../../conf/shell-env.mk
+include ../../../../conf/environment.mk
+include ../../../../conf/shell-env.mk
 
-all: targetfs
+all: xorg-proto
 
-targetfs: util-macros.o bigreqsproto.o compositeproto.o damageproto.o dmxproto.o dri2proto.o \
+xorg-proto: util-macros.o bigreqsproto.o compositeproto.o damageproto.o dmxproto.o dri2proto.o \
 	dri3proto.o fixesproto.o fontsproto.o glproto.o inputproto.o kbproto.o presentproto.o \
 	randrproto.o recordproto.o renderproto.o resourceproto.o scrnsaverproto.o videoproto.o \
 	xcmiscproto.o xextproto.o xf86bigfontproto.o xf86dgaproto.o xf86driproto.o \
 	xf86vidmodeproto.o xineramaproto.o xproto.o xcb-proto.o
 
-#============== [ targetfs packages ] ========================================================
 
 util-macros.o:
 	@echo "util-macros started $(shell date -R)"
@@ -152,11 +151,10 @@ xcb-proto.o:
 	(make -C xcb-proto 2>&1 | tee $(PKGLOGDIR)/xcb-proto.log && exit $$PIPESTATUS)
 	@echo "xcb-proto finished $(shell date -R)"
 
-#============== [ targetfs packages ] ========================================================
 
 clean:
-	for pkg in `ls | grep -v Makefile`; do \
+	@for pkg in `ls | grep -v Makefile`; do \
 		make -C $$pkg clean ;\
 	done ;\
   
-PHONY: all targetfs
+PHONY: all xorg-proto

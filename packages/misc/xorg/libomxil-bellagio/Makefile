@@ -47,6 +47,7 @@ install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libomxil-bellagio,omxloaders/libomxdynamicloader}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/bellagio/{libomxaudio_effects,libomxclocksrc,libomxvideosched}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

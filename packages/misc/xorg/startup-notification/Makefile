@@ -1,6 +1,6 @@
 #include the shared config file
-include ../../../conf/environment.mk
-include ../../../conf/shell-env.mk
+include ../../../../conf/environment.mk
+include ../../../../conf/shell-env.mk
 
 #include package specific config file
 include ./config.mk 
@@ -25,6 +25,7 @@ patch: extract
 				echo -e " --- done --- \n"  ;\
 			done ;\
 		fi ;\
+		cp -v $(PATCHDIR)/$(PKGNAME).cache $(PKGOBJDIR) || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
@@ -44,8 +45,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/libbabl-0.1.la || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/babl-0.1/*.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/libstartup-notification-1.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

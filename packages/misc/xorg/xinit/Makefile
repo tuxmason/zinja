@@ -1,6 +1,6 @@
 #include the shared config file
-include ../../../conf/environment.mk
-include ../../../conf/shell-env.mk
+include ../../../../conf/environment.mk
+include ../../../../conf/shell-env.mk
 
 #include package specific config file
 include ./config.mk 
@@ -37,15 +37,13 @@ configure: patch
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/libbabl-0.1.la || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/babl-0.1/*.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

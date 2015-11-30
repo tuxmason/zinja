@@ -5,7 +5,7 @@ include ../../conf/shell-env.mk
 all: targetfs
 
 targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o nettle.o libxml2.o libxslt.o neon.o \
-	libatomic_ops.o libpciaccess.o libsigcplusplus.o glib2.o dbus-glib.o fribidi.o sqlite3.o babl.o exiv2.o \
+	libevdev.o mtdev.o libatomic_ops.o libpciaccess.o libsigcplusplus.o glib2.o dbus-glib.o fribidi.o sqlite3.o babl.o exiv2.o \
 	ijs.o libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o openjpeg.o openjpeg2.o \
 	pixman.o LibRaw.o libmng.o libexif.o libwebp.o freetype.o fontconfig.o graphite2.o \
 	harfbuzz.o slang.o alsa-lib.o gstreamer.o opus.o a52dec.o libdiscid.o libdvdcss.o \
@@ -64,6 +64,16 @@ neon.o:
 	@echo "neon started $(shell date -R) "
 	(make -C neon 2>&1 | tee $(PKGLOGDIR)/neon.log && exit $$PIPESTATUS)
 	@echo "neon finished $(shell date -R) "
+
+libevdev.o:
+	@echo "libevdev started $(shell date -R) "
+	(make -C libevdev 2>&1 | tee $(PKGLOGDIR)/libevdev.log && exit $$PIPESTATUS)
+	@echo "libevdev finished $(shell date -R) "
+
+mtdev.o:
+	@echo "mtdev started $(shell date -R) "
+	(make -C mtdev 2>&1 | tee $(PKGLOGDIR)/mtdev.log && exit $$PIPESTATUS)
+	@echo "mtdev finished $(shell date -R) "
 
 libatomic_ops.o:
 	@echo "libatomic_ops started $(shell date -R) "

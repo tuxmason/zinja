@@ -48,6 +48,7 @@ install: build
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libgstbase-0.10,libgstcheck-0.10,libgstcontroller-0.10}.la || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libgstdataprotocol-0.10,libgstnet-0.10,libgstreamer-0.10}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/gstreamer-0.10/{libgstcoreelements,libgstcoreindexers}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

@@ -1,6 +1,6 @@
 #include the shared config file
-include ../../../conf/environment.mk
-include ../../../conf/shell-env.mk
+include ../../../../conf/environment.mk
+include ../../../../conf/shell-env.mk
 
 #include package specific config file
 include ./config.mk 
@@ -25,27 +25,29 @@ patch: extract
 				echo -e " --- done --- \n"  ;\
 			done ;\
 		fi ;\
+		sed -i '/v0/{n;s/new:/new:kb=^?:/}' $(PKGSRCDIR)/termcap || exit 1 ;\
+		printf '\tkbs=\\177,\n' >> $(PKGSRCDIR)/terminfo || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) TERMINFO=$(TERMINFO) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/libbabl-0.1.la || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/babl-0.1/*.la || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-ti ) || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/XTerm $(SYSROOTDIR)/etc/X11/app-defaults || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

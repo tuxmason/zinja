@@ -43,9 +43,7 @@ build: configure
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/libbabl-0.1.la || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/babl-0.1/*.la || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR)/libevdev install ) || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

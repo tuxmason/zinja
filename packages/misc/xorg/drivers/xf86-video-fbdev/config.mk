@@ -15,4 +15,5 @@ COPTS := --prefix=/usr \
 CC := "${CC} "
 CXX := "${CXX} "
 LDFLAGS := "$$LDFLAGS -Wl,-z,lazy"
-CPPFLAGS := "-I$(SYSROOTDIR)/usr/include/libevdev-1.0"
+CPPFLAGS := "-I$(SYSROOTDIR)/usr/include/libevdev-1.0 -I$(SYSROOTDIR)/usr/include/X11"
+XORG_CFLAGS := "-fvisibility=hidden -I$(SYSROOTDIR)/usr/include/libdrm -I$(SYSROOTDIR)/usr/include/xorg -I$(SYSROOTDIR)/usr/include/pixman-1 -I$(SYSROOTDIR)/usr/include/X11/dri"

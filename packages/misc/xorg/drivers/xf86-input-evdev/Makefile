@@ -31,7 +31,8 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) LDFLAGS=$(LDFLAGS) CPPFLAGS=$(CPPFLAGS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) LDFLAGS=$(LDFLAGS) CPPFLAGS=$(CPPFLAGS) \
+			XORG_CFLAGS=$(XORG_CFLAGS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 

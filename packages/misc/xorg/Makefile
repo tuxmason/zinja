@@ -6,7 +6,7 @@ all: targetfs
 
 x-server-test: twm.o xclock.o xinit.o rxvt-unicode.o
 
-targetfs: xorg-proto.o libXau.o libXdmcp.o libxcb.o xorg-libs.o xcb-util.o xcb-util-image.o \
+targetfs: xorg-proto.o xorg-libs.o xcb-util.o xcb-util-image.o \
 	xcb-util-keysyms.o xcb-util-renderutil.o xcb-util-wm.o libdrm.o libomxil-bellagio.o \
 	startup-notification.o mesa.o libepoxy.o xbitmaps.o xorg-apps.o xcursor-themes.o xorg-fonts.o \
 	xkeyboard-config.o xorg-server.o xorg-drivers.o x-server-test
@@ -16,21 +16,6 @@ xorg-proto.o:
 	@echo "Xorg Protocol Headers started $(shell date -R) "
 	(make -C proto 2>&1 | tee $(PKGLOGDIR)/xorg-proto.log && exit $$PIPESTATUS)
 	@echo "Xorg Protocol Headers finished $(shell date -R) "
-
-libXau.o:
-	@echo "libXau started $(shell date -R) "
-	(make -C libXau 2>&1 | tee $(PKGLOGDIR)/libXau.log && exit $$PIPESTATUS)
-	@echo "libXau finished $(shell date -R) "
-
-libXdmcp.o:
-	@echo "libXdmcp started $(shell date -R) "
-	(make -C libXdmcp 2>&1 | tee $(PKGLOGDIR)/libXdmcp.log && exit $$PIPESTATUS)
-	@echo "libXdmcp finished $(shell date -R) "
-
-libxcb.o:
-	@echo "libxcb started $(shell date -R) "
-	(make -C libxcb 2>&1 | tee $(PKGLOGDIR)/libxcb.log && exit $$PIPESTATUS)
-	@echo "libxcb finished $(shell date -R) "
 
 xorg-libs.o:
 	@echo "Xorg Libraries started $(shell date -R) "

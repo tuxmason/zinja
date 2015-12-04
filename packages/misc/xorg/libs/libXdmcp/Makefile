@@ -1,6 +1,6 @@
 #include the shared config file
-include ../../../../conf/environment.mk
-include ../../../../conf/shell-env.mk
+include ../../../../../conf/environment.mk
+include ../../../../../conf/shell-env.mk
 
 #include package specific config file
 include ./config.mk 

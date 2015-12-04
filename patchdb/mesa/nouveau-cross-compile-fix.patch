@@ -1,0 +1,10 @@
+--- mesa-11.0.4/src/gallium/drivers/nouveau/nvc0/nvc0_screen.c.orig	2015-12-04 21:05:35.727636550 +0300
++++ mesa-11.0.4/src/gallium/drivers/nouveau/nvc0/nvc0_screen.c	2015-12-04 21:07:29.380628199 +0300
+@@ -21,6 +21,7 @@
+  */
+ 
+ #include <xf86drm.h>
++#include <libdrm/nouveau.h>
+ #include <nouveau_drm.h>
+ #include "util/u_format.h"
+ #include "util/u_format_s3tc.h"

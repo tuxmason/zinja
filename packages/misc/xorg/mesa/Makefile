@@ -32,7 +32,7 @@ configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
 		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) CFLAGS=$(CFLAGS) CXXFLAGS=$(CXXFLAGS) \
-			$(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		LDFLAGS=$(LDFLAGS) PKG_CONFIG_PATH=$(PKGCONFIG) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 

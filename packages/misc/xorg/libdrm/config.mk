@@ -12,6 +12,7 @@ COPTS := --prefix=/usr \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
 	--enable-intel \
+	--enable-static \
 	--enable-omap-experimental-api \
 	--enable-exynos-experimental-api 
 

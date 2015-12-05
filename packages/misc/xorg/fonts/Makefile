@@ -11,7 +11,7 @@ xorg-fonts: font-util.o encodings.o font-adobe-100dpi.o font-adobe-75dpi.o font-
 	font-cronyx-cyrillic.o font-cursor-misc.o font-daewoo-misc.o font-dec-misc.o font-ibm-type1.o \
 	font-isas-misc.o font-jis-misc.o font-micro-misc.o font-misc-cyrillic.o font-misc-ethiopic.o \
 	font-misc-meltho.o font-misc-misc.o font-mutt-misc.o font-schumacher-misc.o font-screen-cyrillic.o \
-	font-sony-misc.o font-sun-misc.o font-winitzki.o font-xfree86.o
+	font-sony-misc.o font-sun-misc.o font-winitzki-cyrillic.o font-xfree86-type1.o
 
 
 font-util.o:
@@ -189,15 +189,15 @@ font-sun-misc.o:
 	(make -C font-sun-misc 2>&1 | tee $(PKGLOGDIR)/font-sun-misc.log && exit $$PIPESTATUS)
 	@echo "font-sun-misc finished $(shell date -R)"
 
-font-winitzki.o:
-	@echo "font-winitzki started $(shell date -R)"
-	(make -C font-winitzki 2>&1 | tee $(PKGLOGDIR)/font-winitzki.log && exit $$PIPESTATUS)
-	@echo "font-winitzki finished $(shell date -R)"
+font-winitzki-cyrillic.o:
+	@echo "font-winitzki-cyrillic started $(shell date -R)"
+	(make -C font-winitzki-cyrillic 2>&1 | tee $(PKGLOGDIR)/font-winitzki-cyrillic.log && exit $$PIPESTATUS)
+	@echo "font-winitzki-cyrillic finished $(shell date -R)"
 
-font-xfree86.o:
-	@echo "font-xfree86 started $(shell date -R)"
-	(make -C font-xfree86 2>&1 | tee $(PKGLOGDIR)/font-xfree86.log && exit $$PIPESTATUS)
-	@echo "font-xfree86 finished $(shell date -R)"
+font-xfree86-type1.o:
+	@echo "font-xfree86-type1 started $(shell date -R)"
+	(make -C font-xfree86-type1 2>&1 | tee $(PKGLOGDIR)/font-xfree86-type1.log && exit $$PIPESTATUS)
+	@echo "font-xfree86-type1 finished $(shell date -R)"
 
 clean:
 	@for pkg in `ls | grep -v Makefile`; do \

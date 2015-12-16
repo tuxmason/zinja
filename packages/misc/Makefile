@@ -5,7 +5,8 @@ include ../../conf/shell-env.mk
 all: targetfs
 
 targetfs: which.o gpm.o popt.o libssh2.o pcre.o gsl.o nettle.o libxml2.o libxslt.o neon.o \
-	libevdev.o mtdev.o libatomic_ops.o libpciaccess.o libsigcplusplus.o glib2.o dbus-glib.o fribidi.o sqlite3.o babl.o exiv2.o \
+	libevdev.o mtdev.o libatomic_ops.o libpciaccess.o libsigcplusplus.o libusb.o \
+	libusb-compat.o usbutils.o glib2.o dbus-glib.o fribidi.o sqlite3.o babl.o exiv2.o \
 	ijs.o libpng.o giflib.o libjpeg-turbo.o jasper.o tiff.o lcms2.o openjpeg.o openjpeg2.o \
 	pixman.o LibRaw.o libmng.o libexif.o libwebp.o freetype.o fontconfig.o graphite2.o \
 	harfbuzz.o slang.o alsa-lib.o gstreamer.o opus.o a52dec.o libdiscid.o libdvdcss.o \
@@ -89,6 +90,21 @@ libsigcplusplus.o:
 	@echo "libsigc++ started $(shell date -R) "
 	(make -C libsigc++ 2>&1 | tee $(PKGLOGDIR)/libsigc++.log && exit $$PIPESTATUS)
 	@echo "libsigc++ finished $(shell date -R) "
+
+libusb.o:
+	@echo "libusb started $(shell date -R) "
+	(make -C libusb 2>&1 | tee $(PKGLOGDIR)/libusb.log && exit $$PIPESTATUS)
+	@echo "libusb finished $(shell date -R) "
+
+libusb-compat.o:
+	@echo "libusb-compat started $(shell date -R) "
+	(make -C libusb-compat 2>&1 | tee $(PKGLOGDIR)/libusb-compat.log && exit $$PIPESTATUS)
+	@echo "libusb-compat finished $(shell date -R) "
+
+usbutils.o:
+	@echo "usbutils started $(shell date -R) "
+	(make -C usbutils 2>&1 | tee $(PKGLOGDIR)/usbutils.log && exit $$PIPESTATUS)
+	@echo "usbutils finished $(shell date -R) "
 
 glib2.o:
 	@echo "glib2 started $(shell date -R) "

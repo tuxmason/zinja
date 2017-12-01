@@ -2,42 +2,25 @@
 # 
 # Filename: config.inc
 #
-# Purpose: ARM configuration file for rootfs
+# Purpose: x86_64 core config
 #
-# Copyright (c) 2007 - 2013 Mwanguhya Daniel Murungi <tuxmason@gmail.com>
+# Copyright (c) 2007 - 2017 Mwanguhya Daniel Murungi <tuxmason@gmail.com>
 #
 #########################################################################
 
 # CPU Architecture 
 # (read doc/cpu_arch.txt)
-ARCH := arm
+ARCH := x86_64
 
-# CPU Architecture Type
-# ( read doc/cpu_arch_type.txt )
-CPU_ARCH_TYPE := armv7-a
-
-# ARM ABI 
-# ( read doc/arm_abi.txt )
-ABI := aapcs-linux
-
-# CPU Endianness
-# ( read doc/cpu_endianness.txt )
-ENDIAN := little
-
-# ARM Mode
-# ( read doc/arm_mode.txt )
-ARM_MODE := arm
-
-# Floating Point Support
-# ( read doc/float_support.txt )
-FLOAT := hard
-
-# Floating Point Hardware
-# ( read doc/float_support.txt )
-FPU := vfpv3-d16
+# Target Processor family
+# ( read doc/target_processor.txt )
+PROC := x86_64
 
 # Target Vendor
 VENDOR :=
+
+# 64-bit target
+BUILD64 := -m64
 
 # Toolchain Version
 REVISION :=

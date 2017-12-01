@@ -1,0 +1,13 @@
+source: Linux From Scratch - Version 8.1-systemd
+
+--- a/configure.orig	2017-04-08 01:20:02.000000000 +0300
++++ a/configure	2017-12-01 22:16:02.525856838 +0300
+@@ -5288,7 +5288,7 @@
+    ?-?-flex)
+ 	LEX="flex -I -8" ;;
+    ?-y-*)
+-	as_fn_error $? "readline works only with flex." "$LINENO" 5 ;;
++	: ;; # as_fn_error $? "readline works only with flex." "$LINENO" 5 ;;
+ esac
+ 
+ case $LEX-`uname -s` in

@@ -1,1 +1,2 @@
-bc-1.06.95-void_uninitialized.patch
+bc-fix-missing-files.patch
+bc-use-sed.patch

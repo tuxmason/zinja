@@ -1,8 +1,9 @@
 PKGNAME := perl
-PKGVER := 5.20.2
-PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
+PKGVER := 5.26.1
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-stage-one-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://www.cpan.org/src/5.0/i$(PKGSRC)
 COPTS := --prefix=$(CROSSTOOLS) -Dcc="gcc"

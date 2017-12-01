@@ -1,2 +1,0 @@
-ncurses-5.9-bash_fix-1.patch
-ncurses-5.9-branch_update-4.patch

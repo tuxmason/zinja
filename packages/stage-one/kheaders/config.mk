@@ -1,5 +1,5 @@
 PKGNAME := linux
-PKGVER := 3.10.20
+PKGVER := 4.9.66
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PATCHLIST := $(PATCHDB)/kheaders/list.txt

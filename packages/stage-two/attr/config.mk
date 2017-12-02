@@ -1,10 +1,11 @@
 PKGNAME := attr
 PKGVER := 2.4.47
-PKGSRC := $(PKGNAME)-$(PKGVER).src.tar.xz
+PKGSRC := $(PKGNAME)-$(PKGVER).src.tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://download.savannah.gnu.org/releases/$(PKGNAME)/$(PKGSRC)
 COPTS := --prefix=/ \
 	--exec-prefix=/ \
 	--sbindir=/bin \

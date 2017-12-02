@@ -1,1 +1,2 @@
+attr-add-musl-libc.patch
 fix-headers.patch

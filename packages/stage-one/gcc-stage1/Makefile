@@ -22,7 +22,6 @@ patch: extract
 				echo -e " --- done --- \n" ;\
 			done ;\
 		fi ;\
-		sed -i.orig -e '/k prot/agcc_cv_libc_provides_ssp=yes' $(PKGSRCDIR)/gcc/configure || exit 1 ;\
 		touch $(SYSROOTDIR)/usr/include/limits.h || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi

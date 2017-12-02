@@ -1,10 +1,11 @@
 PKGNAME := gcc
-PKGVER := 4.8.2
+PKGVER := 7.2.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-stage1-obj
-PATCHLIST := $(PATCHDB)/$(PKGNAME)/stage1.arm.txt
-PATCHDIR := $(PATCHDB)/$(PKGNAME)
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/stage1.x86_64.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)/musl
+SRCURL := https://ftp.gnu.org/gnu/gcc/$(PKGNAME)-$(PKGVER)/$(PKGSRC)
 COPTS := --disable-shared \
 	--disable-nls \
 	--disable-static \
@@ -19,8 +20,10 @@ COPTS := --disable-shared \
 	--disable-target-zlib \
 	--disable-libsanitizer \
 	--disable-libquadmath \
+	--disable-libvtv \
+	--disable-libcilkrts \
+	--disable-libstdc++-v3 \
 	--enable-languages=c \
-	--enable-checking=release \
 	--disable-decimal-float \
 	--prefix=$(CROSSTOOLS) \
 	--host=$(HOSTARCH) \
@@ -29,11 +32,9 @@ COPTS := --disable-shared \
 	--with-newlib \
 	--without-headers \
 	--with-system-zlib \
-	--with-fpu=$(FPU) \
-	--with-float=$(FLOAT) \
-	--with-arch=$(ARCH_TYPE) \
 	--enable-linker-build-id \
 	--with-sysroot=$(SYSROOTDIR) \
+	--with-native-system-header-dir=$(SYSROOT)/usr/include \
 	--with-local-prefix=$(SYSROOTDIR) \
 	--with-gmp=$(CROSSTOOLS) \
 	--with-mpc=$(CROSSTOOLS) \

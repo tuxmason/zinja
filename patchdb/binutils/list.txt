@@ -1,2 +1,0 @@
-binutils-fix-texinfo.patch
-binutils-ld-fix-static-linking.patch

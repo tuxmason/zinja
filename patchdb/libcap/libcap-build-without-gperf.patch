@@ -1,0 +1,12 @@
+diff -ura a/Make.Rules b/Make.Rules
+--- a/Make.Rules	2016-01-31 04:14:53.000000000 +0300
++++ b/Make.Rules	2017-12-03 01:34:19.004093593 +0300
+@@ -61,7 +61,7 @@
+         -Wnested-externs -Winline -Wshadow
+ LD=$(CC) -Wl,-x -shared
+ LDFLAGS := #-g
+-BUILD_GPERF := $(shell which gperf >/dev/null 2>/dev/null && echo yes)
++#BUILD_GPERF := $(shell which gperf >/dev/null 2>/dev/null && echo yes)
+ 
+ SYSTEM_HEADERS = /usr/include
+ INCS=$(topdir)/libcap/include/sys/capability.h

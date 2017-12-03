@@ -47,7 +47,7 @@ install: build
 		( PATH=$(PATH) ldconfig=true install="install -D" make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/libprocps.la || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/lib/libprocps.so.* $(SYSROOTDIR)/lib || exit 1 ;\
-		ln -sfv ../../lib/libprocps.so.3 $(SYSROOTDIR)/usr/lib/libprocps.so || exit 1;\
+		ln -sfv ../../lib/libprocps.so.6 $(SYSROOTDIR)/usr/lib/libprocps.so || exit 1;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

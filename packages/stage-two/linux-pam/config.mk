@@ -1,14 +1,15 @@
 PKGNAME := Linux-PAM
-PKGVER := 1.1.8
-PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
+PKGVER := 1.3.0
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://www.linux-pam.org/library/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--libdir=/lib \
-	--disable-nis \
 	--disable-nls \
+	--disable-db \
 	--enable-cracklib \
 	--sysconfdir=/etc \
 	--build=$(BUILDARCH) \

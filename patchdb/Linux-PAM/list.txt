@@ -1,7 +1,4 @@
 fix-compat.patch
 libpam-fix-build-with-eglibc-2.16.patch
-linux-pam-configure.patch
-linux-pam-group.patch
+musl-fix-pam_exec.patch
 linux-pam-rhosts.patch
-linux-pam-succeed.patch
-linux-pam-time.patch

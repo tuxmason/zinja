@@ -1,10 +1,12 @@
 PKGNAME := iproute2
-PKGVER := 3.12.0
+PKGVER := 4.13.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
-COPTS := --prefix=/usr \
+SRCURL := https://www.kernel.org/pub/linux/utils/net/$(PKGNAME)/$(PKGSRC)
+COPTS := 
 CC := "${CC} "
+HOSTCC := gcc
 DBMINCLUDE := $(SYSROOTDIR)/usr/include

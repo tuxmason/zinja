@@ -35,7 +35,7 @@ configure: patch
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) DESTDIR=$(SYSROOTDIR) make -j$(NPROCS) -C $(PKGSRCDIR) CC=$(CC) ) || exit 1 ;\
+		( PATH=$(PATH) DESTDIR=$(SYSROOTDIR) make -j$(NPROCS) -C $(PKGSRCDIR) CC=$(CC) HOSTCC=$(HOSTCC) V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 

@@ -1,8 +1,0 @@
-ac_cv_func_malloc_0_nonnull=yes
-fu_cv_sys_stat_statfs2_bsize=yes
-gl_cv_func_working_mkstemp=yes
-ac_cv_func_posix_spawn=yes
-ac_cv_func_posix_spawn_works=yes
-gl_cv_func_gettimeofday_posix_signature=yes
-gl_cv_func_tzset_clobber=no
-gl_cv_func_gettimeofday_clobber=no

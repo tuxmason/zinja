@@ -26,7 +26,6 @@ patch: extract
 			done ;\
 		fi ;\
 		touch $(PKGSRCDIR)/* ;\
-		( cp -v $(PATCHDIR)/$(PKGNAME).cache $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 

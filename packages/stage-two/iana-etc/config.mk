@@ -1,7 +1,8 @@
 PKGNAME := iana-etc
 PKGVER := 2.30
-PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://anduin.linuxfromscratch.org/LFS/$(PKGSRC)

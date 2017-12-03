@@ -52,7 +52,7 @@ install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/bin/logger $(SYSROOTDIR)/bin || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libmount.la,libblkid.la,libuuid.la} || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libmount.la,libblkid.la,libuuid.la,libsmartcols.la,libfdisk.la} || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

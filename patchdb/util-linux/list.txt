@@ -1,4 +1,1 @@
-gentoo-no-scanf.patch
-program-invocation.patch
-util-linux-posix.patch
 util-linux-ttydefaults.h.patch

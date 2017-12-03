@@ -38,7 +38,7 @@ configure: patch
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) SHLIB_LIBS=$(SHLIBS) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
@@ -47,8 +47,8 @@ install: build
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		mv -v $(SYSROOTDIR)/lib/lib{readline,history}.a $(SYSROOTDIR)/usr/lib || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/lib{readline,history}.so || exit 1 ;\
-		ln -svf ../../lib/libreadline.so.6 $(SYSROOTDIR)/usr/lib/libreadline.so || exit 1 ;\
-		ln -svf ../../lib/libhistory.so.6 $(SYSROOTDIR)/usr/lib/libhistory.so || exit 1 ;\
+		ln -svf ../../lib/libreadline.so.7 $(SYSROOTDIR)/usr/lib/libreadline.so || exit 1 ;\
+		ln -svf ../../lib/libhistory.so.7 $(SYSROOTDIR)/usr/lib/libhistory.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

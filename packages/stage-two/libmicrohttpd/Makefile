@@ -45,9 +45,8 @@ install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/lib/libmicrohttpd.so.* $(SYSROOTDIR)/lib || exit 1 ;\
-		ln -svf ../../lib/libmicrohttpd.so.10 $(SYSROOTDIR)/usr/lib/libmicrohttpd.so || exit 1 ;\
+		ln -svf ../../lib/libmicrohttpd.so.12 $(SYSROOTDIR)/usr/lib/libmicrohttpd.so || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/libmicrohttpd.la || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/bin/demo || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

@@ -1,10 +1,11 @@
 PKGNAME := psmisc
-PKGVER := 22.20
+PKGVER := 23.1
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := https://sourceforge.net/projects/psmisc/files/$(PKGNAME)/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--disable-nls \
 	--exec-prefix="" \

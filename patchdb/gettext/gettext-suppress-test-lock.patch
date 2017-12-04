@@ -1,0 +1,54 @@
+diff -ura a/gettext-runtime/tests/Makefile.in b/gettext-runtime/tests/Makefile.in
+--- a/gettext-runtime/tests/Makefile.in	2016-06-11 16:00:56.000000000 +0300
++++ b/gettext-runtime/tests/Makefile.in	2017-12-04 17:03:33.796226473 +0300
+@@ -86,7 +86,6 @@
+ POST_UNINSTALL = :
+ build_triplet = @build@
+ host_triplet = @host@
+-TESTS = test-lock$(EXEEXT)
+ check_PROGRAMS = test-lock$(EXEEXT)
+ subdir = tests
+ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+diff -ura a/gettext-tools/gnulib-tests/Makefile.in b/gettext-tools/gnulib-tests/Makefile.in
+--- a/gettext-tools/gnulib-tests/Makefile.in	2016-06-11 16:01:12.000000000 +0300
++++ b/gettext-tools/gnulib-tests/Makefile.in	2017-12-04 17:03:33.817226535 +0300
+@@ -143,7 +143,7 @@
+ 	test-isnanl-nolibm$(EXEEXT) test-isnanl$(EXEEXT) \
+ 	test-iswblank$(EXEEXT) test-langinfo$(EXEEXT) \
+ 	test-linkedhash_list$(EXEEXT) test-locale$(EXEEXT) \
+-	test-localename$(EXEEXT) test-lock$(EXEEXT) \
++	test-localename$(EXEEXT)  \
+ 	test-log10$(EXEEXT) test-lseek.sh test-lstat$(EXEEXT) \
+ 	test-malloca$(EXEEXT) test-math$(EXEEXT) test-mbrtowc1.sh \
+ 	test-mbrtowc2.sh test-mbrtowc3.sh test-mbrtowc4.sh \
+@@ -228,7 +228,7 @@
+ 	test-isnanl-nolibm$(EXEEXT) test-isnanl$(EXEEXT) \
+ 	test-iswblank$(EXEEXT) test-langinfo$(EXEEXT) \
+ 	test-linkedhash_list$(EXEEXT) test-locale$(EXEEXT) \
+-	test-localename$(EXEEXT) test-lock$(EXEEXT) \
++	test-localename$(EXEEXT)  \
+ 	test-log10$(EXEEXT) test-lseek$(EXEEXT) test-lstat$(EXEEXT) \
+ 	test-malloca$(EXEEXT) test-math$(EXEEXT) test-mbrtowc$(EXEEXT) \
+ 	test-mbrtowc-w32$(EXEEXT) test-mbsinit$(EXEEXT) \
+@@ -3871,8 +3871,8 @@
+ 	@rm -f test-localename$(EXEEXT)
+ 	$(AM_V_CCLD)$(LINK) $(test_localename_OBJECTS) $(test_localename_LDADD) $(LIBS)
+ 
+-test-lock$(EXEEXT): $(test_lock_OBJECTS) $(test_lock_DEPENDENCIES) $(EXTRA_test_lock_DEPENDENCIES) 
+-	@rm -f test-lock$(EXEEXT)
++: $(test_lock_OBJECTS) $(test_lock_DEPENDENCIES) $(EXTRA_test_lock_DEPENDENCIES) 
++	@rm -f 
+ 	$(AM_V_CCLD)$(LINK) $(test_lock_OBJECTS) $(test_lock_LDADD) $(LIBS)
+ 
+ test-log10$(EXEEXT): $(test_log10_OBJECTS) $(test_log10_DEPENDENCIES) $(EXTRA_test_log10_DEPENDENCIES) 
+@@ -5358,8 +5358,8 @@
+ 	--log-file $$b.log --trs-file $$b.trs \
+ 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+ 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+-test-lock.log: test-lock$(EXEEXT)
+-	@p='test-lock$(EXEEXT)'; \
++test-lock.log: 
++	@p=''; \
+ 	b='test-lock'; \
+ 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+ 	--log-file $$b.log --trs-file $$b.trs \

@@ -45,7 +45,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libasprintf.la,libintl.la,libgettextlib.la,libgettextpo.la,libgettextsrc.la} || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libgettextlib.la,libgettextpo.la,libgettextsrc.la,libasprintf.la} || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

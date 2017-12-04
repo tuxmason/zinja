@@ -12,7 +12,6 @@ COPTS := --prefix=/usr \
 	--libexecdir=/usr/sbin \
 	--localstatedir=/var   \
 	--disable-logger       \
-	--disable-ifconfig     \
 	--disable-syslogd      \
 	--disable-whois        \
 	--disable-rsh \

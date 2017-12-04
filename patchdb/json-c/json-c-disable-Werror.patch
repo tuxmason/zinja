@@ -1,0 +1,31 @@
+diff -ura a/Makefile.am.inc b/Makefile.am.inc
+--- a/Makefile.am.inc	2016-06-07 06:34:03.000000000 +0300
++++ b/Makefile.am.inc	2017-12-04 22:43:25.766177283 +0300
+@@ -1,2 +1,2 @@
+-AM_CFLAGS = -Wall -Werror -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -std=gnu99 -D_GNU_SOURCE -D_REENTRANT
++AM_CFLAGS = -Wall -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -std=gnu99 -D_GNU_SOURCE -D_REENTRANT
+ 
+diff -ura a/Makefile.in b/Makefile.in
+--- a/Makefile.in	2016-06-07 06:36:51.000000000 +0300
++++ b/Makefile.in	2017-12-04 22:42:15.472732140 +0300
+@@ -389,7 +389,7 @@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-AM_CFLAGS = -Wall -Werror -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -std=gnu99 -D_GNU_SOURCE -D_REENTRANT
++AM_CFLAGS = -Wall -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -std=gnu99 -D_GNU_SOURCE -D_REENTRANT
+ EXTRA_DIST = README.html README-WIN32.html config.h.win32 doc json-c.vcproj
+ SUBDIRS = . tests
+ lib_LTLIBRARIES = libjson-c.la 
+diff -ura a/tests/Makefile.in b/tests/Makefile.in
+--- a/tests/Makefile.in	2016-06-07 06:36:51.000000000 +0300
++++ b/tests/Makefile.in	2017-12-04 22:42:38.702879430 +0300
+@@ -554,7 +554,7 @@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-AM_CFLAGS = -Wall -Werror -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -std=gnu99 -D_GNU_SOURCE -D_REENTRANT
++AM_CFLAGS = -Wall -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -std=gnu99 -D_GNU_SOURCE -D_REENTRANT
+ LDADD = $(LIBJSON_LA)
+ LIBJSON_LA = $(top_builddir)/libjson-c.la
+ TESTS = test1.test test2.test test4.test testReplaceExisting.test \

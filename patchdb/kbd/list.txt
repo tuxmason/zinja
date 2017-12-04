@@ -1,2 +1,2 @@
+kbd-2.0.4-backspace-1.patch
 kbd-vlock-manpage.patch
-uclibc-stdarg.patch

@@ -1,12 +1,12 @@
 PKGNAME := kbd
-PKGVER := 2.0.1
+PKGVER := 2.0.4
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := https://www.kernel.org/pub/linux/utils/kbd/$(PKGSRC)
 COPTS := --prefix=/usr \
-	--disable-nls \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
 	--enable-libkeymap \

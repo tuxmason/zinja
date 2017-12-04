@@ -44,7 +44,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		chmod -v +x $(SYSROOTDIR)/usr/bin/{ping,ping6,rcp,rlogin,rsh,traceroute} || exit 1 ;\
+		chmod -v +x $(SYSROOTDIR)/usr/bin/{ping,ping6,traceroute} || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/bin/{hostname,ping,ping6,traceroute} $(SYSROOTDIR)/bin || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

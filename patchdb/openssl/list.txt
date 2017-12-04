@@ -1,2 +1,0 @@
-001-do-not-build-docs.patch
-003-cryptodev-Fix-issue-with-signature-generation.patch

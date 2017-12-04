@@ -37,16 +37,16 @@ configure: patch
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) CC=$(CC) AR=$(AR) AS=$(AS) LD=$(LD) RANLIB=$(RANLIB) make -C $(PKGSRCDIR) MANDIR=$(MANDIR) PROCESSOR=ARM ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) AR=$(AR) AS=$(AS) LD=$(LD) RANLIB=$(RANLIB) make -C $(PKGSRCDIR) MANDIR=$(MANDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGSRCDIR) INSTALL_PREFIX=$(SYSROOTDIR) install ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGSRCDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/lib/{libcrypto.so.*,libssl.so.*} $(SYSROOTDIR)/lib || exit 1 ;\
-		ln -sfv ../../lib/libcrypto.so.1.0.0 $(SYSROOTDIR)/usr/lib/libcrypto.so || exit 1 ;\
-		ln -sfv ../../lib/libssl.so.1.0.0 $(SYSROOTDIR)/usr/lib/libssl.so || exit 1 ;\
+		ln -sfv ../../lib/libcrypto.so.1.1 $(SYSROOTDIR)/usr/lib/libcrypto.so || exit 1 ;\
+		ln -sfv ../../lib/libssl.so.1.1 $(SYSROOTDIR)/usr/lib/libssl.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

@@ -1,1 +1,1 @@
-vim-gcc47.patch
+vim-disable-tests.patch

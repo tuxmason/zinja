@@ -1,0 +1,12 @@
+diff -ura a/src/testdir/test_recover.vim b/src/testdir/test_recover.vim
+--- a/src/testdir/test_recover.vim	2017-02-19 00:41:35.000000000 +0300
++++ b/src/testdir/test_recover.vim	2017-12-04 23:26:04.623605256 +0300
+@@ -11,7 +11,7 @@
+     " can write in / directory on MS-Windows
+     set dir=/notexist/
+   endif
+-  call assert_fails('split Xtest', 'E303:')
++  call assert_fails('xsplit Xtest', 'E492:')
+   set dir&
+ endfunc
+ 

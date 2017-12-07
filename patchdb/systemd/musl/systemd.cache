@@ -1,0 +1,8 @@
+cc_cv_CFLAGS__flto=no
+pkg_cv_KMOD_LIBS=-kmod
+ac_cv_func_malloc_0_nonnull=yes
+KILL="/bin/kill"
+MOUNT_PATH="/bin/mount"
+UMOUNT_PATH="/bin/umount"
+SULOGIN="/sbin/sulogin"
+cc_cv_LDFLAGS__Wl__fuse_ld_gold=no

@@ -7,7 +7,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch autoconf configure build install
+targets: clean extract patch autogen configure build install
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -29,23 +29,23 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-autoconf: patch
-	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
+autogen: patch
+	@if [ ! -f $(PKGOBJDIR)/autogen-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		autoreconf -vif || exit 1 ;\
-		touch $(PKGOBJDIR)/autoconf-stamp ;\
+		./autogen.sh || exit 1 ;\
+		touch $(PKGOBJDIR)/autogen-stamp ;\
 	fi
 
-configure: autoconf
+configure: autogen
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) KMOD_LIBS=$(KMOD_LIBS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) KMOD_LIBS=$(KMOD_LIBS) CPPFLAGS=$(CPPFLAGS) CFLAGS=$(CFLAGS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) KMOD_LIBS=$(KMOD_LIBS) make -C $(PKGOBJDIR) ) || exit 1 ;\
+		( PATH=$(PATH) KMOD_LIBS=$(KMOD_LIBS) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
@@ -57,11 +57,9 @@ install: build
 			ln -sfv /bin/systemctl $(SYSROOTDIR)/sbin/$$tool || exit 1 ;\
 		done ;\
 		ln -sfv /lib/systemd/systemd $(SYSROOTDIR)/sbin/init || exit 1 ;\
-		install -v -m 644 $(PATCHDIR)/sysconfig.service $(SYSROOTDIR)/lib/systemd/system || exit 1 ;\
-		ln -sfv /lib/systemd/system/sysconfig.service $(SYSROOTDIR)/etc/systemd/system/multi-user.target.wants/sysconfig.service || exit 1 ;\
 		ln -sfv /lib/systemd/system/multi-user.target $(SYSROOTDIR)/etc/systemd/system/default.target || exit 1 ;\
 		sed -i "s@root lock@root root@g" $(SYSROOTDIR)/usr/lib/tmpfiles.d/legacy.conf || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libsystemd.la,libudev.la} || exit 1 ;\
+		rm -v $(SYSROOTDIR)/lib/{libsystemd.la,libudev.la} || exit 1 ;\
 		touch $(SYSROOTDIR)/etc/machine-id || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

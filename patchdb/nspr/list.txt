@@ -1,0 +1,1 @@
+nspr-disable-unneeded.patch

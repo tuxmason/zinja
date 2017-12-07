@@ -1,0 +1,12 @@
+diff -ura a/nspr/pr/src/misc/Makefile.in b/nspr/pr/src/misc/Makefile.in
+--- a/nspr/pr/src/misc/Makefile.in	2017-09-19 19:32:26.000000000 +0300
++++ b/nspr/pr/src/misc/Makefile.in	2017-12-06 17:40:06.054367938 +0300
+@@ -51,7 +51,7 @@
+ 
+ DEFINES	+= -D_NSPR_BUILD_
+ 
+-RELEASE_BINS = $(srcdir)/compile-et.pl $(srcdir)/prerr.properties
++RELEASE_BINS =
+ 
+ include $(topsrcdir)/config/rules.mk
+ 

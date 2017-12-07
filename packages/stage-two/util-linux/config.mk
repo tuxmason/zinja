@@ -14,5 +14,6 @@ COPTS := --enable-partx \
 	--disable-nls \
 	--enable-raw \
 	--with-ncursesw \
+	--with-sysroot=$(SYSROOTDIR) \
 	--disable-makeinstall-chown
 CC := "${CC} "

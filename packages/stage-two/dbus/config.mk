@@ -1,23 +1,24 @@
 PKGNAME := dbus
-PKGVER := 1.10.0
+PKGVER := 1.12.2
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := https://dbus.freedesktop.org/releases/dbus/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--sysconfdir=/etc \
 	--libexecdir=/usr/lib/dbus-1.0 \
 	--localstatedir=/var \
-	--enable-abstract-sockets \
 	--enable-tests=no \
 	--enable-systemd \
 	--disable-xml-docs \
 	--disable-doxygen-docs \
-	--with-init-scripts=none \
+	--enable-user-session \
 	--with-console-auth-dir=/run/console \
-	--with-systemdsystemunitdir=/lib/systemd/system \
-	--docdir=/usr/share/doc/dbus-1.10.0 \
+	--with-system-pid-file=/run/dbus/pid \
+	--with-system-socket=/run/dbus/system_bus_socket \
+	--docdir=/usr/share/doc/dbus-1.12.2 \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH)
 

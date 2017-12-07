@@ -1,0 +1,49 @@
+Author:	Mwanguhya Daniel Murungi <tuxmason@gmail.com>
+Upstream status: not submitted
+
+POSIX specifies that <poll.h> is the correct header to
+include for poll()
+  http://pubs.opengroup.org/onlinepubs/009695399/functions/poll.html
+whereas <sys/poll.h> is only needed for ancient glibc (<2.3),
+so let's follow POSIX instead.
+
+As a side-effect, this silences warnings when compiling
+against the musl C-library
+
+diff -ura a/configure b/configure
+--- a/configure	2017-11-13 16:36:11.000000000 +0300
++++ b/configure	2017-12-07 13:58:52.984059490 +0300
+@@ -20230,7 +20230,7 @@
+     #include <fcntl.h>
+     #include <poll.h>
+     #ifdef HAVE_SYS_POLL_H
+-    #include <sys/poll.h>
++    #include <poll.h>
+     #endif
+     int main(void) {
+       struct pollfd fds[1];
+
+diff -ura a/dbus/dbus-sysdeps-unix.c b/dbus/dbus-sysdeps-unix.c
+--- a/dbus/dbus-sysdeps-unix.c	2017-10-30 15:26:18.000000000 +0300
++++ b/dbus/dbus-sysdeps-unix.c	2017-12-07 13:58:53.001059854 +0300
+@@ -69,7 +69,7 @@
+ #include <sys/uio.h>
+ #endif
+ #ifdef HAVE_POLL
+-#include <sys/poll.h>
++#include <poll.h>
+ #endif
+ #ifdef HAVE_BACKTRACE
+ #include <execinfo.h>
+diff -ura a/dbus/dbus-sysdeps.h b/dbus/dbus-sysdeps.h
+--- a/dbus/dbus-sysdeps.h	2017-10-30 15:26:18.000000000 +0300
++++ b/dbus/dbus-sysdeps.h	2017-12-07 13:58:53.005059939 +0300
+@@ -53,7 +53,7 @@
+  * DBusPollFD
+  */ 
+ #ifdef HAVE_POLL
+-#include <sys/poll.h>
++#include <poll.h>
+ #endif
+ 
+ #ifdef DBUS_WINCE

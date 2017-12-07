@@ -1,10 +1,11 @@
 PKGNAME := bc
 PKGVER := 1.06.95
-PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://alpha.gnu.org/gnu/$(PKGNAME)/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--with-readline \
 	--sysconfdir=/etc \

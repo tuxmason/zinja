@@ -1,2 +1,3 @@
-bc-fix-missing-files.patch
-bc-use-sed.patch
+01_array_initialize.patch
+02_notice_read_write_errors.patch
+03_use_appropiate_makeinfo.patch

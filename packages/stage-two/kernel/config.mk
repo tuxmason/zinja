@@ -1,8 +1,9 @@
 PKGNAME := linux
-PKGVER := 3.10.20
+PKGVER := 4.9.66
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PATCHLIST := $(PATCHDB)/kernel/list.txt
 PATCHDIR := $(PATCHDB)/kernel
-CONF := $(PATCHDB)/kernel/kconfig.arm
+CONF := $(PATCHDB)/kernel/kconfig.x86_64
 PKGOBJDIR := $(TCBUILDROOT)/kernel-obj
+SRCURL := https://cdn.kernel.org/pub/linux/kernel/v4.x/$(PKGSRC)

@@ -1,5 +1,5 @@
-0001-fix-pam-uclibc-pthreads-clash.patch
-0002-fix-howmany-include.patch
-openssh-fix-utmp.diff
-openssh-sftp-interactive.diff
-openssh6.5-peaktput.diff
+bsd-compatible-realpath.patch
+fix-utmp.patch
+openssh-7.6p1-openssl-1.1.0-1.patch
+openssh-sftp-interactive.patch
+openssh7.4-peaktput.patch

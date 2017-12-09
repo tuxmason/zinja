@@ -1,10 +1,11 @@
 PKGNAME := openssh
-PKGVER := 7.1p1
+PKGVER := 7.6p1
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--with-pam \
 	--without-pie \
@@ -12,7 +13,6 @@ COPTS := --prefix=/usr \
 	--disable-wtmp \
 	--disable-strip \
 	--with-ssl-engine \
-	--with-audit=linux \
 	--with-md5-passwords \
 	--sysconfdir=/etc/ssh \
         --build=$(BUILDARCH) \
@@ -23,5 +23,6 @@ COPTS := --prefix=/usr \
 	--with-superuser-path="/sbin:/bin:/usr/sbin:/usr/bin"
 
 CC := "${CC}"
+CFLAGS := "-D__FILE_OFFSET_BITS=64"
 RANLIB := "${RANLIB}"
 PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig"

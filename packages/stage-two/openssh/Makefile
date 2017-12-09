@@ -31,7 +31,8 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) RANLIB=$(RANLIB) LD=$(CC) PKG_CONFIG_PATH=$(PKGCONFIG) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) RANLIB=$(RANLIB) CFLAGS=$(CFLAGS) \
+			LD=$(CC) PKG_CONFIG_PATH=$(PKGCONFIG) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 

@@ -1,0 +1,106 @@
+diff -uraN a/Makefile.Standalone b/Makefile.Standalone
+--- a/Makefile.Standalone	1970-01-01 03:00:00.000000000 +0300
++++ b/Makefile.Standalone	2017-12-10 01:42:23.988158523 +0300
+@@ -0,0 +1,49 @@
++
++CC := gcc
++
++HOST_CC := gcc
++
++DESTDIR := /tmp/tzdata
++
++ZONEINFO = zoneinfo
++
++ZONEDATA = etcetera southamerica northamerica europe africa antarctica asia australasia backward pacificnew systemv
++ 
++
++all: zic.o tzselect.o zdump.o
++
++zic.o: zic.c
++	@$(CC) zic.c -o zic
++
++zic-host.o: zic.c
++	@$(HOST_CC) zic.c -o zic-host
++
++zdump.o: zdump.c
++	@$(CC) -DUSE_LTZ=0 zdump.c -o zdump 
++
++tzselect.o: tzselect.ksh
++	cat tzselect.ksh | sed -e 's|TZDIR=[^}]*|TZDIR=/usr/share/zoneinfo|' \
++	 -e '/TZVERSION=/s|see_Makefile|"2.26"|' \
++	 -e '/PKGVERSION=/s|=.*|="2.26"|' \
++	 -e '/REPORT_BUGS_TO=/s|=.*|="bugs@my-os.local"|' > tzselect.new
++	mv -v tzselect.new tzselect
++
++tzdata.o: zic-host.o
++	@if [ -d $(ZONEINFO) ]; then rm -rf $(ZONEINFO); fi
++	mkdir -pv $(ZONEINFO)/{posix,right}
++	for tz in $(ZONEDATA); do \
++		./zic-host -L /dev/null -d $(ZONEINFO) -y "sh yearistype.sh" $$tz ;\
++		./zic-host -L /dev/null -d $(ZONEINFO)/posix -y "sh yearistype.sh" $$tz ;\
++		./zic-host -L leapseconds -d $(ZONEINFO)/right -y "sh yearistype.sh" $$tz ;\
++	done ;\
++	cp -v zone.tab $(ZONEINFO)
++	./zic-host -d $(ZONEINFO) -p Africa/Dar_es_Salaam || exit 1
++
++install: tzdata.o zic.o zdump.o tzselect.o
++	install -vd $(DESTDIR)/usr/bin
++	install -vd $(DESTDIR)/usr/share/zoneinfo
++	install -v -m755 zic zdump tzselect $(DESTDIR)/usr/bin
++	cp -rv $(ZONEINFO)/*  $(DESTDIR)/usr/share/zoneinfo
++
++clean:
++	@rm -fv zic{,-host} tzselect{,.new} zdump
+diff -uraN a/README.STANDALONE b/README.STANDALONE
+--- a/README.STANDALONE	1970-01-01 03:00:00.000000000 +0300
++++ b/README.STANDALONE	2017-12-10 01:42:15.094119975 +0300
+@@ -0,0 +1,4 @@
++source: official glibc-2.26 archive (timezone subdir)
++
++purpose: provides a standalone version of zic (timezone compiler)
++
+diff -uraN a/zdump.c b/zdump.c
+--- a/zdump.c	2017-12-09 15:44:36.000000000 +0300
++++ b/zdump.c	2017-12-10 01:42:15.094119975 +0300
+@@ -3,7 +3,6 @@
+ ** 2009-05-17 by Arthur David Olson.
+ */
+ 
+-#include "version.h"
+ 
+ /*
+ ** This code has been made independent of the rest of the time
+@@ -12,6 +11,11 @@
+ ** To do this, compile with -DUSE_LTZ=0 and link without the tz library.
+ */
+ 
++#define REPORT_BUGS_TO "bugs@my-os.local"
++#define PKGVERSION "2.26"
++#define TZVERSION "2.26"
++
++
+ #ifndef NETBSD_INSPIRED
+ # define NETBSD_INSPIRED 1
+ #endif
+diff -uraN a/zic.c b/zic.c
+--- a/zic.c	2017-12-09 15:44:36.000000000 +0300
++++ b/zic.c	2017-12-10 01:42:15.095119979 +0300
+@@ -3,7 +3,6 @@
+ ** 2006-07-17 by Arthur David Olson.
+ */
+ 
+-#include "version.h"
+ #include "private.h"
+ #include "tzfile.h"
+ 
+@@ -46,6 +45,10 @@
+ static ptrdiff_t const PTRDIFF_MAX = MAXVAL(ptrdiff_t, TYPE_BIT(ptrdiff_t));
+ #endif
+ 
++#define REPORT_BUGS_TO "bugs@my-os.local"
++#define PKGVERSION "2.26"
++#define TZVERSION "2.26"
++
+ /* The type for line numbers.  Use PRIdMAX to format them; formerly
+    there was also "#define PRIdLINENO PRIdMAX" and formats used
+    PRIdLINENO, but xgettext cannot grok that.  */

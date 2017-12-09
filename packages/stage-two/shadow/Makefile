@@ -49,6 +49,8 @@ install: build
 		sed -i 's/yes/no/' $(SYSROOTDIR)/etc/default/useradd || exit 1 ;\
 		install -v -m 0644 $(PATCHDIR)/pam.d/* $(SYSROOTDIR)/etc/pam.d/ || exit 1 ;\
 		install -v -m 0644 $(PATCHDIR)/login.defs $(SYSROOTDIR)/etc/ || exit 1 ;\
+		unshare -r /bin/bash -c '/usr/sbin/chroot $(SYSROOTDIR) /bin/bash -c "/usr/sbin/pwconv" ' || exit 1 ;\
+		unshare -r /bin/bash -c '/usr/sbin/chroot $(SYSROOTDIR) /bin/bash -c "/usr/sbin/grpconv" ' || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

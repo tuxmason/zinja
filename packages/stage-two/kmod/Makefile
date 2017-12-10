@@ -45,11 +45,10 @@ install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) pkgconfigdir=/usr/lib/pkgconfig install ) || exit 1 ;\
 		for target in depmod insmod modinfo modprobe rmmod; do \
-			ln -sfv /sbin/kmod $(SYSROOTDIR)/sbin/$$target || exit 1 ;\
+			ln -sfv /bin/kmod $(SYSROOTDIR)/sbin/$$target || exit 1 ;\
 		done ;\
-		ln -sfv /sbin/kmod $(SYSROOTDIR)/sbin/lsmod || exit 1 ;\
-		rm -v $(SYSROOTDIR)/lib/{libkmod.la,libkmod.so} || exit 1 ;\
-		ln -svf ../../lib/libkmod.so.2 $(SYSROOTDIR)/usr/lib/libkmod.so || exit 1 ;\
+		ln -sfv kmod $(SYSROOTDIR)/bin/lsmod || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/libkmod.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

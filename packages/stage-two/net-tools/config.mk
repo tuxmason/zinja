@@ -1,9 +1,10 @@
 PKGNAME := net-tools
-PKGVER := 1.60
-PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
+PKGVER := 1.60+git20161116.90da8a0
+PKGSRC := $(PKGNAME)_$(PKGVER).orig.tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCDIR := http://http.debian.net/debian/pool/main/n/$(PKG-NAME)/$(PKGSRC)
 CC := ${CC}
 CXX := ${CXX}

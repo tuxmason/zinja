@@ -1,0 +1,11 @@
+--- a/man/pt_BR/ifconfig.8
++++ b/man/pt_BR/ifconfig.8
+@@ -63,7 +63,7 @@
+ Habilita ou desabilita o uso de trailer em frames Ethernet. Não é
+ utilizada na implementação atual do pacote net-tools.
+ .TP
+-.B "[\-]allmulti" 
++.B "[\-]promisc"
+ Habilita ou desabilita o modo
+ .B promiscuous
+ da interface. Isto significa que todos os frames passarão pela camada

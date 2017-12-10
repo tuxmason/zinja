@@ -1,0 +1,11 @@
+--- net-tools-1.60+git20161116.90da8a0/iptunnel.c.orig	2017-12-10 04:21:06.718931672 +0300
++++ net-tools-1.60+git20161116.90da8a0/iptunnel.c	2017-12-10 04:21:23.099995282 +0300
+@@ -27,7 +27,7 @@
+ #include <sys/ioctl.h>
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
+-#include <net/if.h>
++//#include <net/if.h>
+ #include <net/if_arp.h>
+ /* We only care about linux/if_tunnel.h.  Unfortunately, older Linux headers
+  * (pre linux-4.8) did not include all the proper headers leading to missing

@@ -1,1 +1,7 @@
-git.patch
+Bug#805377-man-pt_BR-ifconfig.8.patch
+Bug#541172-netstat.c-exit-codes.patch
+translations.patch
+Add_missing_headers.patch
+Bug#443075-ifconfig.c-pointtopoint_spelling.patch
+Bug#500913-man-en_US-route.8-EXAMPLES-Add-single-route-del.patch
+iptunnel-fix.patch

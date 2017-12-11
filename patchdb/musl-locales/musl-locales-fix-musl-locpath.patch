@@ -1,0 +1,6 @@
+--- musl-locales-master-20171208/locale.in.orig	2017-12-11 08:13:47.651881054 +0300
++++ musl-locales-master-20171208/locale.in	2017-12-11 08:14:05.231974808 +0300
+@@ -1,2 +1,2 @@
+ #!/bin/sh
+-export MUSL_LOCPATH="@CMAKE_INSTALL_FULL_DATAROOTDIR@/@MUSL_LOCPATH@"
++export MUSL_LOCPATH="@MUSL_LOCPATH@"

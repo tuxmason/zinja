@@ -63,6 +63,7 @@ install: build
 		mkdir -pv $(SYSROOTDIR)/etc/systemd/system/getty@tty1.service.d ;\
 		install -v -m644 $(PATCHDIR)/noclear.conf $(SYSROOTDIR)/etc/systemd/system/getty@tty1.service.d || exit 1 ;\
 		ln -sfv /dev/null $(SYSROOTDIR)/etc/systemd/system/tmp.mount || exit 1 ;\
+		ln -sfv /dev/null $(SYSROOTDIR)/etc/systemd/network/99-default.link || exit 1 ;\
 		touch $(SYSROOTDIR)/etc/machine-id || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

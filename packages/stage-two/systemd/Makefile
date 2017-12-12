@@ -60,6 +60,7 @@ install: build
 		ln -sfv /lib/systemd/system/multi-user.target $(SYSROOTDIR)/etc/systemd/system/default.target || exit 1 ;\
 		sed -i "s@root lock@root root@g" $(SYSROOTDIR)/usr/lib/tmpfiles.d/legacy.conf || exit 1 ;\
 		rm -v $(SYSROOTDIR)/lib/{libsystemd.la,libudev.la} || exit 1 ;\
+		rm -v $(SYSROOTDIR)/lib/{systemd/libsystemd-shared.la,security/pam_systemd.la} || exit 1 ;\
 		mkdir -pv $(SYSROOTDIR)/etc/systemd/system/getty@tty1.service.d ;\
 		install -v -m644 $(PATCHDIR)/noclear.conf $(SYSROOTDIR)/etc/systemd/system/getty@tty1.service.d || exit 1 ;\
 		ln -sfv /dev/null $(SYSROOTDIR)/etc/systemd/system/tmp.mount || exit 1 ;\

@@ -5,6 +5,6 @@ PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
-SRCDIR := http://http.debian.net/debian/pool/main/n/$(PKG-NAME)/$(PKGSRC)
+SRCURL := http://http.debian.net/debian/pool/main/n/$(PKG-NAME)/$(PKGSRC)
 CC := ${CC}
 CXX := ${CXX}

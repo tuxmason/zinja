@@ -46,6 +46,7 @@ install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		install -v -m755 $(PATCHDIR)/lex $(SYSROOTDIR)/usr/bin || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/libfl.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

@@ -64,6 +64,8 @@ install: build
 		install -v -m644 $(PATCHDIR)/noclear.conf $(SYSROOTDIR)/etc/systemd/system/getty@tty1.service.d || exit 1 ;\
 		ln -sfv /dev/null $(SYSROOTDIR)/etc/systemd/system/tmp.mount || exit 1 ;\
 		ln -sfv /dev/null $(SYSROOTDIR)/etc/systemd/network/99-default.link || exit 1 ;\
+		rm -v $(SYSROOTDIR)/lib/systemd/system/systemd-update-utmp-runlevel.service || exit 1 ;\
+		rm -v $(SYSROOTDIR)/lib/systemd/system/systemd-update-utmp.service || exit 1 ;\
 		touch $(SYSROOTDIR)/etc/machine-id || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

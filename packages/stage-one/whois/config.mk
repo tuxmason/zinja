@@ -1,0 +1,9 @@
+PKGNAME := whois
+PKGVER := 5.2.18
+PKGSRC := $(PKGNAME)_$(PKGVER).tar.xz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-stage-one-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://ftp.debian.org/debian/pool/main/w/$(PKGNAME)/$(PKGSRC)
+COPTS := 

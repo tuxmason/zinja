@@ -16,3 +16,4 @@ COPTS := --prefix=/usr \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
 CC := "${CC} "
 CXX := "${CXX} "
+ROOTCRYPT := $(shell ${CROSSTOOLS}/bin/mkpasswd -m sha-512 ${ROOTPASSWD} )

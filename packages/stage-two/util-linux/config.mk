@@ -17,3 +17,4 @@ COPTS := --enable-partx \
 	--with-sysroot=$(SYSROOTDIR) \
 	--disable-makeinstall-chown
 CC := "${CC} "
+LDFLAGS := "-L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"

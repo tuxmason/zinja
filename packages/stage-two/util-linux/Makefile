@@ -38,7 +38,7 @@ autoconf: patch
 configure: autoconf
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) LDFLAGS=$(LDFLAGS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 

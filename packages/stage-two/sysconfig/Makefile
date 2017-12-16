@@ -41,6 +41,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGSRCDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		ln -svf /usr/share/zoneinfo/$(TIMEZONE) $(SYSROOTDIR)/etc/localtime || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

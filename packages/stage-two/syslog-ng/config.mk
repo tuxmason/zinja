@@ -17,8 +17,7 @@ COPTS := --prefix=/usr \
 	--enable-systemd \
 	--sysconfdir=/etc/syslog-ng \
 	--without-libmongo-client \
-	--localstatedir=/var/lib/syslog-ng \
-	--with-systemdsystemunitdir=/lib/systemd/system
+	--localstatedir=/var/lib/syslog-ng
 
 CC := "${CC} "
 CPPFLAGS := "-I$(SYSROOTDIR)/usr/include/glib-2.0 \

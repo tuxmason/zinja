@@ -1,0 +1,2 @@
+0001-Added-musl-support-to-libgpm-and-the-daemon.patch
+fix-gpm-include.patch

@@ -1,0 +1,18 @@
+diff -ra -U 0 a/src/prog/display-buttons.c b/src/prog/display-buttons.c
+--- a/src/prog/display-buttons.c	2012-10-27 00:21:38.000000000 +0300
++++ b/src/prog/display-buttons.c	2017-12-16 03:19:33.861564487 +0300
+@@ -39 +39 @@
+-#include <gpm.h>              /* gpm information      */
++#include "headers/gpm.h"              /* gpm information      */
+diff -ra -U 0 a/src/prog/display-coords.c b/src/prog/display-coords.c
+--- a/src/prog/display-coords.c	2012-10-27 00:21:38.000000000 +0300
++++ b/src/prog/display-coords.c	2017-12-16 03:19:33.862564491 +0300
+@@ -40 +40 @@
+-#include <gpm.h>              /* gpm information      */
++#include "headers/gpm.h"              /* gpm information      */
+diff -ra -U 0 a/src/prog/get-versions.c b/src/prog/get-versions.c
+--- a/src/prog/get-versions.c	2012-10-27 00:21:38.000000000 +0300
++++ b/src/prog/get-versions.c	2017-12-16 03:19:33.862564491 +0300
+@@ -25 +25 @@
+-#include <gpm.h>              /* gpm information      */
++#include "headers/gpm.h"              /* gpm information      */

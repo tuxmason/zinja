@@ -58,6 +58,8 @@ install: build
 		ln -svf /lib/systemd/system/syslog-ng.service $(SYSROOTDIR)/etc/systemd/system/multi-user.target.wants/syslog-ng.service || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libevtlog,libsyslog-ng}.la || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/syslog-ng/*.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/etc/syslog-ng/syslog-ng.conf || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/syslog-ng.conf $(SYSROOTDIR)/etc/syslog-ng/syslog-ng.conf || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

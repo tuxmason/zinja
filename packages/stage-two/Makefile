@@ -4,14 +4,14 @@ include ../../conf/shell-env.mk
 
 all: targetfs
 
-targetfs: fhs.o sysconfig.o gmp.o mpfr.o mpc.o zlib.o binutils.o gcc.o sed.o libffi.o ncurses.o \
-	pkg-config-lite.o check.o attr.o acl.o libcap.o util-linux.o procps-ng.o \
-	e2fsprogs.o cracklib.o cracklib-dict.o m4.o bison.o flex.o linux-pam.o shadow.o \
-	coreutils.o iana-etc.o libtool.o iproute2.o readline.o autoconf.o automake.o \
-	bash.o bc.o bzip2.o diffutils.o file.o gawk.o findutils.o gettext.o grep.o groff.o \
-	less.o gzip.o inetutils.o net-tools.o kbd.o make.o xz.o kmod.o patch.o psmisc.o \
-	libestr.o libee.o json-c.o tar.o texinfo.o vim.o libmicrohttpd.o expat.o openssl.o \
-	curl.o systemd.o dbus.o audit.o libedit.o openssh.o kernel.o
+targetfs: fhs.o sysconfig.o gmp.o mpfr.o mpc.o isl.o zlib.o binutils.o gcc.o sed.o libffi.o \
+	ncurses.o pkg-config-lite.o check.o attr.o acl.o libcap.o util-linux.o procps-ng.o \
+	e2fsprogs.o cracklib.o cracklib-dict.o m4.o bison.o flex.o linux-pam.o coreutils.o \
+	iana-etc.o libtool.o iproute2.o readline.o autoconf.o automake.o bash.o shadow.o bc.o \
+	bzip2.o diffutils.o file.o gawk.o findutils.o gettext.o grep.o groff.o less.o gzip.o \
+	inetutils.o net-tools.o kbd.o make.o xz.o kmod.o patch.o psmisc.o libestr.o libee.o \
+	json-c.o tar.o texinfo.o libmicrohttpd.o expat.o openssl.o curl.o systemd.o dbus.o \
+	libedit.o gpm.o vim.o openssh.o pcre.o glib2.o syslog-ng.o wget.o kernel.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:
@@ -33,6 +33,11 @@ mpc.o:
 	@echo "MPC started $(shell date -R) "
 	(make -C mpc 2>&1 | tee $(PKGLOGDIR)/mpc.log && exit $$PIPESTATUS)
 	@echo "MPC finished $(shell date -R) "
+
+isl.o:
+	@echo "isl started $(shell date -R) "
+	(make -C isl 2>&1 | tee $(PKGLOGDIR)/isl.log && exit $$PIPESTATUS)
+	@echo "isl finished $(shell date -R) "
 
 zlib.o:
 	@echo "Zlib started $(shell date -R) "
@@ -58,6 +63,11 @@ libffi.o:
 	@echo "Libffi started $(shell date -R) "
 	(make -C libffi 2>&1 | tee $(PKGLOGDIR)/libffi.log && exit $$PIPESTATUS)
 	@echo "Libffi finished $(shell date -R) "
+
+gpm.o:
+	@echo "gpm started $(shell date -R) "
+	(make -C gpm 2>&1 | tee $(PKGLOGDIR)/gpm.log && exit $$PIPESTATUS)
+	@echo "gpm finished $(shell date -R) "
 
 ncurses.o:
 	@echo "Ncurses started $(shell date -R) "
@@ -339,11 +349,6 @@ dbus.o:
 	(make -C dbus 2>&1 | tee $(PKGLOGDIR)/dbus.log && exit $$PIPESTATUS)
 	@echo "D-bus finished $(shell date -R) "
 
-audit.o:
-	@echo "Audit started $(shell date -R) "
-	(make -C audit 2>&1 | tee $(PKGLOGDIR)/audit.log && exit $$PIPESTATUS)
-	@echo "Audit finished $(shell date -R) "
-
 libedit.o:
 	@echo "Libedit started $(shell date -R) "
 	(make -C libedit 2>&1 | tee $(PKGLOGDIR)/libedit.log && exit $$PIPESTATUS)
@@ -353,6 +358,26 @@ openssh.o:
 	@echo "Openssh started $(shell date -R) "
 	(make -C openssh 2>&1 | tee $(PKGLOGDIR)/openssh.log && exit $$PIPESTATUS)
 	@echo "Openssh finished $(shell date -R) "
+
+pcre.o:
+	@echo "pcre started $(shell date -R) "
+	(make -C pcre 2>&1 | tee $(PKGLOGDIR)/pcre.log && exit $$PIPESTATUS)
+	@echo "pcre finished $(shell date -R) "
+
+glib2.o:
+	@echo "Glib started $(shell date -R) "
+	(make -C glib2 2>&1 | tee $(PKGLOGDIR)/glib2.log && exit $$PIPESTATUS)
+	@echo "Glib finished $(shell date -R) "
+
+syslog-ng.o:
+	@echo "syslog-ng started $(shell date -R) "
+	(make -C syslog-ng 2>&1 | tee $(PKGLOGDIR)/syslog-ng.log && exit $$PIPESTATUS)
+	@echo "syslog-ng finished $(shell date -R) "
+
+wget.o:
+	@echo "wget started $(shell date -R) "
+	(make -C wget 2>&1 | tee $(PKGLOGDIR)/wget.log && exit $$PIPESTATUS)
+	@echo "wget finished $(shell date -R) "
 
 sysconfig.o:
 	@echo "Sysconfig started $(shell date -R) "

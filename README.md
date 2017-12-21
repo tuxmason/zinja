@@ -4,14 +4,15 @@ zinja
 Zinja is a set of Makefiles and patches designed to automate the process of 
 building a custom Linux distribution. 
 
-Zinja generates a cross toolchain which is used to build tools for the target 
-filesystem. Zinja uses modified build rules and base patches from the CLFS 
-project. Also incorporated are some patches from various projects, namely, 
-Alpine, Gentoo and Openwrt.
+Zinja-64 generates a cross toolchain that is used to build a 64-bit filesystem. 
+
+Zinja uses custom build rules and base patches from the CLFS project. Also 
+incorporated are some patches from various projects, namely, Alpine, Gentoo 
+and Openwrt.
 
 Features
 --------
-- uClibc cross toolchain 
+- Musl lib C 
 - root filesystem and kernel compilation
 - support for ARM and Intel architectures
 

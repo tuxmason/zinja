@@ -3,9 +3,9 @@ include ../../conf/environment.mk
 
 all: cross-tools
 
-cross-tools: bc.o kheaders.o file.o m4.o ncurses.o pkg-config-lite.o u-boot-tools.o \
-	perl.o xml-parser.o gmp.o mpfr.o mpc.o binutils.o gcc-stage1.o uClibc-ng.o \
-	gcc-stage2.o
+cross-tools: bc.o kheaders.o file.o m4.o ncurses.o pkg-config-lite.o \
+	perl.o xml-parser.o whois.o gmp.o mpfr.o mpc.o isl.o binutils.o \
+	gcc-stage1.o musl.o gcc-stage2.o musl-locales.o timezone.o
 
 #==================== Cross Toolchain ================================================
 bc.o: 
@@ -38,11 +38,6 @@ pkg-config-lite.o:
 	( make -C pkg-config-lite 2>&1 | tee $(PKGLOGDIR)/pkg-config-lite.log && exit $$PIPESTATUS )
 	@echo "Pkg-config-lite finished $(shell date -R) "
 
-u-boot-tools.o: 
-	@echo "U-boot tools started $(shell date -R) "
-	( make -C u-boot-tools 2>&1 | tee $(PKGLOGDIR)/u-boot-tools.log && exit $$PIPESTATUS )
-	@echo "U-boot tools finished $(shell date -R) "
-
 perl.o: 
 	@echo "Perl started $(shell date -R) "
 	( make -C perl 2>&1 | tee $(PKGLOGDIR)/perl.log && exit $$PIPESTATUS )
@@ -52,6 +47,11 @@ xml-parser.o:
 	@echo "XML-Parser started $(shell date -R) "
 	( make -C xml-parser 2>&1 | tee $(PKGLOGDIR)/xml-parser.log && exit $$PIPESTATUS )
 	@echo "XML-Parser finished $(shell date -R) "
+
+whois.o: 
+	@echo "whois started $(shell date -R) "
+	( make -C whois 2>&1 | tee $(PKGLOGDIR)/whois.log && exit $$PIPESTATUS )
+	@echo "whois finished $(shell date -R) "
 
 gmp.o: 
 	@echo "GMP started $(shell date -R) "
@@ -68,6 +68,11 @@ mpc.o:
 	( make -C mpc 2>&1 | tee $(PKGLOGDIR)/mpc.log && exit $$PIPESTATUS )
 	@echo "MPC finished $(shell date -R) "
 
+isl.o: 
+	@echo "isl started $(shell date -R) "
+	( make -C isl 2>&1 | tee $(PKGLOGDIR)/isl.log && exit $$PIPESTATUS )
+	@echo "isl finished $(shell date -R) "
+
 binutils.o: 
 	@echo "Binutils started $(shell date -R) "
 	( make -C binutils 2>&1 | tee $(PKGLOGDIR)/binutils.log && exit $$PIPESTATUS )
@@ -78,15 +83,25 @@ gcc-stage1.o:
 	( make -C gcc-stage1 2>&1  | tee $(PKGLOGDIR)/gcc-stage1.log && exit $$PIPESTATUS )
 	@echo "GCC (Stage One) finished $(shell date -R) "
 
-uClibc-ng.o:
-	@echo "uClibc-ng started $(shell date -R) "
-	( make -C uClibc-ng 2>&1  | tee $(PKGLOGDIR)/uClibc-ng.log && exit $$PIPESTATUS )
-	@echo "uClibc-ng finished $(shell date -R) "
+musl.o:
+	@echo "musl lib C started $(shell date -R) "
+	( make -C musl 2>&1  | tee $(PKGLOGDIR)/musl.log && exit $$PIPESTATUS )
+	@echo "musl lib C finished $(shell date -R) "
 
 gcc-stage2.o:
 	@echo "GCC (Stage Two) started $(shell date -R) "
 	( make -C gcc-stage2 2>&1  | tee $(PKGLOGDIR)/gcc-stage2.log && exit $$PIPESTATUS )
 	@echo "GCC (Stage Two) finished $(shell date -R) "
+
+musl-locales.o:
+	@echo "Musl lib C locales started $(shell date -R) "
+	( make -C musl-locales 2>&1  | tee $(PKGLOGDIR)/musl-locales.log && exit $$PIPESTATUS )
+	@echo "musl lib C locales finished $(shell date -R) "
+
+timezone.o: 
+	@echo "timezone data started $(shell date -R) "
+	( make -C timezone 2>&1 | tee $(PKGLOGDIR)/timezone.log && exit $$PIPESTATUS )
+	@echo "timezone finished $(shell date -R) "
 
 #==================== End Cross Toolchain ============================================
 

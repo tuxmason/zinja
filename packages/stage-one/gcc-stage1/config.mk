@@ -3,7 +3,12 @@ PKGVER := 7.2.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-stage1-obj
-PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/stage1.x86_64.txt
+ifeq ($(ARCH),arm)
+	PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/stage1.arm.txt
+endif
+ifeq ($(ARCH),x86_64)
+	PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/stage1.x86_64.txt
+endif
 PATCHDIR := $(PATCHDB)/$(PKGNAME)/musl
 SRCURL := https://ftp.gnu.org/gnu/gcc/$(PKGNAME)-$(PKGVER)/$(PKGSRC)
 COPTS := --disable-shared \
@@ -41,3 +46,6 @@ COPTS := --disable-shared \
 	--with-mpfr=$(CROSSTOOLS)
 AR := ar
 LDFLAGS := -Wl,-rpath,/$(CROSSTOOLS)/lib
+ifeq ($(ARCH),arm)
+        COPTS := $(COPTS) --with-fpu=$(FPU) --with-float=$(FLOAT) --with-arch=$(ARCH_TYPE)
+endif

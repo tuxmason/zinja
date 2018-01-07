@@ -10,4 +10,9 @@ COPTS := CROSS_COMPILE=$(TARGETARCH)- \
 	--prefix=/ \
 	--enable-shared \
 	--target=$(TARGETARCH)
-CFLAGS := -m64
+ifeq ($(ARCH),arm)
+	CFLAGS :=
+endif
+ifeq ($(ARCH),x86_64)
+	CFLAGS := -m64
+endif

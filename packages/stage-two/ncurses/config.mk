@@ -13,6 +13,7 @@ NWCOPTS := --without-progs \
 	--without-cxx-binding \
 	--with-abi-version=5
 COPTS := --prefix=/usr \
+	--without-ada \
 	--with-shared \
 	--without-debug \
 	--libdir=/lib \

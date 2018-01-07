@@ -15,5 +15,6 @@ COPTS := --prefix=/usr \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
 	--enable-read-both-confs \
+	--disable-regenerate-docu \
 	--enable-securedir=/lib/security
 CC := "${CC} "

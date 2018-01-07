@@ -10,7 +10,6 @@ COPTS := --prefix=$(CROSSTOOLS) \
 	--disable-nls \
 	--disable-static \
 	--disable-multilib \
-	--enable-64-bit-bfd \
 	--enable-gold=yes \
 	--enable-threads \
 	--disable-werror \
@@ -20,3 +19,6 @@ COPTS := --prefix=$(CROSSTOOLS) \
 	--with-lib-path="$(SYSROOTDIR)/lib:$(SYSROOTDIR)/usr/lib"
 AS := as
 AR := ar
+ifeq ($(ARCH),x86_64)
+	COPTS := $(COPTS) --enable-64-bit-bfd
+endif

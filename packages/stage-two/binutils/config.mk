@@ -12,7 +12,6 @@ COPTS := --prefix=/usr \
 	--disable-multilib \
 	--enable-shared \
 	--enable-plugins \
-	--enable-64-bit-bfd \
 	--enable-gold=yes \
 	--enable-threads \
 	--enable-ld=default \
@@ -22,3 +21,6 @@ COPTS := --prefix=/usr \
 	--with-system-zlib \
 	--with-build-sysroot=$(SYSROOTDIR)
 CC := "${CC} "
+ifeq ($(ARCH),x86_64)
+	COPTS := $(COPTS) --enable-64-bit-bfd
+endif

@@ -41,10 +41,10 @@ build: configure
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(DESTDIR) install-libs ) || exit 1 ;\
-		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(DESTDIR) install-tools ) || exit 1 ;\
-		( PATH=$(PATH) make -C $(PKGOBJDIR) ARCH=$(ARCH) prefix=/usr DESTDIR=$(DESTDIR) install-headers ) || exit 1 ;\
-		cd $(DESTDIR)/lib/ ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-libs ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-tools ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) ARCH=$(ARCH) prefix=/usr DESTDIR=$(SYSROOTDIR) install-headers ) || exit 1 ;\
+		cd $(SYSROOTDIR)/lib/ ;\
 		for i in libc.so.6 libcrypt.so.1 libm.so.6 libpthread.so.0 librt.so.1 libutil.so.1 libdl.so.2 libresolv.so.2 libxnet.so; do \
 			ln -sv /lib/libc.so $$i ;\
 		done ;\

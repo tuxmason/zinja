@@ -1,1 +1,2 @@
+0001-Make-dynamic-linker-a-relative-symlink-to-libc.patch
 0001-avoid-kernel-if_ether.h.patch

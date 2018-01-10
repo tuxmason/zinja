@@ -9,10 +9,13 @@ SRCURL := http://ftp.gnu.org/gnu/$(PKGNAME)/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--bindir=/bin \
 	--disable-nls \
+	--with-curses \
 	--without-bash-malloc \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
-	--with-installed-readline \
+	--enable-history \
+	--enable-readline \
+	--with-installed-readline=$(SYSROOTDIR) \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
 CC := "${CC} "
 CXX := "${CXX} "

@@ -30,6 +30,8 @@ patch: extract
 
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
+		cd $(PKGSRCDIR) ;\
+		( PATH=$(PATH) KERNEL_INCLUDE=$(DBMINCLUDE) make Config CC=$(CC) HOSTCC=$(HOSTCC) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 

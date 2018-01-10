@@ -8,7 +8,6 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://openssl.org/source/$(PKGSRC)
 COPTS := shared \
 	-DOPENSSL_NO_ASYNC \
-	linux-x86_64 \
 	zlib-dynamic \
 	--openssldir=/etc/ssl \
 	--prefix=/usr \
@@ -22,3 +21,10 @@ LD := "${LD}"
 RANLIB := "${RANLIB}"
 
 CROSS := $(TARGETARCH)
+
+ifeq ($(ARCH),arm)
+        COPTS := $(COPTS) linux-generic32
+endif
+ifeq ($(ARCH),x86_64)
+        COPTS := $(COPTS) linux-x86_64
+endif

@@ -12,7 +12,9 @@ COPTS := CROSS_COMPILE=$(TARGETARCH)- \
 	--target=$(TARGETARCH)
 ifeq ($(ARCH),arm)
 	CFLAGS :=
+	LINKER := ld-musl-armhf.so.1
 endif
 ifeq ($(ARCH),x86_64)
 	CFLAGS := -m64
+	LINKER := ld-musl-x86_64.so.1
 endif

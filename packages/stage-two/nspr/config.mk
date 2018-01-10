@@ -9,7 +9,6 @@ SRCURL := https://archive.mozilla.org/pub/nspr/releases/v$(PKGVER)/src/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--with-mozilla \
 	--with-pthreads \
-	--enable-64bit \
 	--sysconfdir=/etc \
 	--host=$(TARGETARCH) \
 	--build=$(BUILDARCH) \
@@ -17,3 +16,6 @@ COPTS := --prefix=/usr \
 CC := "${CC} "
 CXX := "${CXX} "
 HOST_CC := gcc
+ifeq ($(ARCH),x86_64)
+        COPTS := $(COPTS) --enable-64bit
+endif

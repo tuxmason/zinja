@@ -30,7 +30,7 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-configure: configure-wc configure-nwc
+configure: configure-wc
 
 configure-wc: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-wc-stamp  ]; then \
@@ -46,7 +46,7 @@ configure-nwc: patch
 		touch $(PKGOBJDIR)/configure-nwc-stamp ;\
 	fi
 
-build: build-wc build-nwc
+build: build-wc
 
 build-wc: configure-wc
 	@if [ ! -f $(PKGOBJDIR)/build-wc-stamp  ]; then \
@@ -61,7 +61,7 @@ build-nwc: configure-nwc
 		touch $(PKGOBJDIR)/build-nwc-stamp ;\
 	fi
 
-install: install-wc install-nwc
+install: install-wc
 
 install-wc: build-wc
 	@if [ ! -f $(PKGOBJDIR)/install-wc-stamp  ]; then \
@@ -71,6 +71,11 @@ install-wc: build-wc
 			mv -v $(SYSROOTDIR)/lib/lib$${lib}.a $(SYSROOTDIR)/usr/lib || exit 1 ;\
 			ln -sfv ../../lib/lib$${lib}.so.6 $(SYSROOTDIR)/usr/lib/lib$${lib}.so || exit 1 ;\
 		done ;\
+		for lib in ncurses form panel menu ; do \
+			echo "INPUT(-l$${lib}w)" > $(SYSROOTDIR)/usr/lib/lib$${lib}.so || exit 1 ;\
+			ln -sfv lib$${lib}w.a $(SYSROOTDIR)/usr/lib/lib$${lib}.a || exit 1 ;\
+		done ;\
+		ln -sfv ncursesw6-config $(SYSROOTDIR)/usr/bin/ncurses6-config || exit 1 ;\
 		touch $(PKGOBJDIR)/install-wc-stamp ;\
 	fi
 

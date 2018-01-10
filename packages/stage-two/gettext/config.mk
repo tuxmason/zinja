@@ -14,6 +14,7 @@ COPTS := --prefix=/usr \
 	--host=$(TARGETARCH) \
 	--build=$(BUILDARCH) \
 	--with-sysroot=$(SYSROOTDIR) \
+	--with-libncurses-prefix=$(SYSROOTDIR) \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
 CC := "${CC} "
 CXX := "${CXX} "

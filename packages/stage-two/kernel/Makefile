@@ -37,7 +37,7 @@ configure: patch
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) make -j$(NPROCS) ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" bzImage modules ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" $(KIMAGE) modules ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 uimage: configure
@@ -51,9 +51,9 @@ install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
 		( install -vd $(SYSROOTDIR)/boot ) ;\
-		( install -v arch/$(ARCH)/boot/bzImage $(SYSROOTDIR)/boot/vmlinuz ) ;\
-		( install -v System.map $(SYSROOTDIR)/boot ) ;\
-		( install -v .config $(SYSROOTDIR)/boot/$(PKGNAME)-config-$(PKGVER) ) ;\
+		( cp -v arch/$(ARCH)/boot/$(KIMAGE) $(SYSROOTDIR)/boot/vmlinuz ) || exit 1 ;\
+		( install -v System.map $(SYSROOTDIR)/boot ) || exit 1 ;\
+		( install -v .config $(SYSROOTDIR)/boot/$(PKGNAME)-$(ARCH)-config-$(PKGVER) ) || exit 1 ;\
 		( PATH=$(PATH) make ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" INSTALL_MOD_PATH=$(SYSROOTDIR) modules_install V=1 ) || exit 1 ;\
 		( PATH=$(PATH) make ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" INSTALL_FW_PATH=$(SYSROOTDIR)/lib/firmware firmware_install V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\

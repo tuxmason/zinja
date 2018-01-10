@@ -44,7 +44,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libatomic.la,libgomp.la,libitm.la,libcilkrts.la,libmpx.la,libmpxwrappers.la,libquadmath.la,libstdc++fs.la,libssp.la,libssp_nonshared.la,libstdc++.la,libsupc++.la} || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{$(LA)} || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/gcc/$(TARGETARCH)/$(PKGVER)/liblto_plugin.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

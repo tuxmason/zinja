@@ -1,0 +1,9 @@
+0004-posix_memalign.diff
+0005-cilkrts.diff
+0006-libatomic-test-fix.diff
+0007-libgomp-test-fix.diff
+0008-libitm-test-fix.diff
+0009-libvtv-test-fix.diff
+0011-j2.diff
+0012-s390x-muslldso.diff
+0013-microblaze-pr65649.diff

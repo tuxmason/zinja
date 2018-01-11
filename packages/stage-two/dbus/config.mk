@@ -15,6 +15,7 @@ COPTS := --prefix=/usr \
 	--disable-xml-docs \
 	--disable-doxygen-docs \
 	--enable-user-session \
+	--without-x \
 	--with-console-auth-dir=/run/console \
 	--with-system-pid-file=/run/dbus/pid \
 	--with-system-socket=/run/dbus/system_bus_socket \

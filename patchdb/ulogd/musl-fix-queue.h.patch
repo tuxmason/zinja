@@ -1,0 +1,10 @@
+--- ulogd-2.0.5/output/sqlite3/ulogd_output_SQLITE3.c.orig	2018-01-13 14:17:18.523198582 +0300
++++ ulogd-2.0.5/output/sqlite3/ulogd_output_SQLITE3.c	2018-01-13 14:17:31.327295849 +0300
+@@ -36,7 +36,6 @@
+ #include <ulogd/ulogd.h>
+ #include <ulogd/conffile.h>
+ #include <sqlite3.h>
+-#include <sys/queue.h>
+ 
+ #define CFG_BUFFER_DEFAULT		10
+ 

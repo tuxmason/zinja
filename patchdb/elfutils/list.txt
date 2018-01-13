@@ -1,0 +1,10 @@
+0001-dso-link-change.patch
+0001-libasm-may-link-with-libbz2-if-found.patch
+0002-Fix-elf_cvt_gunhash-if-dest-and-src-are-same.patch
+0003-fixheadercheck.patch
+0004-Disable-the-test-to-convert-euc-jp.patch
+0005-fix-a-stack-usage-warning.patch
+0006-Fix-build-on-aarch64-musl.patch
+0007-Fix-control-path-where-we-have-str-as-uninitialized-.patch
+0008-build-Provide-alternatives-for-glibc-assumptions-hel.patch
+arm_backend.diff

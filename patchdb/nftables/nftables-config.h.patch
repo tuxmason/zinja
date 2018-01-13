@@ -1,0 +1,7 @@
+--- nftables-0.8/src/proto.c.orig	2018-01-13 12:05:25.886695434 +0300
++++ nftables-0.8/src/proto.c	2018-01-13 12:05:46.739850787 +0300
+@@ -1,3 +1,4 @@
++#include "config.h"
+ /*
+  * Protocol header and type definitions and related functions.
+  *

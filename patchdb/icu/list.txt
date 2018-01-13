@@ -1,0 +1,6 @@
+detect-compiler-symbol-prefix.patch
+dont-build-static-dynamic-twice.patch
+fix-static-linking-with-icu-uc.patch
+icu-musl-fixes.patch
+link-icudata-as-data-only.patch
+workaround-toolchain-bugs.patch

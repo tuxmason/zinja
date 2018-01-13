@@ -1,0 +1,64 @@
+#include the shared config file
+include ../../../conf/environment.mk
+include ../../../conf/shell-env.mk
+
+#include package specific config file
+include ./config.mk 
+
+all: targets
+
+targets: clean extract patch host configure build install
+
+extract:
+	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
+		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
+		mkdir $(PKGOBJDIR) ;\
+		mv -v $(TCBUILDROOT)/icu $(PKGSRCDIR)  || exit 1 ;\
+		touch $(PKGOBJDIR)/extract-stamp ;\
+	fi
+
+patch: extract 
+	@if [ ! -f $(PKGOBJDIR)/patch-stamp  ]; then \
+		if [ -f $(PATCHLIST) ]; then \
+			for f in `cat $(PATCHLIST)` ; do \
+				echo -e " --- Patch: $$f --- "  ;\
+				( patch -d $(PKGSRCDIR) -p1 -i $(PATCHDIR)/$$f ) || exit 1 ;\
+				echo -e " --- done --- \n"  ;\
+			done ;\
+		fi ;\
+		touch $(PKGOBJDIR)/patch-stamp ;\
+	fi
+
+host: patch
+	@if [ ! -f $(PKGOBJDIR)/host-stamp  ]; then \
+		mkdir $(PKGSRCDIR)/source/host ;\
+		cd $(PKGSRCDIR)/source/host ;\
+		( PATH="/bin:/usr/bin" AR="ar" RANLIB="ranlib" $(PKGSRCDIR)/source/runConfigureICU Linux/gcc ) || exit 1 ;\
+		( PATH="/bin:/usr/bin" make -j$(NPROCS) -C $(PKGSRCDIR)/source/host ) || exit 1 ;\
+		touch $(PKGOBJDIR)/host-stamp ;\
+	fi
+
+configure: host
+	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
+		cd $(PKGSRCDIR)/source ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) ./configure $(COPTS) ) || exit 1 ;\
+		touch $(PKGOBJDIR)/configure-stamp ;\
+	fi
+
+build: configure
+	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
+		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGSRCDIR)/source ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-stamp ;\
+	fi
+
+install: build
+	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
+		( PATH=$(PATH) make -C $(PKGSRCDIR)/source DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-stamp ;\
+	fi
+
+clean:
+	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
+	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
+
+PHONY: all targets

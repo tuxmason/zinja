@@ -1,0 +1,31 @@
+# strtod_l() is not supported by musl; also xlocale.h is missing
+# It is not possible to disable its use via configure switches or env vars
+# so monkey patching is needed. Idea was stollen from openembedded
+# https://github.com/openembedded/openembedded-core/blob/master/meta/recipes-support/icu/icu.inc#L30
+
+source: https://git.alpinelinux.org/cgit/aports/tree/main/icu/APKBUILD
+
+diff -ura a/source/configure b/source/configure
+--- a/source/configure	2017-04-07 10:40:30.000000000 +0300
++++ b/source/configure	2018-01-12 21:51:22.514826096 +0300
+@@ -7093,7 +7093,7 @@
+ 
+ if test x$ac_cv_func_strtod_l = xyes
+ then
+-     CONFIG_CPPFLAGS="${CONFIG_CPPFLAGS} -DU_HAVE_STRTOD_L=1"
++     CONFIG_CPPFLAGS="${CONFIG_CPPFLAGS} -DU_HAVE_STRTOD_L=0"
+      U_HAVE_STRTOD_L=1
+ else
+      CONFIG_CPPFLAGS="${CONFIG_CPPFLAGS} -DU_HAVE_STRTOD_L=0"
+diff -ura a/source/configure.ac b/source/configure.ac
+--- a/source/configure.ac	2017-04-07 10:40:30.000000000 +0300
++++ b/source/configure.ac	2018-01-12 21:51:20.520809925 +0300
+@@ -883,7 +883,7 @@
+ AC_CHECK_FUNC(strtod_l)
+ if test x$ac_cv_func_strtod_l = xyes
+ then
+-     CONFIG_CPPFLAGS="${CONFIG_CPPFLAGS} -DU_HAVE_STRTOD_L=1"
++     CONFIG_CPPFLAGS="${CONFIG_CPPFLAGS} -DU_HAVE_STRTOD_L=0"
+      U_HAVE_STRTOD_L=1
+ else
+      CONFIG_CPPFLAGS="${CONFIG_CPPFLAGS} -DU_HAVE_STRTOD_L=0"

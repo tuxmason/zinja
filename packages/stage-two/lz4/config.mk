@@ -1,0 +1,11 @@
+PKGNAME := lz4
+PKGVER := 1.8.1.2
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := https://github.com/$(PKGNAME)/$(PKGNAME)/archive/v$(PKGVER).tar.gz
+
+CC := "${CC} "
+CXX := "${CXX} "

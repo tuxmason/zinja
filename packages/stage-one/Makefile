@@ -5,7 +5,8 @@ all: cross-tools
 
 cross-tools: bc.o kheaders.o file.o m4.o ncurses.o pkg-config-lite.o \
 	perl.o xml-parser.o whois.o gmp.o mpfr.o mpc.o isl.o binutils.o \
-	gcc-stage1.o musl.o gcc-stage2.o musl-locales.o timezone.o
+	gcc-stage1.o musl.o gcc-stage2.o musl-locales.o musl-fts.o \
+	musl-obstack.o timezone.o argp-standalone.o
 
 #==================== Cross Toolchain ================================================
 bc.o: 
@@ -84,9 +85,9 @@ gcc-stage1.o:
 	@echo "GCC (Stage One) finished $(shell date -R) "
 
 musl.o:
-	@echo "musl lib C started $(shell date -R) "
+	@echo "Musl lib C started $(shell date -R) "
 	( make -C musl 2>&1  | tee $(PKGLOGDIR)/musl.log && exit $$PIPESTATUS )
-	@echo "musl lib C finished $(shell date -R) "
+	@echo "Musl lib C finished $(shell date -R) "
 
 gcc-stage2.o:
 	@echo "GCC (Stage Two) started $(shell date -R) "
@@ -96,12 +97,27 @@ gcc-stage2.o:
 musl-locales.o:
 	@echo "Musl lib C locales started $(shell date -R) "
 	( make -C musl-locales 2>&1  | tee $(PKGLOGDIR)/musl-locales.log && exit $$PIPESTATUS )
-	@echo "musl lib C locales finished $(shell date -R) "
+	@echo "Musl lib C locales finished $(shell date -R) "
+
+musl-fts.o:
+	@echo "Musl fts support started $(shell date -R) "
+	( make -C musl-fts 2>&1  | tee $(PKGLOGDIR)/musl-fts.log && exit $$PIPESTATUS )
+	@echo "Musl fts support finished $(shell date -R) "
+
+musl-obstack.o:
+	@echo "Musl obstack support started $(shell date -R) "
+	( make -C musl-obstack 2>&1  | tee $(PKGLOGDIR)/musl-obstack.log && exit $$PIPESTATUS )
+	@echo "Musl obstack support finished $(shell date -R) "
 
 timezone.o: 
 	@echo "timezone data started $(shell date -R) "
 	( make -C timezone 2>&1 | tee $(PKGLOGDIR)/timezone.log && exit $$PIPESTATUS )
 	@echo "timezone finished $(shell date -R) "
+
+argp-standalone.o:
+	@echo "argp-standalone started $(shell date -R) "
+	( make -C argp-standalone 2>&1 | tee $(PKGLOGDIR)/argp-standalone.log && exit $$PIPESTATUS )
+	@echo "argp-standalone finished $(shell date -R) "
 
 #==================== End Cross Toolchain ============================================
 

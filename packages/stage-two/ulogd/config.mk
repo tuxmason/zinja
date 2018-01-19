@@ -7,11 +7,11 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://netfilter.org/projects/$(PKGNAME)/files/$(PKGSRC)
 COPTS := --prefix=/usr \
+	--with-sqlite \
 	--sysconfdir=/etc \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
 	--without-dbi \
-	--without-sqlite \
 	--without-pgsql \
 	--without-mysql
 

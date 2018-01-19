@@ -4,14 +4,19 @@ include ../../conf/shell-env.mk
 
 all: targetfs
 
-targetfs: fhs.o sysconfig.o gmp.o mpfr.o mpc.o isl.o zlib.o binutils.o gcc.o sed.o libffi.o \
-	ncurses.o pkg-config-lite.o check.o attr.o acl.o libcap.o util-linux.o procps-ng.o \
-	e2fsprogs.o cracklib.o cracklib-dict.o m4.o bison.o flex.o linux-pam.o coreutils.o \
-	iana-etc.o libtool.o iproute2.o readline.o autoconf.o automake.o bash.o shadow.o bc.o \
-	bzip2.o diffutils.o file.o gawk.o findutils.o gettext.o grep.o groff.o less.o gzip.o \
-	inetutils.o net-tools.o kbd.o make.o xz.o kmod.o patch.o psmisc.o libestr.o libee.o \
-	json-c.o tar.o texinfo.o libmicrohttpd.o expat.o openssl.o curl.o systemd.o dbus.o \
-	libedit.o gpm.o vim.o openssh.o pcre.o glib2.o syslog-ng.o wget.o kernel.o
+targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binutils.o gcc.o \
+	libffi.o attr.o acl.o libcap.o sed.o pkg-config-lite.o ncurses.o check.o cracklib.o \
+	cracklib-dict.o linux-pam.o shadow.o util-linux.o procps-ng.o e2fsprogs.o coreutils.o \
+	iana-etc.o libtool.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o \
+	diffutils.o file.o gawk.o findutils.o gettext.o gperf.o grep.o groff.o less.o gzip.o \
+	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o intltool.o \
+	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux.o \
+	gpm.o vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
+	openssh.o pcre.o glib2.o wget.o kernel.o libaio.o libevent.o libusb.o libusb-compat.o \
+	usbutils.o icu.o sqlite3.o libxml2.o jansson.o libnl.o libical.o bluez.o libpcap.o libmnl.o libnftnl.o \
+	libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o libnetfilter_queue.o libnetfilter_conntrack.o \
+	libnetfilter_cttimeout.o libnetfilter_cthelper.o ipset.o iptables.o nftables.o iproute2.o \
+	zeromq.o msgpack.o snappy.o mariadb.o libdbi.o libdbidrivers.o syslog-ng.o ulogd.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:
@@ -224,6 +229,11 @@ gettext.o:
 	(make -C gettext 2>&1 | tee $(PKGLOGDIR)/gettext.log && exit $$PIPESTATUS)
 	@echo "Gettext finished $(shell date -R) "
 
+gperf.o:
+	@echo "Gperf started $(shell date -R) "
+	(make -C gperf 2>&1 | tee $(PKGLOGDIR)/gperf.log && exit $$PIPESTATUS)
+	@echo "Gperf finished $(shell date -R) "
+
 grep.o:
 	@echo "Grep started $(shell date -R) "
 	(make -C grep 2>&1 | tee $(PKGLOGDIR)/grep.log && exit $$PIPESTATUS)
@@ -259,6 +269,11 @@ kbd.o:
 	(make -C kbd 2>&1 | tee $(PKGLOGDIR)/kbd.log && exit $$PIPESTATUS)
 	@echo "Kbd finished $(shell date -R) "
 
+libpipeline.o:
+	@echo "libpipeline started $(shell date -R) "
+	(make -C libpipeline 2>&1 | tee $(PKGLOGDIR)/libpipeline.log && exit $$PIPESTATUS)
+	@echo "libpipeline finished $(shell date -R) "
+
 make.o:
 	@echo "Make started $(shell date -R) "
 	(make -C make 2>&1 | tee $(PKGLOGDIR)/make.log && exit $$PIPESTATUS)
@@ -268,6 +283,11 @@ xz.o:
 	@echo "Xz started $(shell date -R) "
 	(make -C xz 2>&1 | tee $(PKGLOGDIR)/xz.log && exit $$PIPESTATUS)
 	@echo "Xz finished $(shell date -R) "
+
+elfutils.o:
+	@echo "elfutils started $(shell date -R) "
+	(make -C elfutils 2>&1 | tee $(PKGLOGDIR)/elfutils.log && exit $$PIPESTATUS)
+	@echo "elfutils finished $(shell date -R) "
 
 kmod.o:
 	@echo "Kmod started $(shell date -R) "
@@ -314,10 +334,180 @@ vim.o:
 	(make -C vim 2>&1 | tee $(PKGLOGDIR)/vim.log && exit $$PIPESTATUS)
 	@echo "Vim finished $(shell date -R) "
 
+grub.o:
+	@echo "GRUB started $(shell date -R) "
+	(make -C grub 2>&1 | tee $(PKGLOGDIR)/grub.log && exit $$PIPESTATUS)
+	@echo "GRUB finished $(shell date -R) "
+
 kernel.o:
 	@echo "Linux started $(shell date -R) "
 	(make -C kernel 2>&1 | tee $(PKGLOGDIR)/kernel.log && exit $$PIPESTATUS)
 	@echo "Linux finished $(shell date -R) "
+
+libaio.o:
+	@echo "libaio started $(shell date -R) "
+	(make -C libaio 2>&1 | tee $(PKGLOGDIR)/libaio.log && exit $$PIPESTATUS)
+	@echo "libaio finished $(shell date -R) "
+
+libevent.o:
+	@echo "libevent started $(shell date -R) "
+	(make -C libevent 2>&1 | tee $(PKGLOGDIR)/libevent.log && exit $$PIPESTATUS)
+	@echo "libevent finished $(shell date -R) "
+
+libusb.o:
+	@echo "libusb started $(shell date -R) "
+	(make -C libusb 2>&1 | tee $(PKGLOGDIR)/libusb.log && exit $$PIPESTATUS)
+	@echo "libusb finished $(shell date -R) "
+
+libusb-compat.o:
+	@echo "libusb-compat started $(shell date -R) "
+	(make -C libusb-compat 2>&1 | tee $(PKGLOGDIR)/libusb-compat.log && exit $$PIPESTATUS)
+	@echo "libusb-compat finished $(shell date -R) "
+
+usbutils.o:
+	@echo "usbutils started $(shell date -R) "
+	(make -C usbutils 2>&1 | tee $(PKGLOGDIR)/usbutils.log && exit $$PIPESTATUS)
+	@echo "usbutils finished $(shell date -R) "
+
+icu.o:
+	@echo "icu started $(shell date -R) "
+	(make -C icu 2>&1 | tee $(PKGLOGDIR)/icu.log && exit $$PIPESTATUS)
+	@echo "icu finished $(shell date -R) "
+
+libxml2.o:
+	@echo "libxml2 started $(shell date -R) "
+	(make -C libxml2 2>&1 | tee $(PKGLOGDIR)/libxml2.log && exit $$PIPESTATUS)
+	@echo "libxml2 finished $(shell date -R) "
+
+jansson.o:
+	@echo "jansson started $(shell date -R) "
+	(make -C jansson 2>&1 | tee $(PKGLOGDIR)/jansson.log && exit $$PIPESTATUS)
+	@echo "jansson finished $(shell date -R) "
+
+libnl.o:
+	@echo "libnl started $(shell date -R) "
+	(make -C libnl 2>&1 | tee $(PKGLOGDIR)/libnl.log && exit $$PIPESTATUS)
+	@echo "libnl finished $(shell date -R) "
+
+libical.o:
+	@echo "libical started $(shell date -R) "
+	(make -C libical 2>&1 | tee $(PKGLOGDIR)/libical.log && exit $$PIPESTATUS)
+	@echo "libical finished $(shell date -R) "
+
+bluez.o:
+	@echo "bluez started $(shell date -R) "
+	(make -C bluez 2>&1 | tee $(PKGLOGDIR)/bluez.log && exit $$PIPESTATUS)
+	@echo "bluez finished $(shell date -R) "
+
+libpcap.o:
+	@echo "libpcap started $(shell date -R) "
+	(make -C libpcap 2>&1 | tee $(PKGLOGDIR)/libpcap.log && exit $$PIPESTATUS)
+	@echo "libpcap finished $(shell date -R) "
+
+libmnl.o:
+	@echo "libmnl started $(shell date -R) "
+	(make -C libmnl 2>&1 | tee $(PKGLOGDIR)/libmnl.log && exit $$PIPESTATUS)
+	@echo "libmnl finished $(shell date -R) "
+
+libnftnl.o:
+	@echo "libnftnl started $(shell date -R) "
+	(make -C libnftnl 2>&1 | tee $(PKGLOGDIR)/libnftnl.log && exit $$PIPESTATUS)
+	@echo "libnftnl finished $(shell date -R) "
+
+libnfnetlink.o:
+	@echo "libnfnetlink started $(shell date -R) "
+	(make -C libnfnetlink 2>&1 | tee $(PKGLOGDIR)/libnfnetlink.log && exit $$PIPESTATUS)
+	@echo "libnfnetlink finished $(shell date -R) "
+
+libnetfilter_acct.o:
+	@echo "libnetfilter_acct started $(shell date -R) "
+	(make -C libnetfilter_acct 2>&1 | tee $(PKGLOGDIR)/libnetfilter_acct.log && exit $$PIPESTATUS)
+	@echo "libnetfilter_acct finished $(shell date -R) "
+
+libnetfilter_log.o:
+	@echo "libnetfilter_log started $(shell date -R) "
+	(make -C libnetfilter_log 2>&1 | tee $(PKGLOGDIR)/libnetfilter_log.log && exit $$PIPESTATUS)
+	@echo "libnetfilter_log finished $(shell date -R) "
+
+libnetfilter_queue.o:
+	@echo "libnetfilter_queue started $(shell date -R) "
+	(make -C libnetfilter_queue 2>&1 | tee $(PKGLOGDIR)/libnetfilter_queue.log && exit $$PIPESTATUS)
+	@echo "libnetfilter_queue finished $(shell date -R) "
+
+libnetfilter_conntrack.o:
+	@echo "libnetfilter_conntrack started $(shell date -R) "
+	(make -C libnetfilter_conntrack 2>&1 | tee $(PKGLOGDIR)/libnetfilter_conntrack.log && exit $$PIPESTATUS)
+	@echo "libnetfilter_conntrack finished $(shell date -R) "
+
+libnetfilter_cttimeout.o:
+	@echo "libnetfilter_cttimeout started $(shell date -R) "
+	(make -C libnetfilter_cttimeout 2>&1 | tee $(PKGLOGDIR)/libnetfilter_cttimeout.log && exit $$PIPESTATUS)
+	@echo "libnetfilter_cttimeout finished $(shell date -R) "
+
+libnetfilter_cthelper.o:
+	@echo "libnetfilter_cthelper started $(shell date -R) "
+	(make -C libnetfilter_cthelper 2>&1 | tee $(PKGLOGDIR)/libnetfilter_cthelper.log && exit $$PIPESTATUS)
+	@echo "libnetfilter_cthelper finished $(shell date -R) "
+
+ipset.o:
+	@echo "ipset started $(shell date -R) "
+	(make -C ipset 2>&1 | tee $(PKGLOGDIR)/ipset.log && exit $$PIPESTATUS)
+	@echo "ipset finished $(shell date -R) "
+
+iptables.o:
+	@echo "iptables started $(shell date -R) "
+	(make -C iptables 2>&1 | tee $(PKGLOGDIR)/iptables.log && exit $$PIPESTATUS)
+	@echo "iptables finished $(shell date -R) "
+
+nftables.o:
+	@echo "nftables started $(shell date -R) "
+	(make -C nftables 2>&1 | tee $(PKGLOGDIR)/nftables.log && exit $$PIPESTATUS)
+	@echo "nftables finished $(shell date -R) "
+
+sqlite3.o:
+	@echo "sqlite3 started $(shell date -R) "
+	(make -C sqlite3 2>&1 | tee $(PKGLOGDIR)/sqlite3.log && exit $$PIPESTATUS)
+	@echo "sqlite3 finished $(shell date -R) "
+
+ulogd.o:
+	@echo "ulogd started $(shell date -R) "
+	(make -C ulogd 2>&1 | tee $(PKGLOGDIR)/ulogd.log && exit $$PIPESTATUS)
+	@echo "ulogd finished $(shell date -R) "
+
+zeromq.o:
+	@echo "zeromq started $(shell date -R) "
+	(make -C zeromq 2>&1 | tee $(PKGLOGDIR)/zeromq.log && exit $$PIPESTATUS)
+	@echo "zeromq finished $(shell date -R) "
+
+msgpack.o:
+	@echo "msgpack started $(shell date -R) "
+	(make -C msgpack 2>&1 | tee $(PKGLOGDIR)/msgpack.log && exit $$PIPESTATUS)
+	@echo "msgpack finished $(shell date -R) "
+
+snappy.o:
+	@echo "snappy started $(shell date -R) "
+	(make -C snappy 2>&1 | tee $(PKGLOGDIR)/snappy.log && exit $$PIPESTATUS)
+	@echo "snappy finished $(shell date -R) "
+
+groonga.o:
+	@echo "groonga started $(shell date -R) "
+	(make -C groonga 2>&1 | tee $(PKGLOGDIR)/groonga.log && exit $$PIPESTATUS)
+	@echo "groonga finished $(shell date -R) "
+
+mariadb.o:
+	@echo "mariadb started $(shell date -R) "
+	(make -C mariadb 2>&1 | tee $(PKGLOGDIR)/mariadb.log && exit $$PIPESTATUS)
+	@echo "mariadb finished $(shell date -R) "
+
+libdbi.o:
+	@echo "libdbi started $(shell date -R) "
+	(make -C libdbi 2>&1 | tee $(PKGLOGDIR)/libdbi.log && exit $$PIPESTATUS)
+	@echo "libdbi finished $(shell date -R) "
+
+libdbi-drivers.o:
+	@echo "libdbi-drivers started $(shell date -R) "
+	(make -C libdbi-drivers 2>&1 | tee $(PKGLOGDIR)/libdbi-drivers.log && exit $$PIPESTATUS)
+	@echo "libdbi-drivers finished $(shell date -R) "
 
 libmicrohttpd.o:
 	@echo "libmicrohttpd started $(shell date -R) "
@@ -328,6 +518,11 @@ expat.o:
 	@echo "expat started $(shell date -R) "
 	(make -C expat 2>&1 | tee $(PKGLOGDIR)/expat.log && exit $$PIPESTATUS)
 	@echo "expat finished $(shell date -R) "
+
+intltool.o:
+	@echo "intltool started $(shell date -R) "
+	(make -C intltool 2>&1 | tee $(PKGLOGDIR)/intltool.log && exit $$PIPESTATUS)
+	@echo "intltool finished $(shell date -R) "
 
 openssl.o:
 	@echo "OpenSSL started $(shell date -R) "
@@ -348,6 +543,21 @@ dbus.o:
 	@echo "D-bus started $(shell date -R) "
 	(make -C dbus 2>&1 | tee $(PKGLOGDIR)/dbus.log && exit $$PIPESTATUS)
 	@echo "D-bus finished $(shell date -R) "
+
+lzo.o:
+	@echo "lzo started $(shell date -R) "
+	(make -C lzo 2>&1 | tee $(PKGLOGDIR)/lzo.log && exit $$PIPESTATUS)
+	@echo "lzo finished $(shell date -R) "
+
+lzip.o:
+	@echo "lzip started $(shell date -R) "
+	(make -C lzip 2>&1 | tee $(PKGLOGDIR)/lzip.log && exit $$PIPESTATUS)
+	@echo "lzip finished $(shell date -R) "
+
+lz4.o:
+	@echo "lz4 started $(shell date -R) "
+	(make -C lz4 2>&1 | tee $(PKGLOGDIR)/lz4.log && exit $$PIPESTATUS)
+	@echo "lz4 finished $(shell date -R) "
 
 libedit.o:
 	@echo "Libedit started $(shell date -R) "

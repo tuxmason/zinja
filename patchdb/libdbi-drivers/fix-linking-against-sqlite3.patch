@@ -1,0 +1,20 @@
+--- libdbi-drivers-0.9.0/configure.orig	2018-01-19 13:49:15.962560219 +0300
++++ libdbi-drivers-0.9.0/configure	2018-01-19 13:49:50.707729421 +0300
+@@ -12378,7 +12378,7 @@
+ fi
+ 		SQLITE_LDFLAGS=""
+ 	else
+-		SQLITE_LIBS=-lsqlite
++		SQLITE_LIBS=-lsqlite3
+ 		SQLITE_LDFLAGS=-L$ac_sqlite_libdir
+ 	fi
+ 
+@@ -12528,7 +12528,7 @@
+ fi
+ 		SQLITE3_LDFLAGS=""
+ 	else
+-		SQLITE3_LIBS=-lsqlite
++		SQLITE3_LIBS=-lsqlite3
+ 		SQLITE3_LDFLAGS=-L$ac_sqlite3_libdir
+ 	fi
+ 

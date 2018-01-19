@@ -15,6 +15,7 @@ COPTS := --prefix=/usr \
 	--with-mongoc=no \
 	--disable-amqp \
 	--enable-systemd \
+	--enable-sql \
 	--sysconfdir=/etc/syslog-ng \
 	--without-libmongo-client \
 	--localstatedir=/var/lib/syslog-ng

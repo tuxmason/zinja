@@ -1,0 +1,4 @@
+install-strip.patch
+openldap-2.4.28-gnutls-gcrypt.patch
+openldap-2.4.45-consolidated-1.patch
+use-urandom.patch

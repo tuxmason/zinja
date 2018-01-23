@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+<title>buildroot - Buildroot: Making Embedded Linux easy</title>
+<meta name='generator' content='cgit v0.12'/>
+<meta name='robots' content='index, nofollow'/>
+<link rel='stylesheet' type='text/css' href='/cgit.css'/>
+<link rel='shortcut icon' href='/favicon.ico'/>
+<link rel='alternate' title='Atom feed' href='https://git.buildroot.net/buildroot/atom/package/python/0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch?h=master' type='application/atom+xml'/>
+<link rel='vcs-git' href='git://git.busybox.net/buildroot' title='buildroot Git repository'/>
+<link rel='vcs-git' href='https://git.busybox.net/buildroot' title='buildroot Git repository'/>
+</head>
+<body>
+<div id='cgit'><table id='header'>
+<tr>
+<td class='logo' rowspan='2'><a href='/'><img src='/busybox1.png' alt='cgit logo'/></a></td>
+<td class='main'><a href='/'>index</a> : <a title='buildroot' href='/buildroot/'>buildroot</a></td><td class='form'><form method='get' action=''>
+<select name='h' onchange='this.form.submit();'>
+<option value='2012.11.x'>2012.11.x</option>
+<option value='2013.08.x'>2013.08.x</option>
+<option value='2015.08.x'>2015.08.x</option>
+<option value='2015.11.x'>2015.11.x</option>
+<option value='2016.08.x'>2016.08.x</option>
+<option value='2016.11.x'>2016.11.x</option>
+<option value='2017.02.x'>2017.02.x</option>
+<option value='2017.05.x'>2017.05.x</option>
+<option value='2017.08.x'>2017.08.x</option>
+<option value='2017.11.x'>2017.11.x</option>
+<option value='master' selected='selected'>master</option>
+</select> <input type='submit' name='' value='switch'/></form></td></tr>
+<tr><td class='sub'>Buildroot: Making Embedded Linux easy</td><td class='sub right'>jacmet</td></tr></table>
+<table class='tabs'><tr><td>
+<a href='/buildroot/'>summary</a><a href='/buildroot/refs/'>refs</a><a href='/buildroot/log/package/python/0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch'>log</a><a class='active' href='/buildroot/tree/package/python/0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch'>tree</a><a href='/buildroot/commit/package/python/0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch'>commit</a><a href='/buildroot/diff/package/python/0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch'>diff</a></td><td class='form'><form class='right' method='get' action='/buildroot/log/package/python/0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch'>
+<select name='qt'>
+<option value='grep'>log msg</option>
+<option value='author'>author</option>
+<option value='committer'>committer</option>
+<option value='range'>range</option>
+</select>
+<input class='txt' type='text' size='10' name='q' value=''/>
+<input type='submit' value='search'/>
+</form>
+</td></tr></table>
+<div class='path'>path: <a href='/buildroot/tree/'>root</a>/<a href='/buildroot/tree/package'>package</a>/<a href='/buildroot/tree/package/python'>python</a>/<a href='/buildroot/tree/package/python/0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch'>0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch</a></div><div class='content'>blob: 3bf407d54274c554269cc9fd8ad31f6877e56daa (<a href='/buildroot/plain/package/python/0004-Make-the-compilation-of-.pyc-and-.pyo-conditional.patch'>plain</a>)
+<table summary='blob content' class='blob'>
+<tr><td class='linenumbers'><pre><a id='n1' href='#n1'>1</a>
+<a id='n2' href='#n2'>2</a>
+<a id='n3' href='#n3'>3</a>
+<a id='n4' href='#n4'>4</a>
+<a id='n5' href='#n5'>5</a>
+<a id='n6' href='#n6'>6</a>
+<a id='n7' href='#n7'>7</a>
+<a id='n8' href='#n8'>8</a>
+<a id='n9' href='#n9'>9</a>
+<a id='n10' href='#n10'>10</a>
+<a id='n11' href='#n11'>11</a>
+<a id='n12' href='#n12'>12</a>
+<a id='n13' href='#n13'>13</a>
+<a id='n14' href='#n14'>14</a>
+<a id='n15' href='#n15'>15</a>
+<a id='n16' href='#n16'>16</a>
+<a id='n17' href='#n17'>17</a>
+<a id='n18' href='#n18'>18</a>
+<a id='n19' href='#n19'>19</a>
+<a id='n20' href='#n20'>20</a>
+<a id='n21' href='#n21'>21</a>
+<a id='n22' href='#n22'>22</a>
+<a id='n23' href='#n23'>23</a>
+<a id='n24' href='#n24'>24</a>
+<a id='n25' href='#n25'>25</a>
+<a id='n26' href='#n26'>26</a>
+<a id='n27' href='#n27'>27</a>
+<a id='n28' href='#n28'>28</a>
+<a id='n29' href='#n29'>29</a>
+<a id='n30' href='#n30'>30</a>
+<a id='n31' href='#n31'>31</a>
+<a id='n32' href='#n32'>32</a>
+<a id='n33' href='#n33'>33</a>
+<a id='n34' href='#n34'>34</a>
+<a id='n35' href='#n35'>35</a>
+<a id='n36' href='#n36'>36</a>
+<a id='n37' href='#n37'>37</a>
+<a id='n38' href='#n38'>38</a>
+<a id='n39' href='#n39'>39</a>
+<a id='n40' href='#n40'>40</a>
+<a id='n41' href='#n41'>41</a>
+<a id='n42' href='#n42'>42</a>
+<a id='n43' href='#n43'>43</a>
+<a id='n44' href='#n44'>44</a>
+<a id='n45' href='#n45'>45</a>
+<a id='n46' href='#n46'>46</a>
+<a id='n47' href='#n47'>47</a>
+<a id='n48' href='#n48'>48</a>
+<a id='n49' href='#n49'>49</a>
+<a id='n50' href='#n50'>50</a>
+<a id='n51' href='#n51'>51</a>
+<a id='n52' href='#n52'>52</a>
+<a id='n53' href='#n53'>53</a>
+<a id='n54' href='#n54'>54</a>
+<a id='n55' href='#n55'>55</a>
+<a id='n56' href='#n56'>56</a>
+<a id='n57' href='#n57'>57</a>
+<a id='n58' href='#n58'>58</a>
+<a id='n59' href='#n59'>59</a>
+<a id='n60' href='#n60'>60</a>
+<a id='n61' href='#n61'>61</a>
+<a id='n62' href='#n62'>62</a>
+<a id='n63' href='#n63'>63</a>
+<a id='n64' href='#n64'>64</a>
+<a id='n65' href='#n65'>65</a>
+<a id='n66' href='#n66'>66</a>
+<a id='n67' href='#n67'>67</a>
+<a id='n68' href='#n68'>68</a>
+<a id='n69' href='#n69'>69</a>
+<a id='n70' href='#n70'>70</a>
+<a id='n71' href='#n71'>71</a>
+<a id='n72' href='#n72'>72</a>
+<a id='n73' href='#n73'>73</a>
+<a id='n74' href='#n74'>74</a>
+<a id='n75' href='#n75'>75</a>
+<a id='n76' href='#n76'>76</a>
+</pre></td>
+<td class='lines'><pre><code>From 168e6c594e80395583de5ab0d082be119b2061fc Mon Sep 17 00:00:00 2001
+From: Thomas Petazzoni &lt;thomas.petazzoni@free-electrons.com&gt;
+Date: Tue, 7 Mar 2017 22:18:57 +0100
+Subject: [PATCH] Make the compilation of .pyc and .pyo conditional
+
+This commit adds --{enable,disable}-{pyc,pyo} options to enable/disable
+the compilation of pyc/pyo files.
+
+Signed-off-by: Thomas Petazzoni &lt;thomas.petazzoni@free-electrons.com&gt;
+---
+ Makefile.pre.in |  8 ++++++++
+ configure.ac    | 11 +++++++++++
+ 2 files changed, 19 insertions(+)
+
+diff --git a/Makefile.pre.in b/Makefile.pre.in
+index 5367df7..96fc718 100644
+--- a/Makefile.pre.in
++++ b/Makefile.pre.in
+@@ -1128,24 +1128,32 @@ libinstall:	build_all $(srcdir)/Lib/$(PLATDIR) $(srcdir)/Modules/xxmodule.c
+ 		$(INSTALL_DATA) $(srcdir)/Modules/xxmodule.c \
+ 			$(DESTDIR)$(LIBDEST)/distutils/tests ; \
+ 	fi
++ifeq (@PYC_BUILD@,yes)
+ 	PYTHONPATH=$(DESTDIR)$(LIBDEST)  $(RUNSHARED) \
+ 		$(PYTHON_FOR_BUILD) -Wi -tt $(DESTDIR)$(LIBDEST)/compileall.py \
+ 		-d $(LIBDEST) -f \
+ 		-x 'bad_coding|badsyntax|site-packages|lib2to3/tests/data' \
+ 		$(DESTDIR)$(LIBDEST)
++endif
++ifeq (@PYO_BUILD@,yes)
+ 	PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
+ 		$(PYTHON_FOR_BUILD) -Wi -tt -O $(DESTDIR)$(LIBDEST)/compileall.py \
+ 		-d $(LIBDEST) -f \
+ 		-x 'bad_coding|badsyntax|site-packages|lib2to3/tests/data' \
+ 		$(DESTDIR)$(LIBDEST)
++endif
++ifeq (@PYC_BUILD@,yes)
+ 	-PYTHONPATH=$(DESTDIR)$(LIBDEST)  $(RUNSHARED) \
+ 		$(PYTHON_FOR_BUILD) -Wi -t $(DESTDIR)$(LIBDEST)/compileall.py \
+ 		-d $(LIBDEST)/site-packages -f \
+ 		-x badsyntax $(DESTDIR)$(LIBDEST)/site-packages
++endif
++ifeq (@PYO_BUILD@,yes)
+ 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
+ 		$(PYTHON_FOR_BUILD) -Wi -t -O $(DESTDIR)$(LIBDEST)/compileall.py \
+ 		-d $(LIBDEST)/site-packages -f \
+ 		-x badsyntax $(DESTDIR)$(LIBDEST)/site-packages
++endif
+ 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
+ 		$(PYTHON_FOR_BUILD) -m lib2to3.pgen2.driver $(DESTDIR)$(LIBDEST)/lib2to3/Grammar.txt
+ 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
+diff --git a/configure.ac b/configure.ac
+index 5f89797..4aafc82 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -759,6 +759,17 @@ SunOS*)
+     ;;
+ esac
+ 
++AC_SUBST(PYC_BUILD)
++
++AC_ARG_ENABLE(pyc-build,
++	AS_HELP_STRING([--disable-pyc-build], [disable build of pyc files]),
++	[ PYC_BUILD="${enableval}" ], [ PYC_BUILD=yes ])
++
++AC_SUBST(PYO_BUILD)
++
++AC_ARG_ENABLE(pyo-build,
++	AS_HELP_STRING([--disable-pyo-build], [disable build of pyo files]),
++	[ PYO_BUILD="${enableval}" ], [ PYO_BUILD=yes ])
+ 
+ AC_SUBST(LIBRARY)
+ AC_MSG_CHECKING(LIBRARY)
+-- 
+2.7.4
+
+</code></pre></td></tr></table>
+</div> <!-- class=content -->
+<div class='footer'>generated by <a href='http://git.zx2c4.com/cgit/about/'>cgit v0.12</a> at 2018-01-22 11:39:25 (GMT)</div>
+</div> <!-- id=cgit -->
+</body>
+</html>

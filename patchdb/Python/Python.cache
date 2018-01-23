@@ -1,0 +1,7 @@
+ac_cv_file__dev_ptmx=yes
+ac_cv_file__dev_ptc=yes
+ac_cv_prog_HAS_HG=/bin/false
+ac_cv_prog_SVNVERSION=/bin/false
+ac_cv_have_long_long_format=yes
+ac_cv_working_tzset=yes
+ac_cv_little_endian_double=yes

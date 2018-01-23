@@ -1,0 +1,2 @@
+cyrus-sasl-2.1.26-fixes-3.patch
+cyrus-sasl-2.1.26-openssl-1.1.0-1.patch

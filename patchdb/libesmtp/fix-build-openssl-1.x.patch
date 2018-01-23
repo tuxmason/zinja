@@ -1,0 +1,11 @@
+--- libesmtp-1.0.6/configure.ac.orig	2018-01-19 20:49:57.291411044 +0300
++++ libesmtp-1.0.6/configure.ac	2018-01-19 20:50:09.413468532 +0300
+@@ -303,7 +303,7 @@
+ 	)
+ fi
+ if test x$with_openssl != xno ; then
+-	AC_CHECK_LIB(ssl, SSL_library_init, [
++	AC_CHECK_LIB(ssl, SSL_new, [
+ 				with_openssl=yes
+ 				LIBS="-lssl -lcrypto $LIBS"
+ 		     ], [

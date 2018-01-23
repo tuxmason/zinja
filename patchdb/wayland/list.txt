@@ -1,0 +1,2 @@
+Support-architectures-with-non-empty-__USER_LABEL_PR.patch
+configure-add-option-to-disable-tests.patch

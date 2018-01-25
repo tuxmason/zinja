@@ -9,6 +9,7 @@ SRCURL := https://sourceforge.net/projects/$(PKGNAME)/files/$(PKGNAME)/$(PKGNAME
 COPTS := --prefix=/usr \
 	--with-sqlite3 \
 	--with-mysql \
+	--with-freetds \
 	--disable-docs \
 	--sysconfdir=/etc \
 	--build=$(BUILDARCH) \
@@ -17,7 +18,9 @@ COPTS := --prefix=/usr \
 	--enable-mysql-threadsafe \
 	--with-dbi-libdir=$(SYSROOTDIR)/usr/lib \
 	--with-mysql-libdir=$(SYSROOTDIR)/usr/lib \
+	--with-freetds-libdir=$(SYSROOTDIR)/usr/lib \
 	--with-sqlite3-libdir=$(SYSROOTDIR)/usr/lib \
+	--with-freetds-incdir=$(SYSROOTDIR)/usr/include \
 	--with-sqlite3-incdir=$(SYSROOTDIR)/usr/include \
 	--with-dbi-incdir=$(SYSROOTDIR)/usr/include/dbi \
 	--with-mysql-incdir=$(SYSROOTDIR)/usr/include/mysql

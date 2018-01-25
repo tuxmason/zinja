@@ -1,2 +1,3 @@
-fix-linking-against-sqlite3.patch
+freetds-1.0.patch
 libdbi-drivers-disable-tests.patch
+libdbi-drivers-sqlite3_libs.patch

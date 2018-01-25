@@ -16,7 +16,7 @@ targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o 
 	usbutils.o icu.o sqlite3.o libxml2.o jansson.o libnl.o libical.o bluez.o libpcap.o libmnl.o libnftnl.o \
 	libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o libnetfilter_queue.o libnetfilter_conntrack.o \
 	libnetfilter_cttimeout.o libnetfilter_cthelper.o ipset.o iptables.o nftables.o iproute2.o \
-	zeromq.o msgpack.o snappy.o mariadb.o libdbi.o libdbidrivers.o syslog-ng.o ulogd.o
+	zeromq.o msgpack.o snappy.o mariadb.o libdbi.o libdbi-drivers.o syslog-ng.o ulogd.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:

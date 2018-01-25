@@ -1,0 +1,11 @@
+--- freetype-2.9/include/freetype/config/ftoption.h.orig	2018-01-25 18:39:16.285723908 +0300
++++ freetype-2.9/include/freetype/config/ftoption.h	2018-01-25 18:39:33.440806010 +0300
+@@ -118,7 +118,7 @@
+   /* rendering technology that produces excellent output without LCD       */
+   /* filtering.                                                            */
+   /*                                                                       */
+-/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */
++#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING
+ 
+ 
+   /*************************************************************************/

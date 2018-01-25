@@ -1,0 +1,2 @@
+libxcb-1.12-python3-1.patch
+no-pthread-stubs.patch

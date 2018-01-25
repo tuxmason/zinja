@@ -7,16 +7,19 @@ all: targetfs
 targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binutils.o gcc.o \
 	libffi.o attr.o acl.o libcap.o sed.o pkg-config-lite.o ncurses.o check.o cracklib.o \
 	cracklib-dict.o linux-pam.o shadow.o util-linux.o procps-ng.o e2fsprogs.o coreutils.o \
-	iana-etc.o libtool.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o \
+	iana-etc.o libtool.o gdbm.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o \
 	diffutils.o file.o gawk.o findutils.o gettext.o gperf.o grep.o groff.o less.o gzip.o \
 	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o intltool.o \
 	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux.o \
 	gpm.o vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
-	openssh.o pcre.o glib2.o wget.o kernel.o libaio.o libevent.o libusb.o libusb-compat.o \
-	usbutils.o icu.o sqlite3.o libxml2.o jansson.o libnl.o libical.o bluez.o libpcap.o libmnl.o libnftnl.o \
-	libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o libnetfilter_queue.o libnetfilter_conntrack.o \
-	libnetfilter_cttimeout.o libnetfilter_cthelper.o ipset.o iptables.o nftables.o iproute2.o \
-	zeromq.o msgpack.o snappy.o mariadb.o libdbi.o libdbi-drivers.o syslog-ng.o ulogd.o
+	openssh.o pcre.o glib2.o wget.o kernel.o npth.o libaio.o libevent.o libusb.o libusb-compat.o \
+	usbutils.o icu.o sqlite3.o libxml2.o jansson.o libnl.o libical.o bluez.o libpcap.o libmnl.o \
+	libnftnl.o libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o libnetfilter_queue.o \
+	libnetfilter_conntrack.o libnetfilter_cttimeout.o libnetfilter_cthelper.o ipset.o iptables.o \
+	nftables.o iproute2.o zeromq.o msgpack.o snappy.o mariadb.o unixODBC.o freetds.o libdbi.o \
+	libdbi-drivers.o popt.o libesmtp.o syslog-ng.o ulogd.o yaml.o ruby.o Python.o wayland.o \
+	wayland-protocols.o nettle.o libatomic_ops.o gc.o libunistring.o libtasn1.o libgpg-error.o \
+	libassuan.o libksba.o libgcrypt.o libidn2.o p11-kit.o gnutls.o cyrus-sasl.o openldap.o gnupg.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:
@@ -593,6 +596,136 @@ sysconfig.o:
 	@echo "Sysconfig started $(shell date -R) "
 	(make -C sysconfig 2>&1 | tee $(PKGLOGDIR)/sysconfig.log && exit $$PIPESTATUS)
 	@echo "Sysconfig finished $(shell date -R) "
+
+gdbm.o:
+	@echo "gdbm started $(shell date -R) "
+	(make -C gdbm 2>&1 | tee $(PKGLOGDIR)/gdbm.log && exit $$PIPESTATUS)
+	@echo "gdbm finished $(shell date -R) "
+
+popt.o:
+	@echo "popt started $(shell date -R) "
+	(make -C popt 2>&1 | tee $(PKGLOGDIR)/popt.log && exit $$PIPESTATUS)
+	@echo "popt finished $(shell date -R) "
+
+yaml.o:
+	@echo "yaml started $(shell date -R) "
+	(make -C yaml 2>&1 | tee $(PKGLOGDIR)/yaml.log && exit $$PIPESTATUS)
+	@echo "yaml finished $(shell date -R) "
+
+ruby.o:
+	@echo "ruby started $(shell date -R) "
+	(make -C ruby 2>&1 | tee $(PKGLOGDIR)/ruby.log && exit $$PIPESTATUS)
+	@echo "ruby finished $(shell date -R) "
+
+Python.o:
+	@echo "Python started $(shell date -R) "
+	(make -C Python 2>&1 | tee $(PKGLOGDIR)/Python.log && exit $$PIPESTATUS)
+	@echo "Python finished $(shell date -R) "
+
+wayland.o:
+	@echo "wayland started $(shell date -R) "
+	(make -C wayland 2>&1 | tee $(PKGLOGDIR)/wayland.log && exit $$PIPESTATUS)
+	@echo "wayland finished $(shell date -R) "
+
+wayland-protocols.o:
+	@echo "wayland-protocols started $(shell date -R) "
+	(make -C wayland-protocols 2>&1 | tee $(PKGLOGDIR)/wayland-protocols.log && exit $$PIPESTATUS)
+	@echo "wayland-protocols finished $(shell date -R) "
+
+unixODBC.o:
+	@echo "unixODBC started $(shell date -R) "
+	(make -C unixODBC 2>&1 | tee $(PKGLOGDIR)/unixODBC.log && exit $$PIPESTATUS)
+	@echo "unixODBC finished $(shell date -R) "
+
+freetds.o:
+	@echo "freetds started $(shell date -R) "
+	(make -C freetds 2>&1 | tee $(PKGLOGDIR)/freetds.log && exit $$PIPESTATUS)
+	@echo "freetds finished $(shell date -R) "
+
+npth.o:
+	@echo "npth started $(shell date -R) "
+	(make -C npth 2>&1 | tee $(PKGLOGDIR)/npth.log && exit $$PIPESTATUS)
+	@echo "npth finished $(shell date -R) "
+
+nettle.o:
+	@echo "nettle started $(shell date -R) "
+	(make -C nettle 2>&1 | tee $(PKGLOGDIR)/nettle.log && exit $$PIPESTATUS)
+	@echo "nettle finished $(shell date -R) "
+
+libesmtp.o:
+	@echo "libesmtp started $(shell date -R) "
+	(make -C libesmtp 2>&1 | tee $(PKGLOGDIR)/libesmtp.log && exit $$PIPESTATUS)
+	@echo "libesmtp finished $(shell date -R) "
+
+libatomic_ops.o:
+	@echo "libatomic_ops started $(shell date -R) "
+	(make -C libatomic_ops 2>&1 | tee $(PKGLOGDIR)/libatomic_ops.log && exit $$PIPESTATUS)
+	@echo "libatomic_ops finished $(shell date -R) "
+
+gc.o:
+	@echo "gc started $(shell date -R) "
+	(make -C gc 2>&1 | tee $(PKGLOGDIR)/gc.log && exit $$PIPESTATUS)
+	@echo "gc finished $(shell date -R) "
+
+libunistring.o:
+	@echo "libunistring started $(shell date -R) "
+	(make -C libunistring 2>&1 | tee $(PKGLOGDIR)/libunistring.log && exit $$PIPESTATUS)
+	@echo "libunistring finished $(shell date -R) "
+
+libtasn1.o:
+	@echo "libtasn1 started $(shell date -R) "
+	(make -C libtasn1 2>&1 | tee $(PKGLOGDIR)/libtasn1.log && exit $$PIPESTATUS)
+	@echo "libtasn1 finished $(shell date -R) "
+
+libgpg-error.o:
+	@echo "libgpg-error started $(shell date -R) "
+	(make -C libgpg-error 2>&1 | tee $(PKGLOGDIR)/libgpg-error.log && exit $$PIPESTATUS)
+	@echo "libgpg-error finished $(shell date -R) "
+
+libassuan.o:
+	@echo "libassuan started $(shell date -R) "
+	(make -C libassuan 2>&1 | tee $(PKGLOGDIR)/libassuan.log && exit $$PIPESTATUS)
+	@echo "libassuan finished $(shell date -R) "
+
+libksba.o:
+	@echo "libksba started $(shell date -R) "
+	(make -C libksba 2>&1 | tee $(PKGLOGDIR)/libksba.log && exit $$PIPESTATUS)
+	@echo "libksba finished $(shell date -R) "
+
+libgcrypt.o:
+	@echo "libgcrypt started $(shell date -R) "
+	(make -C libgcrypt 2>&1 | tee $(PKGLOGDIR)/libgcrypt.log && exit $$PIPESTATUS)
+	@echo "libgcrypt finished $(shell date -R) "
+
+libidn2.o:
+	@echo "libidn2 started $(shell date -R) "
+	(make -C libidn2 2>&1 | tee $(PKGLOGDIR)/libidn2.log && exit $$PIPESTATUS)
+	@echo "libidn2 finished $(shell date -R) "
+
+p11-kit.o:
+	@echo "p11-kit started $(shell date -R) "
+	(make -C p11-kit 2>&1 | tee $(PKGLOGDIR)/p11-kit.log && exit $$PIPESTATUS)
+	@echo "p11-kit finished $(shell date -R) "
+
+gnutls.o:
+	@echo "gnutls started $(shell date -R) "
+	(make -C gnutls 2>&1 | tee $(PKGLOGDIR)/gnutls.log && exit $$PIPESTATUS)
+	@echo "gnutls finished $(shell date -R) "
+
+cyrus-sasl.o:
+	@echo "cyrus-sasl started $(shell date -R) "
+	(make -C cyrus-sasl 2>&1 | tee $(PKGLOGDIR)/cyrus-sasl.log && exit $$PIPESTATUS)
+	@echo "cyrus-sasl finished $(shell date -R) "
+
+openldap.o:
+	@echo "openldap started $(shell date -R) "
+	(make -C openldap 2>&1 | tee $(PKGLOGDIR)/openldap.log && exit $$PIPESTATUS)
+	@echo "openldap finished $(shell date -R) "
+
+gnupg.o:
+	@echo "gnupg started $(shell date -R) "
+	(make -C gnupg 2>&1 | tee $(PKGLOGDIR)/gnupg.log && exit $$PIPESTATUS)
+	@echo "gnupg finished $(shell date -R) "
 
 #============== [ targetfs packages ] ========================================================
 

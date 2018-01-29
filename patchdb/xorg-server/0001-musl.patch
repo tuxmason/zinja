@@ -1,0 +1,15 @@
+use uid_t instead of __uid_t, __uid_t isn't public
+
+--- xorg-server-1.19.6/hw/kdrive/linux/linux.c.orig	2018-01-29 14:10:44.518408351 +0300
++++ xorg-server-1.19.6/hw/kdrive/linux/linux.c	2018-01-29 14:15:12.866633719 +0300
+@@ -65,8 +65,8 @@
+ LinuxCheckChown(const char *file)
+ {
+     struct stat st;
+-    __uid_t u;
+-    __gid_t g;
++    uid_t u;
++    gid_t g;
+     int r;
+ 
+     if (stat(file, &st) < 0)

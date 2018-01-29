@@ -1,0 +1,6 @@
+0001-modesettings-needs-dri2.patch
+0001-musl.patch
+0002-configure.ac-Fix-check-for-CLOCK_MONOTONIC.patch
+0003-Remove-check-for-useSIGIO-option.patch
+0004-glx-Only-include-compositeext.h-if-COMPOSITE-is-supp.patch
+xorg-server-1.17.2-add_prime_support-1.patch

@@ -16,8 +16,8 @@ full: font-util.o encodings.o font-adobe-100dpi.o font-adobe-75dpi.o font-adobe-
 	font-sony-misc.o font-sun-misc.o font-winitzki-cyrillic.o font-xfree86-type1.o
 
 min: font-util.o encodings.o font-alias.o font-adobe-utopia-type1.o font-bh-ttf.o font-bh-type1.o \
-	font-ibm-type1.o font-misc-ethiopic.o
-
+	font-ibm-type1.o font-misc-ethiopic.o carlito.o caladea.o cantarell-fonts.o dejavu-sans-ttf.o \
+	dejavu-lgc-fonts-ttf.o dejavu-fonts-ttf.o freefont.o gelasio.o
 
 font-util.o:
 	@echo "font-util started $(shell date -R)"
@@ -203,6 +203,46 @@ font-xfree86-type1.o:
 	@echo "font-xfree86-type1 started $(shell date -R)"
 	(make -C font-xfree86-type1 2>&1 | tee $(PKGLOGDIR)/font-xfree86-type1.log && exit $$PIPESTATUS)
 	@echo "font-xfree86-type1 finished $(shell date -R)"
+
+carlito.o:
+	@echo "carlito started $(shell date -R)"
+	(make -C carlito 2>&1 | tee $(PKGLOGDIR)/carlito.log && exit $$PIPESTATUS)
+	@echo "carlito finished $(shell date -R)"
+
+caladea.o:
+	@echo "caladea started $(shell date -R)"
+	(make -C caladea 2>&1 | tee $(PKGLOGDIR)/caladea.log && exit $$PIPESTATUS)
+	@echo "caladea finished $(shell date -R)"
+
+cantarell-fonts.o:
+	@echo "cantarell-fonts started $(shell date -R)"
+	(make -C cantarell-fonts 2>&1 | tee $(PKGLOGDIR)/cantarell-fonts.log && exit $$PIPESTATUS)
+	@echo "cantarell-fonts finished $(shell date -R)"
+
+dejavu-sans-ttf.o:
+	@echo "dejavu-sans-ttf started $(shell date -R)"
+	(make -C dejavu-sans-ttf 2>&1 | tee $(PKGLOGDIR)/dejavu-sans-ttf.log && exit $$PIPESTATUS)
+	@echo "dejavu-sans-ttf finished $(shell date -R)"
+
+dejavu-lgc-fonts-ttf.o:
+	@echo "dejavu-lgc-fonts-ttf started $(shell date -R)"
+	(make -C dejavu-lgc-fonts-ttf 2>&1 | tee $(PKGLOGDIR)/dejavu-lgc-fonts-ttf.log && exit $$PIPESTATUS)
+	@echo "dejavu-lgc-fonts-ttf finished $(shell date -R)"
+
+dejavu-fonts-ttf.o:
+	@echo "dejavu-fonts-ttf started $(shell date -R)"
+	(make -C dejavu-fonts-ttf 2>&1 | tee $(PKGLOGDIR)/dejavu-fonts-ttf.log && exit $$PIPESTATUS)
+	@echo "dejavu-fonts-ttf finished $(shell date -R)"
+
+freefont.o:
+	@echo "freefont started $(shell date -R)"
+	(make -C freefont 2>&1 | tee $(PKGLOGDIR)/freefont.log && exit $$PIPESTATUS)
+	@echo "freefont finished $(shell date -R)"
+
+gelasio.o:
+	@echo "gelasio started $(shell date -R)"
+	(make -C gelasio 2>&1 | tee $(PKGLOGDIR)/gelasio.log && exit $$PIPESTATUS)
+	@echo "gelasio finished $(shell date -R)"
 
 clean:
 	@for pkg in `ls | grep -v Makefile`; do \

@@ -3,10 +3,10 @@ include ../../conf/environment.mk
 
 all: cross-tools
 
-cross-tools: bc.o kheaders.o file.o m4.o ncurses.o pkg-config-lite.o \
-	perl.o xml-parser.o whois.o gmp.o mpfr.o mpc.o isl.o binutils.o \
-	gcc-stage1.o musl.o gcc-stage2.o musl-locales.o musl-fts.o \
-	musl-obstack.o timezone.o argp-standalone.o
+cross-tools: bc.o kheaders.o file.o m4.o ncurses.o wayland.o pkg-config-lite.o \
+	perl.o xml-parser.o whois.o gmp.o mpfr.o mpc.o isl.o binutils.o gcc-stage1.o \
+	musl.o gcc-stage2.o musl-locales.o musl-fts.o musl-obstack.o timezone.o \
+	argp-standalone.o
 
 #==================== Cross Toolchain ================================================
 bc.o: 
@@ -33,6 +33,11 @@ ncurses.o:
 	@echo "Ncurses started $(shell date -R) "
 	( make -C ncurses 2>&1 | tee $(PKGLOGDIR)/ncurses.log && exit $$PIPESTATUS )
 	@echo "Ncurses finished $(shell date -R) "
+
+wayland.o: 
+	@echo "wayland started $(shell date -R) "
+	( make -C wayland 2>&1 | tee $(PKGLOGDIR)/wayland.log && exit $$PIPESTATUS )
+	@echo "wayland finished $(shell date -R) "
 
 pkg-config-lite.o: 
 	@echo "Pkg-config-lite started $(shell date -R) "

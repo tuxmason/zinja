@@ -23,6 +23,7 @@ COPTS := --prefix=/usr \
 CC := "${CC} "
 CPPFLAGS := "-I$(SYSROOTDIR)/usr/include/glib-2.0 \
 	-I$(SYSROOTDIR)/usr/lib/glib-2.0/include \
-	-I$(SYSROOTDIR)/usr/include/json-c"
+	-I$(SYSROOTDIR)/usr/include/json-c \
+	-I$(SYSROOTDIR)/usr/include/dbi"
 LDFLAGS := "-L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"
 PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"

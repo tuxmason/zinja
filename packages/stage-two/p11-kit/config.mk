@@ -14,3 +14,5 @@ COPTS := --prefix=/usr \
 
 CC := "${CC} "
 CXX := "${CXX} "
+PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
+PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"

@@ -17,7 +17,7 @@ targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o 
 	libical.o bluez.o libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o \
 	libnetfilter_log.o libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o \
 	libnetfilter_cthelper.o ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o \
-	snappy.o mariadb.o unixODBC.o freetds.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o \
+	snappy.o mariadb.o unixODBC.o freedts.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o \
 	ulogd.o yaml.o ruby.o Python.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o \
 	libexecinfo.o libunwind.o gc.o libunistring.o libtasn1.o libgpg-error.o libassuan.o libksba.o \
 	libgcrypt.o libidn2.o p11-kit.o gnutls.o cyrus-sasl.o openldap.o gnupg.o libpng.o libjpeg-turbo.o \
@@ -644,10 +644,10 @@ unixODBC.o:
 	(make -C unixODBC 2>&1 | tee $(PKGLOGDIR)/unixODBC.log && exit $$PIPESTATUS)
 	@echo "unixODBC finished $(shell date -R) "
 
-freetds.o:
-	@echo "freetds started $(shell date -R) "
-	(make -C freetds 2>&1 | tee $(PKGLOGDIR)/freetds.log && exit $$PIPESTATUS)
-	@echo "freetds finished $(shell date -R) "
+freedts.o:
+	@echo "freedts started $(shell date -R) "
+	(make -C freedts 2>&1 | tee $(PKGLOGDIR)/freedts.log && exit $$PIPESTATUS)
+	@echo "freedts finished $(shell date -R) "
 
 npth.o:
 	@echo "npth started $(shell date -R) "

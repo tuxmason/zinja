@@ -12,14 +12,16 @@ targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o 
 	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o intltool.o \
 	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux.o \
 	gpm.o vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
-	openssh.o pcre.o glib2.o wget.o kernel.o npth.o libaio.o libevent.o libusb.o libusb-compat.o \
-	usbutils.o icu.o sqlite3.o libxml2.o jansson.o libnl.o libical.o bluez.o libpcap.o libmnl.o \
-	libnftnl.o libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o libnetfilter_queue.o \
-	libnetfilter_conntrack.o libnetfilter_cttimeout.o libnetfilter_cthelper.o ipset.o iptables.o \
-	nftables.o iproute2.o zeromq.o msgpack.o snappy.o mariadb.o unixODBC.o freetds.o libdbi.o \
-	libdbi-drivers.o popt.o libesmtp.o syslog-ng.o ulogd.o yaml.o ruby.o Python.o wayland.o \
-	wayland-protocols.o nettle.o libatomic_ops.o gc.o libunistring.o libtasn1.o libgpg-error.o \
-	libassuan.o libksba.o libgcrypt.o libidn2.o p11-kit.o gnutls.o cyrus-sasl.o openldap.o gnupg.o
+	openssh.o pcre.o glib2.o libgudev.o wget.o kernel.o npth.o libaio.o libevent.o libusb.o \
+	libusb-compat.o usbutils.o icu.o sqlite3.o libxml2.o shared-mime-info.o jansson.o libnl.o \
+	libical.o bluez.o libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o \
+	libnetfilter_log.o libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o \
+	libnetfilter_cthelper.o ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o \
+	snappy.o mariadb.o unixODBC.o freetds.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o \
+	ulogd.o yaml.o ruby.o Python.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o \
+	libexecinfo.o libunwind.o gc.o libunistring.o libtasn1.o libgpg-error.o libassuan.o libksba.o \
+	libgcrypt.o libidn2.o p11-kit.o gnutls.o cyrus-sasl.o openldap.o gnupg.o libpng.o libjpeg-turbo.o \
+	jasper.o freetype.o fontconfig.o graphite2.o xorg.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:
@@ -582,6 +584,11 @@ glib2.o:
 	(make -C glib2 2>&1 | tee $(PKGLOGDIR)/glib2.log && exit $$PIPESTATUS)
 	@echo "Glib finished $(shell date -R) "
 
+libgudev.o:
+	@echo "libgudev started $(shell date -R) "
+	(make -C libgudev 2>&1 | tee $(PKGLOGDIR)/libgudev.log && exit $$PIPESTATUS)
+	@echo "libgudev finished $(shell date -R) "
+
 syslog-ng.o:
 	@echo "syslog-ng started $(shell date -R) "
 	(make -C syslog-ng 2>&1 | tee $(PKGLOGDIR)/syslog-ng.log && exit $$PIPESTATUS)
@@ -662,6 +669,16 @@ libatomic_ops.o:
 	(make -C libatomic_ops 2>&1 | tee $(PKGLOGDIR)/libatomic_ops.log && exit $$PIPESTATUS)
 	@echo "libatomic_ops finished $(shell date -R) "
 
+libexecinfo.o:
+	@echo "libexecinfo started $(shell date -R) "
+	(make -C libexecinfo 2>&1 | tee $(PKGLOGDIR)/libexecinfo.log && exit $$PIPESTATUS)
+	@echo "libexecinfo finished $(shell date -R) "
+
+libunwind.o:
+	@echo "libunwind started $(shell date -R) "
+	(make -C libunwind 2>&1 | tee $(PKGLOGDIR)/libunwind.log && exit $$PIPESTATUS)
+	@echo "libunwind finished $(shell date -R) "
+
 gc.o:
 	@echo "gc started $(shell date -R) "
 	(make -C gc 2>&1 | tee $(PKGLOGDIR)/gc.log && exit $$PIPESTATUS)
@@ -726,6 +743,56 @@ gnupg.o:
 	@echo "gnupg started $(shell date -R) "
 	(make -C gnupg 2>&1 | tee $(PKGLOGDIR)/gnupg.log && exit $$PIPESTATUS)
 	@echo "gnupg finished $(shell date -R) "
+
+libpng.o:
+	@echo "libpng started $(shell date -R) "
+	(make -C libpng 2>&1 | tee $(PKGLOGDIR)/libpng.log && exit $$PIPESTATUS)
+	@echo "libpng finished $(shell date -R) "
+
+freetype.o:
+	@echo "freetype started $(shell date -R) "
+	(make -C freetype 2>&1 | tee $(PKGLOGDIR)/freetype.log && exit $$PIPESTATUS)
+	@echo "freetype finished $(shell date -R) "
+
+xorg.o:
+	@echo "xorg started $(shell date -R) "
+	(make -C xorg 2>&1 | tee $(PKGLOGDIR)/xorg.log && exit $$PIPESTATUS)
+	@echo "xorg finished $(shell date -R) "
+
+xorg.o:
+	@echo "xorg started $(shell date -R) "
+	(make -C xorg 2>&1 | tee $(PKGLOGDIR)/xorg.log && exit $$PIPESTATUS)
+	@echo "xorg finished $(shell date -R) "
+
+fontconfig.o:
+	@echo "fontconfig started $(shell date -R) "
+	(make -C fontconfig 2>&1 | tee $(PKGLOGDIR)/fontconfig.log && exit $$PIPESTATUS)
+	@echo "fontconfig finished $(shell date -R) "
+
+graphite2.o:
+	@echo "graphite2 started $(shell date -R) "
+	(make -C graphite2 2>&1 | tee $(PKGLOGDIR)/graphite2.log && exit $$PIPESTATUS)
+	@echo "graphite2 finished $(shell date -R) "
+
+shared-mime-info.o:
+	@echo "shared-mime-info started $(shell date -R) "
+	(make -C shared-mime-info 2>&1 | tee $(PKGLOGDIR)/shared-mime-info.log && exit $$PIPESTATUS)
+	@echo "shared-mime-info finished $(shell date -R) "
+
+libjpeg-turbo.o:
+	@echo "libjpeg-turbo started $(shell date -R) "
+	(make -C libjpeg-turbo 2>&1 | tee $(PKGLOGDIR)/libjpeg-turbo.log && exit $$PIPESTATUS)
+	@echo "libjpeg-turbo finished $(shell date -R) "
+
+xorg.o:
+	@echo "xorg started $(shell date -R) "
+	(make -C xorg 2>&1 | tee $(PKGLOGDIR)/xorg.log && exit $$PIPESTATUS)
+	@echo "xorg finished $(shell date -R) "
+
+jasper.o:
+	@echo "jasper started $(shell date -R) "
+	(make -C jasper 2>&1 | tee $(PKGLOGDIR)/jasper.log && exit $$PIPESTATUS)
+	@echo "jasper finished $(shell date -R) "
 
 #============== [ targetfs packages ] ========================================================
 

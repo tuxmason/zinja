@@ -41,19 +41,12 @@ build: configure
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		install -vd $(SYSROOTDIR)/usr/lib || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-libs ) || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-tools ) || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGOBJDIR) ARCH=$(ARCH) prefix=/usr DESTDIR=$(SYSROOTDIR) install-headers ) || exit 1 ;\
-		mv -vf $(SYSROOTDIR)/lib/{libc.so,$(LINKER)} || exit 1 ;\
-		for i in libc.a libcrypt.a libdl.a libm.a libpthread.a libresolv.a librt.a libutil.a libxnet.a; do \
-			mv -v $(SYSROOTDIR)/lib/$$i $(SYSROOTDIR)/usr/lib || exit 1 ;\
-		done ;\
-		for i in libc.so libc.so.6 libcrypt.so.1 libm.so.6 libpthread.so.0 librt.so.1 libutil.so.1 libdl.so.2 libresolv.so.2; do \
-			ln -svf $(LINKER) $(SYSROOTDIR)/lib/$$i ;\
-		done ;\
-		for i in libc.so libcrypt.so libm.so libpthread.so librt.so libutil.so libdl.so libresolv.so libxnet.so; do \
-			ln -svf ../../lib/$(LINKER) $(SYSROOTDIR)/usr/lib/$$i || exit 1 ;\
+		cd $(SYSROOTDIR)/lib/ ;\
+		for i in libc.so.6 libcrypt.so.1 libm.so.6 libpthread.so.0 librt.so.1 libutil.so.1 libdl.so.2 libresolv.so.2 libxnet.so; do \
+			ln -svf libc.so $$i || exit 1 ;\
 		done ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

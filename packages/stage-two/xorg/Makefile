@@ -6,10 +6,10 @@ all: targetfs
 
 x-server-test: xterm.o rxvt-unicode.o
 
-targetfs: xorg-proto.o xorg-libs.o gdk-pixbuf.o xcb-util.o xcb-util-image.o xcb-util-keysyms.o \
+targetfs: xorg-proto.o xorg-libs.o tiff.o gdk-pixbuf.o xcb-util.o xcb-util-image.o xcb-util-keysyms.o \
 	xcb-util-renderutil.o xcb-util-wm.o xcb-util-cursor.o libdrm.o libomxil-bellagio.o \
 	startup-notification.o libglvnd.o libvdpau.o mesa.o libepoxy.o glew.o glu.o freeglut.o \
-	mesa-demos.o tiff.o xbitmaps.o xorg-apps.o xcursor-themes.o xorg-fonts.o xkeyboard-config.o \
+	mesa-demos.o xbitmaps.o xorg-apps.o xcursor-themes.o xorg-fonts.o xkeyboard-config.o \
 	pixman.o xorg-server.o libwacom.o xorg-drivers.o x-server-test
 
 #============== [ targetfs packages ] ========================================================

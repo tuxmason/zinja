@@ -4,12 +4,17 @@ include ../../../../conf/shell-env.mk
 
 all: xorg-libs
 
-xorg-libs: libXau.o libXdmcp.o libxcb.o xtrans.o libX11.o libXext.o libFS.o libICE.o libSM.o \
-	libXScrnSaver.o libXt.o libXmu.o libXpm.o libXaw.o libXfixes.o libXcomposite.o \
-	libXrender.o libXcursor.o libXdamage.o libfontenc.o libXfont2.o libXft.o libXi.o \
-	libXinerama.o libXrandr.o libXres.o libXtst.o libXv.o libXvMC.o libXxf86dga.o \
-	libXxf86vm.o libdmx.o libxkbfile.o libxshmfence.o
+xorg-libs: libpciaccess.o libXau.o libXdmcp.o libxcb.o xtrans.o libX11.o libXext.o libFS.o \
+	libICE.o libSM.o libXScrnSaver.o libXt.o libXmu.o libXpm.o libXaw.o libXfixes.o \
+	libXcomposite.o libXrender.o libXcursor.o libXdamage.o libfontenc.o libXfont2.o \
+	libXft.o libXi.o libXinerama.o libXrandr.o libXres.o libXtst.o libXv.o libXvMC.o \
+	libXxf86dga.o libXxf86vm.o libdmx.o libxkbfile.o libxshmfence.o
 
+
+libpciaccess.o:
+	@echo "libpciaccess started $(shell date -R)"
+	(make -C libpciaccess 2>&1 | tee $(PKGLOGDIR)/libpciaccess.log && exit $$PIPESTATUS)
+	@echo "libpciaccess finished $(shell date -R)"
 
 libXau.o:
 	@echo "libXau started $(shell date -R)"

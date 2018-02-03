@@ -1,2 +1,8 @@
 0001-Make-dynamic-linker-a-relative-symlink-to-libc.patch
 0001-avoid-kernel-if_ether.h.patch
+0001-fix-sysconf-for-infinite-rlimits.patch
+0001-track-pthread-stack-guard-sizes.patch
+0001-use-the-name-UTC-instead-of-GMT-for-UTC-timezone.patch
+1000-implement-strftime-GNU-extension-padding-specifiers-.patch
+2000-pthread-internals-increase-DEFAULT_GUARD_SIZE-to-2-p.patch
+3002-stdio-implement-fopencookie-3.patch

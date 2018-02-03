@@ -51,7 +51,7 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libunwind-arm,libunwind-coredump}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libunwind-$(ARCH),libunwind-coredump}.la || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libunwind-ptrace,libunwind-setjmp,libunwind}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

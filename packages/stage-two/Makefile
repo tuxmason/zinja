@@ -14,7 +14,7 @@ targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o 
 	gpm.o vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
 	openssh.o pcre.o glib2.o libgudev.o wget.o kernel.o npth.o libaio.o libevent.o libusb.o \
 	libusb-compat.o usbutils.o icu.o sqlite3.o libxml2.o shared-mime-info.o jansson.o libnl.o \
-	libical.o bluez.o libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o \
+	mtdev.o libical.o bluez.o libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o \
 	libnetfilter_log.o libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o \
 	libnetfilter_cthelper.o ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o \
 	snappy.o mariadb.o unixODBC.o freedts.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o \
@@ -754,15 +754,10 @@ freetype.o:
 	(make -C freetype 2>&1 | tee $(PKGLOGDIR)/freetype.log && exit $$PIPESTATUS)
 	@echo "freetype finished $(shell date -R) "
 
-xorg.o:
-	@echo "xorg started $(shell date -R) "
-	(make -C xorg 2>&1 | tee $(PKGLOGDIR)/xorg.log && exit $$PIPESTATUS)
-	@echo "xorg finished $(shell date -R) "
-
-xorg.o:
-	@echo "xorg started $(shell date -R) "
-	(make -C xorg 2>&1 | tee $(PKGLOGDIR)/xorg.log && exit $$PIPESTATUS)
-	@echo "xorg finished $(shell date -R) "
+mtdev.o:
+	@echo "mtdev started $(shell date -R) "
+	(make -C mtdev 2>&1 | tee $(PKGLOGDIR)/mtdev.log && exit $$PIPESTATUS)
+	@echo "mtdev finished $(shell date -R) "
 
 fontconfig.o:
 	@echo "fontconfig started $(shell date -R) "

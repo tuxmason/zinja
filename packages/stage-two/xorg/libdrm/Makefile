@@ -28,7 +28,14 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-configure: patch
+autoconf: patch
+	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
+		cd $(PKGSRCDIR) ;\
+		( PATH=$(PATH) autoreconf -vif -I $(SYSROOTDIR)/usr/share/aclocal ) || exit 1 ;\
+		touch $(PKGOBJDIR)/autoconf-stamp ;\
+	fi
+
+configure: autoconf
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
 		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\

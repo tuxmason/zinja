@@ -19,11 +19,13 @@ COPTS := --prefix=/usr \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
 	--enable-suid-wrapper \
+	--disable-systemd-logind \
 	--disable-selective-werror \
 	--with-xkb-output=/var/lib/xkb
 
 CC := "${CC} "
 CXX := "${CXX} "
-CFLAGS := "-D_GNU_SOURCE"
+LDFLAGS := "-Wl,-z,lazy"
 PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
+CFLAGS := "-D_GNU_SOURCE -D__gid_t=gid_t -D__uid_t=uid_t"
 PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"

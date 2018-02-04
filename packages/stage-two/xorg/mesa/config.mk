@@ -39,7 +39,7 @@ endif
 ifeq ($(ARCH),x86_64)
 	COPTS := $(COPTS) \
 		--with-dri-drivers="nouveau,swrast" \
-		--with-gallium-drivers="i915,r600,nouveau,radeonsi,svga,swrast"
+		--with-gallium-drivers="i915,nouveau,svga,swrast"
 endif
 
 CC := "${CC} "

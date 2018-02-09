@@ -12,16 +12,17 @@ targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o 
 	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o intltool.o \
 	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux.o \
 	gpm.o vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
-	openssh.o pcre.o glib2.o libgudev.o wget.o kernel.o npth.o libaio.o libevent.o libusb.o \
-	libusb-compat.o usbutils.o icu.o sqlite3.o libxml2.o shared-mime-info.o jansson.o libnl.o \
-	mtdev.o libical.o bluez.o libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o \
-	libnetfilter_log.o libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o \
-	libnetfilter_cthelper.o ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o \
-	snappy.o mariadb.o unixODBC.o freedts.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o \
-	ulogd.o yaml.o ruby.o Python.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o \
-	libexecinfo.o libunwind.o gc.o libunistring.o libtasn1.o libgpg-error.o libassuan.o libksba.o \
-	libgcrypt.o libidn2.o p11-kit.o gnutls.o cyrus-sasl.o openldap.o gnupg.o libpng.o libjpeg-turbo.o \
-	jasper.o freetype.o fontconfig.o graphite2.o xorg.o
+	openssh.o pcre.o glib2.o libsigcpp.o glibmm.o libgudev.o wget.o kernel.o npth.o libaio.o \
+	libevent.o libusb.o libusb-compat.o usbutils.o libgusb.o fuse.o lua.o icu.o sqlite3.o \
+	libxml2.o libcroco.o shared-mime-info.o jansson.o libnl.o mtdev.o libical.o bluez.o \
+	libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o \
+	libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o libnetfilter_cthelper.o \
+	ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o snappy.o mariadb.o unixODBC.o \
+	freedts.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o ulogd.o yaml.o ruby.o \
+	Python.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o libexecinfo.o libunwind.o gc.o \
+	libunistring.o libtasn1.o libgpg-error.o libassuan.o libksba.o libgcrypt.o libidn2.o p11-kit.o \
+	gnutls.o cyrus-sasl.o openldap.o gnupg.o libpng.o giflib.o libid3tag.o libjpeg-turbo.o jasper.o \
+	freetype.o fontconfig.o graphite2.o harfbuzz.o freetype-harfbuzz.o atk.o atkmm.o xorg.o
 
 #============== [ targetfs packages ] ========================================================
 fhs.o:
@@ -788,6 +789,66 @@ jasper.o:
 	@echo "jasper started $(shell date -R) "
 	(make -C jasper 2>&1 | tee $(PKGLOGDIR)/jasper.log && exit $$PIPESTATUS)
 	@echo "jasper finished $(shell date -R) "
+
+fuse.o:
+	@echo "fuse started $(shell date -R) "
+	(make -C fuse 2>&1 | tee $(PKGLOGDIR)/fuse.log && exit $$PIPESTATUS)
+	@echo "fuse finished $(shell date -R) "
+
+lua.o:
+	@echo "lua started $(shell date -R) "
+	(make -C lua 2>&1 | tee $(PKGLOGDIR)/lua.log && exit $$PIPESTATUS)
+	@echo "lua finished $(shell date -R) "
+
+harfbuzz.o:
+	@echo "harfbuzz started $(shell date -R) "
+	(make -C harfbuzz 2>&1 | tee $(PKGLOGDIR)/harfbuzz.log && exit $$PIPESTATUS)
+	@echo "harfbuzz finished $(shell date -R) "
+
+freetype-harfbuzz.o:
+	@echo "freetype-harfbuzz started $(shell date -R) "
+	(make -C freetype 2>&1 | tee $(PKGLOGDIR)/freetype-harfbuzz.log && exit $$PIPESTATUS)
+	@echo "freetype-harfbuzz finished $(shell date -R) "
+
+libcroco.o:
+	@echo "libcroco started $(shell date -R) "
+	(make -C libcroco 2>&1 | tee $(PKGLOGDIR)/libcroco.log && exit $$PIPESTATUS)
+	@echo "libcroco finished $(shell date -R) "
+
+giflib.o:
+	@echo "giflib started $(shell date -R) "
+	(make -C giflib 2>&1 | tee $(PKGLOGDIR)/giflib.log && exit $$PIPESTATUS)
+	@echo "giflib finished $(shell date -R) "
+
+libid3tag.o:
+	@echo "libid3tag started $(shell date -R) "
+	(make -C libid3tag 2>&1 | tee $(PKGLOGDIR)/libid3tag.log && exit $$PIPESTATUS)
+	@echo "libid3tag finished $(shell date -R) "
+
+libgusb.o:
+	@echo "libgusb started $(shell date -R) "
+	(make -C libgusb 2>&1 | tee $(PKGLOGDIR)/libgusb.log && exit $$PIPESTATUS)
+	@echo "libgusb finished $(shell date -R) "
+
+atk.o:
+	@echo "atk started $(shell date -R) "
+	(make -C atk 2>&1 | tee $(PKGLOGDIR)/atk.log && exit $$PIPESTATUS)
+	@echo "atk finished $(shell date -R) "
+
+libsigcpp.o:
+	@echo "libsigc++ started $(shell date -R) "
+	(make -C libsigc++ 2>&1 | tee $(PKGLOGDIR)/libsigc++.log && exit $$PIPESTATUS)
+	@echo "libsigc++ finished $(shell date -R) "
+
+glibmm.o:
+	@echo "glibmm started $(shell date -R) "
+	(make -C glibmm 2>&1 | tee $(PKGLOGDIR)/glibmm.log && exit $$PIPESTATUS)
+	@echo "glibmm finished $(shell date -R) "
+
+atkmm.o:
+	@echo "atkmm started $(shell date -R) "
+	(make -C atkmm 2>&1 | tee $(PKGLOGDIR)/atkmm.log && exit $$PIPESTATUS)
+	@echo "atkmm finished $(shell date -R) "
 
 #============== [ targetfs packages ] ========================================================
 

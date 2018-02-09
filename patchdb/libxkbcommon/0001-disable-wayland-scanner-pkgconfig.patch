@@ -1,0 +1,10 @@
+--- libxkbcommon-0.8.0/configure.orig	2018-02-05 13:48:30.917239927 +0300
++++ libxkbcommon-0.8.0/configure	2018-02-05 13:48:58.905371001 +0300
+@@ -20076,7 +20076,6 @@
+ fi
+ 
+ 
+-    wayland_scanner=`$PKG_CONFIG --variable=wayland_scanner wayland-scanner`
+     ac_wayland_protocols_pkgdatadir=`$PKG_CONFIG --variable=pkgdatadir wayland-protocols`
+     WAYLAND_PROTOCOLS_DATADIR=$ac_wayland_protocols_pkgdatadir
+ 

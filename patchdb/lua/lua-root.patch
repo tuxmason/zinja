@@ -1,0 +1,11 @@
+--- lua-5.3.4/src/luaconf.h.orig	2018-02-05 16:02:09.018155232 +0300
++++ lua-5.3.4/src/luaconf.h	2018-02-05 16:02:28.855291871 +0300
+@@ -200,7 +200,7 @@
+ 
+ #else			/* }{ */
+ 
+-#define LUA_ROOT	"/usr/local/"
++#define LUA_ROOT	"/usr/"
+ #define LUA_LDIR	LUA_ROOT "share/lua/" LUA_VDIR "/"
+ #define LUA_CDIR	LUA_ROOT "lib/lua/" LUA_VDIR "/"
+ #define LUA_PATH_DEFAULT  \

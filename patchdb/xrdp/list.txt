@@ -1,0 +1,3 @@
+disable-exec-xrdp-keygen.patch
+dynamic-link.patch
+libressl-support.patch

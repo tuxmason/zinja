@@ -6,11 +6,13 @@ all: targetfs
 
 x-server-test: xterm.o rxvt-unicode.o
 
-targetfs: xorg-proto.o xorg-libs.o tiff.o gdk-pixbuf.o xcb-util.o xcb-util-image.o xcb-util-keysyms.o \
-	xcb-util-renderutil.o xcb-util-wm.o xcb-util-cursor.o libdrm.o libomxil-bellagio.o \
-	startup-notification.o libglvnd.o libvdpau.o mesa.o libepoxy.o glew.o glu.o freeglut.o \
-	mesa-demos.o xbitmaps.o xorg-apps.o xcursor-themes.o xorg-fonts.o xkeyboard-config.o \
-	pixman.o xorg-server.o libwacom.o xorg-drivers.o x-server-test
+targetfs: xorg-proto.o xorg-libs.o tiff.o lcms2.o imlib2.o gdk-pixbuf.o xcb-util.o \
+	xcb-util-image.o xcb-util-keysyms.o xcb-util-renderutil.o xcb-util-wm.o xcb-util-cursor.o \
+	libdrm.o libomxil-bellagio.o startup-notification.o libglvnd.o libvdpau.o libva.o mesa.o \
+	libva-mesa.o libepoxy.o glew.o glu.o freeglut.o mesa-demos.o xbitmaps.o xorg-apps.o \
+	xcursor-themes.o xorg-fonts.o xkeyboard-config.o libxkbcommon.o pixman.o xorg-server.o \
+	libwacom.o xorg-drivers.o x-server-test fluxbox.o at-spi2-core.o at-spi2-atk.o cairo.o \
+	cairomm.o pango.o pangomm.o bullet3.o freerdp.o xrdp.o weston.o
 
 #============== [ targetfs packages ] ========================================================
 xorg-proto.o:
@@ -172,6 +174,86 @@ rxvt-unicode.o:
 	@echo "rxvt-unicode started $(shell date -R) "
 	(make -C rxvt-unicode 2>&1 | tee $(PKGLOGDIR)/rxvt-unicode.log && exit $$PIPESTATUS)
 	@echo "rxvt-unicode finished $(shell date -R) "
+
+libxkbcommon.o:
+	@echo "libxkbcommon started $(shell date -R) "
+	(make -C libxkbcommon 2>&1 | tee $(PKGLOGDIR)/libxkbcommon.log && exit $$PIPESTATUS)
+	@echo "libxkbcommon finished $(shell date -R) "
+
+lcms2.o:
+	@echo "lcms2 started $(shell date -R) "
+	(make -C lcms2 2>&1 | tee $(PKGLOGDIR)/lcms2.log && exit $$PIPESTATUS)
+	@echo "lcms2 finished $(shell date -R) "
+
+imlib2.o:
+	@echo "imlib2 started $(shell date -R) "
+	(make -C imlib2 2>&1 | tee $(PKGLOGDIR)/imlib2.log && exit $$PIPESTATUS)
+	@echo "imlib2 finished $(shell date -R) "
+
+fluxbox.o:
+	@echo "fluxbox started $(shell date -R) "
+	(make -C fluxbox 2>&1 | tee $(PKGLOGDIR)/fluxbox.log && exit $$PIPESTATUS)
+	@echo "fluxbox finished $(shell date -R) "
+
+at-spi2-core.o:
+	@echo "at-spi2-core started $(shell date -R) "
+	(make -C at-spi2-core 2>&1 | tee $(PKGLOGDIR)/at-spi2-core.log && exit $$PIPESTATUS)
+	@echo "at-spi2-core finished $(shell date -R) "
+
+at-spi2-atk.o:
+	@echo "at-spi2-atk started $(shell date -R) "
+	(make -C at-spi2-atk 2>&1 | tee $(PKGLOGDIR)/at-spi2-atk.log && exit $$PIPESTATUS)
+	@echo "at-spi2-atk finished $(shell date -R) "
+
+cairo.o:
+	@echo "cairo started $(shell date -R) "
+	(make -C cairo 2>&1 | tee $(PKGLOGDIR)/cairo.log && exit $$PIPESTATUS)
+	@echo "cairo finished $(shell date -R) "
+
+cairomm.o:
+	@echo "cairomm started $(shell date -R) "
+	(make -C cairomm 2>&1 | tee $(PKGLOGDIR)/cairomm.log && exit $$PIPESTATUS)
+	@echo "cairomm finished $(shell date -R) "
+
+pango.o:
+	@echo "pango started $(shell date -R) "
+	(make -C pango 2>&1 | tee $(PKGLOGDIR)/pango.log && exit $$PIPESTATUS)
+	@echo "pango finished $(shell date -R) "
+
+pangomm.o:
+	@echo "pangomm started $(shell date -R) "
+	(make -C pangomm 2>&1 | tee $(PKGLOGDIR)/pangomm.log && exit $$PIPESTATUS)
+	@echo "pangomm finished $(shell date -R) "
+
+bullet3.o:
+	@echo "bullet3 started $(shell date -R) "
+	(make -C bullet3 2>&1 | tee $(PKGLOGDIR)/bullet3.log && exit $$PIPESTATUS)
+	@echo "bullet3 finished $(shell date -R) "
+
+freerdp.o:
+	@echo "freerdp started $(shell date -R) "
+	(make -C freerdp 2>&1 | tee $(PKGLOGDIR)/freerdp.log && exit $$PIPESTATUS)
+	@echo "freerdp finished $(shell date -R) "
+
+xrdp.o:
+	@echo "xrdp started $(shell date -R) "
+	(make -C xrdp 2>&1 | tee $(PKGLOGDIR)/xrdp.log && exit $$PIPESTATUS)
+	@echo "xrdp finished $(shell date -R) "
+
+weston.o:
+	@echo "weston started $(shell date -R) "
+	(make -C weston 2>&1 | tee $(PKGLOGDIR)/weston.log && exit $$PIPESTATUS)
+	@echo "weston finished $(shell date -R) "
+
+libva.o:
+	@echo "libva started $(shell date -R) "
+	(make -C libva 2>&1 | tee $(PKGLOGDIR)/libva.log && exit $$PIPESTATUS)
+	@echo "libva finished $(shell date -R) "
+
+libva-mesa.o:
+	@echo "libva-mesa started $(shell date -R) "
+	(make -C libva 2>&1 | tee $(PKGLOGDIR)/libva-mesa.log && exit $$PIPESTATUS)
+	@echo "libva-mesa finished $(shell date -R) "
 
 #============== [ targetfs packages ] ========================================================
 

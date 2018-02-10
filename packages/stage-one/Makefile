@@ -1,12 +1,17 @@
 #include general config file
 include ../../conf/environment.mk
 
-all: cross-tools
+host-tools: bc.o kheaders.o file.o m4.o ncurses.o wayland.o pkg-config-lite.o perl.o whois.o
 
-cross-tools: bc.o kheaders.o file.o m4.o ncurses.o wayland.o pkg-config-lite.o \
-	perl.o xml-parser.o whois.o gmp.o mpfr.o mpc.o isl.o binutils.o gcc-stage1.o \
-	musl.o gcc-stage2.o musl-locales.o musl-fts.o musl-obstack.o timezone.o \
-	argp-standalone.o
+host-pl: xml-parser.o
+
+x-compiler: gmp.o mpfr.o mpc.o isl.o binutils.o gcc-stage1.o musl.o gcc-stage2.o
+
+musl-extras: musl-locales.o musl-fts.o musl-obstack.o timezone.o argp-standalone.o
+
+xtools: host-tools host-pl x-compiler musl-extras
+
+all: xtools
 
 #==================== Cross Toolchain ================================================
 bc.o: 
@@ -131,4 +136,4 @@ clean:
 		make -C $$dir clean ;\
 	done ;\
 
-PHONY: all cross-tools
+PHONY: all xtools clean

@@ -5,4 +5,5 @@ PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := https://launchpad.net/$(PKGNAME)/trunk/$(PKGVER)/+download/$(PKGSRC)
 COPTS := --prefix=$(CROSSTOOLS)

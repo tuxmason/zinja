@@ -14,9 +14,9 @@ include conf/Makefile.config
 
 all: base
 
-base: cross-tools core
+base: xtools core
 
-cross-tools: config
+xtools: config
 	make -C packages/stage-one
 
 core:
@@ -33,4 +33,4 @@ distclean:
 
 clean: distclean
 	
-PHONY: all base clean
+PHONY: all xtools base clean

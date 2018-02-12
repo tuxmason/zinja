@@ -1,0 +1,8 @@
+PKGNAME := Module-Build
+PKGVER := 0.4224
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := https://www.cpan.org/authors/id/L/LE/LEONT/$(PKGSRC)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-obj

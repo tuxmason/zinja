@@ -1,0 +1,8 @@
+PKGNAME := Test-MockModule
+PKGVER := 0.13
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://search.cpan.org/CPAN/authors/id/G/GF/GFRANKS/$(PKGSRC)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-obj

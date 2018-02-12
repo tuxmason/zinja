@@ -1,0 +1,10 @@
+PKGNAME := fakeroot
+PKGVER := 1.22
+PKGSRC := $(PKGNAME)_$(PKGVER).orig.tar.bz2
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-stage-one-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://http.debian.net/debian/pool/main/f/$(PKGNAME)/$(PKGSRC)
+COPTS := --prefix=$(CROSSTOOLS)
+LIBS := -lacl

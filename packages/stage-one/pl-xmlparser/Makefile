@@ -1,10 +1,11 @@
 #include the shared config file
 include ../../../conf/environment.mk
+
 #include package specific config file
 include ./config.mk
 
 all: targets
-targets: clean extract patch build install
+targets: clean extract patch configure build install
 
 extract:  
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -25,11 +26,16 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-build: patch 
+configure: patch
+	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
+		cd $(PKGSRCDIR) ;\
+		( PATH=$(PATH) perl Makefile.PL PREFIX=$(CROSSTOOLS) ) || exit 1 ;\
+		touch $(PKGOBJDIR)/configure-stamp ;\
+	fi
+
+build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) perl -v ) || exit 1 ;\
-		( PATH=$(PATH) perl Makefile.PL ) || exit 1 ;\
 		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGSRCDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
@@ -41,7 +47,7 @@ install: build
 	fi
 
 clean:
-	@if [ -d $(PKGSRCDIR) ]; then rm -r $(PKGSRCDIR); fi
-	@if [ -d $(PKGOBJDIR) ]; then rm -r $(PKGOBJDIR); fi
+	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
+	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 
 PHONY: all targets

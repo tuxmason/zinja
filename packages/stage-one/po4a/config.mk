@@ -1,0 +1,9 @@
+PKGNAME := po4a
+PKGVER := 0.52
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := https://alioth.debian.org/frs/download.php/file/4229/$(PKGSRC)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-obj
+PERL_LIBDIR := $(shell $(CROSSTOOLS)/bin/perl -V:sitelib | cut -d\' -f2)

@@ -1,0 +1,8 @@
+PKGNAME := intltool-debian
+PKGVER := 0.35.0+20060710.4
+PKGSRC := $(PKGNAME)_$(PKGVER).tar.xz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://http.debian.net/debian/pool/main/i/$(PKGNAME)/$(PKGSRC)

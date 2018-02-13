@@ -1,0 +1,10 @@
+--- po-debconf-1.0.20/Makefile.orig	2018-02-11 09:49:32.877439822 +0300
++++ po-debconf-1.0.20/Makefile	2018-02-11 09:49:43.216486671 +0300
+@@ -2,7 +2,6 @@
+ prefix 	= /usr
+ 
+ all:
+-	$(MAKE) -C doc
+ 	$(MAKE) fix
+ 
+ fix: debconf-gettextize debconf-updatepo po2debconf

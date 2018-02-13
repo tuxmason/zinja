@@ -43,6 +43,9 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) install ) || exit 1 ;\
+		install -vd $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/default $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/zinja $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\
 		touch $(SYSROOTDIR)/var/lib/dpkg/status || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

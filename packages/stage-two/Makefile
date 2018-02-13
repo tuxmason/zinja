@@ -4,7 +4,7 @@ include ../../conf/shell-env.mk
 
 all: targetfs
 
-targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binutils.o gcc.o \
+targetfs: sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binutils.o gcc.o \
 	libffi.o attr.o acl.o libcap.o sed.o pkg-config-lite.o ncurses.o check.o cracklib.o \
 	cracklib-dict.o linux-pam.o shadow.o util-linux.o procps-ng.o e2fsprogs.o coreutils.o \
 	iana-etc.o libtool.o gdbm.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o \
@@ -25,11 +25,6 @@ targetfs: fhs.o sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o 
 	freetype.o fontconfig.o graphite2.o harfbuzz.o freetype-harfbuzz.o atk.o atkmm.o xorg.o
 
 #============== [ targetfs packages ] ========================================================
-fhs.o:
-	@echo "FHS started $(shell date -R) "
-	(make -C fhs 2>&1 | tee $(PKGLOGDIR)/fhs.log && exit $$PIPESTATUS)
-	@echo "FHS finished $(shell date -R) "
-
 gmp.o:
 	@echo "GMP started $(shell date -R) "
 	(make -C gmp 2>&1 | tee $(PKGLOGDIR)/gmp.log && exit $$PIPESTATUS)

@@ -1,0 +1,10 @@
+PKGNAME := dh-make
+PKGVER := 1.20140617
+PKGSRC := $(PKGNAME)_$(PKGVER).tar.xz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://ftp.debian.org/debian/pool/main/d/$(PKGNAME)/$(PKGSRC)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-obj
+PERL := $(CROSSTOOLS)/bin/perl
+PERL_LIBDIR := $(shell $(CROSSTOOLS)/bin/perl -V:sitelib | cut -d\' -f2)

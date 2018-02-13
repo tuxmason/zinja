@@ -1,0 +1,27 @@
+diff -uraN a/vendor/zinja/apt-vendor.ent b/vendor/zinja/apt-vendor.ent
+--- a/vendor/zinja/apt-vendor.ent	1970-01-01 03:00:00.000000000 +0300
++++ b/vendor/zinja/apt-vendor.ent	2018-02-12 19:12:59.654906421 +0300
+@@ -0,0 +1,13 @@
++<!-- details about the keys used by the distribution -->
++<!ENTITY keyring-distro "Zinja">
++<!ENTITY keyring-package "<package>zinja-archive-keyring</package>">
++<!ENTITY keyring-filename "<filename>/usr/share/keyrings/zinja-archive-keyring.gpg</filename>">
++<!ENTITY keyring-removed-filename "<filename>/usr/share/keyrings/zinja-archive-removed-keys.gpg</filename>">
++<!ENTITY keyring-master-filename "">
++<!ENTITY keyring-uri "">
++
++<!ENTITY sourceslist-list-format "deb http://zinjaos.org/zinja &debian-stable-codename; main contrib non-free">
++<!ENTITY sourceslist-sources-format "Types: deb
++URIs: http://zinjaos.org/zinja
++Suites: &debian-stable-codename;
++Components: main contrib non-free">
+diff -uraN a/vendor/zinja/sources.list.in b/vendor/zinja/sources.list.in
+--- a/vendor/zinja/sources.list.in	1970-01-01 03:00:00.000000000 +0300
++++ b/vendor/zinja/sources.list.in	2018-02-12 19:12:59.654906421 +0300
+@@ -0,0 +1,6 @@
++# See sources.list(5) manpage for more information
++# Remember that CD-ROMs, DVDs and such are managed through the apt-cdrom tool.
++&sourceslist-list-format;
++
++# Uncomment if you want the apt-get source function to work
++#deb-src http://zinjaos.org/zinja &debian-stable-codename; main contrib non-free

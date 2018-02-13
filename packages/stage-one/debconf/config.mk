@@ -1,0 +1,12 @@
+PKGNAME := debconf
+PKGVER := 1.5.65
+PKGSRC := $(PKGNAME)_$(PKGVER).tar.xz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://ftp.debian.org/debian/pool/main/d/$(PKGNAME)/$(PKGSRC)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-obj
+PERL := $(CROSSTOOLS)/bin/perl
+PERL_LIBDIR := $(shell $(CROSSTOOLS)/bin/perl -V:sitelib | cut -d\' -f2)
+BIN := debconf debconf-apt-progress debconf-communicate debconf-copydb debconf-escape debconf-get-selections debconf-getlang debconf-loadtemplate debconf-mergetemplate debconf-set-selections debconf-show
+SBIN := dpkg-preconfigure dpkg-reconfigure

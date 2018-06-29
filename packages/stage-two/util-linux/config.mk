@@ -14,7 +14,21 @@ COPTS := --enable-partx \
 	--disable-nls \
 	--enable-raw \
 	--with-ncursesw \
+	--disable-login \
+	--disable-setpriv \
+	--disable-su \
+	--disable-nologin \
+	--disable-chfn-chsh \
 	--with-sysroot=$(SYSROOTDIR) \
 	--disable-makeinstall-chown
-CC := "${CC} "
+
+CC := "${CC}"
+CXX := "${CXX}"
+
 LDFLAGS := "-L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

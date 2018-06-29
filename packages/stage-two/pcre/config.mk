@@ -14,7 +14,15 @@ COPTS := --prefix=/usr \
 	--enable-pcregrep-libz \
 	--enable-pcregrep-libbz2 \
 	--enable-unicode-properties \
-	--enable-pcretest-libreadline
+	--enable-pcretest-libreadline \
+	--with-sysroot=$(SYSROOTDIR) \
+	--docdir=/usr/share/doc/$(PKGNAME)-$(PKGVER)
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

@@ -17,12 +17,11 @@ COPTS := --prefix=/usr \
 	--with-rootlibdir=/lib \
 	--enable-split-usr \
 	--disable-efi \
-	 --disable-lto \
+	--disable-lto \
 	--disable-gnutls \
 	--disable-libcryptsetup \
 	--disable-gcrypt \
 	--without-python \
-	--disable-manpages \
 	--enable-static=no \
 	--without-python \
 	--disable-sysusers \
@@ -48,3 +47,9 @@ COPTS := --prefix=/usr \
 CPPFLAGS := "-I$(SYSROOTDIR)/usr/include/nspr -I$(SYSROOTDIR)/usr/include/nss"
 CFLAGS := "-D_GNU_SOURCE -DNO_LIBC_FTW"
 KMOD_LIBS := -lkmod
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

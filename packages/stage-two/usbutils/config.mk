@@ -11,5 +11,11 @@ COPTS := --prefix=/usr \
 	--host=$(TARGETARCH) \
 	--datadir=/usr/share/hwdata
 
-CC := "${CC} "
-PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig"
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

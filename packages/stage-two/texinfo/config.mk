@@ -8,6 +8,18 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://ftp.gnu.org/gnu/$(PKGNAME)/$(PKGSRC)
 COPTS := --prefix=/usr  \
 	--build=$(BUILDARCH) \
-	--host=$(TARGETARCH)
-CC := "${CC} "
-CXX := "${CXX} "
+	--host=$(TARGETARCH) \
+	--with-sysroot=$(SYSROOTDIR)
+
+CC := "${CC}"
+CXX := "${CXX}"
+
+BUILD_CC := gcc
+BUILD_AR := ar
+BUILD_RANLIB := ranlib
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

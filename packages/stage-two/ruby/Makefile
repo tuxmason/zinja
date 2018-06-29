@@ -7,11 +7,12 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure-host build-host install-host configure-target build-target install-target
+targets: clean extract patch configure-host build-host install-host configure-target build-target install-deps build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(TARGET_PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
+		mkdir -p $(PKGBINDIR) ;\
 		mkdir $(HOST_PKGOBJDIR) || exit 1 ;\
 		mkdir $(TARGET_PKGOBJDIR) || exit 1 ;\
 		touch $(TARGET_PKGOBJDIR)/extract-stamp ;\
@@ -64,13 +65,51 @@ build-target: configure-target
 		touch $(TARGET_PKGOBJDIR)/build-target-stamp ;\
 	fi
 
-install-target: build-target
-	@if [ ! -f $(TARGET_PKGOBJDIR)/install-target-stamp  ]; then \
+pkg-src: build-target
+	@if [ ! -f $(TARGET_PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(TARGET_PKGOBJDIR)/pkg-src-stamp ;\
+	fi
+
+install-deps: install-sysroot install-pkgroot
+
+install-sysroot: pkg-src
+	@if [ ! -f $(TARGET_PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(TARGET_PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		touch $(TARGET_PKGOBJDIR)/install-target-stamp ;\
+		touch $(TARGET_PKGOBJDIR)/install-sysroot-stamp ;\
+	fi
+
+install-pkgroot: pkg-src
+	@if [ ! -f $(TARGET_PKGOBJDIR)/install-pkgroot-stamp  ]; then \
+		( PATH=$(PATH) make -C $(TARGET_PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		touch $(TARGET_PKGOBJDIR)/install-pkgroot-stamp ;\
+	fi
+
+build-pkg: install-deps
+	@if [ ! -f $(TARGET_PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
+		touch $(TARGET_PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(TARGET_PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			libruby_$(PKGVER)-1_$(PKGARCH).deb \
+			ruby_$(PKGVER)-1_$(PKGARCH).deb \
+			ruby-dev_$(PKGVER)-1_$(PKGARCH).deb \
+			ruby-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
+		touch $(TARGET_PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 
 clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
 	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
 	@if [ -d $(HOST_PKGOBJDIR) ]; then rm -rf $(HOST_PKGOBJDIR); fi
 	@if [ -d $(TARGET_PKGOBJDIR) ]; then rm -rf $(TARGET_PKGOBJDIR); fi

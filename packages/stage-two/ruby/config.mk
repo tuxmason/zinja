@@ -26,6 +26,7 @@ TARGET_COPTS := --prefix=/usr \
 	--disable-install-capi \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
+	--enable-install-static-library \
 	--with-baseruby=$(HOST_PKGOBJDIR)/host/bin/ruby \
 	--cache-file=$(TARGET_PKGOBJDIR)/$(PKGNAME).cache
 
@@ -34,8 +35,14 @@ HOST_CC := gcc
 HOST_CXX := g++
 HOST_RANLIB := ranlib
 
-TARGET_CC := "${CC} "
-TARGET_CXX := "${CXX} "
+TARGET_CC := "${CC}"
+TARGET_CXX := "${CXX}"
 
 CFLAGS := "-I$(SYSROOTDIR)/usr/include -fno-omit-frame-pointer -fno-strict-aliasing"
 CPPFLAGS := "-I$(SYSROOTDIR)/usr/include -fno-omit-frame-pointer -fno-strict-aliasing"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

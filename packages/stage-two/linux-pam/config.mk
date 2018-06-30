@@ -17,4 +17,12 @@ COPTS := --prefix=/usr \
 	--enable-read-both-confs \
 	--disable-regenerate-docu \
 	--enable-securedir=/lib/security
-CC := "${CC} "
+
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/linux-pam
+ORIGSRC := linux-pam_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/linux-pam
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

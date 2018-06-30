@@ -7,14 +7,14 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build install
+targets: clean extract patch configure build pkg-src install-bin build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
 		mkdir $(PKGOBJDIR) ;\
 		mkdir $(WPKGOBJDIR) ;\
-		mkdir $(NWPKGOBJDIR) ;\
+		mkdir -pv $(PKGBINDIR)/usr/lib ;\
 		touch $(PKGOBJDIR)/extract-stamp ;\
 	fi
 
@@ -30,41 +30,31 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-configure: configure-wc
-
-configure-wc: patch
-	@if [ ! -f $(PKGOBJDIR)/configure-wc-stamp  ]; then \
+configure: patch
+	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(WPKGOBJDIR) ;\
 		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) $(WCOPTS) ) || exit 1 ;\
-		touch $(PKGOBJDIR)/configure-wc-stamp ;\
+		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
-configure-nwc: patch
-	@if [ ! -f $(PKGOBJDIR)/configure-nwc-stamp  ]; then \
-		cd $(NWPKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) $(NWCOPTS) ) || exit 1 ;\
-		touch $(PKGOBJDIR)/configure-nwc-stamp ;\
-	fi
-
-build: build-wc
-
-build-wc: configure-wc
-	@if [ ! -f $(PKGOBJDIR)/build-wc-stamp  ]; then \
+build: configure
+	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
 		( PATH=$(PATH) make -j$(NPROCS) -C $(WPKGOBJDIR) ) || exit 1 ;\
-		touch $(PKGOBJDIR)/build-wc-stamp ;\
+		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
-build-nwc: configure-nwc
-	@if [ ! -f $(PKGOBJDIR)/build-nwc-stamp  ]; then \
-		( PATH=$(PATH) make -j$(NPROCS) -C $(NWPKGOBJDIR) ) || exit 1 ;\
-		cd $(NWPKGOBJDIR)/misc && /bin/sh gen-pkgconfig || exit 1 ;\
-		touch $(PKGOBJDIR)/build-nwc-stamp ;\
+pkg-src: build
+	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(PKGOBJDIR)/pkg-src-stamp ;\
 	fi
 
-install: install-wc
-
-install-wc: build-wc
-	@if [ ! -f $(PKGOBJDIR)/install-wc-stamp  ]; then \
+install-bin: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
 		( PATH=$(PATH) make -C $(WPKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		for lib in ncursesw formw panelw menuw ; do \
 			rm -v $(SYSROOTDIR)/lib/lib$${lib}.so || exit 1 ;\
@@ -76,24 +66,42 @@ install-wc: build-wc
 			ln -sfv lib$${lib}w.a $(SYSROOTDIR)/usr/lib/lib$${lib}.a || exit 1 ;\
 		done ;\
 		ln -sfv ncursesw6-config $(SYSROOTDIR)/usr/bin/ncurses6-config || exit 1 ;\
-		touch $(PKGOBJDIR)/install-wc-stamp ;\
+		( PATH=$(PATH) make -C $(WPKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		for lib in ncursesw formw panelw menuw ; do \
+			rm -v $(PKGBINDIR)/lib/lib$${lib}.so || exit 1 ;\
+			mv -v $(PKGBINDIR)/lib/lib$${lib}.a $(PKGBINDIR)/usr/lib || exit 1 ;\
+			ln -sfv ../../lib/lib$${lib}.so.6 $(PKGBINDIR)/usr/lib/lib$${lib}.so || exit 1 ;\
+		done ;\
+		for lib in ncurses form panel menu ; do \
+			echo "INPUT(-l$${lib}w)" > $(PKGBINDIR)/usr/lib/lib$${lib}.so || exit 1 ;\
+			ln -sfv lib$${lib}w.a $(PKGBINDIR)/usr/lib/lib$${lib}.a || exit 1 ;\
+		done ;\
+		ln -sfv ncursesw6-config $(PKGBINDIR)/usr/bin/ncurses6-config || exit 1 ;\
+		touch $(PKGOBJDIR)/install-bin-stamp ;\
 	fi
 
-install-nwc: build-nwc
-	@if [ ! -f $(PKGOBJDIR)/install-nwc-stamp  ]; then \
-		cp -av $(NWPKGOBJDIR)/lib/lib*.so.5* $(SYSROOTDIR)/lib || exit 1 ;\
-		for lib in ncurses form panel menu ; do \
-			ln -sfv ../../lib/lib$${lib}.so.5 $(SYSROOTDIR)/usr/lib/lib$${lib}.so || exit 1 ;\
-		done ;\
-		install -v -m 0644 $(NWPKGOBJDIR)/misc/*.pc $(SYSROOTDIR)/usr/lib/pkgconfig || exit 1 ;\
-		install -v -m 0755 $(NWPKGOBJDIR)/misc/ncurses-config $(SYSROOTDIR)/usr/bin/ncurses6-config || exit 1 ;\
-		touch $(PKGOBJDIR)/install-nwc-stamp ;\
+build-pkg: install-bin
+	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			libncursesw_$(PKGVER)-1_$(PKGARCH).deb \
+			ncursesw_$(PKGVER)-1_$(PKGARCH).deb \
+			libncursesw-dev_$(PKGVER)-1_$(PKGARCH).deb \
+			ncursesw-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 
 clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
 	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
 	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 	@if [ -d $(WPKGOBJDIR) ]; then rm -rf $(WPKGOBJDIR); fi
-	@if [ -d $(NWPKGOBJDIR) ]; then rm -rf $(NWPKGOBJDIR); fi
 
-PHONY: all configure build install targets
+PHONY: all targets

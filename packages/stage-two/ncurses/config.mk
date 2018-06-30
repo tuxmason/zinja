@@ -25,5 +25,12 @@ COPTS := --prefix=/usr \
 	--with-pkg-config-libdir=/usr/lib/pkgconfig \
 	--with-default-terminfo-dir=/usr/share/terminfo \
 	--with-terminfo-dirs="/etc/terminfo:/usr/share/terminfo"
-CC := "${CC} "
-CXX := "${CXX} "
+
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

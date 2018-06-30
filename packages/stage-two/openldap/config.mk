@@ -24,10 +24,18 @@ COPTS := --prefix=/usr \
 	--build=$(BUILDARCH) \
 	--libexecdir=/usr/lib \
 	--host=$(TARGETARCH) \
+	--localstatedir=/var \
 	--with-yielding-select=yes \
 	ac_cv_func_memcmp_working=yes
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
 LDFLAGS := "-L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"
 CFLAGS := "-D_GNU_SOURCE -fPIC -I$(SYSROOTDIR)/usr/include -I$(SYSROOTDIR)/usr/include/openssl"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

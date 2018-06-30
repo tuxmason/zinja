@@ -10,9 +10,7 @@ COPTS := shared \
 	-DOPENSSL_NO_ASYNC \
 	zlib-dynamic \
 	--openssldir=/etc/ssl \
-	--prefix=/usr \
-	no-idea \
-	no-rc5
+	--prefix=/usr
 
 CC := "${CC}"
 AR := "${AR}"
@@ -28,3 +26,9 @@ endif
 ifeq ($(ARCH),x86_64)
         COPTS := $(COPTS) linux-x86_64
 endif
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

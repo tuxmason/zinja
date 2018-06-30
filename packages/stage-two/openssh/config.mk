@@ -25,4 +25,9 @@ COPTS := --prefix=/usr \
 CC := "${CC}"
 CFLAGS := "-D__FILE_OFFSET_BITS=64"
 RANLIB := "${RANLIB}"
-PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

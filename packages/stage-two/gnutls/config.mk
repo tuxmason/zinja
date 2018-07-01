@@ -12,12 +12,17 @@ COPTS := --prefix=/usr \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
 	--enable-openssl-compatibility \
-	--with-libltdl-prefix=$(SYSROOTDIR)/usr \
 	--with-libcrypto-prefix=$(SYSROOTDIR)/usr \
 	--with-default-trust-store-pkcs11="pkcs11:" \
-	--with-libreadline-prefix=$(SYSROOTDIR)/usr \
 	--with-libunistring-prefix=$(SYSROOTDIR)/usr
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
 LDFLAGS := "-L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

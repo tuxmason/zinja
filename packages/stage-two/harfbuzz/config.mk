@@ -8,15 +8,20 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://www.freedesktop.org/software/$(PKGNAME)/release/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--with-gobject \
+	--enable-static \
 	--with-graphite2 \
 	--disable-gtk-doc \
 	--sysconfdir=/etc \
 	--localstatedir=/var \
 	--build=$(BUILDARCH) \
-	--host=$(TARGETARCH)
+	--host=$(TARGETARCH) \
+	--with-sysroot=$(SYSROOTDIR)
 
-CC := "${CC} "
-CXX := "${CXX} "
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
-LDFLAGS := "-L$(SYSROOTDIR)/usr/lib -L$(SYSROOTDIR)/usr/lib"
-PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

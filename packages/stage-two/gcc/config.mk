@@ -24,11 +24,19 @@ COPTS := --prefix=/usr \
         --enable-linker-build-id \
         --with-system-zlib \
         --libexecdir=/usr/lib
-CC := "${CC} "
-CXX := "${CXX} "
+
+CC := "${CC}"
+CXX := "${CXX}"
+
 ifeq ($(ARCH),arm)
         COPTS := $(COPTS) --with-fpu=$(FPU) --with-float=$(FLOAT) --with-arch=$(ARCH_TYPE)
 	LA := libatomic.la,libgomp.la,libitm.la,libstdc++fs.la,libssp.la,libssp_nonshared.la,libstdc++.la,libsupc++.la
 else
 	LA := libatomic.la,libgomp.la,libitm.la,libcilkrts.la,libmpx.la,libmpxwrappers.la,libquadmath.la,libstdc++fs.la,libssp.la,libssp_nonshared.la,libstdc++.la,libsupc++.la
 endif
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

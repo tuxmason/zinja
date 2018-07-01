@@ -7,6 +7,7 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := ftp://ftp.cyrusimap.org/$(PKGNAME)/$(PKGSRC)
 COPTS := --prefix=/usr \
+	--enable-static \
 	--enable-login \
 	--sysconfdir=/etc \
 	--with-dblib=gdbm \
@@ -16,6 +17,12 @@ COPTS := --prefix=/usr \
 	--with-dbpath=/var/lib/sasl/sasldb2 \
 	--with-saslauthd=/var/run/saslauthd
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
 HOST_CC := gcc
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

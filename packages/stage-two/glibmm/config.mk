@@ -7,12 +7,17 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://ftp.gnome.org/pub/gnome/sources/$(PKGNAME)/2.55/$(PKGSRC)
 COPTS := --prefix=/usr \
+	--enable-static \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
 	--disable-documentation
 
 CC := "${CC} "
 CXX := "${CXX} "
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
 LDFLAGS := "-L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"
-PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

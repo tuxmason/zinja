@@ -7,12 +7,13 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build install
+targets: clean extract patch configure build pkg-src install-bin build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
 		mkdir $(PKGOBJDIR) ;\
+		mkdir -pv $(PKGBINDIR) ;\
 		touch $(PKGOBJDIR)/extract-stamp ;\
 	fi
 
@@ -37,20 +38,45 @@ configure: patch
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
-install: build
-	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		for bin in intltool-extract intltool-merge intltool-prepare intltool-update intltoolize; do \
-			sed -i -e "s@$(CROSSTOOLS)@/usr@g" $(SYSROOTDIR)/usr/bin/$$bin || exit 1 ;\
-		done ;\
-		touch $(PKGOBJDIR)/install-stamp ;\
+pkg-src: build
+	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(PKGOBJDIR)/pkg-src-stamp ;\
+	fi
+
+install-bin: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		find $(PKGBINDIR)/usr/bin -type f -exec sed -i -e "s@$(CROSSTOOLS)@/usr@g" "{}" \; || exit 1 ;\
+		touch $(PKGOBJDIR)/install-bin-stamp ;\
+	fi
+
+build-pkg: install-bin
+	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --force-depends --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			intltool_$(PKGVER)-1_$(PKGARCH).deb \
+			intltool-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 
 clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
 	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
 	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 

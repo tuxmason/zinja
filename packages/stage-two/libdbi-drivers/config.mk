@@ -25,6 +25,13 @@ COPTS := --prefix=/usr \
 	--with-dbi-incdir=$(SYSROOTDIR)/usr/include/dbi \
 	--with-mysql-incdir=$(SYSROOTDIR)/usr/include/mysql
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
 SQLITE3_LIBS := "-lsqlite3"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

@@ -12,5 +12,14 @@ COPTS := --prefix=/usr \
 	--enable-libkeymap \
 	--enable-optional-progs \
         --cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
-CC := "${CC} "
+
+CC := "${CC}"
+CXX := "${CXX}"
+
 PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

@@ -7,6 +7,7 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://dbus.freedesktop.org/releases/dbus/$(PKGSRC)
 COPTS := --prefix=/usr \
+	--without-x \
 	--sysconfdir=/etc \
 	--libexecdir=/usr/lib/dbus-1.0 \
 	--localstatedir=/var \
@@ -15,14 +16,18 @@ COPTS := --prefix=/usr \
 	--disable-xml-docs \
 	--disable-doxygen-docs \
 	--enable-user-session \
-	--without-x \
 	--with-console-auth-dir=/run/console \
 	--with-system-pid-file=/run/dbus/pid \
 	--with-system-socket=/run/dbus/system_bus_socket \
-	--docdir=/usr/share/doc/dbus-1.12.2 \
+	--docdir=/usr/share/doc/$(PKGNAME)-$(PKGVER) \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH)
 
-CC := "${CC} "
-CXX := "${CXX} "
-PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig"
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

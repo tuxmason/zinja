@@ -10,12 +10,19 @@ COPTS := --prefix=/usr \
 	--disable-java \
 	--without-csharp \
 	--disable-rpath \
-	--enable-threads=posix \
 	--host=$(TARGETARCH) \
 	--build=$(BUILDARCH) \
+	--enable-relocatable \
+	--enable-threads=posix \
 	--with-sysroot=$(SYSROOTDIR) \
 	--with-libncurses-prefix=$(SYSROOTDIR) \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
-CC := "${CC} "
-CXX := "${CXX} "
-LIBS := "-lrt -lpthread -ldl -lm"
+
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

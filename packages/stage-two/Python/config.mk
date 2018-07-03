@@ -19,5 +19,11 @@ COPTS := --prefix=/usr \
 	--enable-unicode=ucs4 \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/python
+ORIGSRC := python_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

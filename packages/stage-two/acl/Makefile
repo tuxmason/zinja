@@ -7,12 +7,13 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build install
+targets: clean extract patch configure build pkg-src install-bin build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
 		mkdir $(PKGOBJDIR) ;\
+		mkdir -pv $(PKGBINDIR)/usr/lib ;\
 		touch $(PKGOBJDIR)/extract-stamp ;\
 	fi
 
@@ -31,7 +32,7 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) CC=$(CC) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
@@ -41,17 +42,53 @@ build: configure
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
-install: build
-	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGSRCDIR) DIST_ROOT=$(SYSROOTDIR) install install-dev install-lib ) || exit 1 ;\
+pkg-src: build
+	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(PKGOBJDIR)/pkg-src-stamp ;\
+	fi
+
+install-bin: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
+		( PATH=$(PATH) make -C $(PKGSRCDIR) DESTDIR=$(PKGBINDIR) install install-dev install-lib ) || exit 1 ;\
+		chmod 755 $(PKGBINDIR)/lib/libacl.so.1.1.0 || exit 1 ;\
+		rm -v $(PKGBINDIR)/lib/{libacl.la,libacl.so} || exit 1 ;\
+		mv -v $(PKGBINDIR)/lib/libacl.a $(PKGBINDIR)/usr/lib || exit 1 ;\
+		ln -sfv ../../lib/libacl.so.1 $(PKGBINDIR)/usr/lib/libacl.so || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGSRCDIR) DESTDIR=$(SYSROOTDIR) install install-dev install-lib ) || exit 1 ;\
 		chmod 755 $(SYSROOTDIR)/lib/libacl.so.1.1.0 || exit 1 ;\
-		rm -v $(SYSROOTDIR)/lib/{libacl.a,libacl.so,libacl.la} || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libacl.so,libacl.la} || exit 1 ;\
+		rm -v $(SYSROOTDIR)/lib/{libacl.la,libacl.so} || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/libacl.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/libacl.la || exit 1 ;\
+		mv -v $(SYSROOTDIR)/lib/libacl.a $(SYSROOTDIR)/usr/lib || exit 1 ;\
 		ln -sfv ../../lib/libacl.so.1 $(SYSROOTDIR)/usr/lib/libacl.so || exit 1 ;\
-		touch $(PKGOBJDIR)/install-stamp ;\
+		touch $(PKGOBJDIR)/install-bin-stamp ;\
+	fi
+
+build-pkg: install-bin
+	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			libacl_$(PKGVER)-1_$(PKGARCH).deb \
+			acl_$(PKGVER)-1_$(PKGARCH).deb \
+			libacl-dev_$(PKGVER)-1_$(PKGARCH).deb \
+			acl-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 
 clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
 	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
 	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 

@@ -12,4 +12,12 @@ COPTS := --prefix=/usr \
 	--enable-largefile \
 	--enable-install-program=arch,hostname \
 	--enable-no-install-program=kill,uptime
-CC := "${CC} "
+
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

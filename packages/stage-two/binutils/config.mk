@@ -20,7 +20,16 @@ COPTS := --prefix=/usr \
 	--target=$(TARGETARCH) \
 	--with-system-zlib \
 	--with-build-sysroot=$(SYSROOTDIR)
-CC := "${CC} "
+
+CC := "${CC}"
+CXX := "${CXX}"
+
 ifeq ($(ARCH),x86_64)
 	COPTS := $(COPTS) --enable-64-bit-bfd
 endif
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

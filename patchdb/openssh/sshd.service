@@ -4,6 +4,8 @@ After=network.target
 
 [Service]
 ExecStartPre=/usr/bin/ssh-keygen -A
+ExecStartPre=/bin/bash -c "if ! /bin/grep -q -c '^sshd' /etc/group ; then echo -e 'sshd:x:50:' >> /etc/group ; fi"
+ExecStartPre=/bin/bash -c "if ! /bin/grep -q -c '^sshd' /etc/passwd ; then echo -e 'sshd:x:50:50:sshd privilege separation:/var/lib/sshd:/bin/false' >> /etc/passwd ; fi"
 ExecStart=/usr/sbin/sshd -D -e
 ExecReload=/bin/kill -HUP $MAINPID
 

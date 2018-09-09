@@ -1,16 +1,18 @@
 #include the shared config file
 include ../../../conf/environment.mk
+
 #include package specific config file
 include ./config.mk 
 
 all: targets
 
-targets: clean extract patch configure build install
+targets: clean extract patch configure build pkg-src install-bin build-pkg install-pkg
 
 extract: 
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
 		mkdir $(PKGOBJDIR) ;\
+		mkdir -pv $(PKGBINDIR) ;\
 		touch $(PKGOBJDIR)/extract-stamp ;\
 	fi
 
@@ -29,7 +31,7 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CFLAGS="$(CFLAGS)" $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CFLAGS="$(CFLAGS)" LDFLAGS=$(LDFLAGS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
@@ -39,19 +41,43 @@ build: configure
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
-install: build
-	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-libs ) || exit 1 ;\
-		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-tools ) || exit 1 ;\
-		( PATH=$(PATH) make -C $(PKGOBJDIR) ARCH=$(ARCH) prefix=/usr DESTDIR=$(SYSROOTDIR) install-headers ) || exit 1 ;\
-		cd $(SYSROOTDIR)/lib/ ;\
-		for i in libc.so.6 libcrypt.so.1 libm.so.6 libpthread.so.0 librt.so.1 libutil.so.1 libdl.so.2 libresolv.so.2 libxnet.so; do \
-			ln -svf libc.so $$i || exit 1 ;\
-		done ;\
-		touch $(PKGOBJDIR)/install-stamp ;\
+pkg-src: build
+	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		tar cvfz $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(PKGOBJDIR)/pkg-src-stamp ;\
+	fi
+
+install-bin: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install-libs ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install-tools ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) ARCH=$(ARCH) prefix=/usr DESTDIR=$(PKGBINDIR) install-headers ) || exit 1 ;\
+		rm -v $(PKGBINDIR)/lib/$(LINKER) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-bin-stamp ;\
+	fi
+
+build-pkg: install-bin
+	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			libc_$(PKGVER)-1_$(PKGARCH).deb \
+			libc-dev_$(PKGVER)-1_$(PKGARCH).deb ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 
 clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
 	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
 	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 

@@ -18,3 +18,11 @@ ifeq ($(ARCH),x86_64)
 	CFLAGS := -m64
 	LINKER := ld-musl-x86_64.so.1
 endif
+
+LDFLAGS := "-Wl,-soname,libc.so"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.gz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

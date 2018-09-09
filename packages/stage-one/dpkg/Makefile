@@ -46,6 +46,7 @@ install: build
 		install -vd $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\
 		install -v -m 644 $(PATCHDIR)/default $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\
 		install -v -m 644 $(PATCHDIR)/zinja $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\
+		touch $(CROSSTOOLS)/bin/ldconfig && chmod +x $(CROSSTOOLS)/bin/ldconfig || exit 1 ;\
 		touch $(SYSROOTDIR)/var/lib/dpkg/status || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

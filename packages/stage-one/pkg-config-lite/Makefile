@@ -29,19 +29,22 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(HOSTPATH) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
+		( PATH=$(HOSTPATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGOBJDIR) install ) || exit 1 ;\
+		( PATH=$(HOSTPATH) make -C $(PKGOBJDIR) install ) || exit 1 ;\
+		cat $(PATCHDIR)/x-wrapper | sed -e "s@SYSROOTDIR@$(SYSROOTDIR)@g" \
+			-e "s@CROSSTOOLSDIR@$(CROSSTOOLS)@g" > $(CROSSTOOLS)/bin/$(TARGETARCH)-pkg-config || exit 1 ;\
+		chmod -v 755 $(CROSSTOOLS)/bin/$(TARGETARCH)-pkg-config || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

@@ -8,4 +8,5 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://sourceforge.net/projects/pkgconfiglite/files/$(PKGVER)/$(PKGSRC)
 COPTS := --prefix=$(CROSSTOOLS) \
 	--host=$(TARGETARCH) \
+	--disable-host-tool \
 	--with-pc-path="$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"

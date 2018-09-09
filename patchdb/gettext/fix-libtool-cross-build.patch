@@ -1,0 +1,23 @@
+When using sysroot we should append it to libdir, which is helpful in
+cross builds as the system is staged in the sysroot. For normal builds,
+i.e. when lt_sysroot is not set, it will still behave the same and add
+-L/usr/lib to the relink command.
+
+Based on:  
+Patch by Khem Raj 
+https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta/recipes-devtools/libtool/libtool/use-sysroot-in-libpath.patch
+
+Fixes:
+- relink errors when using DESTDIR
+
+--- gettext-0.19.8.1/build-aux/ltmain.sh.orig	2018-02-25 01:15:34.296347359 +0300
++++ gettext-0.19.8.1/build-aux/ltmain.sh	2018-02-25 01:21:16.034884514 +0300
+@@ -8361,7 +8361,7 @@
+ 	      fi
+ 	    else
+ 	      # We cannot seem to hardcode it, guess we'll fake it.
+-	      add_dir=-L$libdir
++	      add_dir="-L$lt_sysroot$libdir"
+ 	      # Try looking first in the location we're being installed to.
+ 	      if test -n "$inst_prefix_dir"; then
+ 		case $libdir in

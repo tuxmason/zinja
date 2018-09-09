@@ -1,0 +1,8 @@
+PKGNAME := Pod-Coverage
+PKGVER := 0.23
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/$(PKGSRC)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-obj

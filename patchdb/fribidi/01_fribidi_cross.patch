@@ -1,0 +1,27 @@
+
+When cross compiling, the build fails with the error below;
+ 
+Meson encountered an error:
+Can not use target gen-unicode-version as a generator because it is cross-built
+and no exe wrapper is defined. You might want to set it to native instead.
+
+Use the build compiler to build the gen-* tools used to generate some files.
+
+--- fribidi-1.0.5/gen.tab/meson.build.orig	2018-09-07 15:07:46.061731964 +0300
++++ fribidi-1.0.5/gen.tab/meson.build	2018-09-07 15:07:49.216792797 +0300
+@@ -33,6 +33,7 @@
+   'gen-unicode-version.c',
+   include_directories: incs,
+   c_args: native_args,
++  native: true,
+   install: false)
+ 
+ fribidi_unicode_version_h = custom_target('fribidi-unicode-version.h',
+@@ -67,6 +68,7 @@
+     gen_prog_src, 'packtab.c',
+     include_directories: incs,
+     c_args: native_args,
++    native: true,
+     install: false)
+ 
+   tab_inc_file = custom_target(gen_prog_name,

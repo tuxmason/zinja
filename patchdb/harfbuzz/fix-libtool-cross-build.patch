@@ -1,0 +1,11 @@
+--- a/ltmain.sh.orig	2018-03-10 23:29:18.000182141 +0300
++++ a/ltmain.sh	2018-03-10 23:30:00.561324817 +0300
+@@ -8367,7 +8367,7 @@
+ 	      fi
+ 	    else
+ 	      # We cannot seem to hardcode it, guess we'll fake it.
+-	      add_dir=-L$libdir
++	      add_dir="-L$lt_sysroot$libdir"
+ 	      # Try looking first in the location we're being installed to.
+ 	      if test -n "$inst_prefix_dir"; then
+ 		case $libdir in

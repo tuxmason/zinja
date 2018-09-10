@@ -1,0 +1,11 @@
+--- pcre-8.41/ltmain.sh.orig	2018-03-02 23:05:18.589514268 +0300
++++ pcre-8.41/ltmain.sh	2018-03-02 23:05:46.279664020 +0300
+@@ -8361,7 +8361,7 @@
+ 	      fi
+ 	    else
+ 	      # We cannot seem to hardcode it, guess we'll fake it.
+-	      add_dir=-L$libdir
++	      add_dir="-L$lt_sysroot$libdir"
+ 	      # Try looking first in the location we're being installed to.
+ 	      if test -n "$inst_prefix_dir"; then
+ 		case $libdir in

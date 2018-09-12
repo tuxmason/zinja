@@ -26,6 +26,7 @@ misc:
 	make -C packages/misc
 
 distclean:
+	@if [ -d $(DISTRIBROOT) ]; then rm -rf $(DISTRIBROOT) ; fi
 	@if [ -d $(TCBUILDROOT) ]; then rm -rf $(TCBUILDROOT) ; fi
 	@if [ -d $(SYSROOTDIR) ]; then rm -rf $(SYSROOTDIR) ; fi
 	@if [ -d $(CROSSTOOLS) ]; then rm -rf $(CROSSTOOLS) ; fi

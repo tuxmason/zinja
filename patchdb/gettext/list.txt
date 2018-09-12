@@ -1,2 +1,3 @@
 fix-abi.patch
+fix-libtool-cross-build.patch
 gettext-suppress-test-lock.patch

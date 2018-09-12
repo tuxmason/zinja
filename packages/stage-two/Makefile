@@ -5,20 +5,20 @@ include ../../conf/shell-env.mk
 all: targetfs
 
 targetfs: sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binutils.o gcc.o \
-	libffi.o attr.o acl.o libcap.o sed.o pkg-config-lite.o ncurses.o check.o cracklib.o \
+	libffi.o attr.o acl.o libcap.o sed.o pkg-config-lite.o ncurses.o gpm.o check.o cracklib.o \
 	cracklib-dict.o linux-pam.o shadow.o util-linux.o procps-ng.o e2fsprogs.o coreutils.o \
 	iana-etc.o libtool.o gdbm.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o \
 	diffutils.o file.o gawk.o findutils.o gettext.o gperf.o grep.o groff.o less.o gzip.o \
 	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o intltool.o \
-	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux.o \
-	gpm.o vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
+	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux-ext.o \
+	vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
 	openssh.o pcre.o glib2.o libsigcpp.o glibmm.o libgudev.o wget.o kernel.o npth.o libaio.o \
 	libevent.o libusb.o libusb-compat.o usbutils.o libgusb.o fuse.o lua.o icu.o sqlite3.o \
 	libxml2.o libcroco.o shared-mime-info.o jansson.o libnl.o mtdev.o libical.o bluez.o \
 	libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o \
 	libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o libnetfilter_cthelper.o \
 	ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o snappy.o mariadb.o unixODBC.o \
-	freedts.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o ulogd.o yaml.o ruby.o \
+	freetds.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o ulogd.o yaml.o ruby.o \
 	Python.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o libexecinfo.o libunwind.o gc.o \
 	libunistring.o libtasn1.o libgpg-error.o libassuan.o libksba.o libgcrypt.o libidn2.o p11-kit.o \
 	gnutls.o cyrus-sasl.o openldap.o gnupg.o libpng.o giflib.o libid3tag.o libjpeg-turbo.o jasper.o \
@@ -109,6 +109,11 @@ util-linux.o:
 	@echo "Util-linux started $(shell date -R) "
 	(make -C util-linux 2>&1 | tee $(PKGLOGDIR)/util-linux.log && exit $$PIPESTATUS)
 	@echo "Util-linux finished $(shell date -R) "
+
+util-linux-ext.o:
+	@echo "Util-linux - Extended started $(shell date -R) "
+	(make -C util-linux-ext 2>&1 | tee $(PKGLOGDIR)/util-linux-ext.log && exit $$PIPESTATUS)
+	@echo "Util-linux - Extended finished $(shell date -R) "
 
 procps-ng.o:
 	@echo "Procps-ng started $(shell date -R) "
@@ -640,10 +645,10 @@ unixODBC.o:
 	(make -C unixODBC 2>&1 | tee $(PKGLOGDIR)/unixODBC.log && exit $$PIPESTATUS)
 	@echo "unixODBC finished $(shell date -R) "
 
-freedts.o:
-	@echo "freedts started $(shell date -R) "
-	(make -C freedts 2>&1 | tee $(PKGLOGDIR)/freedts.log && exit $$PIPESTATUS)
-	@echo "freedts finished $(shell date -R) "
+freetds.o:
+	@echo "freetds started $(shell date -R) "
+	(make -C freetds 2>&1 | tee $(PKGLOGDIR)/freetds.log && exit $$PIPESTATUS)
+	@echo "freetds finished $(shell date -R) "
 
 npth.o:
 	@echo "npth started $(shell date -R) "

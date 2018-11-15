@@ -1,0 +1,45 @@
+Source: expat
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://libexpat.github.io/
+
+Package: libexpat
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for parsing XML
+ libexpat provides API functions for parsing XML.
+ .
+ This package the libexpat shared library.
+
+Package: libexpat-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, xmlwf (= ${binary:Version})
+Description: Development headers and static library for expat
+ This package provides libexpat.a, pkgconfig data and header files
+ required for development using expat.
+
+Package: xmlwf
+Section: utils
+Priority: optional
+Architecture: ARCH
+Provides: expat
+Depends: libc-dev, ${shlibs:Depends}
+Description: a non-validating utility to check XML documents
+ xmlwf is a non-validating utility to check whether or not XML documents 
+ are well formed.
+
+Package: expat-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xmlwf (= ${binary:Version})
+Description: documentation for expat
+ This package provides manpages for expat.

@@ -1,0 +1,28 @@
+Source: libnetfilter-log
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libnfnetlink-dev
+Standards-Version: 3.9.5
+Homepage: https://www.netfilter.org/projects/libnetfilter_log/index.html
+
+Package: libnetfilter-log
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an API interface to packets that have been logged by the kernel packet filter
+ libnetfilter_log is a userspace library providing interface to packets that 
+ have been logged by the kernel packet filter.
+ .
+ This package provides the shared libraries libnetfilter_log and 
+ libnetfilter_log_libipulog.
+
+Package: libnetfilter-log-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libnetfilter-log (= ${binary:Version}), libnfnetlink-dev
+Description: Development headers and libnetfilter_log static library
+ This package provides libnetfilter_log.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libnetfilter_log API.

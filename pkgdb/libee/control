@@ -1,0 +1,24 @@
+Source: libee
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libc-dev, libestr-dev
+Standards-Version: 3.9.5
+Homepage: http://www.libee.org/
+
+Package: libee
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an event expression library
+ libee is an event expression library inspired by CEE.
+
+Package: libee-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libestr-dev, libee (= ${binary:Version})
+Description: Development headers and static libs for libee
+ This package provides static libraries, pkgconfig data and
+ header files required for development using libee.

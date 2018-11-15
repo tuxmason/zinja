@@ -1,0 +1,36 @@
+Source: syslog-ng
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libcap-dev, curl-dev, libdbi-drivers-dev, glib2-dev,
+ libjson-c-dev, pcre-dev, systemd-dev, openssl-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://syslog-ng.com/open-source-log-management
+
+Package: syslog-ng
+Section: utils
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an open-source implementation of the syslog protocol
+ syslog-ng is an open-source implementation of the syslog protocol for Unix 
+ and Unix-like systems. 
+ .
+ It extends the original syslogd model with content-based filtering, rich 
+ filtering capabilities, flexible configuration options and adds important 
+ features to syslog, like using TCP for transport.
+ .
+ This package provides syslog-ng shared libraries, syslog-ng server and 
+ userspace tools.
+
+Package: syslog-ng-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: syslog-ng (= ${binary:Version}), libcap-dev, curl-dev,
+ libdbi-drivers-dev, glib2-dev, libjson-c-dev, pcre-dev, systemd-dev,
+ openssl-dev, util-linux-dev
+Description: Development headers and libsyslog-ng static library
+ This package provides syslog-ng static libraries, headers and pkgconfig
+ data required to build applications, libraries or plugins using the
+ syslog-ng API.

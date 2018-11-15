@@ -1,0 +1,25 @@
+Source: texinfo
+Section: text
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/texinfo/
+
+Package: texinfo
+Section: text
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for reading, writing, and converting info pages
+ GNU texinfo provides tools for reading, writing, and converting 
+ info pages.
+
+Package: texinfo-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: texinfo (= ${binary:Version})
+Description: documentation for GNU texinfo
+ This package provides info, and man pages for GNU texinfo.

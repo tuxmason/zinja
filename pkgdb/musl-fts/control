@@ -1,0 +1,31 @@
+Source: musl-fts
+Section: libs
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/pullmoll/musl-fts
+
+Package: libfts
+Essential: yes
+Section: libs
+Priority: required
+Architecture: ARCH
+Pre-depends: libc (>= 1.1.8)
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Implementation of fts(3) for Musl lib C
+ Implements the fts(3) functions fts_open, fts_read, fts_children,
+ fts_set and fts_close, which are missing in musl libc.
+ .
+ This package provides a shared library libfts.so.0.0.0, which 
+ contains the NetBSD implementation of fts(3).
+
+Package: libfts-dev
+Essential: no
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev (>= 1.1.8), libfts (= ${binary:Version})
+Description: Development headers and static libs for fts(3)
+ This package provides a static library libfts.a, the header file
+ /usr/include/fts.h

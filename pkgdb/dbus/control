@@ -1,0 +1,39 @@
+Source: dbus
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libexpat-dev, systemd-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/dbus/
+
+Package: dbus
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a framework for interprocess communication
+ D-Bus is a message bus system, a simple way for applications to talk 
+ to one another. 
+ .
+ In addition to interprocess communication, D-Bus helps coordinate process 
+ lifecycle; it makes it simple and reliable to code a "single instance" 
+ application or daemon, and to launch applications and daemons on demand 
+ when their services are needed.
+ 
+Package: dbus-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, systemd-dev, dbus (= ${binary:Version})
+Description: Development headers and static libraries for D-Bus
+ This package provides libdbus-1.a, pkgconfig data and header files required 
+ for development using D-Bus.
+
+Package: dbus-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: dbus (= ${binary:Version})
+Recommends: vim
+Description: documentation for D-Bus
+ This package provides examples, and sample configuration files for D-Bus.

@@ -1,0 +1,31 @@
+Source: libdbi
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://libdbi.sourceforge.net/
+
+Package: libdbi
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides a database-independent abstraction layer in C
+ libdbi implements a database-independent abstraction layer in C, similar
+ to the DBI/DBD layer in Perl.
+ .
+ Writing one generic set of code, programmers can leverage the power of
+ multiple databases and multiple simultaneous database connections by
+ using this framework.
+ .
+ This package provides the shared library libdbi.
+
+Package: libdbi-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libdbi (= ${binary:Version})
+Description: Development headers and libdbi static library
+ This package provides libdbi.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libdbi API.

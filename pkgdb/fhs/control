@@ -1,0 +1,15 @@
+Source: fhs
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://git.wia.co.tz/fhs/
+
+Package: fhs
+Essential: yes
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: FHS directory structure
+ A standard directory structure based on the FHS (Filesystem Hierarchy
+ Standard).

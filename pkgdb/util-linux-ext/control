@@ -1,0 +1,41 @@
+Source: util-linux
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev, libpam-dev, readline-dev, systemd-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/karelzak/util-linux
+
+Package: util-linux
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: miscellaneous utility programs
+ This package provides miscellaneous utility programs.
+ Included are utilities for handling file systems, consoles, partitions,
+ and messages.
+ .
+ This package provides the util-linux utilities and the shared libraries
+ libblkid, libfdisk, libmount, libsmartcols, libuuid.
+
+Package: util-linux-dev
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: util-linux (= ${binary:Version}), libncursesw-dev, libpam-dev,
+ readline-dev, systemd-dev, libz-dev
+Description: development headers and static libraries for util-linux
+ This package provides header files, static libraries and pkg-config
+ data for util-linux.
+
+Package: util-linux-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Replaces: shadow-doc
+Depends: util-linux (= ${binary:Version})
+Description: documentation for the util-linux tool suite
+ This package provides man pages for utilities provided by
+ the util-linux tool suite.

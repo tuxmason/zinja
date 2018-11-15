@@ -1,0 +1,25 @@
+Source: vim
+Section: editors
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gpm-dev, libacl-dev, libncursesw-dev
+Standards-Version: 3.9.5
+Homepage: https://www.vim.org/
+
+Package: vim
+Section: editors
+Priority: standard
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a highly configurable text editor
+ Vim is a highly configurable text editor built to make creating
+ and changing any kind of text very efficient.
+
+Package: vim-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: vim (= ${binary:Version})
+Description: documentation for vim
+ This package provides man pages for vim.

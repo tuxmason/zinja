@@ -1,0 +1,49 @@
+Source: pcre
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev, libbz2-dev, readline-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: https://www.pcre.org/
+
+Package: libpcre
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: set of functions that implement regular expression pattern matching
+ The PCRE library is a set of functions that implement regular expression 
+ pattern matching using the same syntax and semantics as Perl 5. 
+ .
+ PCRE has its own native API, as well as a set of wrapper functions that 
+ correspond to the POSIX regular expression API.
+
+Package: pcre
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities that use perl 5 compatible regexes
+ Perl-style regexps have many useful features that the standard POSIX ones 
+ don't. 
+ .
+ This package provides a grep utility that uses perl 5 compatible regexes.
+
+Package: pcre-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libpcre-dev
+Depends: libc-dev, libbz2-dev, readline-dev, libz-dev, pcre (= ${binary:Version})
+Description: Development headers and static libraries for PCRE
+ This package provides pkgconfig data and header files required for
+ development using PCRE.
+
+Package: pcre-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: pcre (= ${binary:Version})
+Recommends: man-db, vim
+Description: documentation for PCRE
+ This package provides html documentation and man pages for PCRE.

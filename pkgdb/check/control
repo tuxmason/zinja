@@ -1,0 +1,41 @@
+Source: check
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libncursesw-dev
+Standards-Version: 3.9.5
+Homepage: https://libcheck.github.io/check/
+
+Package: libcheck
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), gawk, ${shlibs:Depends}
+Description: a unit testing framework for C
+ Check is a unit testing framework for C. It features a simple interface
+ for defining unit tests, putting little in the way of the developer.
+ .
+ Tests are run in a separate address space, so both assertion failures
+ and code errors that cause segmentation faults or other signals can be
+ caught.
+ .
+ This package provides libcheck, a shared library which provides functions
+ that allow Check to be called from a test program.
+
+Package: libcheck-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, libcheck (= ${binary:Version})
+Description: Development headers and static lib for Check
+ This package provides libcheck.a, pkgconfig data and header files
+ required for development using Check.
+
+Package: check-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info, less
+Depends: libcheck (= ${binary:Version})
+Description: documentation for check
+ This package provides examples, info and man pages for Check.

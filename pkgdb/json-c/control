@@ -1,0 +1,30 @@
+Source: json-c
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/json-c/json-c
+
+Package: libjson-c
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for handling strings
+ JSON-C implements a reference counting object model that allows
+ you to easily construct JSON objects in C, output them as JSON
+ formatted strings and parse JSON formatted strings back into the
+ C representation of JSON objects.
+ .
+ This package provides libjson-c, a shared library which contains
+ JSON-C API functions.
+
+Package: libjson-c-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libjson-c (= ${binary:Version})
+Description: Development headers and static library for json-c
+ This package provides libjson-c.a, pkgconfig data and header
+ files required for development using JSON-C.

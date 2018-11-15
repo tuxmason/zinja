@@ -1,0 +1,35 @@
+Source: gpm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev
+Standards-Version: 3.9.5
+Homepage: http://www.nico.schottelius.org/software/gpm/
+
+Package: gpm
+Section: utils
+Essential: yes
+Priority: important
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a mouse server for the console and xterm 
+ GPM (General Purpose Mouse daemon) provides a mouse server for the
+ console and xterm.
+
+Package: gpm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libncursesw-dev, gpm (= ${binary:Version})
+Description: Development headers and static library for GPM
+ This package provides libgpm.a and header files required for 
+ development using GPM.
+
+Package: gpm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: gpm-dev (= ${binary:Version})
+Description: documentation for GPM
+ This package provides info, and man pages for GPM.

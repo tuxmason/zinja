@@ -1,0 +1,48 @@
+Source: libpng
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libz-dev
+Standards-Version: 3.9.5
+Homepage: http://www.libpng.org/pub/png/libpng.html
+
+Package: libpng
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for reading and writing PNG files
+ libpng provides API functions for reading and writing PNG files.
+ .
+ The PNG format was designed as a replacement for GIF and, to a lesser 
+ extent, TIFF, with many improvements and extensions and lack of patent 
+ problems.
+ .
+ This package provides the shared library libpng.
+
+Package: libpng-bin
+Section: graphics
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for optimizing and fixing PNG files
+ This package provides tools for optimizing and fixing PNG files.
+
+Package: libpng-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libpng (= ${binary:Version}), libz-dev
+Description: Development headers and libpng static library
+ This package provides libpng.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libpng API.
+
+Package: libpng-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libpng (= ${binary:Version})
+Description: documentation for libpng userspace tools
+ This package provides man pages for the userspace tools provided by
+ libpng.

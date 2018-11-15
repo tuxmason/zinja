@@ -1,0 +1,26 @@
+Source: timezone
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://www.iana.org/time-zones
+
+Package: tzdb
+Essential: yes
+Section: admin
+Priority: required
+Architecture: ARCH
+Pre-depends: libc (>= 1.1.8)
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Time Zone Database
+ The Time Zone Database (often called tz or zoneinfo) contains
+ code and data that represent the history of local time for many
+ representative locations around the globe.
+ .
+ It is updated periodically to reflect changes made by political
+ bodies to time zone boundaries, UTC offsets, and daylight-saving
+ rules.
+ .
+ This package provides the zoneinfo database and userspace tools
+ required to query and update the database.

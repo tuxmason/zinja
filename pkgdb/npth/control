@@ -1,0 +1,33 @@
+Source: npth
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/gpg/npth
+
+Package: libnpth
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides non-preemptive priority-based scheduling
+ NPth provides a very portable POSIX/ANSI-C based library for 
+ Unix platforms which provides non-preemptive priority-based 
+ scheduling for multiple threads of execution (multithreading) 
+ inside event-driven applications. 
+ .
+ All threads run in the same address space of the server 
+ application, but each thread has its own individual program-counter, 
+ run-time stack, signal mask and errno variable.
+ .
+ This package provides the libnpth shared library.
+
+Package: libnpth-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev, libnpth (= ${binary:Version})
+Description: Development headers and libnpth static library
+ This package provides libnpth.a, pkgconfig data and header files
+ required for development using npth.

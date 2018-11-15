@@ -1,0 +1,27 @@
+Source: atk
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Accessibility
+
+Package: libatk
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions used by assistive technologies
+ libatk provides API functions used by assistive technologies to interact 
+ with desktop applications.
+ .
+ This package provides the shared library libatk.
+
+Package: libatk-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libatk (= ${binary:Version}), glib2-dev
+Description: Development headers and libatk static library
+ This package provides libatk.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libatk API.

@@ -1,0 +1,34 @@
+Source: libpcap
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libnl-dev, dbus-dev
+Standards-Version: 3.9.5
+Homepage: http://www.tcpdump.org/
+
+Package: libpcap
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides functions for user-level packet capture
+ libpcap provides functions for user-level packet capture, used
+ in low-level network monitoring.
+
+Package: libpcap-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libpcap (= ${binary:Version}), libnl-dev, dbus-dev
+Description: Development headers and static libs for libpcap
+ This package provides libpcap.a and headers required to build
+ applications, libraries or plugins using the libpcap API.
+
+Package: libpcap-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libpcap (= ${binary:Version})
+Description: documentation for libpcap
+ This package provides man pages for libpcap.

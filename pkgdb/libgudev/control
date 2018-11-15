@@ -1,0 +1,26 @@
+Source: libgudev
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, systemd-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/GNOME/libgudev
+
+Package: libgudev
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: udev GObject bindings
+ libgudev provides GObject bindings for libudev.
+ .
+ This package provides the libgudev shared library.
+
+Package: libgudev-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libgudev (= ${binary:Version}), glib2-dev, systemd-dev
+Description: Development headers and static libs for gudev
+ This package provides libgudev-1.0.a, pkgconfig data and
+ header files required for development using libgudev.

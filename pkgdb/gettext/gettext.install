@@ -1,0 +1,6 @@
+usr/bin
+usr/lib/lib*.so
+usr/lib/lib*.so*
+usr/lib/gettext
+usr/share/locale
+usr/share/gettext-0.19.8

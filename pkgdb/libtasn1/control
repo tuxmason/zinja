@@ -1,0 +1,46 @@
+Source: libtasn1
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/libtasn1/
+
+Package: libtasn1
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides functions used to encode and decode DER/BER data
+ libtasn1 is a highly portable C library that encodes and decodes 
+ DER/BER data following an ASN.1 schema.
+ .
+ This package provides the libtasn1 shared library.
+
+Package: libtasn1-bin
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities used to encode and decode DER/BER data
+ This package provides tools for encoding and decoding DER/BER 
+ data following an ASN.1 schema.
+
+Package: libtasn1-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libtasn1-bin (= ${binary:Version}), gcc-dev
+Description: Development headers and libtasn1 static library
+ This package provides libtasn1.a, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the 
+ libtasn1 API.
+
+Package: libtasn1-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: info, links
+Depends: libtasn1-bin (= ${binary:Version})
+Description: documentation for libtasn1
+ This package provides info and man pages for libtasn1.

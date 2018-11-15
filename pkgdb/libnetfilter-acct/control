@@ -1,0 +1,27 @@
+Source: libnetfilter-acct
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libmnl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.netfilter.org/projects/libnetfilter_acct/index.html
+
+Package: libnetfilter-acct
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an API interface for extendeding netfilter accounting infrastructure.
+ libnetfilter_acct is the userspace library providing an interface to extended
+ accounting infrastructure.
+ .
+ This package provides the shared library libnetfilter-acct.
+
+Package: libnetfilter-acct-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libnetfilter-acct (= ${binary:Version}), libmnl-dev
+Description: Development headers and libnetfilter_acct static library
+ This package provides libnetfilter_acct.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libnetfilter_acct API.

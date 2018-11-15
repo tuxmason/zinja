@@ -1,0 +1,45 @@
+Source: procps-ng
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libncursesw-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://gitlab.com/procps-ng/procps
+
+Package: libprocps
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for accessing the proc filesystem
+ This package provides libprocps, a shared library which contains
+ routines for accessing the proc filesystem.
+
+Package: libprocps-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, procps (= ${binary:Version})
+Description: Development headers and static library for libprocps
+ This package provides the static library libprocps.a, pkgconfig
+ data and header files required for development using libprocps.
+
+Package: procps
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a set of utilities for accessing the proc filesystem
+ procps is a set of command line and full-screen utilities that provide
+ information out of the pseudo-filesystem most commonly located at /proc.
+ .
+ This filesystem provides a simple interface to the kernel's process data
+ structures.
+
+Package: procps-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Description: documentation for procps
+ This package provides an FAQ and man pages for utilities provided by procps.

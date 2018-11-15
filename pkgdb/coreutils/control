@@ -1,0 +1,25 @@
+Source: coreutils
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libacl-dev, libattr-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/coreutils/coreutils.html
+
+Package: coreutils
+Section: utils
+Priority: required
+Architecture: ARCH
+Essential: yes
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for showing and setting basic system characteristics
+ Coreutils provides basic file, shell, and text manipulation utilities.
+
+Package: coreutils-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: info, coreutils (= ${binary:Version})
+Description: documentation for coreutils
+ This package provides an info page which contains instructions on how to
+ use the utilities provided by coreutils.

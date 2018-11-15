@@ -1,0 +1,29 @@
+Source: libnetfilter-cthelper
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libmnl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.netfilter.org/projects/libnetfilter_cthelper/index.html
+
+Package: libnetfilter-cthelper
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an API interface to the user-space helper infrastructure
+ libnetfilter_cthelper is the userspace library that provides a programming interface 
+ to the user-space helper infrastructure available since Linux kernel 3.6. 
+ .
+ With this library, you register, configure, enable and disable user-space helpers. 
+ .
+ This package provides the shared library libnetfilter_cthelper.
+
+Package: libnetfilter-cthelper-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libnetfilter-cthelper (= ${binary:Version}), libmnl-dev
+Description: Development headers and libnetfilter_cthelper static library
+ This package provides libnetfilter_cthelper.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libnetfilter_cthelper API.

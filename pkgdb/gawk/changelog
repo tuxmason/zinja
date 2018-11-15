@@ -1,0 +1,5 @@
+gawk (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Fri, 23 Feb 2018 09:53:21 +0300

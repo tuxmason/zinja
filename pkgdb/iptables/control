@@ -1,0 +1,38 @@
+Source: iptables
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libnetfilter-conntrack-dev, libnfnetlink-dev, libpcap-dev
+Standards-Version: 3.9.5
+Homepage: http://www.netfilter.org/projects/iptables/index.html
+
+Package: iptables
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: used to set up, maintain, and inspect the tables of IP packet filter rules
+ iptables is a userspace command line program used to configure the Linux 
+ 2.4.x and later packet filtering ruleset.
+ .
+ This package provides iptables shared libraries and userspace tools.
+
+Package: iptables-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: iptables (= ${binary:Version}), libnetfilter-conntrack-dev,
+ libnfnetlink-dev, libpcap-dev
+Description: Development headers and iptables static libraries
+ This package provides iptables static libraries, headers and pkgconfig 
+ data required to build applications, libraries or plugins using the 
+ iptables API.
+
+Package: iptables-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: iptables (= ${binary:Version})
+Description: documentation for iptables
+ This package provides man pages for iptables.

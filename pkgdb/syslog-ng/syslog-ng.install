@@ -1,0 +1,9 @@
+etc
+lib
+var
+usr/bin
+usr/sbin
+usr/share
+usr/lib/*.so
+usr/lib/*.so.*
+usr/lib/syslog-ng/*.so

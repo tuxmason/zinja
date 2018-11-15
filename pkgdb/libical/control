@@ -1,0 +1,26 @@
+Source: libical
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: icu-dev
+Standards-Version: 3.9.5
+Homepage: http://libical.github.io/libical/
+
+Package: libical
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an implementation of iCalendar protocols and data formats
+ libical provides an implementation of iCalendar protocols and 
+ data formats.
+
+Package: libical-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: icu-dev, libical (= ${binary:Version})
+Description: Development headers and libical static libraries
+ This package provides libical static libraries, headers and 
+ pkgconfig data required to build applications, libraries or 
+ plugins using the libical API.

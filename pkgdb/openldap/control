@@ -1,0 +1,61 @@
+Source: openldap
+Section: database
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libsasl2-dev, openssl-dev, util-linux-dev, icu-dev, libltdl-dev, libunixodbc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.openldap.org/
+
+Package: libldap
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provide API functions for programs interacting with LDAP.
+ libldap provides API functions for programs interacting with LDAP.
+ .
+ This package provides OpenLDAP modules and the shared libraries libldap 
+ and libldap_r.
+
+Package: liblber
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a set of Lightweight Basic Encoding Rules routines
+ liblber provides a set of Lightweight Basic Encoding Rules routines.
+ .
+ These routines are used by the LDAP library routines to encode and
+ decode LDAP protocol elements using the (slightly simplified) Basic
+ Encoding Rules defined by LDAP.
+ .
+ This package provides the shared library liblber.
+
+Package: openldap
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: OpenLDAP userspace utilities
+ OpenLDAP provides an open source implementation of the Lightweight
+ Directory Access Protocol (LDAP).
+
+Package: openldap-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: openldap (= ${binary:Version}), libsasl2-dev, openssl-dev,
+ util-linux-dev, icu-dev, libltdl-dev, libunixodbc-dev
+Description: Development headers and OpenLDAP static libraries
+ This package provides OpenLDAP static libraries, headers and
+ pkgconfig data required to build applications, libraries or plugins
+ using the OpenLDAP API.
+
+Package: openldap-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: openldap (= ${binary:Version})
+Description: documentation for openldap
+ This package provides man pages for openldap.

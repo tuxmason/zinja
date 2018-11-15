@@ -1,0 +1,26 @@
+Source: less
+Section: text
+Priority: important
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.greenwoodsoftware.com/less/
+
+Package: less
+Section: utils
+Essential: yes
+Priority: important
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a pager utility for viewing text files
+ Less is a file pager (that is, a memory-efficient utility for displaying 
+ text one screenful at a time).
+
+Package: less-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: less (= ${binary:Version})
+Description: documentation for GNU less
+ This package provides man pages for GNU less.

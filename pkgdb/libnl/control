@@ -1,0 +1,41 @@
+Source: libnl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/thom311/libnl
+
+Package: libnl
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: APIs to netlink protocol based Linux kernel interfaces.
+ The libnl suite is a collection of libraries providing APIs to netlink 
+ protocol based Linux kernel interfaces.
+ .
+ Netlink is an IPC mechanism primarly between the kernel and user space 
+ processes. It was designed to be a more flexible successor to ioctl to 
+ provide mainly networking related kernel configuration and monitoring 
+ interfaces.
+
+Package: libnl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libnl-dev
+Depends: libnl (= ${binary:Version})
+Description: Development headers and static library for libnl
+ This package provides libnl.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libnl API.
+
+Package: libnl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libnl (= ${binary:Version})
+Description: documentation for libnl
+ This package provides examples, html documentation and man pages
+ libnl.

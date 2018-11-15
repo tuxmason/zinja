@@ -1,0 +1,26 @@
+Source: libunwind
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libatomic-ops-dev, xz-dev
+Standards-Version: 3.9.5
+Homepage: http://www.nongnu.org/libunwind/
+
+Package: libunwind
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions used to determine the call-chain of a program
+ libunwind provides API functions used to determine the call-chain of a program.
+ .
+ This package provides the shared library libunwind.
+
+Package: libunwind-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libunwind (= ${binary:Version}), libatomic-ops-dev, xz-dev 
+Description: Development headers and libunwind static library
+ This package provides libunwind static libraries, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the libunwind API.

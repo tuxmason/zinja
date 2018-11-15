@@ -1,0 +1,27 @@
+Source: libmnl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.netfilter.org/projects/libmnl/index.html
+
+Package: libmnl
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an API for parsing, validating Netlink headers and TLVs
+ libmnl provides API functions for parsing, validating and constructing 
+ Netlink headers and TLVs.
+ .
+ This package provides the shared library libmnl.
+
+Package: libmnl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libmnl (= ${binary:Version})
+Description: Development headers and libmnl static library
+ This package provides libmnl.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libmnl API.

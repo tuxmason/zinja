@@ -1,0 +1,5 @@
+libtasn1 (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Thu, 08 Mar 2018 03:21:47 +0300

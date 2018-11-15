@@ -1,0 +1,29 @@
+Source: argp-standalone
+Section: libs
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+
+Package: libargp
+Essential: yes
+Section: libs
+Priority: required
+Architecture: ARCH
+Pre-depends: libc (>= 1.1.8)
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Implementation of argp for Musl lib C
+ Argp is an interface for parsing unix-style argument vectors.
+ .
+ This package provides the shared library libargp.so.0.0.0,
+ which contains the GNU libc implementation of argp.
+
+Package: libargp-dev
+Essential: no
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev (>= 1.1.8), libargp (= ${binary:Version})
+Description: libargp static library
+ This package provides the static library libargp.a, which
+ contains the GNU libc implementation of argp.

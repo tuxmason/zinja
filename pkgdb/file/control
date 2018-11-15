@@ -1,0 +1,45 @@
+Source: file
+Section: utils
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/file/file
+
+Package: libmagic
+Section: libs
+Priority: standard
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for determining the type of a given file
+ This package provides libmagic, a shared library which provides
+ functions for determining the type of a given file or files.
+
+Package: libmagic-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, file (= ${binary:Version})
+Description: Development headers for libmagic
+ This package provides header files required for development using
+ libmagic.
+
+Package: file
+Section: utils
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utility for determining the type of a given file
+ File is a utility used for determining the type of a given file.
+ .
+ File tries to classify each given file by performing several tests,
+ filesystem tests, magic number tests, and language tests.
+
+Package: file-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: file (= ${binary:Version})
+Description: documentation for file
+ This package contains man pages for file.

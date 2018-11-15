@@ -1,0 +1,42 @@
+Source: libffi
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libffi
+Standards-Version: 3.9.5
+Homepage: https://sourceware.org/libffi/
+
+Package: libffi
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: A Portable Foreign Function Interface Library
+ A foreign function interface is the popular name for the interface that
+ allows code written in one language to call code written in another
+ language.
+ .
+ The libffi library really only provides the lowest, machine dependent
+ layer of a fully featured foreign function interface. A layer must exist
+ above libffi that handles type conversions for values passed between the
+ two languages.
+ .
+ This package provides the libffi shared library.
+
+Package: libffi-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, libffi (= ${binary:Version})
+Description: Development headers and static libs for libffi
+ This package provides static libraries, pkgconfig data and header files
+ required for development using libffi.
+
+Package: libffi-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: libffi (= ${binary:Version})
+Description: documentation for libffi
+ This package provides info and manpages for libffi.

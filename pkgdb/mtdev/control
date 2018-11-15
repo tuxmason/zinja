@@ -1,0 +1,30 @@
+Source: mtdev
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://bitmath.org/code/mtdev/
+
+Package: libmtdev
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Multitouch Protocol Translation Library
+ libmtdev is a stand-alone library which transforms all variants
+ of kernel MT events to the slotted type B protocol.
+ .
+ The events put into mtdev may be from any MT device, specifically
+ type A without contact tracking, type A with contact tracking, or
+ type B with contact tracking.
+
+Package: libmtdev-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev, libmtdev (= ${binary:Version})
+Description: Development headers and mtdev static library
+ This package provides libmtdev.a, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the 
+ mtdev API.

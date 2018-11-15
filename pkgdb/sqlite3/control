@@ -1,0 +1,44 @@
+Source: sqlite
+Section: database
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev, libreadline-dev
+Standards-Version: 3.9.5
+Homepage: https://www.sqlite.org/index.html
+
+Package: libsqlite3
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides SQLite API functions
+ libsqlite3 implements a self-contained, serverless, zero-configuration, 
+ transactional SQL database engine.
+
+Package: sqlite3
+Section: database
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a self-contained transactional SQL database engine.
+ sqlite3 provides a terminal-based front-end to the SQLite library that 
+ can evaluate queries interactively and display the results.
+
+Package: sqlite3-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libsqlite3-dev
+Depends: sqlite3 (= ${binary:Version})
+Description: Development headers for SQLite
+ This package provides headers and pkgconfig data required to build
+ applications, libraries or plugins using the SQLite API.
+
+Package: sqlite3-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: sqlite3 (= ${binary:Version})
+Description: documentation for SQLite
+ This package provides man pages SQLite.

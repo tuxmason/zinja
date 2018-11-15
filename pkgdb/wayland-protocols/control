@@ -1,0 +1,19 @@
+Source: wayland-protocols
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libwayland-dev
+Standards-Version: 3.9.5
+Homepage: https://wayland-protocols.freedesktop.org/
+
+Package: wayland-protocols
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libwayland-dev (>= 1.14.0)
+Description: additional Wayland protocols
+ Wayland is a protocol for a compositor to talk to its clients as well as 
+ a C library implementation of that protocol.
+ .
+ This package provides additional Wayland protocols that add functionality 
+ outside of protocols already in the Wayland core. 

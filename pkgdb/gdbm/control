@@ -1,0 +1,51 @@
+Source: gdbm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org.ua/software/gdbm/
+
+Package: libgdbm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides routines for manipulating hashed databases
+ GDBM, the GNU Database Manager, is a library of database functions and
+ tools that use extensible hashing and work similar to the standard UNIX
+ dbm.
+ .
+ This package provides libgdbm, a shared library which provides primitives
+ for storing key/data pairs, searching and retrieving the data by its key
+ and deleting a key along with its data.
+
+Package: libgdbm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, gdbm (= ${binary:Version})
+Description: Development headers and libgdbm static libraries
+ This package provides libgdbm static libraries and header files required
+ for development using libgdbm.
+
+Package: gdbm
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for manipulating GDBM databases
+ GDBM, the GNU Database Manager, is a library of database functions and
+ tools that use extensible hashing and work similar to the standard UNIX
+ dbm.
+ .
+ This package provides utilities for manipulating GDBM databases.
+
+Package: gdbm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: gdbm (= ${binary:Version})
+Description: documentation for GDBM
+ This package provides info and man pages for GDBM.

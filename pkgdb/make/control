@@ -1,0 +1,25 @@
+Source: make
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/make/
+
+Package: make
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a utility which controls the generation of executables
+ GNU Make is a tool which controls the generation of executables and
+ other non-source files of a program from the program's source files.
+
+Package: make-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: make (= ${binary:Version})
+Description: documentation for GNU make
+ This package provides info, and man pages for GNU make.

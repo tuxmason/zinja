@@ -1,0 +1,4 @@
+usr/share/doc
+usr/share/man
+usr/share/info/gnutls*
+usr/share/info/pkcs11*

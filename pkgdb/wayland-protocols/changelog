@@ -1,0 +1,5 @@
+wayland-protocols (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Wed, 07 Mar 2018 16:53:31 +0300

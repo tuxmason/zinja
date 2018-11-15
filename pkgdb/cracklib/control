@@ -1,0 +1,29 @@
+Source: cracklib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libncursesw-dev, libcheck-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/cracklib/cracklib
+
+Package: libcrack
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a library used to enforce strong passwords
+ libcrack is a library which provides routines used to enforce strong
+ passwords. The routines compare user selected passwords to words in
+ chosen word lists.
+ .
+ This package provides the shared library libcrack and utilities for
+ managing cracklib dictionaries.
+
+Package: libcrack-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, libz-dev, libcrack (= ${binary:Version})
+Description: Development headers for libcrack
+ This package provides header files required for development using
+ libcrack.

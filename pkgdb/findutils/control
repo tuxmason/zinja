@@ -1,0 +1,28 @@
+Source: findutils
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), automake, bash-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/findutils/
+
+Package: findutils
+Section: utils
+Priority: required
+Essential: yes
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for locating files
+ GNU Find Utilities provides basic directory searching utilities.
+ .
+ These programs are typically used in conjunction with other programs 
+ to provide modular and powerful directory search and file locating 
+ capabilities to other commands.
+
+Package: findutils-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: findutils (= ${binary:Version})
+Description: documentation for GNU findutils
+ This package contains info and man pages for GNU findutils.

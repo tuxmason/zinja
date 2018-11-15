@@ -1,0 +1,35 @@
+Source: fontconfig
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libexpat-dev, libfreetype-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/fontconfig/
+
+Package: libfontconfig
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides an API for configuring and customizing font access.
+ libfontconfig provides an API for configuring and customizing font access.
+ .
+ This package provides the shared library libfontconfig.
+
+Package: fontconfig
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for configuring and customizing font access.
+ fontconfig provides tools for configuring and customizing font access.
+
+Package: libfontconfig-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: fontconfig-dev
+Depends: libfontconfig (= ${binary:Version}), libexpat-dev, libfreetype-dev
+Description: Development headers and libfontconfig static library
+ This package provides libfontconfig.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libfontconfig API.

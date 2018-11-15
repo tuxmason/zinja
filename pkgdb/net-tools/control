@@ -1,0 +1,26 @@
+Source: net-tools
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: https://sourceforge.net/projects/net-tools/
+
+Package: net-tools
+Section: utils
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: programs that form the base set of the NET-3 networking
+ A collection of programs that form the base set of the NET-3 networking
+ distribution for the Linux operating system.
+
+Package: net-tools-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: net-tools (= ${binary:Version})
+Description: documentation for net-tools
+ This package provides man pages for net-tools.

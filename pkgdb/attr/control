@@ -1,0 +1,45 @@
+Source: attr
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libffi-dev
+Standards-Version: 3.9.5
+Homepage: https://savannah.nongnu.org/projects/attr/
+
+Package: libattr
+Section: libs
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for manipulating extended attributes
+ This package provides libattr, a shared library which contains
+ libbrary functions for manipulating extended attributes.
+
+Package: libattr-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, libattr (= ${binary:Version})
+Description: Development headers and static libs for libattr
+ This package provides libattr.a, and header files required for
+ development using libattr.
+
+Package: attr
+Section: admin
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for administering extended attributes
+ This package provides utilities used to administer extended
+ attributes on filesystem objects.
+
+Package: attr-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: attr (= ${binary:Version})
+Description: documentation for attr
+ This package provides manpages for attr.

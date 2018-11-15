@@ -1,0 +1,25 @@
+Source: wget
+Section: utils
+Priority: important
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: pcre-dev, libz-dev, openssl-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/wget/
+
+Package: wget
+Section: utils
+Priority: important
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a utility for retrieving files
+ GNU wget is a utility for retrieving files using HTTP, HTTPS,
+ FTP and FTPS the most widely-used Internet protocols.
+
+Package: wget-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: wget (= ${binary:Version})
+Description: documentation for GNU wget
+ This package provides info, and man pages for GNU wget.

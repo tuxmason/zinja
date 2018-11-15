@@ -1,0 +1,58 @@
+Source: fuse
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/libfuse/libfuse
+
+Package: libfuse2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides FUSE API functions.
+ FUSE (Filesystem in Userspace) is an interface for userspace programs 
+ to export a filesystem to the Linux kernel.
+ .
+ This package provides libfuse, a shared library which contains FUSE 
+ API functions.
+
+Package: libulockmgr
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides Userspace Lock Manager API functions.
+ libulockmgr Userspace Lock Manager API functions.
+
+Package: fuse2
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: FUSE userspace utilities
+ FUSE (Filesystem in Userspace) is an interface for userspace programs 
+ to export a filesystem to the Linux kernel.
+ .
+ This package provides tools for managing FUSE (Filesystem in Userspace)
+ filesystems.
+
+Package: fuse2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libfuse2-dev
+Depends: libc-dev, fuse2 (= ${binary:Version})
+Description: FUSE development headers and static libraries
+ This package provides static libraries, pkgconfig data and header files 
+ required for development using FUSE.
+
+Package: fuse2-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: fuse2 (= ${binary:Version})
+Recommends: man-db
+Description: documentation for FUSE
+ This package provides man pages for FUSE.

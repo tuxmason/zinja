@@ -1,0 +1,42 @@
+Source: linux-pam
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcrack-dev
+Standards-Version: 3.9.5
+Homepage: http://www.linux-pam.org/
+
+Package: libpam
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a flexible mechanism for authenticating users
+ Linux PAM provides a way to develop programs that are independent of
+ the authentication scheme.
+ .
+ Linux PAM contains Pluggable Authentication Modules which enable the
+ local system administrator to choose how applications authenticate 
+ users.
+ .
+ This package provides libpam shared libraries, PAM modules and
+ associated helper utilities.
+
+Package: libpam-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, libcrack-dev, libpam (= ${binary:Version})
+Description: Development headers for Linux PAM
+ This package provides header files required for development using Linux
+ PAM.
+
+Package: linuxpam-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Provides: libpam-doc
+Depends: libpam (= ${binary:Version})
+Description: documentation for Linux PAM
+ This package provides html documentation and manpages for Linux PAM.

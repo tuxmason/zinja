@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+#delete ssh group
+if ! /bin/grep -q -c '^sshd' /etc/group ; then /usr/bin/sed -i -e "/^sshd/d" /etc/group ; fi
+
+#delete ssh user
+if ! /bin/grep -q -c '^sshd' /etc/passwd ; then /usr/bin/sed -i -e "/^sshd/d" /etc/passwd ; fi
+

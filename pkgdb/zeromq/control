@@ -1,0 +1,28 @@
+Source: zeromq
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://zeromq.org/
+
+Package: libzmq
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a high-performance asynchronous messaging library
+ zeromq is a high-performance asynchronous messaging library, aimed
+ at use in distributed or concurrent applications.
+ .
+ It provides a message queue, but unlike message-oriented middleware,
+ a ZeroMQ system can run without a dedicated message broker.
+
+Package: libzmq-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libzmq (= ${binary:Version})
+Description: Development headers and libzmq static library
+ This package provides libzmq.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libzmq API. 

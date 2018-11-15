@@ -1,0 +1,5 @@
+libunistring (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Thu, 08 Mar 2018 02:47:22 +0300

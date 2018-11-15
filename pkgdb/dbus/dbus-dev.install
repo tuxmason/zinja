@@ -1,0 +1,6 @@
+usr/include
+usr/lib/*.a
+usr/lib/cmake
+usr/share/xml
+usr/lib/pkgconfig
+usr/lib/dbus-1.0/include

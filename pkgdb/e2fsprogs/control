@@ -1,0 +1,39 @@
+Source: e2fsprogs
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), util-linux-dev
+Standards-Version: 3.9.5
+Homepage: http://e2fsprogs.sourceforge.net/
+
+Package: e2fsprogs
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for managing ext2, ext3, and ext4 filesystems
+ E2fsprogs is a collection of utilities for managing ext2, ext3, and ext4
+ filesystems.
+ .
+ This package also provides the shared libraries libcom_err, libss, libe2p,
+ and libext2fs.
+
+Package: e2fsprogs-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, util-linux-dev, e2fsprogs (= ${binary:Version})
+Description: Development headers and static libraries for e2fsprogs
+ This package provides pkgconfig data and header files required for
+ development using e2fsprogs.
+ .
+ Also included are the static libraries libcom_err, libss, libe2p,
+ and libext2fs.
+
+Package: e2fsprogs-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info, e2fsprogs (= ${binary:Version})
+Description: documentation for e2fsprogs
+ This package provides info and man pages for utilities provided by e2fsprogs.

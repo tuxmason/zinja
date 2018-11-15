@@ -1,0 +1,49 @@
+Source: fribidi
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.fribidi.org/
+
+Package: libfribidi
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: set of functions that implement the Unicode Bidirectional Algorithm.
+ FriBidi is an implementation of the Unicode Bidirectional Algorithm (BIDI). It 
+ provides other applications with support for Arabic and Hebrew alphabets.
+ .
+ This package provides the libfribidi shared library.
+
+Package: fribidi
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Free Implementation of the Unicode BiDi algorithm
+ FriBiDi is a BiDi algorithm implementation for Hebrew and/or Arabic
+ languages.
+ .
+ This package provides fribidi, a command-line interface to the libfribidi 
+ library and can be used to convert a logical string to visual output.
+
+Package: libfribidi-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libfribidi-dev
+Depends: libc-dev, fribidi (= ${binary:Version})
+Description: Fribidi development headers and static libraries
+ This package provides pkgconfig data and header files required for
+ development using Fribidi.
+
+Package: fribidi-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: fribidi (= ${binary:Version})
+Recommends: man-db, vim
+Description: documentation for Fribidi
+ This package provides man pages for Fribidi.

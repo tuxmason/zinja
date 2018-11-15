@@ -1,0 +1,5 @@
+libevent (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Sat, 03 Mar 2018 16:54:29 +0300

@@ -1,0 +1,49 @@
+Source: ipset
+Section: net
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libmnl-dev
+Standards-Version: 3.9.5
+Homepage: http://ipset.netfilter.org/
+
+Package: libipset
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides an API for the kernel's ipset extensions
+ IP sets are a framework inside the Linux 2.4.x and 2.6.x kernel 
+ which can be administered by the ipset(8) utility. 
+ .
+ Depending on the type, currently an IP set may store IP addresses, 
+ (TCP/UDP) port numbers or IP addresses with MAC addresses in a way 
+ which ensures lightning speed when matching an entry against a set. 
+ .
+ This package provides the shared library libipset.
+
+Package: ipset
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an administration tool for IP sets
+ ipset is an administration tool for IP sets.
+
+Package: libipset-dev
+Section: libdevel
+Provides: ipset-dev
+Priority: optional
+Architecture: ARCH
+Depends: libipset (= ${binary:Version}), libmnl-dev
+Description: Development headers and libipset static library
+ This package provides libipset.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libipset API.
+
+Package: ipset-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: ipset (= ${binary:Version})
+Description: documentation for ipset
+ This package provides man pages for ipset.

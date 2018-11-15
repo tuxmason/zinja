@@ -1,0 +1,5 @@
+libsigc++ (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Sat, 03 Mar 2018 00:33:08 +0300

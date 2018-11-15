@@ -1,0 +1,46 @@
+Source: kmod
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev, liblzma-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: http://www.kmod.org/
+
+Package: libkmod
+Section: libs
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides routines for loading and unloading kernel modules
+ This package provides libkmod, a shared library which provides routines 
+ for loading and unloading kernel modules.
+
+Package: kmod
+Section: admin
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for loading and unloading kernel modules
+ kmod is a set of tools to handle common tasks with Linux kernel modules
+ like insert, remove, list, check properties, resolve dependencies and
+ aliases.
+
+Package: kmod-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, liblzma-dev, libz-dev, kmod (= ${binary:Version})
+Description: Development headers for kmod
+ This package provides header files and pkgconfig data required for 
+ development using kmod.
+
+Package: kmod-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: kmod (= ${binary:Version})
+Description: documentation for kmod
+ This package provides man pages for kmod.

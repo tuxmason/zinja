@@ -1,0 +1,50 @@
+Source: glib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libffi-dev, libpcre-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/GNOME/glib
+
+Package: libglib2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: low-level core libraries for the GIMP Toolkit
+ GLib provides low-level libraries useful for providing data structure handling 
+ for C, portability wrappers and interfaces for such runtime functionality as an 
+ event loop, threads, dynamic loading and an object system.
+ .
+ This package provides GLib shared libraries.
+
+Package: glib2
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: GLib userspace tools
+ GLib provides low-level libraries useful for providing data structure handling 
+ for C, portability wrappers and interfaces for such runtime functionality as an 
+ event loop, threads, dynamic loading and an object system.
+ .
+ This package provides GLib userspace tools and locale data.
+
+Package: glib2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libglib2-dev
+Depends: libc-dev, glib2 (= ${binary:Version}), libffi-dev, libpcre-dev, util-linux-dev
+Description: Development headers and GLib static libraries
+ This package provides static libraries, pkgconfig data and header files required
+ for development using GLib.
+
+Package: glib2-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: glib2 (= ${binary:Version})
+Recommends: man-db, vim
+Description: documentation for GLib
+ This package provides man pages for GLib.

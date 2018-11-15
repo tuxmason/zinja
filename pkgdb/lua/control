@@ -1,0 +1,48 @@
+Source: lua
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.lua.org/
+
+Package: liblua
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Lua API functions.
+ This package provides liblua, a shared library which contains LUA
+ API functions.
+
+Package: lua
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an efficient, lightweight, embeddable scripting language.
+ Lua is a powerful, efficient, lightweight, embeddable scripting
+ language.
+ .
+ It supports procedural programming, object-oriented programming,
+ functional programming, data-driven programming, and data
+ description.
+
+Package: lua-dev
+Section: devel
+Priority: optional
+Architecture: ARCH
+Provides: liblua-dev
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: development headers for LUA
+ This package provides headers and pkgconfig data required to build
+ applications, libraries or plugins using the LUA API.
+
+Package: lua-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: lua (= ${binary:Version})
+Description: documentation for LUA 
+ This package provides man pages LUA.

@@ -1,0 +1,5 @@
+openssl (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Fri, 02 Mar 2018 10:34:26 +0300

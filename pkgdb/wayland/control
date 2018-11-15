@@ -1,0 +1,47 @@
+Source: wayland
+Section: graphics
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libffi-dev, libexpat-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: https://wayland.freedesktop.org/
+
+Package: libwayland
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions required by Wayland applications
+ Wayland is a protocol for a compositor to talk to its clients as well as 
+ a C library implementation of that protocol. 
+ .
+ This package contains Wayland shared libraries which provide functions
+ required by applications that use the Wayland API.
+
+Package: wayland
+Section: graphics
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a tool to generate proxy methods
+ Wayland is a protocol for a compositor to talk to its clients as well as 
+ a C library implementation of that protocol. 
+ .
+ The compositor can be a standalone display server running on Linux kernel 
+ modesetting and evdev input devices, an X application, or a wayland client 
+ itself. The clients can be traditional applications, X servers (rootless or 
+ fullscreen) or other display servers.
+ .
+ This package provides wayland-scanner, a tool used to generate proxy methods 
+ in wayland-client-protocol.h and wayland-server-protocol.h
+
+Package: libwayland-dev
+Section: libdevel
+Provides: wayland-dev
+Priority: optional
+Architecture: ARCH
+Depends: libwayland (= ${binary:Version}), libffi-dev, libexpat-dev, libxml2-dev
+Description: Development headers and libwayland static library
+ This package provides Wayland static libraries, headers and pkgconfig data
+ required to build applications, libraries or plugins using the libwayland
+ API.

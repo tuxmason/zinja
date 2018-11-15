@@ -1,0 +1,25 @@
+Source: intltool
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: https://freedesktop.org/wiki/Software/intltool/
+
+Package: intltool
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), perl
+Description: tools to centralize translation of many different file formats
+ intltool is a set of tools to centralize translation of many
+ different file formats using GNU gettext-compatible PO files.
+
+Package: intltool-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: intltool (= ${binary:Version})
+Description: documentation for intltool
+ This package provides man pages for intltool.

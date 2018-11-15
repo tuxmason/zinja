@@ -1,0 +1,11 @@
+freetype (PKGVER-2) unstable; urgency=low
+
+  * add harfbuzz support
+
+ -- Tux Mason <tuxmason@gmail.com>  Sat, 10 Mar 2018 23:52:13 +0300
+
+freetype (2.9-1) unstable; urgency=low
+  
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Sat, 10 Mar 2018 15:21:53 +0300

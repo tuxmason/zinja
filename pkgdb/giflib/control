@@ -1,0 +1,37 @@
+Source: giflib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libz-dev
+Standards-Version: 3.9.5
+Homepage: http://giflib.sourceforge.net/
+
+Package: libgif
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for reading and writing GIF files
+ GIFLIB provides API functions for reading and writing GIF files.
+ .
+ This package provides the shared library libgif.
+
+Package: libgif-bin
+Section: graphics
+Priority: optional
+Provides: giflib
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for reading writing, and converting GIF files
+ This package provides tools for reading writing, and converting GIF
+ files.
+
+Package: libgif-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: giflib-dev
+Depends: libgif (= ${binary:Version}), libz-dev
+Description: Development headers and GIFLIB static library
+ This package provides libgif.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the GIFLIB API.

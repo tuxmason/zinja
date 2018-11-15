@@ -1,0 +1,45 @@
+Source: readline
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libbz2-dev
+Standards-Version: 3.9.5
+Homepage: https://tiswww.case.edu/php/chet/readline/rltop.html
+
+Package: libreadline
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a set of functions that allow users to edit command lines
+ This package provides libreadline, a shared library which provides
+ a set of functions for use by applications that allow users to edit
+ command lines as they are typed in.
+
+Package: libhistory
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: functions to maintain a list of previously-entered command lines
+ This package provides libhistory, a shared library which provides
+ functions to maintain a list of previously-entered command lines,
+ to recall and perhaps reedit those lines.
+
+Package: readline-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, libhistory (= ${binary:Version}), libreadline (= ${binary:Version})
+Description: Development headers and static libraries for readline
+ This package provides the static libraries libreadline.a, libhistory.a,
+ and header files required for development using readline.
+
+Package: readline-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info, vim
+Depends: readline-dev (= ${binary:Version})
+Description: documentation for readline
+ This package provides examples, info, and man pages for readline.

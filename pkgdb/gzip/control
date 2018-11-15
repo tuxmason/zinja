@@ -1,0 +1,31 @@
+Source: gzip
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/gzip/
+
+Package: gzip
+Section: utils
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for compressing and decompressing files.
+ Gzip is a set of utilities for compressing and decompressing files.
+ .
+ Gzip is based on the DEFLATE algorithm, which is a combination of 
+ LZ77 and Huffman coding. DEFLATE was intended as a replacement for 
+ LZW and other patent-encumbered data compression algorithms which, 
+ at the time, limited the usability of compress and other popular 
+ archivers.
+
+Package: gzip-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: gzip (= ${binary:Version})
+Description: documentation for gzip
+ This package provides man pages for gzip.

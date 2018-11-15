@@ -1,0 +1,5 @@
+usr/lib/*.a
+usr/include
+usr/lib/pkgconfig
+usr/lib/giomm-2.56
+usr/lib/glibmm-2.56

@@ -1,0 +1,40 @@
+Source: libunistring
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/libunistring/
+
+Package: libunistring
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides the unicode string library API
+ libunistring is a library that provides functions for manipulating 
+ Unicode strings and for manipulating C strings according to the Unicode 
+ standard.
+ .
+ This package provides the libunistring shared library.
+
+Package: libunistring-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: gc-dev
+Depends: libunistring (= ${binary:Version}), gcc-dev
+Description: Development headers and libunistring static library
+ This package provides libunistring.a, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the 
+ libunistring API.
+
+Package: libunistring-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: info, links
+Depends: libunistring (= ${binary:Version})
+Description: documentation for libunistring
+ This package provides html documentation and info pages for 
+ libunistring.

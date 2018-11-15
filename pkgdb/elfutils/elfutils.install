@@ -1,0 +1,4 @@
+usr/lib/*.so
+usr/lib/*.so.*
+usr/lib/elfutils
+usr/share/locale

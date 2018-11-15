@@ -1,0 +1,53 @@
+Source: bzip2
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: http://www.bzip.org/
+
+Package: libbz2
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: shared library routines for managing bzip2 archives
+ bzip2 is a freely available, high-quality data compressor. It typically
+ compresses files to within 10% to 15% of the best available techniques
+ (the PPM family of statistical compressors), whilst being around twice as
+ fast at compression and six times faster at decompression.
+ .
+ This package provides libbz2, a shared library which provides routines for
+ creating, editing and decompressing bzip2 compressed archives.
+
+Package: bzip2
+Section: utils
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for managing bzip2 compressed files
+ bzip2 is a freely available, high-quality data compressor. It typically 
+ compresses files to within 10% to 15% of the best available techniques 
+ (the PPM family of statistical compressors), whilst being around twice
+ as fast at compression and six times faster at decompression.
+ .
+ This package provides utilities for creating, editing and decompressing
+ bzip2 compressed archives.
+
+Package: libbz2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, bzip2 (= ${binary:Version})
+Description: Development headers and libbz2 static library
+ This package provides libbz2.a and header files required for development
+ using libbz2.
+
+Package: bzip2-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: bzip2 (= ${binary:Version})
+Description: documentation for bzip2
+ This package provides man pages for bzip2 and it's associated utilities.

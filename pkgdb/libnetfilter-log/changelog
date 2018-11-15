@@ -1,0 +1,5 @@
+libnetfilter-log (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Mon, 05 Mar 2018 14:15:13 +0300

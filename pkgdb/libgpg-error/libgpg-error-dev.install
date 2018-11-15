@@ -1,0 +1,4 @@
+usr/include
+usr/lib/*.a
+usr/share/aclocal
+usr/share/common-lisp

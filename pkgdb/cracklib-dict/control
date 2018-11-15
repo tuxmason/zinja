@@ -1,0 +1,15 @@
+Source: cracklib-dict
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libncursesw-dev, libcrack-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/cracklib/cracklib
+
+Package: cracklib-dict
+Section: admin
+Priority: required
+Architecture: all
+Depends: libc (>= 1.1.8), libcrack (>= 2.9.6)
+Description: pre-compiled cracklib dictionaries
+ This package provides pre-compiled cracklib dictionaries.

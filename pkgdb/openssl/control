@@ -1,0 +1,36 @@
+Source: openssl
+Section: utils
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.openssl.org/
+
+Package: openssl
+Section: utils
+Priority: standard
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a general-purpose cryptography toolkit
+ OpenSSL is a robust, commercial-grade, and full-featured toolkit
+ for the Transport Layer Security (TLS) and Secure Sockets Layer
+ (SSL) protocols.
+
+Package: openssl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, openssl (= ${binary:Version})
+Description: Development headers and static libraries for OpenSSL
+ This package provides pkgconfig data and header files required
+ for development using OpenSSL.
+
+Package: openssl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Replaces: shadow-doc
+Recommends: man-db, openssl (= ${binary:Version})
+Description: documentation for OpenSSL
+ This package provides man pages and html documentation for utilities 
+ provided by OpenSSL.

@@ -1,0 +1,27 @@
+Source: libnetfilter-conntrack
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libmnl-dev, libnfnetlink-dev
+Standards-Version: 3.9.5
+Homepage: https://www.netfilter.org/projects/libnetfilter_conntrack/index.html
+
+Package: libnetfilter-conntrack
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an API interface to the in-kernel connection tracking state table.
+ libnetfilter_conntrack is a userspace library providing a programming interface (API) 
+ to the in-kernel connection tracking state table.
+ .
+ This package provides the shared library libnetfilter_conntrack.
+
+Package: libnetfilter-conntrack-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libnetfilter-conntrack (= ${binary:Version}), libmnl-dev, libnfnetlink-dev
+Description: Development headers and libnetfilter_conntrack static library
+ This package provides libnetfilter_conntrack.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libnetfilter_conntrack API.

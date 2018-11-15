@@ -1,0 +1,5 @@
+libatomic-ops (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Wed, 07 Mar 2018 18:37:53 +0300

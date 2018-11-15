@@ -1,0 +1,27 @@
+Source: libdbi-drivers
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libdbi-dev, libfreetds-dev, sqlite3-dev, mariadb-dev
+Standards-Version: 3.9.5
+Homepage: http://libdbi-drivers.sourceforge.net/
+
+Package: libdbi-drivers
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), libdbi, ${shlibs:Depends}
+Description: database-specific drivers for the libdbi framework
+ The libdbi-drivers project provides database-specific drivers
+ for the libdbi framework.
+ .
+ This package provides libdbi-drivers shared libraries.
+
+Package: libdbi-drivers-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libdbi-drivers (= ${binary:Version}), libdbi-dev, 
+ libfreetds-dev, sqlite3-dev, mariadb-dev
+Description: libdbi-drivers static library
+ This package provides static libraries for libdbi-drivers.

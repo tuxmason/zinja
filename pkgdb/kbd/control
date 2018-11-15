@@ -1,0 +1,44 @@
+Source: kbd
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: http://kbd-project.org/
+
+Package: libkeymap
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for manipulating kernel keymaps
+ libkeymap is a shared library which provides routines for 
+ manipulating kernel keymaps.
+
+Package: libkeymap-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), libkeymap (= ${binary:Version}), kbd (= ${binary:Version})
+Description: Development headers and libkeymap static library
+ This package provides header files, libkeymap.a and pkg-config
+ data required for development using libkeymap.
+
+Package: kbd
+Section: utils
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for managing Linux console
+ Kbd provides utilities for loading console fonts and keyboard
+ maps.
+
+Package: kbd-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: kbd (= ${binary:Version})
+Description: documentation for kbd
+ This package provides man pages for kbd.

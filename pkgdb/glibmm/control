@@ -1,0 +1,26 @@
+Source: glibmm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libsigc++-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/GNOME/glibmm
+
+Package: libglibmm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a set of C++ bindings for GLib
+ GLibmm provides a set of C++ bindings for GLib.
+ .
+ This package provides the libglibmm shared library.
+
+Package: libglibmm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libglibmm (= ${binary:Version}), glib2-dev, libsigc++-dev
+Description: Development headers and static libs for glibmm
+ This package provides static libraries, pkgconfig data and header files
+ required for development using glibmm.

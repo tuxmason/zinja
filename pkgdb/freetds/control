@@ -1,0 +1,49 @@
+Source: freetds
+Section: database
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev, readline-dev, libunixodbc-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: http://www.freetds.org/
+
+Package: libfreetds
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an API for applications to talk to Microsoft SQL Server and Sybase databases.
+ FreeTDS is a set of libraries for Unix and Linux that allows your programs 
+ to natively talk to Microsoft SQL Server and Sybase databases.
+ .
+ This package provides FreeTDS shared libraries.
+
+Package: freetds
+Section: database
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: FreeTDS utilities
+ FreeTDS is a set of libraries for Unix and Linux that allows your programs 
+ to natively talk to Microsoft SQL Server and Sybase databases.
+ .
+ This package provides FreeTDS userspace tools.
+
+Package: libfreetds-dev
+Section: libdevel
+Provides: freetds-dev
+Priority: optional
+Architecture: ARCH
+Depends: freetds (= ${binary:Version}), libncursesw-dev, readline-dev,
+ libunixodbc-dev, openssl-dev
+Description: Development headers and FreeTDS static libraries
+ This package provides FreeTDS static libraries, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the FreeTDS API.
+
+Package: freetds-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links
+Depends: freetds (= ${binary:Version})
+Description: documentation for FreeTDS
+ This package provides html documentation and man pages for FreeTDS.

@@ -1,0 +1,27 @@
+Source: libusb-compat
+Section: libs
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libusb-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/hjelmn/libusb-compat-0.1
+
+Package: libusb-compat
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a compatibility layer for the libusb-1.0 API
+ libusb-compat is a compatibility layer needed by applications 
+ that have not been upgraded to the libusb-1.0 API.
+ .
+ This package provides the libusb.so shared library.
+
+Package: libusb-compat-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libusb-compat (= ${binary:Version}), libusb-dev
+Description: Development headers and static libraries for libusb-compat
+ This package provides libusb.a, pkgconfig data and
+ header files required for development using libusb-compat.

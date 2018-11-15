@@ -1,0 +1,29 @@
+Source: graphite2
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://scripts.sil.org/cms/scripts/page.php?site_id=projects&item_id=graphite_home
+
+Package: libgraphite2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides a rendering engine for complex scripts
+ Graphite2 is a rendering engine for graphite fonts. These are TrueType 
+ fonts with additional tables containing smart rendering information and 
+ were originally developed to support complex non-Roman writing systems.
+ .
+ This package provides the shared library libgraphite2.
+
+Package: libgraphite2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: graphite2-dev
+Depends: libgraphite2 (= ${binary:Version}), gcc-dev
+Description: Development headers and libgraphite2 static library
+ This package provides headers and pkgconfig data required to build 
+ applications, libraries or plugins using the Graphite2 API.

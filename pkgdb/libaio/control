@@ -1,0 +1,27 @@
+Source: libaio
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://lse.sourceforge.net/io/aio.html
+
+Package: libaio
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Asynchronous input/output library
+ libaio is an asynchronous input/output library that uses the 
+ kernel's native interface.
+ .
+ This package provides the libaio shared library.
+
+Package: libaio-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev, libaio (= ${binary:Version})
+Description: Development headers and libaio static library
+ This package provides libaio.a, pkgconfig data and header files
+ required for development using libaio.

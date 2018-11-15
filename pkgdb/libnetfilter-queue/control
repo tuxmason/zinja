@@ -1,0 +1,27 @@
+Source: libnetfilter-queue
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libmnl-dev, libnfnetlink-dev
+Standards-Version: 3.9.5
+Homepage: https://www.netfilter.org/projects/libnetfilter_queue/index.html
+
+Package: libnetfilter-queue
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an API to packets that have been queued by the kernel packet filter
+ libnetfilter_queue is a userspace library providing an API to packets that have 
+ been queued by the kernel packet filter.
+ .
+ This package provides the shared library libnetfilter_queue.
+
+Package: libnetfilter-queue-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libnetfilter-queue (= ${binary:Version}), libmnl-dev, libnfnetlink-dev
+Description: Development headers and libnetfilter_queue static library
+ This package provides libnetfilter_queue.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libnetfilter_queue API.

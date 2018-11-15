@@ -1,0 +1,45 @@
+Source: mariadb
+Section: database
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libaio-dev, libbz2-dev, libcrack-dev, liblz4-dev, xz-dev,
+ liblzo2-dev, libncursesw-dev, libpam-dev, libsnappy-dev, systemd-dev, libxml2-dev,
+ libz-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://mariadb.org/
+
+Package: mariadb
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a fast, scalable and robust relational database management system.
+ MariaDB turns data into structured information in a wide array of applications,
+ ranging from banking to websites.
+ .
+ It is an enhanced, drop-in replacement for MySQL. MariaDB is used because it is
+ fast, scalable and robust, with a rich ecosystem of storage engines, plugins and
+ many other tools make it very versatile for a wide variety of use cases.
+ .
+ This package provides mariadb shared libraries, mariadb-server and userspace
+ tools.
+
+Package: mariadb-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: mariadb (= ${binary:Version}), libaio-dev, libbz2-dev, libcrack-dev,
+ liblz4-dev, xz-dev, liblzo2-dev, libncursesw-dev, libpam-dev, libsnappy-dev,
+ systemd-dev, libxml2-dev, libz-dev, openssl-dev
+Description: Development headers and mariadb static libraries
+ This package provides mariadb static libraries, headers and pkgconfig data
+ required to build applications, libraries or plugins using the mariadb API.
+
+Package: mariadb-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: mariadb (= ${binary:Version})
+Description: documentation for mariadb
+ This package provides man pages for mariadb.

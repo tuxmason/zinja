@@ -1,0 +1,27 @@
+Source: yaml
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libc-dev
+Standards-Version: 3.9.5
+Homepage: http://yaml.org/
+
+Package: libyaml
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a C library for parsing and emitting YAML.
+ libyaml is a C library for parsing and emitting YAML.
+ .
+ This package provides the shared library libyaml.
+
+Package: libyaml-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libyaml (= ${binary:Version})
+Description: Development headers and YAML static library
+ This package provides libyaml.a, headers and pkgconfig
+ data required to build applications, libraries or plugins
+ using the YAML API.

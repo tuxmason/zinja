@@ -1,0 +1,18 @@
+Source: musl-locales
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/rilian-la-te/musl-locales
+
+Package: locale
+Essential: yes
+Section: admin
+Priority: required
+Architecture: ARCH
+Pre-depends: libc (>= 1.1.8)
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Locale program for Musl lib C
+ Provides /usr/bin/locale. Also includes English and Russian
+ language support.

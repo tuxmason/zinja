@@ -1,0 +1,38 @@
+Source: icu
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://site.icu-project.org/
+
+Package: icu
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: C/C++ libraries providing Unicode and Globalization support
+ The International Components for Unicode (ICU) package is a mature, 
+ widely used set of C/C++ libraries providing Unicode and Globalization 
+ support for software applications. 
+ .
+ This package provides ICU shared libraries and userspace tools.
+
+Package: icu-dev
+Section: devel
+Priority: optional
+Architecture: ARCH
+Provides: libicu-dev
+Depends: libc (>= 1.1.8), icu (= ${binary:Version})
+Description: development headers for ICU
+ This package provides headers and pkgconfig data required to build
+ applications, libraries or plugins using the ICU API.
+
+Package: icu-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: icu (= ${binary:Version})
+Description: documentation for ICU 
+ This package provides man pages ICU.

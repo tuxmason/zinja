@@ -1,0 +1,5 @@
+openssh (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Fri, 02 Mar 2018 14:13:54 +0300

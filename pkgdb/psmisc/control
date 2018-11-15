@@ -1,0 +1,25 @@
+Source: psmisc
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev, libncursesw-dev
+Standards-Version: 3.9.5
+Homepage: http://psmisc.sourceforge.net/
+
+Package: psmisc
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), libncursesw, ${shlibs:Depends}
+Description: tools for displaying information about running processes
+ Psmisc provides tools for displaying information about running
+ processes.
+
+Package: psmisc-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: psmisc (= ${binary:Version})
+Description: documentation for psmisc
+ This package provides man pages for psmisc.

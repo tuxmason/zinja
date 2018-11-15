@@ -1,0 +1,36 @@
+Source: mpfr
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9),libgmp-dev (>= 6.1.2)
+Standards-Version: 3.9.5
+Homepage: http://www.mpfr.org
+
+Package: libmpfr
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a C library for multiple-precision floating-point computations
+ The MPFR library is a C library for multiple-precision floating-point
+ computations with correct rounding.
+ .
+ This package provides libmpfr, the MPFR C shared library.
+
+Package: libmpfr-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev (>= 1.1.8), libgmp-dev (>= 6.1.2), libmpfr (= ${binary:Version})
+Description: Development headers and static libs for MPFR
+ This package provides static libraries and header files required for 
+ development using MPFR.
+
+Package: mpfr-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: info, vim
+Depends: libmpfr-dev (= ${binary:Version})
+Description: documentation for MPFR
+ This package provides FAQ, examples and info pages for MPFR.

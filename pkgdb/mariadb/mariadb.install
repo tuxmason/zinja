@@ -1,0 +1,10 @@
+etc
+lib
+srv
+usr/bin
+usr/sbin
+usr/lib/*.so
+usr/lib/mysql
+usr/lib/*.so.*
+usr/share/mysql
+usr/lib/tmpfiles.d

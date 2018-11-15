@@ -1,0 +1,45 @@
+Source: acl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libffi-dev
+Standards-Version: 3.9.5
+Homepage: https://savannah.nongnu.org/projects/acl/
+
+Package: libacl
+Section: libs
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for manipulating Access Control Lists
+ This package provides libacl, a shared library which contains
+ libbrary functions for manipulating Access Control Lists.
+
+Package: libacl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libattr-dev, acl (= ${binary:Version}), libacl (= ${binary:Version})
+Description: Development headers and static libs for libacl
+ This package provides libacl.a, and header files required for
+ development using libacl.
+
+Package: acl
+Section: admin
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for managing file or directory Access Control Lists
+ This package provides utilities for managing Access Control Lists
+ attributes on filesystem objects.
+
+Package: acl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: acl (= ${binary:Version})
+Description: documentation for acl
+ This package provides manpages for acl.

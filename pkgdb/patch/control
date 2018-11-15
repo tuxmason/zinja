@@ -1,0 +1,26 @@
+Source: patch
+Section: vcs
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/patch/
+
+Package: patch
+Section: vcs
+Priority: standard
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utility for modifying or creating files by applying a "patch" file
+ Patch takes a patch file containing a difference listing produced
+ by the diff program and applies those differences to one or more
+ original files, producing patched versions.
+
+Package: patch-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: patch (= ${binary:Version})
+Description: documentation for patch
+ This package provides man pages for patch.

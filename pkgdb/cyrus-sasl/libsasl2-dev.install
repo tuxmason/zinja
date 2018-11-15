@@ -1,0 +1,4 @@
+usr/lib/*.a
+usr/include
+usr/lib/sasl2/*.a
+usr/lib/pkgconfig

@@ -1,0 +1,36 @@
+Source: libassuan
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgpg-error-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnupg.org/software/libassuan/index.html
+
+Package: libassuan
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for inter process communication
+ Libassuan is a small library implementing the so-called Assuan protocol. 
+ This protocol is used for IPC between most newer GnuPG components.
+ .
+ This package provides the shared library libassuan.
+
+Package: libassuan-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libassuan (= ${binary:Version}), libgpg-error-dev
+Description: Development headers and libassuan static library
+ This package provides libassuan.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libassuan API.
+
+Package: libassuan-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: libassuan (= ${binary:Version})
+Description: documentation for libassuan
+ This package provides info and man pages for libassuan.

@@ -1,0 +1,31 @@
+Source: gnupg
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libassuan-dev, libbz2-dev, libgcrypt-dev, libgnutls-dev,
+ libgpg-error-dev, libksba-dev, openldap-dev, libnpth-dev, readline-dev,
+ sqlite3-dev, libusb-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnupg.org/
+
+Package: gnupg
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides tools for secure communication and data storage.
+ GnuPG is GNU's toolkit for secure communication and data storage. It can 
+ be used to encrypt data and to create digital signatures. 
+ .
+ It includes an advanced key management facility and is compliant with the 
+ proposed OpenPGP Internet standard as described in RFC2440 and the S/MIME 
+ standard as described by several RFCs.
+
+Package: gnupg-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info, links
+Depends: gnupg (= ${binary:Version})
+Description: documentation for GnuPG
+ This package provides html, info, and man pages for GnuPG.

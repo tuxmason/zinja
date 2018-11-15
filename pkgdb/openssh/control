@@ -1,0 +1,30 @@
+Source: openssh
+Section: net
+Priority: important
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libedit-dev, libncursesw-dev, libpam-dev, libz-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.openssh.com/
+
+Package: openssh
+Section: net
+Priority: important
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for remote login with the SSH protocol
+ This package provides ssh clients and the sshd daemon. These tools 
+ are useful for encrypting authentication and subsequent traffic over 
+ a network. 
+ .
+ The ssh and scp commands are secure implementations of telnet and rcp 
+ respectively.
+
+Package: openssh-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: openssh (= ${binary:Version})
+Description: documentation for OpenSSH
+ This package provides man pages for the tools and daemons provided by 
+ OpenSSH.

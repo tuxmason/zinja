@@ -1,0 +1,35 @@
+Source: libedit
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev, libncursesw-dev
+Standards-Version: 3.9.5
+Homepage: http://thrysoee.dk/editline/
+
+Package: libedit
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides generic line editing, history, and tokenization functions
+ libedit provides generic line editing, history, and tokenization 
+ functions.
+
+Package: libedit-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libncursesw-dev, libedit (= ${binary:Version})
+Description: Development headers and libedit static library
+ This package provides static libraries, pkgconfig data and header
+ files required for development using libedit.
+
+Package: libedit-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Replaces: readline-doc
+Depends: libedit (= ${binary:Version})
+Description: documentation for libedit
+ This package provides man pages for libedit.

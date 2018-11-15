@@ -1,0 +1,51 @@
+Source: gmp
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: https://gmplib.org
+
+Package: libgmp
+Section: libs
+Priority: optional
+Architecture: ARCH
+Pre-depends: libc (>= 1.1.8)
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: A multiprecision arithmetic library
+ GMP is a free library for arbitrary precision arithmetic, operating 
+ on signed integers, rational numbers, and floating-point numbers. 
+ .
+ There is no practical limit to the precision except the ones implied 
+ by the available memory in the machine GMP runs on. GMP has a rich set 
+ of functions, and the functions have a regular interface.
+ .
+ This package provides libgmp, the GMP C shared library.
+
+Package: libgmpxx
+Section: libs
+Priority: optional
+Architecture: ARCH
+Pre-depends: libc (>= 1.1.8)
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: GMP C++ precision math functions
+ This package provides libgmpxx, the GMP C++ extension shared library.
+
+Package: libgmp-dev
+Essential: no
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev (>= 1.1.8), libgmp (= ${binary:Version}), libgmpxx (= ${binary:Version})
+Description: Development headers and static libs for GMP
+ This package provides static libraries and header files required for 
+ development using GMP.
+
+Package: libgmp-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: info
+Depends: libgmp-dev (= ${binary:Version})
+Description: documentation for GMP
+ This package contains info pages for GMP.

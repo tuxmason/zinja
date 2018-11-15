@@ -1,0 +1,29 @@
+Source: msgpack
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://msgpack.org/index.html
+
+Package: libmsgpackc
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Binary-based efficient object serialization library
+ MessagePack is an efficient binary serialization format. It lets you 
+ exchange data among multiple languages like JSON. But it's faster and 
+ smaller.
+ .
+ This package provides the shared library libmsgpackc.
+
+Package: libmsgpackc-dev
+Section: libdevel
+Provides: msgpack-dev
+Priority: optional
+Architecture: ARCH
+Depends: libmsgpackc (= ${binary:Version}), gcc-dev
+Description: Development headers and libmsgpackc static library
+ This package provides libmsgpackc.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the MessagePack API.

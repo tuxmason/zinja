@@ -1,0 +1,4 @@
+usr/include
+usr/lib/*.a
+usr/lib/*.py
+usr/share/gcc*

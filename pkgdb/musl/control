@@ -1,0 +1,30 @@
+Source: musl
+Section: libs
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://www.musl-libc.org
+
+Package: libc
+Section: libs
+Essential: yes
+Architecture: ARCH
+Provides: libc (= ${binary:Version})
+Depends: fhs
+Description: C standard library
+ Musl is a C standard library intended for operating systems
+ based on the Linux kernel.
+ .
+ It was developed by Rich Felker with the goal to write a clean,
+ efficient and standards-conformant libc implementation.
+
+Package: libc-dev
+Section: libdevel
+Essential: no
+Priority: optional
+Architecture: ARCH
+Depends: libc (= ${binary:Version})
+Description: Musl C Library: development header files
+ Contains the headers needed to compile and link programs which 
+ use the Musl standard C library.

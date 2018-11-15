@@ -1,0 +1,49 @@
+Source: unixodbc
+Section: database
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: readline-dev, libltdl-dev
+Standards-Version: 3.9.5
+Homepage: http://www.unixodbc.org/
+
+Package: libunixodbc
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides a predictable API with which to access Data Sources
+ unixODBC is an Open Source ODBC (Open DataBase Connectivity) sub-system and 
+ an ODBC SDK for Linux, Mac OSX, and UNIX. 
+ .
+ ODBC is an open specification for providing application developers with a 
+ predictable API with which to access data sources. Data sources include 
+ optional SQL Servers and any data source with an ODBC Driver. 
+ .
+ This package provides libunixodbc shared libraries.
+
+Package: unixodbc
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for managing unixODBC data sources
+ This package provides userspace utilities for managing unixODBC data sources.
+
+Package: libunixodbc-dev
+Section: libdevel
+Provides: unixodbc-dev
+Priority: optional
+Architecture: ARCH
+Depends: libunixodbc (= ${binary:Version}), readline-dev, libltdl-dev
+Description: Development headers and libunixodbc static libraries
+ This package provides libunixodbc static libraries, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the libunixodbc API.
+
+Package: unixodbc-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: unixodbc (= ${binary:Version})
+Description: documentation for unixodbc
+ This package provides man pages for unixodbc.

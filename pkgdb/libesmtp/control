@@ -1,0 +1,30 @@
+Source: libesmtp
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: openssl-dev
+Standards-Version: 3.9.5
+Homepage: http://brianstafford.info/libesmtp/download.html
+
+Package: libesmtp
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides an API designed to manage submission of electronic mail messages
+ libESMTP is an SMTP client designed to manage submission (or posting)
+ of electronic mail messages.
+ .
+ It is a more flexible alternative to the traditional technique of piping
+ messages into sendmail.
+ .
+ This package provides the shared library libesmtp.
+
+Package: libesmtp-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: openssl-dev, libesmtp (= ${binary:Version})
+Description: Development headers and libesmtp static library
+ This package provides libesmtp.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libesmtp API.

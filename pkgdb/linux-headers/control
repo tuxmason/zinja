@@ -1,0 +1,15 @@
+Source: linux
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://www.kernel.org
+
+Package: linux-headers
+Essential: no
+Architecture: ARCH
+Depends: ${misc:Depends}
+Description: Linux API headers
+ The Linux API Headers expose the kernel's API for use by
+ Musl libc.

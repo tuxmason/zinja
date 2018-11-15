@@ -1,0 +1,94 @@
+Source: gcc
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), binutils
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/gcc
+
+Package: libgcc
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: runtime support for GCC
+ This package provides libgcc, a shared library which provides runtime 
+ support for GCC.
+
+Package: libstdc++
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: GNU Standard C++ Library
+ This package contains an additional runtime library for C++ programs built
+ with the GNU compiler.
+
+Package: libatomic
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: support library providing __atomic built-in functions
+ This package provides libatomic, a shared library which provides __atomic
+ built-in functions.
+ .
+ When an atomic call cannot be turned into lock-free instructions, GCC will
+ make calls into this library.
+
+Package: libgomp
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: GCC OpenMP (GOMP) support library
+ GOMP is an implementation of OpenMP for the C, C++, and Fortran compilers
+ in the GNU Compiler Collection.
+
+Package: libitm
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: GNU Transactional Memory Library
+ GNU Transactional Memory Library (libitm) provides transaction support for
+ accesses to the memory of a process, enabling easy-to-use synchronization
+ of accesses to shared memory by several threads.
+
+Package: libssp
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines supporting GCC's stack-smashing protection
+ This package provides libssp, a shared library which provides routines
+ supporting GCC's stack-smashing protection functionality.
+
+Package: gcc-dev
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: binutils, libgcc (= ${binary:Version}), libstdc++ (= ${binary:Version}),
+ libatomic (= ${binary:Version}), libgomp (= ${binary:Version}),
+ libitm (= ${binary:Version}), libssp (= ${binary:Version}) 
+Description: GCC static libraries and development headers
+ This package provides static versions of the libraries libgcc, libstdc++,
+ libatomic, libgomp, libitm, and libssp. Also included are header files
+ required for developement using gcc.
+
+Package: gcc
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev (= ${binary:Version}), ${shlibs:Depends} 
+Description: GNU C and C++ compiler collection
+ This package provides C and C++ compilers.
+
+Package: gcc-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: gcc (= ${binary:Version})
+Description: documentation for GCC
+ This package provides info and manpages for GCC.

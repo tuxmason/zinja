@@ -1,0 +1,4 @@
+usr/bin
+usr/lib/locale
+usr/share/gettext
+usr/share/bash-completion

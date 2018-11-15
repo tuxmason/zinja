@@ -1,0 +1,23 @@
+Source: bc
+Section: math
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/bc/
+
+Package: bc
+Section: math
+Priority: standard
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: GNU bc arbitrary precision calculator language
+ GNU bc is an arbitrary precision numeric processing language.
+
+Package: bc-doc
+Section: doc
+Priority: optional
+Architecture: ARCH
+Depends: bc (= ${binary:Version})
+Description: documentation for GNU bc
+ This package contains man pages for GNU bc.

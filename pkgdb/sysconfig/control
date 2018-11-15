@@ -1,0 +1,16 @@
+Source: sysconfig
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/pullmoll/musl-obstack
+
+Package: sysconfig
+Essential: yes
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: fhs
+Description: base system configuration files
+ This package provides base system configuration files.

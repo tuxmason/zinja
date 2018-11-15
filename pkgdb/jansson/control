@@ -1,0 +1,28 @@
+Source: jansson
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.digip.org/jansson/
+
+Package: libjansson
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides an API for manipulating JSON data
+ Jansson is a C library for encoding, decoding and manipulating 
+ JSON data.
+ .
+ This package provides the libjansson shared library.
+
+Package: libjansson-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libjansson (= ${binary:Version}), gcc-dev
+Description: Development headers and static library for jansson
+ This package provides libjansson.a, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the 
+ jansson API.

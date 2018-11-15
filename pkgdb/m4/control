@@ -1,0 +1,31 @@
+Source: m4
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/m4/m4.html
+
+Package: m4
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: traditional Unix macro processor.
+ GNU M4 is an implementation of the traditional Unix macro 
+ processor. 
+ .
+ It is mostly SVR4 compatible although it has some extensions 
+ (for example, handling more than 9 positional parameters to 
+ macros). 
+ .
+ GNU M4 also has built-in functions for including files, running 
+ shell commands, doing arithmetic, etc.
+
+Package: m4-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: m4 (= ${binary:Version})
+Description: documentation for GNU m4
+ This package contains man pages for GNU m4.

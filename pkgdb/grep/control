@@ -1,0 +1,25 @@
+Source: grep
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/grep/
+
+Package: grep
+Section: utils
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for searching through files
+ GNU Grep is a set of utilities used for searching through files.
+
+Package: grep-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info
+Depends: grep (= ${binary:Version})
+Description: documentation for GNU grep
+ This package provides info, and man pages for GNU grep.

@@ -1,0 +1,28 @@
+Source: musl-obstack
+Section: libs
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/pullmoll/musl-obstack
+
+Package: libobstack
+Essential: yes
+Section: libs
+Priority: required
+Architecture: ARCH
+Pre-depends: libc (>= 1.1.8)
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Implementation of obstack for Musl lib C
+ This package provides the shared library libobstack.so.0.0.0,
+ which contains the GNU libc implementation of obstack.
+
+Package: libobstack-dev
+Essential: no
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev (>= 1.1.8), libobstack (= ${binary:Version})
+Description: Development headers and static lib for obstack
+ This package provides a static library libobstack.a, the header file
+ /usr/include/obstack.h

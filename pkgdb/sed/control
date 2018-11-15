@@ -1,0 +1,28 @@
+Source: sed
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcap-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/sed/
+
+Package: sed
+Section: utils
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: The GNU sed stream editor
+ sed (stream editor) is a non-interactive command-line text
+ editor.
+ .
+ sed is commonly used to filter text, i.e., it takes text input,
+ performs some operation (or set of operations) on it, and outputs
+ the modified text.
+
+Package: sed-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: sed (= ${binary:Version})
+Description: documentation for GNU sed
+ This package contains man pages for GNU sed.

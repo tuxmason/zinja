@@ -1,0 +1,51 @@
+Source: cyrus-sasl
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgdbm-dev, libpam-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.cyrusimap.org/
+
+Package: libsasl2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a general purpose authentication library for server and client applications.
+ Simple Authentication and Security Layer (SASL) is a specification that
+ describes how authentication mechanisms can be plugged into an application
+ protocol on the wire.
+ .
+ Cyrus SASL is an implementation of SASL that makes it easy for application
+ developers to integrate authentication mechanisms into their application in
+ a generic way.
+ .
+ This package provides the shared library libsasl2.
+
+Package: cyrus-sasl
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: SASL daemon and support tools
+ This package provides the Cyrus SASL daemon and it's associated userspace
+ utilities.
+
+Package: libsasl2-dev
+Section: libdevel
+Provides: cyrus-sasl-dev
+Priority: optional
+Architecture: ARCH
+Depends: libsasl2 (= ${binary:Version}), libgdbm-dev, libpam-dev, openssl-dev
+Description: Development headers and libsasl2 static library
+ This package provides libsasl2.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libsasl2 API.
+
+Package: cyrus-sasl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: cyrus-sasl (= ${binary:Version})
+Description: documentation for cyrus-sasl
+ This package provides man pages for cyrus-sasl.

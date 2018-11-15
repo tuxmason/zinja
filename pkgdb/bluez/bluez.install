@@ -1,0 +1,9 @@
+etc
+lib
+usr/bin
+usr/libexec
+usr/lib/cups
+usr/lib/*.so
+usr/lib/*.so.*
+usr/lib/systemd
+usr/share/dbus-1

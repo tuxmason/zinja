@@ -1,0 +1,25 @@
+Source: gperf
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/gperf/
+
+Package: gperf
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a perfect hash function generator.
+ GNU Gperf is a utility which generates a perfect hash function
+ from a key set.
+
+Package: gperf-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: gperf (= ${binary:Version})
+Description: documentation for GNU gperf
+ This package provides info, man pages and HTML documentation 
+ for GNU gperf.

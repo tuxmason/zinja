@@ -1,0 +1,43 @@
+Source: gc
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libatomic-ops-dev
+Standards-Version: 3.9.5
+Homepage: http://www.hboehm.info/gc/
+
+Package: libgc
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides the Boehm-Demers-Weiser conservative garbage collector
+ GC contains the Boehm-Demers-Weiser conservative garbage collector, which 
+ can be used as a garbage collecting replacement for the C malloc function 
+ or C++ new operator. 
+ .
+ It allows you to allocate memory basically as you normally would, without 
+ explicitly deallocating memory that is no longer useful. The collector 
+ automatically recycles memory when it determines that it can no longer be 
+ otherwise accessed.
+ .
+ This package provides GC shared libraries.
+
+Package: libgc-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: gc-dev
+Depends: libgc (= ${binary:Version}), libatomic-ops-dev
+Description: Development headers and GC static libraries
+ This package provides GC static libraries, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the GC API.
+
+Package: gc-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libgc (= ${binary:Version})
+Description: documentation for GC
+ This package provides html documentation for GC.

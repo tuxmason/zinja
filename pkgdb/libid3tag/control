@@ -1,0 +1,27 @@
+Source: libid3tag
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libz-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/markjeee/libid3tag
+
+Package: libid3tag
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for reading and writing ID3 tags
+ libid3tag provides API functions for reading and (eventually) writing
+ ID3 tags, both ID3v1 and the various versions of ID3v2.
+ .
+ This package provides the shared library libid3tag.
+
+Package: libid3tag-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libid3tag (= ${binary:Version}), libz-dev
+Description: Development headers and libid3tag static library
+ This package provides libid3tag.a, and header files required to build
+ applications, libraries or plugins using the libid3tag API.

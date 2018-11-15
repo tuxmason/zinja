@@ -1,0 +1,12 @@
+util-linux (PKGVER-2) unstable; urgency=low
+
+  * add systemd support
+
+ -- Tux Mason <tuxmason@gmail.com>  Thu, 01 Mar 2018 02:28:31 +0300
+
+util-linux (2.31-1) unstable; urgency=low
+  
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Tue, 20 Feb 2018 14:20:34 +0300
+

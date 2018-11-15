@@ -1,0 +1,41 @@
+Source: mpc
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.multiprecision.org/mpc
+
+Package: libmpc
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a C library for the arithmetic of complex numbers
+ GNU MPC is a C library for the arithmetic of complex numbers with
+ arbitrarily high precision and correct rounding of the result.
+ .
+ It extends the principles of the IEEE-754 standard for fixed precision
+ real floating point numbers to complex numbers, providing well-defined
+ semantics for every operation.
+ .
+ This package provides libmpc, the GNU MPC shared library.
+
+Package: libmpc-dev
+Essential: no
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libmpfr-dev, libmpc (= ${binary:Version})
+Description: Development headers and static libs for MPC
+ This package provides static libraries and header files required for 
+ development using MPC.
+
+Package: mpc-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: info
+Depends: libmpc-dev (= ${binary:Version})
+Description: documentation for MPC
+ This package provides info pages for MPC.

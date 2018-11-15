@@ -1,0 +1,27 @@
+Source: libnftnl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libjansson-dev, libmnl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.netfilter.org/projects/libnftnl/index.html
+
+Package: libnftnl
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an API to the in-kernel nf_tables subsystem
+ libnftnl is a userspace library providing a low-level netlink programming 
+ interface (API) to the in-kernel nf_tables subsystem.
+ .
+ This package provides the shared library libnftnl.
+
+Package: libnftnl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libnftnl (= ${binary:Version}), libjansson-dev, libmnl-dev
+Description: Development headers and libnftnl static library
+ This package provides libnftnl.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libnftnl API.

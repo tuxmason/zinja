@@ -1,0 +1,27 @@
+Source: libexecinfo
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freshports.org/devel/libexecinfo
+
+Package: libexecinfo
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides routines for inspecting a program's backtrace
+ libexecinfo provides API functions for inspecting a program's
+ backtrace.
+ .
+ This package provides the shared library libexecinfo.
+
+Package: libexecinfo-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libexecinfo (= ${binary:Version}), gcc-dev
+Description: Development headers and libexecinfo static library
+ This package provides libexecinfo.a and headers required to build
+ applications, libraries or plugins using the libexecinfo API.

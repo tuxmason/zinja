@@ -1,0 +1,49 @@
+Source: gnutls
+Section: net
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgmp-dev, libidn2-dev, libnettle-dev, libp11-kit-dev,
+ libtasn1-dev, libunistring-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnutls.org/
+
+Package: libgnutls
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides an API to access secure communications protocols
+ libgnutls provides an API to access secure communications protocols as
+ well as APIs to parse and write X.509, PKCS #12, and other required
+ structures.
+ .
+ This package provides the shared library libgnutls.
+
+Package: gnutls
+Section: net
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools which provide a secure layer over a reliable transport layer.
+ GnuTLS provides userspace tools which provide a secure layer over a
+ reliable transport layer.
+
+Package: libgnutls-dev
+Section: libdevel
+Provides: gnutls-dev
+Priority: optional
+Architecture: ARCH
+Depends: libgnutls (= ${binary:Version}), libgmp-dev, libidn2-dev, libnettle-dev,
+ libp11-kit-dev, libtasn1-dev, libunistring-dev
+Description: Development headers and libgnutls static library
+ This package provides libgnutls.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libgnutls API.
+
+Package: gnutls-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links, info
+Depends: gnutls (= ${binary:Version})
+Description: documentation for gnutls
+ This package provides html documentation, info and man pages for gnutls.

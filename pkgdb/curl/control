@@ -1,0 +1,43 @@
+Source: curl
+Section: utils
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: openssl-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: https://curl.haxx.se/
+
+Package: libcurl
+Section: libs
+Priority: standard
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides functions for transferring files with URL syntax
+ libcurl provides API functions used for transferring files with URL syntax
+ to any of the following protocols: FTP, FTPS, HTTP, HTTPS, SCP, SFTP, TFTP,
+ TELNET, DICT, LDAP, LDAPS and FILE.
+
+Package: curl
+Section: utils
+Priority: standard
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a utility used for transferring data
+ curl is used in command lines or scripts to transfer data.
+
+Package: curl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, openssl-dev, libz-dev, curl (= ${binary:Version})
+Description: Development headers and static libraries for cURL
+ This package provides pkgconfig data and header files required for
+ development using cURL.
+
+Package: curl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: curl (= ${binary:Version})
+Recommends: man-db
+Description: documentation for cURL
+ This package provides man pages for cURL.

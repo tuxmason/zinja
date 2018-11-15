@@ -1,0 +1,16 @@
+Source: iana-etc
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: http://sethwklein.net/iana-etc
+
+Package: iana-etc
+Section: admin
+Priority: required
+Architecture: all
+Essential: yes
+Depends: libc (>= 1.1.8)
+Description: data for network services and protocols
+ Iana-Etc package provides data for network services and protocols.

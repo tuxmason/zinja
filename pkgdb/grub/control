@@ -1,0 +1,24 @@
+Source: grub
+Section: admin
+Priority: important
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: xz-dev
+Standards-Version: 3.9.5
+Homepage: https://www.grub.org/
+
+Package: grub
+Section: admin
+Priority: important
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: GRand Unified Bootloader
+ GNU GRUB is a Multiboot boot loader.
+
+Package: grub-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: info
+Depends: grub (= ${binary:Version})
+Description: documentation for grub
+ This package provides info pages for GRUB.

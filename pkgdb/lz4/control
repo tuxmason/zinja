@@ -1,0 +1,49 @@
+Source: lz4
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/lz4/lz4
+
+Package: liblz4
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for lz4 compression algorithm
+ LZ4 is lossless compression algorithm, providing compression speed at 
+ 400 MB/s per core, scalable with multi-cores CPU. 
+ .
+ It features an extremely fast decoder, with speed in multiple GB/s per 
+ core, typically reaching RAM speed limits on multi-core systems.
+ .
+ This package provides liblz4, a shared library which provides routines
+ for compressing and decompressing data using the LZ4 algorithm.
+
+Package: liblz4-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libmpc-dev, lz4 (= ${binary:Version})
+Description: Development headers and static libs for lz4
+ This package provides liblz4.a, pkgconfig data and header files
+ required for development using LZ4.
+
+Package: lz4
+Section: utils
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: LZ4 compression and decompression utilities
+ This package provides utilities for managing LZ4 archives.
+
+Package: lz4-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: lz4 (= ${binary:Version})
+Description: documentation for LZ4
+ This package provides man pages for LZ4.

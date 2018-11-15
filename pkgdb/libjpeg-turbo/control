@@ -1,0 +1,49 @@
+Source: libjpeg-turbo
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://libjpeg-turbo.org/
+
+Package: libjpeg-turbo
+Section: libs
+Priority: optional
+Architecture: ARCH
+Provides: libjpeg (= ${binary:Version})
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for reading and writing JPEG files
+ libjpeg-turbo is a JPEG image codec that uses SIMD instructions (MMX, SSE2,
+ AVX2, NEON, AltiVec) to accelerate baseline JPEG compression and decompression
+ on x86, x86-64, ARM, and PowerPC systems.
+ .
+ This package provides the shared library libjpeg-turbo.
+
+Package: libjpeg-turbo-bin
+Section: graphics
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for compressing and decompressing JPEG files
+ This package provides tools for compressing and decompressing JPEG files.
+
+Package: libjpeg-turbo-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libjpeg-dev (= ${binary:Version})
+Depends: libjpeg-turbo (= ${binary:Version}), gcc-dev
+Description: Development headers and libjpeg-turbo static library
+ This package provides libjpeg-turbo.a, libjpeg.a, headers and pkgconfig data
+ required to build applications, libraries or plugins using the libjpeg-turbo
+ API.
+
+Package: libjpeg-turbo-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libjpeg-turbo (= ${binary:Version})
+Description: documentation for libjpeg-turbo userspace tools
+ This package provides examples for using the libjpeg-turbo API and man pages
+ for the userspace tools provided by libjpeg-turbo.

@@ -1,0 +1,26 @@
+Source: pkg-config-lite
+Section: devel
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), sed
+Standards-Version: 3.9.5
+Homepage: https://sourceforge.net/projects/pkgconfiglite/
+
+Package: pkg-config
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: manages compile and link flags for libraries
+ pkg-config is a system for managing library compile and link 
+ flags that works with automake and autoconf.
+
+Package: pkg-config-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: pkg-config (= ${binary:Version})
+Description: documentation for pkg-config
+ This package provides html documentation and man pages for
+ pkg-config.

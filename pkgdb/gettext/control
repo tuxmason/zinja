@@ -1,0 +1,37 @@
+Source: gettext
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev, libacl-dev, libncursesw-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/gettext/
+
+Package: gettext
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for internationalization and localization
+ Gettext is a set of utilities and libraries used to provide internationalization 
+ and localization support to other applications.
+ .
+ Gettext enables applications to be compiled with NLS (Native Language Support), 
+ enabling them to output messages in the user's native language.
+
+Package: gettext-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, libacl-dev, libncursesw-dev, gettext (= ${binary:Version})
+Description: Development headers and static libraries for Gettext
+ This package provides header files, autoconf data and static libraries required
+ for development using Gettext.
+
+Package: gettext-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, info, vim
+Depends: gettext-dev (= ${binary:Version})
+Description: documentation for Gettext
+ This package provides examples, info, and man pages for Gettext.

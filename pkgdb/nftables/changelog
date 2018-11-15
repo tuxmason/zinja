@@ -1,0 +1,5 @@
+nftables (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Tue, 06 Mar 2018 03:02:10 +0300

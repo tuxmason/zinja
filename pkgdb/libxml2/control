@@ -1,0 +1,43 @@
+Source: libxml2
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: icu-dev, xz-dev, libncursesw-dev, readline-dev, libz
+Standards-Version: 3.9.5
+Homepage: http://xmlsoft.org/
+
+Package: libxml2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: libraries and utilities used for parsing XML files.
+ libxml2 provides functions used for parsing XML files.
+ .
+ XML is a metalanguage to design markup languages, i.e. text language
+ where semantic and structure are added to the content using extra
+ "markup" information enclosed between angle brackets.
+ .
+ This package provides the libxml2 shared library and tools for parsing
+ XML files.
+
+Package: libxml2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libxml2-dev
+Depends: libxml2 (= ${binary:Version}), icu-dev, xz-dev, libncursesw-dev,
+ readline-dev, libz-dev
+Description: Development headers and static library for libxml2
+ This package provides libxml2.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libxml2 API.
+
+Package: libxml2-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links-lite
+Depends: libxml2 (= ${binary:Version})
+Description: documentation for libxml2
+ This package provides examples, html documentation and man pages
+ libxml2.

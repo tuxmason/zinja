@@ -1,0 +1,47 @@
+Source: libcap
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libffi-dev, libacl-dev
+Standards-Version: 3.9.5
+Homepage: https://sites.google.com/site/fullycapable/
+
+Package: libcap
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: user-space interfaces to the POSIX 1003.1e capabilities
+ This package provides libcap, a shared library which implements the
+ user-space interfaces to the POSIX 1003.1e capabilities available in
+ Linux kernels.
+ .
+ These capabilities are a partitioning of the all powerful root privilege
+ into a set of distinct privileges.
+
+Package: libcap-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libacl-dev, libcap-bin (= ${binary:Version})
+Description: Development headers and static lib for libcap
+ This package provides liblibcap.a, pkgconfig data and header files 
+ required for development using libcap.
+
+Package: libcap-bin
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for managing POSIX 1003.1e capabilities
+ This package provides utilities for managing POSIX 1003.1e capabilities
+ on filesystem objects.
+
+Package: libcap-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libcap (= ${binary:Version})
+Description: documentation for libcap
+ This package provides manpages for libcap.

@@ -1,0 +1,49 @@
+Source: python
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libbz2-dev, libexpat-dev, libffi-dev, libgdbm-dev, libncursesw-dev,
+ readline-dev, sqlite3-dev, libz-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.python.org/
+
+Package: libpython
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for the python interpreter
+ libpython provides API functions required by the python interpreter
+ .
+ This package provides the shared library libpython.
+
+Package: python
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an interpreted, interactive, object-oriented programming language.
+ Python is an interpreted high-level programming language for general-purpose 
+ programming.
+ .
+ This package provides the Python interpreter and support utilities.
+
+Package: python-dev
+Section: libdevel
+Provides: libpython-dev
+Priority: optional
+Architecture: ARCH
+Depends: libpython (= ${binary:Version}), libbz2-dev, libexpat-dev, libffi-dev,
+ libgdbm-dev, libncursesw-dev, readline-dev, sqlite3-dev, libz-dev, openssl-dev
+Description: Python development headers
+ This package provides headers and pkgconfig data required to build applications, 
+ libraries or plugins using the Python API.
+
+Package: python-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: python (= ${binary:Version})
+Description: documentation for python
+ This package provides man pages for python.

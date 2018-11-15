@@ -1,0 +1,27 @@
+Source: libcroco
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: http://xmlsoft.org/
+
+Package: libcroco
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: library and utility for parsing and manipulating CSS2
+ libcroco is a standalone CSS2 parsing and manipulation library.
+ .
+ This package provides the libcroco shared library and a utility 
+ for parsing CSS2 files.
+
+Package: libcroco-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libcroco (= ${binary:Version}), glib2-dev, libxml2-dev
+Description: Development headers and static library for libcroco
+ This package provides libcroco.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libcroco API.

@@ -1,0 +1,51 @@
+Source: ruby
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libffi-dev, libgdbm-dev, libgmp-dev, libncursesw-dev, readline-dev,
+ libyaml-dev, libz-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: http://www.ruby-lang.org/en/
+
+Package: libruby
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for the ruby interpreter
+ libruby provides API functions required by the ruby interpreter
+ .
+ This package provides the shared library libruby.
+
+Package: ruby
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a dynamic, scripting language with a focus on simplicity and productivity.
+ Ruby is a dynamic, open source programming language with a focus on 
+ simplicity and productivity.
+ .
+ It has an elegant syntax that is natural to read and easy to write.
+ .
+ This package provides the Ruby interpreter and support utilities.
+
+Package: ruby-dev
+Section: libdevel
+Provides: libruby-dev
+Priority: optional
+Architecture: ARCH
+Depends: libruby (= ${binary:Version}), libffi-dev, libgdbm-dev, libgmp-dev,
+ libncursesw-dev, readline-dev, libyaml-dev, libz-dev, openssl-dev
+Description: Development headers and Ruby static library
+ This package provides libruby.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the Ruby API.
+
+Package: ruby-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: ruby (= ${binary:Version})
+Description: documentation for ruby
+ This package provides man pages for ruby.

@@ -1,0 +1,53 @@
+Source: systemd
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/systemd/
+
+Package: libsystemd
+Section: libs
+Priority: required
+Essential: yes
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: systemd utility library 
+ libsystemd provides functions and API interfaces to various systemd 
+ components.
+
+Package: libudev
+Section: libs
+Priority: required
+Essential: yes
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for accessing Udev device information
+ libudev provides routines for accessing Udev device information.
+
+Package: systemd
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for system and service management
+ systemd is a suite tools used for managing system startup, shutdown
+ and running services.
+
+Package: systemd-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, util-linux-dev, systemd (= ${binary:Version})
+Description: Development headers and static libraries for systemd
+ This package provides pkgconfig data and header files required for
+ development using systemd.
+
+Package: systemd-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: systemd (= ${binary:Version})
+Recommends: man-db
+Description: documentation for systemd
+ This package provides man pages for utilities provided by systemd.

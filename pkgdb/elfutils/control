@@ -1,0 +1,26 @@
+Source: elfutils
+Section: devel
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev, libargp-dev, libbz2-dev, libfts-dev, liblzma-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: https://sourceware.org/elfutils/
+
+Package: elfutils
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities and libraries to read, create and modify ELF binary files
+ elfutils is a collection of utilities and libraries to read, create and 
+ modify ELF binary files, find and handle DWARF debug data, symbols, thread 
+ state and stacktraces for processes and core files on GNU/Linux.
+
+Package: elfutils-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, elfutils (= ${binary:Version}), libargp-dev, libbz2-dev, libfts-dev, liblzma-dev, libz-dev
+Description: Development headers and static libraries for elfutils
+ This package provides elfutils static libraries, pkgconfig data and header 
+ files required for development using elfutils.

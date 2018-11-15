@@ -1,0 +1,38 @@
+Source: harfbuzz
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: icu-dev, libfreetype-dev, glib2-dev, libgraphite2-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/HarfBuzz/
+
+Package: libharfbuzz
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: an OpenType text shaping engine.
+ HarfBuzz is an OpenType text shaping engine.
+ .
+ This package provides the shared libraries libharfbuzz, libharfbuzz-icu,
+ and libharfbuzz-gobject.
+
+Package: harfbuzz
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides HarfBuzz userspace tools
+ This package provides HarfBuzz userspace tools.
+
+Package: libharfbuzz-dev
+Section: libdevel
+Provides: harfbuzz-dev
+Priority: optional
+Architecture: ARCH
+Depends: libharfbuzz (= ${binary:Version}), icu-dev, libfreetype-dev,
+ glib2-dev, libgraphite2-dev
+Description: Development headers and HarfBuzz static libraries
+ This package provides static libraries, headers files and pkgconfig
+ data required to build applications, libraries or plugins using the
+ HarfBuzz API.

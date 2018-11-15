@@ -1,0 +1,32 @@
+Source: isl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev, libmpc-dev
+Standards-Version: 3.9.5
+Homepage: http://isl.gforge.inria.fr
+
+Package: libisl
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a library for manipulating sets and relations of integer points
+ isl is a library for manipulating sets and relations of integer points
+ bounded by linear constraints.
+ .
+ Supported operations on sets include intersection, union, set difference, 
+ emptiness check, convex hull, (integer) affine hull, integer projection,
+ computing the lexicographic minimum using parametric integer programming,
+ coalescing and parametric vertex enumeration.
+ .
+ This package provides the libisl shared library.
+
+Package: libisl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libmpc-dev, libisl (= ${binary:Version})
+Description: Development headers and static libs for isl
+ This package provides static libraries, pkgconfig data and header files
+ required for development using isl.

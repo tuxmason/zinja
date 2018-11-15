@@ -1,0 +1,4 @@
+usr/bin
+usr/lib/*.a
+usr/include
+usr/share/aclocal

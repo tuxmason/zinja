@@ -1,0 +1,36 @@
+Source: zlib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libisl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.zlib.net
+
+Package: libz
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: zlib compression and decompression routines
+ zlib is a library implementing the deflate compression method found
+ in gzip and PKZIP.
+ .
+ This package provides libz, the zlib shared library.
+
+Package: libz-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev (>= 1.1.8), libz (= ${binary:Version})
+Description: Development headers and static libs for zlib
+ This package provides static libraries and header files required for 
+ development using zlib.
+
+Package: zlib-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libz-dev (= ${binary:Version})
+Description: documentation for zlib
+ This package provides the zlib manpage

@@ -1,0 +1,46 @@
+Source: jasper
+Section: graphics
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libjpeg-turbo-dev
+Standards-Version: 3.9.5
+Homepage: http://www.ece.uvic.ca/~frodo/jasper/
+
+Package: libjasper
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides functions for reading and writing JPEG2000 format files.
+ libjasper provides API functions for reading and writing JPEG2000 format
+ files.
+ .
+ This package provides the shared library libjasper.
+
+Package: jasper
+Section: graphics
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for converting images between formats
+ jasper provides tools for comparing, displaying image info and converting
+ images between formats (BMP, JPS, JPC, JPG, PGX, PNM, MIF, and RAS).
+
+Package: libjasper-dev
+Section: libdevel
+Provides: jasper-dev
+Priority: optional
+Architecture: ARCH
+Depends: libjasper (= ${binary:Version}), libjpeg-turbo-dev
+Description: Development headers and libjasper static library
+ This package provides headers files and pkgconfig data required to build
+ applications, libraries or plugins using the JasPer API.
+
+Package: jasper-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: jasper (= ${binary:Version})
+Description: documentation for jasper
+ This package provides man pages for the userspace tools provided by jasper.

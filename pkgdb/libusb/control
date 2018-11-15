@@ -1,0 +1,29 @@
+Source: libusb
+Section: libs
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: systemd-dev
+Standards-Version: 3.9.5
+Homepage: http://libusb.org/
+
+Package: libusb
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: API functions used for accessing USB hardware
+ libusb is a C library that provides generic access to USB devices. 
+ .
+ It is intended to be used by developers to facilitate the production 
+ of applications that communicate with USB hardware.
+ .
+ This package provides the libusb shared library.
+
+Package: libusb-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libusb (= ${binary:Version}), systemd-dev
+Description: Development headers and static libraries for libusb
+ This package provides libusb-1.0.a, pkgconfig data and
+ header files required for development using libusb.

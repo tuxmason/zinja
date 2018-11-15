@@ -1,0 +1,36 @@
+Source: libpipeline
+Section: libs
+Priority: important
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libpipeline
+Standards-Version: 3.9.5
+Homepage: http://libpipeline.nongnu.org/
+
+Package: libpipeline
+Section: libs
+Priority: important
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a C library for manipulating pipelines of subprocesses
+ libpipeline is a C library for manipulating pipelines of subprocesses 
+ in a flexible and convenient way.
+ .
+ This package provides the libpipeline shared library.
+
+Package: libpipeline-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, libpipeline (= ${binary:Version})
+Description: Development headers and static library for libpipeline
+ This package provides pkgconfig data and header files required for 
+ development using libpipeline.
+
+Package: libpipeline-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libpipeline (= ${binary:Version})
+Description: documentation for libpipeline
+ This package provides man pages for libpipeline.

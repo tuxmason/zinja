@@ -1,0 +1,51 @@
+Source: ncurses
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev, pkg-config
+Standards-Version: 3.9.5
+Homepage: https://invisible-island.net/ncurses/
+
+Package: libncursesw
+Section: libs
+Priority: required
+Architecture: ARCH
+Provides: libncurses
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: shared libraries for terminal handling (wide character support)
+ The ncurses library routines are a terminal-independent method of
+ updating character screens with reasonable optimization.
+ .
+ This package contains the shared libraries necessary to run programs
+ compiled with ncursesw, which includes support for wide characters.
+
+Package: libncursesw-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libncurses-dev
+Depends: ncursesw (= ${binary:Version})
+Description: Development headers and static libraries for ncurses
+ This package provides static libraries, pkgconfig data and header files 
+ required for development using ncurses.
+
+Package: ncursesw
+Section: utils
+Priority: required
+Architecture: ARCH
+Provides: ncurses
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: utilities for managing terminals
+ This package provides utilities used for manipulating the terminfo
+ database and individual terminfo entries. Also included are utilities for
+ resetting terminals.
+
+Package: ncursesw-doc
+Section: doc
+Priority: optional
+Architecture: all
+Provides: ncurses-doc
+Recommends: man-db
+Depends: ncursesw (= ${binary:Version})
+Description: documentation for ncurses
+ This package provides manpages for ncurses.

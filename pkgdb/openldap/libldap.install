@@ -1,0 +1,4 @@
+usr/lib/libldap.so
+usr/lib/libldap_r.so
+usr/lib/libldap*.so.*
+usr/lib/openldap/*.so

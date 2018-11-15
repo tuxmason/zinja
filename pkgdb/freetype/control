@@ -1,0 +1,39 @@
+Source: freetype
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libbz2-dev, libpng-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freetype.org/
+
+Package: libfreetype
+Section: libs
+Priority: optional
+Architecture: ARCH
+Provides: freetype
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides API functions for rendering TrueType fonts
+ libfreetype provides API functions for rendering TrueType fonts.
+ .
+ This package provides the shared library libfreetype.
+
+Package: libfreetype-dev
+Section: libdevel
+Provides: freetype-dev
+Priority: optional
+Architecture: ARCH
+Depends: libfreetype (= ${binary:Version}), libbz2-dev, libpng-dev,
+ libz-dev
+Description: Development headers and libfreetype static library
+ This package provides libfreetype.a, headers and pkgconfig data 
+ required to build applications, libraries or plugins using the 
+ libfreetype API.
+
+Package: freetype-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libfreetype (= ${binary:Version})
+Description: documentation for freetype
+ This package provides man pages for freetype.

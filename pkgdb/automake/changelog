@@ -1,0 +1,5 @@
+automake (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Thu, 22 Feb 2018 17:00:32 +0300

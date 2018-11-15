@@ -1,0 +1,5 @@
+etc
+usr/bin
+usr/lib/*.so
+usr/lib/engines-1.1
+usr/lib/lib*so*

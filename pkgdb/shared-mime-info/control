@@ -1,0 +1,25 @@
+Source: shared-mime-info
+Section: misc
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: https://freedesktop.org/wiki/Software/shared-mime-info/
+
+Package: shared-mime-info
+Section: misc
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: core database of common types
+ Shared Mime Info provides a MIME database. This allows central 
+ updates of MIME information for all supporting applications. 
+
+Package: shared-mime-info-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: shared-mime-info (= ${binary:Version})
+Description: documentation for shared-mime-info
+ This package provides man pages for shared-mime-info.

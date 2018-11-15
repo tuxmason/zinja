@@ -1,0 +1,27 @@
+Source: atkmm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libatk-dev, glib2-dev, libglibmm-dev, libsigc++-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Accessibility
+
+Package: libatkmm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides a C++ interface for the ATK accessibility toolkit
+ libatkmm provides a C++ interface for the ATK accessibility toolkit.
+ .
+ This package provides the shared library libatkmm.
+
+Package: libatkmm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libatkmm (= ${binary:Version}), libatk-dev, glib2-dev,
+ libglibmm-dev, libsigc++-dev
+Description: Development headers and libatkmm static library
+ This package provides libatkmm.a, headers and pkgconfig data required
+ to build applications, libraries or plugins using the libatkmm API.

@@ -1,0 +1,26 @@
+Source: libsigc++
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/GNOME/libsigcplusplus
+
+Package: libsigc
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: a Typesafe callback framework for C++
+ libsigc++ implements a typesafe callback system for standard C++.
+ .
+ This package provides the libsigc++ shared library.
+
+Package: libsigc-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev, libsigc (= ${binary:Version})
+Description: Development headers for libsigc++
+ This package provides pkgconfig data and header files
+ required for development using libsigc++.

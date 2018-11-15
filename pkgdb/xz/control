@@ -1,0 +1,49 @@
+Source: xz
+Section: utils
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://tukaani.org/xz/
+
+Package: liblzma
+Section: libs
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: routines for implementing lossless, block-sorting data compression
+ liblzma is a shared library, which provides routines for implementing 
+ lossless, block-sorting data compression, using the Lempel-Ziv-Markov 
+ chain algorithm.
+
+Package: xz
+Section: utils
+Essential: yes
+Priority: required
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: tools for compressing and decompressing files
+ XZ is a collection of tools for compressing and decompressing files.
+ .
+ It provides capabilities for lzma and the newer xz compression formats.
+ Compressing text files with xz yields a better compression percentage 
+ than with the traditional gzip or bzip2 tools.
+
+Package: xz-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: liblzma-dev
+Depends: libc-dev, xz (= ${binary:Version})
+Description: Development headers and liblzma static library
+ This package provides liblzma.a, pkgconfig data and header files
+ required for development using xz.
+
+Package: xz-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, vim
+Depends: xz (= ${binary:Version})
+Description: documentation for xz
+ This package provides examples and manpages for xz utilities.

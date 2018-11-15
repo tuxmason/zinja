@@ -1,0 +1,42 @@
+Source: flex
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libz-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/flex
+
+Package: libfl
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: flex shared library
+ This package provides libfl, the flex shared library.
+
+Package: libfl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev (>= 1.1.8), libz-dev, flex (= ${binary:Version}), libfl (= ${binary:Version})
+Description: Development headers and static lib for flex
+ This package provides the flex static library and header files
+ required for development using flex.
+
+Package: flex
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: Flex (The Fast Lexical Analyzer)
+ Flex is a fast lexical analyser generator. It is a tool for generating
+ programs that perform pattern-matching on text.
+
+Package: flex-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libfl-dev (= ${binary:Version})
+Description: documentation for flex
+ This package provides flex info and manpages

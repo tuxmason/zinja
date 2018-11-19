@@ -6,7 +6,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build pkg-src install-bin build-pkg install-pkg
+targets: clean extract patch configure build pkg-src install-sysroot install-pkgroot build-pkg install-pkg
 
 extract: 
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -51,19 +51,50 @@ pkg-src: build
 		touch $(PKGOBJDIR)/pkg-src-stamp ;\
 	fi
 
-install-bin: pkg-src
-	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
+install-deps: install-sysroot install-pkgroot
+
+install-sysroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-libs ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-tools ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) ARCH=$(ARCH) prefix=/usr DESTDIR=$(SYSROOTDIR) install-headers ) || exit 1 ;\
+		mv -vf $(SYSROOTDIR)/lib/libc.so $(SYSROOTDIR)/lib/$(LINKER) || exit 1 ;\
+		mv -vf $(SYSROOTDIR)/lib/{libc,libcrypt,libdl,libm,libpthread,libresolv,librt,libutil,libxnet}.a \
+			$(SYSROOTDIR)/usr/lib || exit 1 ;\
+		ln -svf $(LINKER) $(SYSROOTDIR)/lib/$(LIBC) || exit 1 ;\
+		for i in libc.so.6 libcrypt.so.1 libm.so.6 libpthread.so.0 librt.so.1 libutil.so.1 libdl.so.2 libresolv.so.2; do \
+			ln -svf $(LINKER) $(SYSROOTDIR)/lib/$$i || exit 1 ;\
+		done ;\
+		for i in libc.so libcrypt.so libm.so libpthread.so librt.so libutil.so libdl.so libresolv.so libxnet.so; do \
+			ln -svf ../../lib/$(LINKER) $(SYSROOTDIR)/usr/lib/$$i || exit 1 ;\
+		done ;\
+		ln -svf ../../lib/$(LINKER) $(SYSROOTDIR)/usr/bin/ldd || exit 1 ;\
+		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
+	fi
+
+install-pkgroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install-libs ) || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install-tools ) || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGOBJDIR) ARCH=$(ARCH) prefix=/usr DESTDIR=$(PKGBINDIR) install-headers ) || exit 1 ;\
-		rm -v $(PKGBINDIR)/lib/$(LINKER) || exit 1 ;\
-		touch $(PKGOBJDIR)/install-bin-stamp ;\
+		mkdir -pv $(PKGBINDIR)/usr/{lib,bin} || exit 1 ;\
+		mv -vf $(PKGBINDIR)/lib/libc.so $(PKGBINDIR)/lib/$(LINKER) || exit 1 ;\
+		mv -vf $(PKGBINDIR)/lib/*.a $(PKGBINDIR)/usr/lib || exit 1 ;\
+		ln -svf $(LINKER) $(PKGBINDIR)/lib/$(LIBC) || exit 1 ;\
+		for i in libc.so.6 libcrypt.so.1 libm.so.6 libpthread.so.0 librt.so.1 libutil.so.1 libdl.so.2 libresolv.so.2 libxnet.so; do \
+			ln -svf $(LINKER) $(PKGBINDIR)/lib/$$i || exit 1 ;\
+		done ;\
+		for i in libc.so libcrypt.so libm.so libpthread.so librt.so libutil.so libdl.so libresolv.so libxnet.so; do \
+			ln -svf ../../lib/$(LINKER) $(PKGBINDIR)/usr/lib/$$i || exit 1 ;\
+		done ;\
+		ln -svf ../../lib/$(LINKER) $(PKGBINDIR)/usr/bin/ldd || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 
-build-pkg: install-bin
+build-pkg: install-pkgroot
 	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
 		cd $(DISTRIBSRC) ;\
-		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) ) || exit 1 ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-pkg-stamp ;\
 	fi
 
@@ -73,6 +104,7 @@ install-pkg: build-pkg
 		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
 			libc_$(PKGVER)-1_$(PKGARCH).deb \
 			libc-dev_$(PKGVER)-1_$(PKGARCH).deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 

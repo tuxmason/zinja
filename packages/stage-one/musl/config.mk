@@ -1,5 +1,5 @@
 PKGNAME := musl
-PKGVER := 1.1.18
+PKGVER := 1.1.20
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -10,16 +10,20 @@ COPTS := CROSS_COMPILE=$(TARGETARCH)- \
 	--prefix=/ \
 	--enable-shared \
 	--target=$(TARGETARCH)
+
 ifeq ($(ARCH),arm)
 	CFLAGS :=
-	LINKER := ld-musl-armhf.so.1
-endif
-ifeq ($(ARCH),x86_64)
-	CFLAGS := -m64
-	LINKER := ld-musl-x86_64.so.1
+	LINKER := ld-musl-$(ARCH)hf.so.1
+	LIBC := libc.musl-$(ARCH)hf.so.1
+	LDFLAGS := "-Wl,-soname,$(LIBC)"
 endif
 
-LDFLAGS := "-Wl,-soname,libc.so"
+ifeq ($(ARCH),x86_64)
+	CFLAGS := -m64
+	LINKER := ld-musl-$(ARCH).so.1
+	LIBC := libc.musl-$(ARCH).so.1
+	LDFLAGS := "-Wl,-soname,$(LIBC)"
+endif
 
 PKGDIR := $(PKGDB)/$(PKGNAME)
 ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.gz

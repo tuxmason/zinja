@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-DH_VERBOSE = 1
+#DH_VERBOSE = 1
 #DPKG_EXPORT_BUILDFLAGS = 1
 
 clean:
@@ -15,7 +15,6 @@ build-indep:
 binary:
 	dh_prep
 	dh_install --sourcedir=debian/pkg
-	dh_link
 	dh_compress
 	#dh_fixperms
 	dh_makeshlibs -v -n

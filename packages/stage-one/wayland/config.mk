@@ -9,4 +9,6 @@ SRCURL := https://wayland.freedesktop.org/releases/$(PKGSRC)
 COPTS := --prefix=$(CROSSTOOLS) \
 	--disable-tests \
 	--disable-static \
+	--disable-libraries \
+	--disable-dtd-validation \
 	--disable-documentation

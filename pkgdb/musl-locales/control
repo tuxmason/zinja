@@ -12,7 +12,7 @@ Section: admin
 Priority: required
 Architecture: ARCH
 Pre-depends: libc (>= 1.1.8)
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: Locale program for Musl lib C
  Provides /usr/bin/locale. Also includes English and Russian
  language support.

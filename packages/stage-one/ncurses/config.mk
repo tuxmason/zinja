@@ -9,3 +9,5 @@ SRCURL := https://ftp.gnu.org/gnu/ncurses/$(PKGSRC)
 COPTS := --prefix=$(CROSSTOOLS) \
 	--without-shared \
 	--without-debug
+
+CPPFLAGS := "-P"

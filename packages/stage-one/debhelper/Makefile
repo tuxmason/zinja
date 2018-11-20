@@ -36,6 +36,8 @@ install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGSRCDIR) PERL=$(PERL) PREFIX=$(CROSSTOOLS) PERLLIBDIR="$(PERL_LIBDIR)/Debian/Debhelper" install ) || exit 1 ;\
 		find $(CROSSTOOLS)/bin/dh* -type f -exec sed -i -e "s@/usr/bin/perl@$(CROSSTOOLS)/bin/perl@g" "{}" \; || exit 1 ;\
+		sed -i -e "s@\"objcopy\"@\"$(TARGETARCH)-objcopy\"@g" $(CROSSTOOLS)/bin/dh_strip || exit 1 ;\
+		sed -i -e "s@\"strip\"@\"$(TARGETARCH)-strip\"@g" $(CROSSTOOLS)/bin/dh_strip || exit 1 ;\
 		find $(PERL_LIBDIR)/Debian -type f -exec sed -i -e "s@/usr/bin/perl@$(CROSSTOOLS)/bin/perl@g" "{}" \; || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi

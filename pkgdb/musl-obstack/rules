@@ -21,7 +21,7 @@ binary:
 	#dh_fixperms
 	dh_strip
 	dh_makeshlibs -v -n
-	dh_shlibdeps -v --dpkg-shlibdeps-params="--admindir=/home/zinja/zinja.git/sysroot/var/lib/dpkg"
+	dh_shlibdeps -v
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums

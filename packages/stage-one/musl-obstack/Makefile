@@ -79,6 +79,7 @@ install-pkg: build-pkg
 		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
 			libobstack_$(PKGVER)-1_$(PKGARCH).deb \
 			libobstack-dev_$(PKGVER)-1_$(PKGARCH).deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 

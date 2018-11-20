@@ -11,8 +11,7 @@ Essential: yes
 Section: libs
 Priority: required
 Architecture: ARCH
-Pre-depends: libc (>= 1.1.8)
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: Implementation of obstack for Musl lib C
  This package provides the shared library libobstack.so.0.0.0,
  which contains the GNU libc implementation of obstack.

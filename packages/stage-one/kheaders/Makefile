@@ -6,7 +6,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch build pkg-src install-bin build-pkg install-pkg
+targets: clean extract patch build pkg-src install-sysroot build-pkg install-pkg
 
 extract:  
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -45,18 +45,28 @@ pkg-src: build
 		touch $(PKGOBJDIR)/pkg-src-stamp ;\
 	fi
 
-install-bin: pkg-src
-	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
+install-deps: install-sysroot install-pkgroot
+
+install-sysroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
+		( PATH=$(PATH) make ARCH=$(ARCH) -C $(PKGSRCDIR) O=$(PKGOBJDIR) \
+		INSTALL_HDR_PATH=$(SYSROOTDIR)/usr headers_install V=1 ) || exit 1 ;\
+		find $(SYSROOTDIR)/usr/include \( -name .install -o -name ..install.cmd \) -delete || exit 1 ;\
+		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
+	fi
+
+install-pkgroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make ARCH=$(ARCH) -C $(PKGSRCDIR) O=$(PKGOBJDIR) \
 		INSTALL_HDR_PATH=$(PKGBINDIR)/usr headers_install V=1 ) || exit 1 ;\
 		find $(PKGBINDIR)/usr/include \( -name .install -o -name ..install.cmd \) -delete || exit 1 ;\
-		touch $(PKGOBJDIR)/install-bin-stamp ;\
+		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 
-build-pkg: install-bin
+build-pkg: install-pkgroot
 	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
 		cd $(DISTRIBSRC) ;\
-		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) ) || exit 1 ;\
+		( PATH=$(PATH) CC="$(TARGETARCH)-gcc" dpkg-buildpackage -us -uc -d ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-pkg-stamp ;\
 	fi
 

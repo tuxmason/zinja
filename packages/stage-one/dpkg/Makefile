@@ -30,19 +30,20 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) PERL_LIBDIR=$(PERL_LIBDIR) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) PERL_LIBDIR=$(PERL_LIBDIR) PERL=$(PERL) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
+		( PATH=$(PATH) PERL_LIBDIR=$(PERL_LIBDIR) PERL=$(PERL)  make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGOBJDIR) install ) || exit 1 ;\
+		( PATH=$(PATH) PERL_LIBDIR=$(PERL_LIBDIR) PERL=$(PERL) make -C $(PKGOBJDIR) install ) || exit 1 ;\
+		sed -i -e "s@/lib /usr/lib@$(SYSROOTDIR)/lib $(SYSROOTDIR)/usr/lib@g" $(PERL_LIBDIR)/Dpkg/Shlibs.pm || exit 1 ;\
 		install -vd $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\
 		install -v -m 644 $(PATCHDIR)/default $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\
 		install -v -m 644 $(PATCHDIR)/zinja $(CROSSTOOLS)/etc/dpkg/origins || exit 1 ;\

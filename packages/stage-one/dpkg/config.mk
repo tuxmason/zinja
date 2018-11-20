@@ -15,4 +15,5 @@ COPTS := --prefix=$(CROSSTOOLS) \
 	--localstatedir=$(SYSROOTDIR)/var \
 	--with-admindir=$(SYSROOTDIR)/var/lib/dpkg
 
+PERL := $(CROSSTOOLS)/bin/perl
 PERL_LIBDIR := $(shell $(CROSSTOOLS)/bin/perl -V:sitelib | cut -d\' -f2)

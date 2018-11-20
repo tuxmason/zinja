@@ -2,8 +2,10 @@
 0001-Use-uintmax_t-for-handling-rlim_t.patch
 0001-add-fallback-parse_printf_format-implementation.patch
 0001-core-device.c-Change-the-default-device-timeout-to-2.patch
+0002-configure.ac-Check-if-memfd_create-is-already-define.patch
 0002-src-basic-missing.h-check-for-missing-strndupa.patch
 0003-don-t-fail-if-GLOB_BRACE-and-GLOB_ALTDIRFUNC-is-not-.patch
+0003-fileio-include-sys-mman.h.patch
 0004-Use-getenv-when-secure-versions-are-not-available.patch
 0004-src-basic-missing.h-check-for-missing-__compar_fn_t-.patch
 0005-binfmt-Don-t-install-dependency-links-at-install-tim.patch

@@ -84,6 +84,7 @@ install-pkg: build-pkg
 			gcc-dev_$(PKGVER)-1_$(PKGARCH).deb \
 			gcc_$(PKGVER)-1_$(PKGARCH).deb \
 			gcc-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 

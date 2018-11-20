@@ -84,6 +84,7 @@ install-pkg: build-pkg
 			acl_$(PKGVER)-1_$(PKGARCH).deb \
 			libacl-dev_$(PKGVER)-1_$(PKGARCH).deb \
 			acl-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 

@@ -89,6 +89,7 @@ install-pkg: build-pkg
 			bzip2_$(PKGVER)-1_$(PKGARCH).deb \
 			libbz2-dev_$(PKGVER)-1_$(PKGARCH).deb \
 			bzip2-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 

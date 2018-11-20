@@ -41,6 +41,8 @@ build: configure
 install: build
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) install ) || exit 1 ;\
+		ln -sv $(CROSSTOOLS)/$(TARGETARCH)/lib/libgcc_s* $(SYSROOTDIR)/usr/lib || exit 1 ;\
+		ln -sv $(CROSSTOOLS)/$(TARGETARCH)/lib/libstdc++.so* $(SYSROOTDIR)/usr/lib || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 

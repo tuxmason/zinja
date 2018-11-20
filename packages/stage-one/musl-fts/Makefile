@@ -32,7 +32,7 @@ patch: extract
 autoconf: patch
 	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		autoreconf -vif || exit 1 ;\
+		( PATH=$(PATH) autoreconf -vif ) || exit 1 ;\
 		touch $(PKGOBJDIR)/autoconf-stamp ;\
 	fi
 
@@ -79,6 +79,7 @@ install-pkg: build-pkg
 		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
 			libfts_$(PKGVER)-1_$(PKGARCH).deb \
 			libfts-dev_$(PKGVER)-1_$(PKGARCH).deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 

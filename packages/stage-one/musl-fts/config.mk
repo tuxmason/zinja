@@ -10,8 +10,8 @@ COPTS := --prefix=/usr \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH)
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
 
 PKGDIR := $(PKGDB)/$(PKGNAME)
 ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz

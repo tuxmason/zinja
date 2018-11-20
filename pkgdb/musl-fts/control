@@ -11,8 +11,7 @@ Essential: yes
 Section: libs
 Priority: required
 Architecture: ARCH
-Pre-depends: libc (>= 1.1.8)
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: Implementation of fts(3) for Musl lib C
  Implements the fts(3) functions fts_open, fts_read, fts_children,
  fts_set and fts_close, which are missing in musl libc.
@@ -27,5 +26,5 @@ Priority: optional
 Architecture: ARCH
 Depends: libc-dev (>= 1.1.8), libfts (= ${binary:Version})
 Description: Development headers and static libs for fts(3)
- This package provides a static library libfts.a, the header file
- /usr/include/fts.h
+ This package provides a static library libfts.a, and the header 
+ file /usr/include/fts.h

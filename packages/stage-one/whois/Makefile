@@ -36,7 +36,7 @@ configure: patch
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGOBJDIR) mkpasswd ) || exit 1 ;\
+		( PATH=$(PATH) CC="gcc" make -C $(PKGOBJDIR) mkpasswd ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 

@@ -35,7 +35,8 @@ patch: extract
 configure-host: patch
 	@if [ ! -f $(HOST_PKGOBJDIR)/configure-host-stamp  ]; then \
 		cd $(HOST_PKGOBJDIR) ;\
-		( PATH=$(HOSTPATH) CC=$(HOST_CC) CXX=$(HOST_CXX) AR=$(HOST_AR) RANLIB=$(HOST_RANLIB) $(PKGSRCDIR)/configure $(HOST_COPTS) ) || exit 1 ;\
+		( PATH=$(HOSTPATH) CC=$(HOST_CC) CXX=$(HOST_CXX) STRIP=$(HOST_STRIP) LD=$(HOST_LD) \
+			AR=$(HOST_AR) RANLIB=$(HOST_RANLIB) $(PKGSRCDIR)/configure $(HOST_COPTS) ) || exit 1 ;\
 		touch $(HOST_PKGOBJDIR)/configure-host-stamp ;\
 	fi
 

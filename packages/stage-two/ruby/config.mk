@@ -34,6 +34,8 @@ HOST_AR := ar
 HOST_CC := gcc
 HOST_CXX := g++
 HOST_RANLIB := ranlib
+HOST_LD := ld
+HOST_STRIP := strip
 
 TARGET_CC := "${CC}"
 TARGET_CXX := "${CXX}"

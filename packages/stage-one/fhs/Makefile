@@ -7,7 +7,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build pkg-src install-bin build-pkg install-pkg
+targets: clean extract patch configure build pkg-src install-sysroot build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -45,17 +45,27 @@ pkg-src: build
 	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
 		cd $(PKGROOT) ;\
 		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
 		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
 		touch $(PKGOBJDIR)/pkg-src-stamp ;\
 	fi
 
-install-bin: pkg-src
-	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
-		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
-		touch $(PKGOBJDIR)/install-bin-stamp ;\
+install-deps: install-sysroot install-pkgroot
+
+install-sysroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
 
-build-pkg: install-bin
+install-pkgroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
+	fi
+
+build-pkg: install-pkgroot
 	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
 		cd $(DISTRIBSRC) ;\
 		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(ARCH) ) || exit 1 ;\

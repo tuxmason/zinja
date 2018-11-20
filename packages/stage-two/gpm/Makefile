@@ -13,6 +13,7 @@ extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
 		mkdir $(PKGOBJDIR) ;\
+		mkdir -pv $(SYSROOTDIR)/{lib/systemd/system,etc/systemd/system/multi-user.target.wants} ;\
 		mkdir -pv $(PKGBINDIR)/{lib/systemd/system,etc/systemd/system/multi-user.target.wants} ;\
 		touch $(PKGOBJDIR)/extract-stamp ;\
 	fi
@@ -33,6 +34,7 @@ autogen: patch
 	@if [ ! -f $(PKGOBJDIR)/autogen-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
 		./autogen.sh || exit 1 ;\
+		cp -v $(PATCHDB)/config.sub $(PKGSRCDIR)/config || exit 1 ;\
 		touch $(PKGOBJDIR)/autogen-stamp ;\
 	fi
 

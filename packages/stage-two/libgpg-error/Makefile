@@ -27,7 +27,7 @@ patch: extract
 			done ;\
 		fi ;\
 		if [ $(ARCH) == "arm" ]; then \
-			ln -sv lock-obj-pub.arm-unknown-linux-gnueabi.h $(PKGSRCDIR)/src/syscfg/lock-obj-pub.$(TARGETARCH).h || exit 1 ;\
+			ln -sv lock-obj-pub.arm-unknown-linux-gnueabi.h $(PKGSRCDIR)/src/syscfg/lock-obj-pub.$(GPGARCH).h || exit 1 ;\
 		fi ;\
 		if [ $(ARCH) == "x86_64" ]; then \
 			ln -sv lock-obj-pub.x86_64-pc-linux-musl.h $(PKGSRCDIR)/src/syscfg/lock-obj-pub.linux-musl.h || exit 1 ;\

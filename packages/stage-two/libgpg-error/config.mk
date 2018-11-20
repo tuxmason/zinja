@@ -17,6 +17,14 @@ COPTS := --prefix=/usr \
 CC := "${CC}"
 CXX := "${CXX}"
 
+ifeq ($(ARCH),arm)
+	GPGARCH := linux-musleabihf
+endif
+
+ifeq ($(ARCH),x86_64)
+	GPGARCH :=
+endif
+
 PKGDIR := $(PKGDB)/$(PKGNAME)
 ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
 PKGROOT := $(DISTRIBROOT)/$(PKGNAME)

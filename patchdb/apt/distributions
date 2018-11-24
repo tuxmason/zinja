@@ -1,0 +1,16 @@
+Origin: apt.zinjaos.org
+Label: Star Performer
+Suite: stable
+Codename: shinuchi
+Version: 0.1
+Architectures: ARCH all source
+Components: main non-free contrib
+Description: ZinjaOS package repository
+
+Origin: apt.zinjaos.org
+Label: Unlimited Blade
+Suite: unstable
+Codename: mugenjin
+Architectures: ARCH all source
+Components: main non-free contrib
+Description: ZinjaOS package repository

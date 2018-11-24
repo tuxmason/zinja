@@ -1,0 +1,42 @@
+- Use standard types rather than _GNU_SOURCE-exposed types
+  u_int16_t -> uint16_t
+
+diff -ura a/apt-pkg/contrib/srvrec.cc b/apt-pkg/contrib/srvrec.cc
+--- a/apt-pkg/contrib/srvrec.cc	2017-09-13 19:47:33.000000000 +0300
++++ b/apt-pkg/contrib/srvrec.cc	2018-11-24 14:41:31.003027020 +0300
+@@ -80,7 +80,7 @@
+    unsigned char *pt = answer+sizeof(HEADER)+compressed_name_len+QFIXEDSZ;
+    while ((int)Result.size() < answer_count && pt < answer+answer_len)
+    {
+-      u_int16_t type, klass, priority, weight, port, dlen;
++      uint16_t type, klass, priority, weight, port, dlen;
+       char buf[MAXDNAME];
+ 
+       compressed_name_len = dn_skipname(pt, answer+answer_len);
+diff -ura a/apt-pkg/contrib/srvrec.h b/apt-pkg/contrib/srvrec.h
+--- a/apt-pkg/contrib/srvrec.h	2017-09-13 19:47:33.000000000 +0300
++++ b/apt-pkg/contrib/srvrec.h	2018-11-24 14:41:37.433026880 +0300
+@@ -17,9 +17,9 @@
+ {
+  public:
+    std::string target;
+-   u_int16_t priority;
+-   u_int16_t weight;
+-   u_int16_t port;
++   uint16_t priority;
++   uint16_t weight;
++   uint16_t port;
+ 
+    // each server is assigned a interval [start, end] in the space of [0, max]
+    int random_number_range_start;
+@@ -31,8 +31,8 @@
+    }
+    bool operator==(SrvRec const &other) const;
+ 
+-   SrvRec(std::string const Target, u_int16_t const Priority,
+-	 u_int16_t const Weight, u_int16_t const Port) :
++   SrvRec(std::string const Target, uint16_t const Priority,
++	 uint16_t const Weight, uint16_t const Port) :
+       target(Target), priority(Priority), weight(Weight), port(Port),
+       random_number_range_start(0), random_number_range_end(0),
+       random_number_range_max(0) {}

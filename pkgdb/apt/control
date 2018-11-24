@@ -1,0 +1,46 @@
+Source: apt
+Section: admin
+Priority: important
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Vcs-Git: https://anonscm.debian.org/git/apt/apt.git
+Vcs-Browser: https://anonscm.debian.org/git/apt/apt.git
+
+
+Package: libapt
+Section: libs
+Priority: important
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: APT package manager runtime libraries
+ This package contains APT shared libraries which provide common 
+ functionality for searching and managing packages as well as 
+ information about packages.
+
+Package: apt
+Section: admin
+Priority: important
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: APT package manager
+ This package provides commandline tools for searching and managing 
+ as well as querying information about packages.
+
+Package: apt-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: apt (= ${binary:Version}), dpkg-dev, curl-dev, db-dev,
+         libbz2-dev, liblz4-dev, xz-dev
+Description: Development headers and static libraries for apt
+ This package provides header files required to develop applications
+ which use the APT API.
+
+Package: apt-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: vim, man-db
+Description: documentation for apt
+ This package provides apt man pages and sample configuration files.

@@ -1,1 +1,2 @@
 add-vendor-zinja.patch
+apt-fix-build-on-musl.patch

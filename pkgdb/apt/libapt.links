@@ -1,0 +1,5 @@
+usr/lib/libapt-pkg.so.5.0.1 usr/lib/libapt-pkg.so.5.0
+usr/lib/libapt-pkg.so.5.0 usr/lib/libapt-pkg.so
+usr/lib/libapt-inst.so.2.0.0 usr/lib/libapt-inst.so.2.0
+usr/lib/libapt-inst.so.2.0 usr/lib/libapt-inst.so
+usr/lib/libapt-private.so.0.0.0 usr/lib/libapt-private.so.0.0

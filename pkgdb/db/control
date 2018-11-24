@@ -1,0 +1,42 @@
+Source: db
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper
+Standards-Version: 3.9.5
+Homepage: https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html
+
+Package: libdb
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Berkeley DB runtime libraries
+ This package provides libdb, the core Berkeley DB runtime library and 
+ libdb_cxx, which provides C++ Berkeley DB bindings.
+
+Package: db
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Berkeley DB runtime userspace tools
+ This package provides tools for managing Berkeley DB databases.
+ 
+Package: db-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libc-dev, db (= ${binary:Version})
+Description: Berkeley DB development headers and static libraries
+ This package provides static libraries and header files required 
+ for developing application that use the Berkeley DB API.
+
+Package: db-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: db (= ${binary:Version})
+Recommends: vim
+Description: documentation for Berkeley DB
+ This package provides Berkeley DB API tutorials and examples.

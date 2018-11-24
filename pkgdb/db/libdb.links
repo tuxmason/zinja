@@ -1,0 +1,4 @@
+usr/lib/libdb-6.2.so usr/lib/libdb-6.so
+usr/lib/libdb-6.so usr/lib/libdb.so
+usr/lib/libdb_cxx-6.2.so usr/lib/libdb_cxx-6.so
+usr/lib/libdb_cxx-6.so usr/lib/libdb_cxx.so

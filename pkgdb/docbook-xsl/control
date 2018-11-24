@@ -1,0 +1,25 @@
+Source: docbook-xsl
+Section: text
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: http://docbook.sourceforge.net/
+
+Package: docbook-xsl
+Section: text
+Priority: optional
+Architecture: ARCH
+Depends: libxml2, ${shlibs:Depends}
+Description: XSL stylesheets
+ This package provides XSL stylesheets which are used for performing
+ transformations on XML DocBook files.
+
+Package: docbook-xsl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: vim, links
+Depends: docbook-xsl (= ${binary:Version})
+Description: documentation for docbook-xsl
+ This package provides text and html documentation for docbook-xsl.

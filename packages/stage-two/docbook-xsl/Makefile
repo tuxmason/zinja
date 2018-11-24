@@ -1,0 +1,96 @@
+#include the shared config file
+include ../../../conf/environment.mk
+include ../../../conf/shell-env.mk
+
+#include package specific config file
+include ./config.mk 
+
+all: targets
+
+targets: clean extract patch configure build pkg-src install-bin build-pkg install-pkg
+
+extract:
+	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
+		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
+		( tar -C $(PKGSRCDIR) -xf $(SRCDIR)/$(PKGSRCDOC) --strip-components=1 ) || exit 1 ;\
+		mkdir $(PKGOBJDIR) ;\
+		mkdir -p $(PKGBINDIR)/{$(XSLDIR),etc/xml} ;\
+		touch $(PKGOBJDIR)/extract-stamp ;\
+	fi
+
+patch: extract 
+	@if [ ! -f $(PKGOBJDIR)/patch-stamp  ]; then \
+		if [ -f $(PATCHLIST) ]; then \
+			for f in `cat $(PATCHLIST)` ; do \
+				echo -e " --- Patch: $$f --- "  ;\
+				( patch -d $(PKGSRCDIR) -p1 -i $(PATCHDIR)/$$f ) || exit 1 ;\
+				echo -e " --- done --- \n"  ;\
+			done ;\
+		fi ;\
+		touch $(PKGOBJDIR)/patch-stamp ;\
+	fi
+
+configure: patch
+	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
+		touch $(PKGOBJDIR)/configure-stamp ;\
+	fi
+
+build: configure
+	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
+		touch $(PKGOBJDIR)/build-stamp ;\
+	fi
+
+pkg-src: build
+	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(PKGOBJDIR)/pkg-src-stamp ;\
+	fi
+
+install-bin: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
+		cd $(PKGSRCDIR) ;\
+		cp -v -R VERSION assembly common eclipse epub epub3 extensions fo highlighting \
+			html htmlhelp images javahelp lib manpages params profiling roundtrip \
+			slides template tests tools webhelp website xhtml xhtml-1_1 xhtml5 \
+			$(PKGBINDIR)/$(XSLDIR) || exit 1 ;\
+		mkdir -p $(PKGBINDIR)/usr/share/doc/docbook-xsl-1.79.2 || exit 1 ;\
+		cp -vr doc/* $(PKGBINDIR)/usr/share/doc/docbook-xsl-1.79.2 || exit 1 ;\
+		ln -s VERSION $(PKGBINDIR)/$(XSLDIR)/VERSION.xsl || exit 1 ;\
+		xmlcatalog --noout --create $(PKGBINDIR)/etc/xml/catalog || exit 1 ;\
+		xmlcatalog --noout --add "rewriteSystem" "http://docbook.sourceforge.net/release/xsl/1.79.2" \
+			"$(XSLDIR)" $(PKGBINDIR)/etc/xml/catalog || exit 1 ;\
+		xmlcatalog --noout --add "rewriteURI" "http://docbook.sourceforge.net/release/xsl/1.79.2" \
+			"$(XSLDIR)" $(PKGBINDIR)/etc/xml/catalog || exit 1 ;\
+		xmlcatalog --noout --add "rewriteSystem" "http://docbook.sourceforge.net/release/xsl/current" \
+			"$(XSLDIR)" $(PKGBINDIR)/etc/xml/catalog || exit 1 ;\
+		xmlcatalog --noout --add "rewriteURI" "http://docbook.sourceforge.net/release/xsl/current" \
+			"$(XSLDIR)" $(PKGBINDIR)/etc/xml/catalog || exit 1 ;\
+		touch $(PKGOBJDIR)/install-bin-stamp ;\
+	fi
+
+build-pkg: install-bin
+	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			docbook-xsl_$(PKGVER)-1_$(PKGARCH).deb \
+			docbook-xsl-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkg-stamp ;\
+	fi
+
+clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
+	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
+	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
+
+PHONY: all targets

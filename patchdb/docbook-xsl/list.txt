@@ -1,0 +1,1 @@
+docbook-xsl-1.79.2-stack_fix-1.patch

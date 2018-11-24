@@ -1,0 +1,26 @@
+Source: perl
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.perl.org/
+
+Package: perl
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a feature-rich programming language
+ PERL (Practical Extraction and Report Language) is a
+ highly capable, feature-rich programming language with
+ over 30 years of development.
+
+Package: perl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: perl (= ${binary:Version})
+Description: documentation for perl
+ This package provides man pages for perl.

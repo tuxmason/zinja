@@ -1,0 +1,33 @@
+Source: dpkg
+Section: admin
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://wiki.debian.org/Teams/Dpkg
+
+Package: dpkg
+Section: admin
+Priority: required
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Debian package management system
+ This package provides the low-level infrastructure and tools for 
+ handling the installation and removal of Debian software packages.
+
+Package: dpkg-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: dpkg (= ${binary:Version}), libbz2-dev, xz-dev 
+Description: Development headers and static libraries for dpkg
+ This package provides pkgconfig data, libdpkg.a and header files 
+ required to develop applications that use the DPKG API.
+
+Package: dpkg-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Description: documentation for dpkg
+ This package provides man pages for dpkg's tools.

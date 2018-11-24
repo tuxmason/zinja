@@ -46,6 +46,8 @@ configure: autoconf
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
+build: build-host build-target
+
 build-host: configure
 	@if [ ! -f $(PKGOBJDIR)/build-host-stamp  ]; then \
 		cd $(PKGSRCDIR)/include ;\
@@ -120,4 +122,4 @@ clean:
 	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
 	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 
-PHONY: all targets install-deps
+PHONY: all build targets install-deps

@@ -1,0 +1,57 @@
+#include the shared config file
+include ../../../conf/environment.mk
+
+#include package specific config file
+include ./config.host.mk 
+
+unexport CC CXX AR AS RANLIB STRIP LD CFLAGS CPPFLAGS CXXFLAGS
+
+all: targets
+
+targets: clean extract patch configure-host build-host install-host
+
+extract:
+	@if [ ! -f $(HOST_PKGOBJDIR)/extract-stamp  ]; then \
+		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
+		mkdir $(HOST_PKGOBJDIR) || exit 1 ;\
+		touch $(HOST_PKGOBJDIR)/extract-stamp ;\
+	fi
+
+patch: extract 
+	@if [ ! -f $(HOST_PKGOBJDIR)/patch-stamp  ]; then \
+		if [ -f $(PATCHLIST) ]; then \
+			for f in `cat $(PATCHLIST)` ; do \
+				echo -e " --- Patch: $$f --- "  ;\
+				( patch -d $(PKGSRCDIR) -p1 -i $(PATCHDIR)/$$f ) || exit 1 ;\
+				echo -e " --- done --- \n"  ;\
+			done ;\
+		fi ;\
+		touch $(HOST_PKGOBJDIR)/patch-stamp ;\
+	fi
+
+configure-host: patch
+	@if [ ! -f $(HOST_PKGOBJDIR)/configure-host-stamp  ]; then \
+		cd $(HOST_PKGOBJDIR) ;\
+		( PATH=$(HOSTPATH) $(PKGSRCDIR)/configure $(HOST_COPTS) ) || exit 1 ;\
+		touch $(HOST_PKGOBJDIR)/configure-host-stamp ;\
+	fi
+
+build-host: configure-host
+	@if [ ! -f $(HOST_PKGOBJDIR)/build-host-stamp  ]; then \
+		( PATH=$(HOSTPATH) make -j$(NPROCS) -C $(HOST_PKGOBJDIR) ) || exit 1 ;\
+		touch $(HOST_PKGOBJDIR)/build-host-stamp ;\
+	fi
+
+install-host: build-host
+	@if [ ! -f $(HOST_PKGOBJDIR)/install-host-stamp  ]; then \
+		( PATH=$(HOSTPATH) make -C $(HOST_PKGOBJDIR) install ) || exit 1 ;\
+		touch $(HOST_PKGOBJDIR)/install-host-stamp ;\
+	fi
+
+clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
+	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
+	@if [ -d $(HOST_RUBY) ]; then rm -rf $(HOST_RUBY); fi
+	@if [ -d $(HOST_PKGOBJDIR) ]; then rm -rf $(HOST_PKGOBJDIR); fi
+
+PHONY: all targets

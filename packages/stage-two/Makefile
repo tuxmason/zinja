@@ -7,14 +7,14 @@ all: targetfs
 targetfs: sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binutils.o gcc.o \
 	libffi.o attr.o acl.o libcap.o sed.o pkg-config-lite.o ncurses.o gpm.o check.o cracklib.o \
 	cracklib-dict.o linux-pam.o shadow.o util-linux.o procps-ng.o e2fsprogs.o coreutils.o \
-	iana-etc.o libtool.o gdbm.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o \
+	iana-etc.o libtool.o gdbm.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o db.o \
 	diffutils.o file.o gawk.o findutils.o gettext.o gperf.o grep.o groff.o less.o gzip.o \
-	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o intltool.o \
-	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux-ext.o \
+	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o perl.o dpkg.o intltool.o \
+	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o util-linux-ext.o \
 	vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
 	openssh.o pcre.o glib2.o libsigcpp.o glibmm.o libgudev.o wget.o kernel.o npth.o libaio.o \
-	libevent.o libusb.o libusb-compat.o usbutils.o libgusb.o fuse.o lua.o icu.o sqlite3.o \
-	libxml2.o libcroco.o shared-mime-info.o jansson.o libnl.o mtdev.o libical.o bluez.o \
+	libevent.o libusb.o libusb-compat.o usbutils.o libgusb.o fuse2.o lua.o icu.o sqlite3.o \
+	libxml2.o docbook-xsl.o apt.o libcroco.o shared-mime-info.o jansson.o libnl.o mtdev.o libical.o bluez.o \
 	libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o \
 	libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o libnetfilter_cthelper.o \
 	ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o snappy.o mariadb.o unixODBC.o \
@@ -22,7 +22,9 @@ targetfs: sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binuti
 	Python.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o libexecinfo.o libunwind.o gc.o \
 	libunistring.o libtasn1.o libgpg-error.o libassuan.o libksba.o libgcrypt.o libidn2.o p11-kit.o \
 	gnutls.o cyrus-sasl.o openldap.o gnupg.o libpng.o giflib.o libid3tag.o libjpeg-turbo.o jasper.o \
-	freetype.o fontconfig.o graphite2.o harfbuzz.o freetype-harfbuzz.o atk.o atkmm.o xorg.o
+	freetype.o fontconfig.o graphite2.o harfbuzz.o freetype-harfbuzz.o atk.o atkmm.o
+
+#xorg.o
 
 #============== [ targetfs packages ] ========================================================
 gmp.o:
@@ -205,6 +207,11 @@ bc.o:
 	(make -C bc 2>&1 | tee $(PKGLOGDIR)/bc.log && exit $$PIPESTATUS)
 	@echo "Bc finished $(shell date -R) "
 
+db.o:
+	@echo "Berkeley DB started $(shell date -R) "
+	(make -C db 2>&1 | tee $(PKGLOGDIR)/db.log && exit $$PIPESTATUS)
+	@echo "Berkeley DB finished $(shell date -R) "
+
 bzip2.o:
 	@echo "Bzip2 started $(shell date -R) "
 	(make -C bzip2 2>&1 | tee $(PKGLOGDIR)/bzip2.log && exit $$PIPESTATUS)
@@ -289,6 +296,11 @@ xz.o:
 	@echo "Xz started $(shell date -R) "
 	(make -C xz 2>&1 | tee $(PKGLOGDIR)/xz.log && exit $$PIPESTATUS)
 	@echo "Xz finished $(shell date -R) "
+
+dpkg.o:
+	@echo "Dpkg started $(shell date -R) "
+	(make -C dpkg 2>&1 | tee $(PKGLOGDIR)/dpkg.log && exit $$PIPESTATUS)
+	@echo "Dpkg finished $(shell date -R) "
 
 elfutils.o:
 	@echo "elfutils started $(shell date -R) "
@@ -525,6 +537,11 @@ expat.o:
 	(make -C expat 2>&1 | tee $(PKGLOGDIR)/expat.log && exit $$PIPESTATUS)
 	@echo "expat finished $(shell date -R) "
 
+perl.o:
+	@echo "Perl started $(shell date -R) "
+	(make -C perl 2>&1 | tee $(PKGLOGDIR)/perl.log && exit $$PIPESTATUS)
+	@echo "Perl finished $(shell date -R) "
+
 intltool.o:
 	@echo "intltool started $(shell date -R) "
 	(make -C intltool 2>&1 | tee $(PKGLOGDIR)/intltool.log && exit $$PIPESTATUS)
@@ -539,6 +556,16 @@ curl.o:
 	@echo "curl started $(shell date -R) "
 	(make -C curl 2>&1 | tee $(PKGLOGDIR)/curl.log && exit $$PIPESTATUS)
 	@echo "curl finished $(shell date -R) "
+
+docbook-xsl.o:
+	@echo "docbook-xsl started $(shell date -R) "
+	(make -C docbook-xsl 2>&1 | tee $(PKGLOGDIR)/docbook-xsl.log && exit $$PIPESTATUS)
+	@echo "docbook-xsl finished $(shell date -R) "
+
+apt.o:
+	@echo "apt started $(shell date -R) "
+	(make -C apt 2>&1 | tee $(PKGLOGDIR)/apt.log && exit $$PIPESTATUS)
+	@echo "apt finished $(shell date -R) "
 
 systemd.o:
 	@echo "systemd started $(shell date -R) "
@@ -790,9 +817,9 @@ jasper.o:
 	(make -C jasper 2>&1 | tee $(PKGLOGDIR)/jasper.log && exit $$PIPESTATUS)
 	@echo "jasper finished $(shell date -R) "
 
-fuse.o:
+fuse2.o:
 	@echo "fuse started $(shell date -R) "
-	(make -C fuse 2>&1 | tee $(PKGLOGDIR)/fuse.log && exit $$PIPESTATUS)
+	(make -C fuse2 2>&1 | tee $(PKGLOGDIR)/fuse.log && exit $$PIPESTATUS)
 	@echo "fuse finished $(shell date -R) "
 
 lua.o:
@@ -807,7 +834,7 @@ harfbuzz.o:
 
 freetype-harfbuzz.o:
 	@echo "freetype-harfbuzz started $(shell date -R) "
-	(make -C freetype 2>&1 | tee $(PKGLOGDIR)/freetype-harfbuzz.log && exit $$PIPESTATUS)
+	(make -C freetype-ext 2>&1 | tee $(PKGLOGDIR)/freetype-harfbuzz.log && exit $$PIPESTATUS)
 	@echo "freetype-harfbuzz finished $(shell date -R) "
 
 libcroco.o:

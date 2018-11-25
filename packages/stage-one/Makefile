@@ -3,7 +3,7 @@ include ../../conf/environment.mk
 
 all: xtools
 
-xtools: host-tools host-pl pkgmgr x-compiler musl-extras
+xtools: host-tools host-pl pkgmgr x-compiler fhs-pkg.o kheaders-pkg.o musl-pkg.o musl-extras
 
 host-tools: bc.o file.o m4.o ncurses.o wayland.o perl.o whois.o
 
@@ -20,29 +20,40 @@ host-pl: pl-syshostnamelong.o pl-mailsendmail.o pl-timedate.o pl-termreadkey.o \
 	pl-testrequiresinternet.o pl-wwwrobotrules.o pl-libwww.o pl-xmlparser.o \
 	pl-develsymdump.o pl-podcoverage.o pl-testpodcoverage.o pl-configfile.o
 
-x-compiler: pkg-config-lite.o fhs.o kheaders.o gmp.o mpfr.o mpc.o isl.o binutils.o gcc-stage1.o
+x-compiler: pkg-config-lite.o fhs-sysroot.o kheaders-sysroot.o gmp.o mpfr.o mpc.o isl.o \
+	binutils.o gcc-stage1.o musl-sysroot.o gcc-stage2.o
 
 musl-extras: musl-locales.o musl-fts.o musl-obstack.o timezone.o argp-standalone.o
 
-pkgmgr: intltool.o intltool-debian.o po4a.o fakeroot.o dpkg.o dpkg-2.o apt.o debconf.o po-debconf.o \
-	debhelper.o dh-make.o dpkg-sig.o
+pkgmgr: intltool.o intltool-debian.o po4a.o fakeroot.o dpkg.o apt.o debhelper.o dh-make.o \
+	dpkg-sig.o
 
 
 #==================== Cross Toolchain ================================================
-fhs.o: 
-	@echo "fhs started $(shell date -R) "
-	( make -C fhs 2>&1 | tee $(PKGLOGDIR)/fhs.log && exit $$PIPESTATUS )
-	@echo "fhs finished $(shell date -R) "
+fhs-sysroot.o: 
+	@echo "fhs [sysroot] started $(shell date -R) "
+	( make -C fhs install-sysroot 2>&1 | tee $(PKGLOGDIR)/fhs-sysroot.log && exit $$PIPESTATUS )
+	@echo "fhs [sysroot] finished $(shell date -R) "
+
+fhs-pkg.o: 
+	@echo "fhs [pkg] started $(shell date -R) "
+	( make -C fhs install-pkg 2>&1 | tee $(PKGLOGDIR)/fhs-pkg.log && exit $$PIPESTATUS )
+	@echo "fhs [pkg] finished $(shell date -R) "
 
 bc.o: 
 	@echo "Bc started $(shell date -R) "
 	( make -C bc 2>&1 | tee $(PKGLOGDIR)/bc.log && exit $$PIPESTATUS )
 	@echo "Bc finished $(shell date -R) "
 
-kheaders.o:
-	@echo "Linux kernel headers started $(shell date -R) "
-	( make -C kheaders  2>&1  | tee $(PKGLOGDIR)/kheaders.log && exit $$PIPESTATUS )
-	@echo "Linux kernel headers finished $(shell date -R) "
+kheaders-sysroot.o:
+	@echo "Linux kernel headers [sysroot] started $(shell date -R) "
+	( make -C kheaders install-sysroot  2>&1  | tee $(PKGLOGDIR)/kheaders-sysroot.log && exit $$PIPESTATUS )
+	@echo "Linux kernel headers [sysroot] finished $(shell date -R) "
+
+kheaders-pkg.o:
+	@echo "Linux kernel headers [pkg] started $(shell date -R) "
+	( make -C kheaders install-pkg  2>&1  | tee $(PKGLOGDIR)/kheaders-pkg.log && exit $$PIPESTATUS )
+	@echo "Linux kernel headers [pkg] finished $(shell date -R) "
 
 file.o: 
 	@echo "File started $(shell date -R) "
@@ -109,10 +120,15 @@ gcc-stage1.o:
 	( make -C gcc-stage1 2>&1  | tee $(PKGLOGDIR)/gcc-stage1.log && exit $$PIPESTATUS )
 	@echo "GCC (Stage One) finished $(shell date -R) "
 
-musl.o:
-	@echo "Musl lib C started $(shell date -R) "
-	( make -C musl 2>&1  | tee $(PKGLOGDIR)/musl.log && exit $$PIPESTATUS )
-	@echo "Musl lib C finished $(shell date -R) "
+musl-sysroot.o:
+	@echo "Musl lib C [sysroot] started $(shell date -R) "
+	( make -C musl install-sysroot 2>&1  | tee $(PKGLOGDIR)/musl-sysroot.log && exit $$PIPESTATUS )
+	@echo "Musl lib C [sysroot] finished $(shell date -R) "
+
+musl-pkg.o:
+	@echo "Musl lib C [pkg] started $(shell date -R) "
+	( make -C musl install-pkg 2>&1  | tee $(PKGLOGDIR)/musl-pkg.log && exit $$PIPESTATUS )
+	@echo "Musl lib C [pkg] finished $(shell date -R) "
 
 gcc-stage2.o:
 	@echo "GCC (Stage Two) started $(shell date -R) "
@@ -433,11 +449,6 @@ dpkg.o:
 	@echo "dpkg started $(shell date -R) "
 	(make -C dpkg 2>&1 | tee $(PKGLOGDIR)/dpkg.log && exit $$PIPESTATUS)
 	@echo "dpkg finished $(shell date -R) "
-
-dpkg-2.o:
-	@echo "dpkg-2 started $(shell date -R) "
-	(make -C dpkg 2>&1 | tee $(PKGLOGDIR)/dpkg-2.log && exit $$PIPESTATUS)
-	@echo "dpkg-2 finished $(shell date -R) "
 
 apt.o:
 	@echo "apt started $(shell date -R) "

@@ -4,10 +4,10 @@ PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-target-obj
 ifeq ($(ARCH),arm)
-        PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/target.arm.txt
+	PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/target.arm.txt
 endif
-ifeq ($(ARCH),x86_64)
-        PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/target.x86_64.txt
+ifeq ($(ARCH),$(filter $(ARCH),x86_64 aarch64))
+	PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/target.x86_64.txt
 endif
 PATCHDIR := $(PATCHDB)/$(PKGNAME)/musl
 SRCURL := https://ftp.gnu.org/gnu/gcc/$(PKGNAME)-$(PKGVER)/$(PKGSRC)
@@ -28,11 +28,15 @@ COPTS := --prefix=/usr \
 CC := "${CC}"
 CXX := "${CXX}"
 
-ifeq ($(ARCH),arm)
-        COPTS := $(COPTS) --with-fpu=$(FPU) --with-float=$(FLOAT) --with-arch=$(ARCH_TYPE)
+ifeq ($(ARCH),$(filter $(ARCH),arm aarch64))
+	COPTS := $(COPTS) --with-fpu=$(FPU) --with-float=$(FLOAT) --with-arch=$(ARCH_TYPE)
 	LA := libatomic.la,libgomp.la,libitm.la,libstdc++fs.la,libssp.la,libssp_nonshared.la,libstdc++.la,libsupc++.la
 else
 	LA := libatomic.la,libgomp.la,libitm.la,libcilkrts.la,libmpx.la,libmpxwrappers.la,libquadmath.la,libstdc++fs.la,libssp.la,libssp_nonshared.la,libstdc++.la,libsupc++.la
+endif
+
+ifeq ($(ARCH),aarch64)
+	COPTS := $(COPTS) --with-arch=$(ARCH_TYPE)
 endif
 
 PKGDIR := $(PKGDB)/$(PKGNAME)

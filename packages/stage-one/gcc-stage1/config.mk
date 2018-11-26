@@ -3,10 +3,7 @@ PKGVER := 7.2.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-stage1-obj
-ifeq ($(ARCH),arm)
-	PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/stage1.arm.txt
-endif
-ifeq ($(ARCH),x86_64)
+ifeq ($(ARCH),$(filter $(ARCH),x86_64 aarch64))
 	PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/stage1.x86_64.txt
 endif
 PATCHDIR := $(PATCHDB)/$(PKGNAME)/musl
@@ -47,5 +44,9 @@ COPTS := --disable-shared \
 AR := ar
 LDFLAGS := -Wl,-rpath,/$(CROSSTOOLS)/lib
 ifeq ($(ARCH),arm)
-        COPTS := $(COPTS) --with-fpu=$(FPU) --with-float=$(FLOAT) --with-arch=$(ARCH_TYPE)
+	PATCHLIST := $(PATCHDB)/$(PKGNAME)/musl/stage1.arm.txt
+	COPTS := $(COPTS) --with-fpu=$(FPU) --with-float=$(FLOAT) --with-arch=$(ARCH_TYPE)
+endif
+ifeq ($(ARCH),aarch64)
+        COPTS := $(COPTS) --with-arch=$(ARCH_TYPE)
 endif

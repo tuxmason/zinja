@@ -24,7 +24,7 @@ COPTS := --prefix=/usr \
 CC := "${CC}"
 CXX := "${CXX}"
 
-ifeq ($(ARCH),x86_64)
+ifeq ($(ARCH),$(filter $(ARCH),x86_64 aarch64))
 	COPTS := $(COPTS) --enable-64-bit-bfd
 endif
 

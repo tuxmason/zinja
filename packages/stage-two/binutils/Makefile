@@ -49,6 +49,7 @@ pkg-src: build
 		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
 		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
 		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		sed -i -e "s@TARGET@$(TARGETARCH)@g" $(DISTRIBSRC)/debian/binutils.install || exit 1 ;\
 		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
 		touch $(PKGOBJDIR)/pkg-src-stamp ;\
 	fi

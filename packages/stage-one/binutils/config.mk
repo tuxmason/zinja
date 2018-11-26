@@ -19,6 +19,6 @@ COPTS := --prefix=$(CROSSTOOLS) \
 	--with-lib-path="$(SYSROOTDIR)/lib:$(SYSROOTDIR)/usr/lib"
 AS := as
 AR := ar
-ifeq ($(ARCH),x86_64)
+ifeq ($(ARCH),$(filter $(ARCH),x86_64 aarch64))
 	COPTS := $(COPTS) --enable-64-bit-bfd
 endif

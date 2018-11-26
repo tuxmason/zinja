@@ -8,3 +8,4 @@
 0012-s390x-muslldso.diff
 0013-microblaze-pr65649.diff
 gcc-pure64.patch
+PR81228-AARCH64-gcc-7-Backport-r255625-Fix-ICE-by-adding-LTGT.diff

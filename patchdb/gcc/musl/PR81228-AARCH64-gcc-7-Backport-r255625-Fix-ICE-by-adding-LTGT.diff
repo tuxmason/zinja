@@ -1,0 +1,74 @@
+diff --git a/gcc/config/aarch64/aarch64-simd.md b/gcc/config/aarch64/aarch64-simd.md
+index c462164..1e0a346 100644
+--- a/gcc/config/aarch64/aarch64-simd.md
++++ b/gcc/config/aarch64/aarch64-simd.md
+@@ -2490,6 +2490,7 @@
+     case UNEQ:
+     case ORDERED:
+     case UNORDERED:
++    case LTGT:
+       break;
+     default:
+       gcc_unreachable ();
+@@ -2544,6 +2545,15 @@
+       emit_insn (gen_one_cmpl<v_cmp_result>2 (operands[0], operands[0]));
+       break;
+ 
++    case LTGT:
++      /* LTGT is not guranteed to not generate a FP exception.  So let's
++	 go the faster way : ((a > b) || (b > a)).  */
++      emit_insn (gen_aarch64_cmgt<mode> (operands[0],
++					 operands[2], operands[3]));
++      emit_insn (gen_aarch64_cmgt<mode> (tmp, operands[3], operands[2]));
++      emit_insn (gen_ior<v_cmp_result>3 (operands[0], operands[0], tmp));
++      break;
++
+     case UNORDERED:
+       /* Operands are ORDERED iff (a > b || b >= a), so we can compute
+ 	 UNORDERED as !ORDERED.  */
+diff --git a/gcc/config/aarch64/aarch64.c b/gcc/config/aarch64/aarch64.c
+index 436091a..db517ca 100644
+--- a/gcc/config/aarch64/aarch64.c
++++ b/gcc/config/aarch64/aarch64.c
+@@ -4664,13 +4664,13 @@ aarch64_select_cc_mode (RTX_CODE code, rtx x, rtx y)
+ 	case UNGT:
+ 	case UNGE:
+ 	case UNEQ:
+-	case LTGT:
+ 	  return CCFPmode;
+ 
+ 	case LT:
+ 	case LE:
+ 	case GT:
+ 	case GE:
++	case LTGT:
+ 	  return CCFPEmode;
+ 
+ 	default:
+diff --git a/gcc/testsuite/gcc.dg/pr81228.c b/gcc/testsuite/gcc.dg/pr81228.c
+new file mode 100644
+index 0000000..f7eecc5
+--- /dev/null
++++ b/gcc/testsuite/gcc.dg/pr81228.c
+@@ -0,0 +1,21 @@
++/* PR target/81228.  */
++/* { dg-do compile } */
++/* { dg-options "-O3 -fdump-tree-ssa" } */
++
++void *a;
++
++void b ()
++{
++  char c;
++  long d;
++  char *e = a;
++  for (; d; d++)
++  {
++    double f, g;
++    c = g < f || g > f;
++    e[d] = c;
++  }
++}
++
++/* Let's make sure we do have a LTGT.  */
++/* { dg-final { scan-tree-dump "<>" "ssa" } } */

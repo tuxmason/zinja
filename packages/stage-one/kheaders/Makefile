@@ -30,8 +30,8 @@ patch: extract
 
 build: patch 
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGSRCDIR) mrproper ) || exit 1 ;\
-		( PATH=$(PATH) make ARCH=$(ARCH) -C $(PKGSRCDIR) O=$(PKGOBJDIR) headers_check V=1 ) || exit 1 ;\
+		( PATH=$(PATH) make ARCH=$(KARCH) -j$(NPROCS) -C $(PKGSRCDIR) mrproper ) || exit 1 ;\
+		( PATH=$(PATH) make ARCH=$(KARCH) -C $(PKGSRCDIR) O=$(PKGOBJDIR) headers_check V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
@@ -49,7 +49,7 @@ install-deps: install-sysroot install-pkgroot
 
 install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
-		( PATH=$(PATH) make ARCH=$(ARCH) -C $(PKGSRCDIR) O=$(PKGOBJDIR) \
+		( PATH=$(PATH) make ARCH=$(KARCH) -C $(PKGSRCDIR) O=$(PKGOBJDIR) \
 		INSTALL_HDR_PATH=$(SYSROOTDIR)/usr headers_install V=1 ) || exit 1 ;\
 		find $(SYSROOTDIR)/usr/include \( -name .install -o -name ..install.cmd \) -delete || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
@@ -57,7 +57,7 @@ install-sysroot: pkg-src
 
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
-		( PATH=$(PATH) make ARCH=$(ARCH) -C $(PKGSRCDIR) O=$(PKGOBJDIR) \
+		( PATH=$(PATH) make ARCH=$(KARCH) -C $(PKGSRCDIR) O=$(PKGOBJDIR) \
 		INSTALL_HDR_PATH=$(PKGBINDIR)/usr headers_install V=1 ) || exit 1 ;\
 		find $(PKGBINDIR)/usr/include \( -name .install -o -name ..install.cmd \) -delete || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
@@ -66,7 +66,7 @@ install-pkgroot: pkg-src
 build-pkg: install-pkgroot
 	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
 		cd $(DISTRIBSRC) ;\
-		( PATH=$(PATH) CC="$(TARGETARCH)-gcc" dpkg-buildpackage -us -uc -d ) || exit 1 ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-pkg-stamp ;\
 	fi
 

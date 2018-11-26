@@ -11,3 +11,9 @@ ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
 PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
 DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
 PKGBINDIR := $(DISTRIBSRC)/debian/pkg
+
+ifeq ($(ARCH),aarch64)
+	KARCH := arm64
+else
+	KARCH := $(ARCH)
+endif

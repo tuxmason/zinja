@@ -68,7 +68,7 @@ install-pkgroot: pkg-src
 build-pkg: install-pkgroot
 	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
 		cd $(DISTRIBSRC) ;\
-		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(ARCH) ) || exit 1 ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-pkg-stamp ;\
 	fi
 

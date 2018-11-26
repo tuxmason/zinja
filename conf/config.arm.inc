@@ -1,10 +1,10 @@
 ##########################################################################
 # 
-# Filename: config.inc
+# Filename: config.arm.inc
 #
-# Purpose: arm core config
+# Purpose: arm cpu config
 #
-# Copyright (c) 2007 - 2017 Mwanguhya Daniel Murungi <tuxmason@gmail.com>
+# Copyright (c) 2007 - 2018 Mwanguhya Daniel Murungi <tuxmason@gmail.com>
 #
 #########################################################################
 
@@ -35,12 +35,3 @@ FLOAT := hard
 # Floating Point Hardware
 # ( read doc/float_support.txt )
 FPU := vfpv3-d16
-
-# Target Vendor
-VENDOR :=
-
-# Toolchain Version
-REVISION :=
-
-# Use all available CPU cores during build process
-MULTICORE := auto

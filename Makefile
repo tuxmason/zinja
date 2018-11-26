@@ -2,14 +2,27 @@
 #
 ## Filename: Makefile 
 #
-## Purpose: top level make file for tuxmason
+## Purpose: zinja top level makefile
 #
-## Copyright (c) 2007 - 2012 Mwanguhya Daniel Murungi <tuxmason@gmail.com>
+## Copyright (c) 2007 - 2018 Mwanguhya Daniel Murungi <tuxmason@gmail.com>
 #
 ##########################################################################
 
 # Include user preferences 
-include conf/config.inc
+include conf/vendor.inc
+
+ifeq ($(ARCH),arm)
+	include conf/config.arm.inc
+endif
+
+ifeq ($(ARCH),aarch64)
+	include conf/config.aarch64.inc
+endif
+
+ifeq ($(ARCH),x86_64)
+	include conf/config.x86_64.inc
+endif
+
 include conf/Makefile.config
 
 all: base

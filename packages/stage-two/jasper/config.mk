@@ -28,6 +28,13 @@ ifeq ($(ARCH),arm)
 		-D CMAKE_SYSTEM_PROCESSOR=arm
 endif
 
+ifeq ($(ARCH),aarch64)
+        COPTS := $(COPTS) \
+		-D CMAKE_CROSSCOMPILING=1 \
+		-D CMAKE_SYSTEM_NAME=Linux \
+		-D CMAKE_SYSTEM_PROCESSOR=aarch64
+endif
+
 ifeq ($(ARCH),x86_64)
         COPTS := $(COPTS) \
 		-D CMAKE_CROSSCOMPILING=1 \

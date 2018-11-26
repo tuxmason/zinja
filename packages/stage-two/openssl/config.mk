@@ -23,6 +23,9 @@ CROSS := $(TARGETARCH)
 ifeq ($(ARCH),arm)
         COPTS := $(COPTS) linux-generic32
 endif
+ifeq ($(ARCH),aarch64)
+        COPTS := $(COPTS) linux-aarch64 no-afalgeng
+endif
 ifeq ($(ARCH),x86_64)
         COPTS := $(COPTS) linux-x86_64
 endif

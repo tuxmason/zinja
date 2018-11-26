@@ -21,8 +21,8 @@ ifeq ($(ARCH),arm)
 	GPGARCH := linux-musleabihf
 endif
 
-ifeq ($(ARCH),x86_64)
-	GPGARCH :=
+ifeq ($(ARCH),$(filter $(ARCH),x86_64 aarch64))
+	GPGARCH := linux-musl
 endif
 
 PKGDIR := $(PKGDB)/$(PKGNAME)

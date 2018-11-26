@@ -25,6 +25,13 @@ ifeq ($(ARCH),x86_64)
 	LDFLAGS := "-Wl,-soname,$(LIBC)"
 endif
 
+ifeq ($(ARCH),aarch64)
+	CFLAGS :=
+	LINKER := ld-musl-$(ARCH).so.1
+	LIBC := libc.musl-$(ARCH).so.1
+	LDFLAGS := "-Wl,-soname,$(LIBC)"
+endif
+
 PKGDIR := $(PKGDB)/$(PKGNAME)
 ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.gz
 PKGROOT := $(DISTRIBROOT)/$(PKGNAME)

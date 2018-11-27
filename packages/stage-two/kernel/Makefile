@@ -4,12 +4,13 @@ include ../../../conf/environment.mk
 include ./config.mk
 
 all: targets
-targets: clean extract patch build install
+targets: clean extract patch build pkg-src install-pkgroot build-pkg install-pkg
 
 extract:  
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
 		mkdir $(PKGOBJDIR) ;\
+		mkdir -pv $(PKGBINDIR)/{boot,lib/firmware} ;\
 		touch $(PKGOBJDIR)/extract-stamp ;\
 	fi
 
@@ -30,36 +31,57 @@ configure: patch
 		cd $(PKGSRCDIR) ;\
 		( PATH=$(PATH) make mrproper ) || exit 1 ;\
 		( PATH=$(PATH) cp $(CONF) $(PKGSRCDIR)/.config ) || exit 1 ;\
-		( PATH=$(PATH) make ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" silentoldconfig V=1 ) || exit 1 ;\
+		( PATH=$(PATH) make ARCH=$(KARCH) CROSS_COMPILE="$(TARGETARCH)-" silentoldconfig V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) make -j$(NPROCS) ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" $(KIMAGE) modules ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) ARCH=$(KARCH) CROSS_COMPILE="$(TARGETARCH)-" $(KIMAGE) modules ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
-uimage: configure
-	@if [ ! -f $(PKGOBJDIR)/uimage-stamp  ]; then \
-		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) make -j$(NPROCS) ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" LOADADDR=0x80008000 uImage V=1 ) || exit 1 ;\
-		touch $(PKGOBJDIR)/uimage-stamp ;\
+
+pkg-src: build
+	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		mv -v $(DISTRIBSRC)/debian/{$(PKGNAME)-PKGVER.install,$(PKGNAME)-$(PKGVER).install} || exit 1 ;\
+		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(PKGOBJDIR)/pkg-src-stamp ;\
 	fi
 
-install: build
+install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( mkdir -pv $(SYSROOTDIR)/kern/{boot,lib/firmware} ) ;\
-		( cp -v arch/$(ARCH)/boot/$(KIMAGE) $(SYSROOTDIR)/kern/boot/vmlinuz ) || exit 1 ;\
-		( install -v System.map $(SYSROOTDIR)/kern/boot ) || exit 1 ;\
-		( install -v .config $(SYSROOTDIR)/kern/boot/$(PKGNAME)-$(ARCH)-config-$(PKGVER) ) || exit 1 ;\
-		( PATH=$(PATH) make ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" INSTALL_MOD_PATH=$(SYSROOTDIR)/kern modules_install V=1 ) || exit 1 ;\
-		( PATH=$(PATH) make ARCH=$(ARCH) CROSS_COMPILE="$(TARGETARCH)-" INSTALL_FW_PATH=$(SYSROOTDIR)/kern/lib/firmware firmware_install V=1 ) || exit 1 ;\
+		( cp -v arch/$(KARCH)/boot/$(KIMAGE) $(PKGBINDIR)/boot/vmlinuz-$(PKGVER) ) || exit 1 ;\
+		( install -v System.map $(PKGBINDIR)/boot ) || exit 1 ;\
+		( install -v .config $(PKGBINDIR)/boot/config-$(PKGNAME)-$(ARCH)-$(PKGVER) ) || exit 1 ;\
+		( PATH=$(PATH) make ARCH=$(KARCH) CROSS_COMPILE="$(TARGETARCH)-" INSTALL_MOD_PATH=$(PKGBINDIR) modules_install V=1 ) || exit 1 ;\
+		( PATH=$(PATH) make ARCH=$(KARCH) CROSS_COMPILE="$(TARGETARCH)-" INSTALL_FW_PATH=$(PKGBINDIR)/lib/firmware firmware_install V=1 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/install-stamp ;\
 	fi
 
+build-pkg: install-pkgroot
+	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			$(PKGNAME)-$(PKGVER)_$(PKGVER)-1_$(PKGARCH).deb ) || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkg-stamp ;\
+	fi
+
 clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
 	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
 	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 

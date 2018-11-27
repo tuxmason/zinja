@@ -1,0 +1,18 @@
+Source: linux
+Section: kernel
+Priority: required
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://kernel.org
+
+Package: linux-PKGVER
+Section: kernel
+Priority: required
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Linux kernel image for version PKGVER on 64 bit ARM
+ This package provides the Linux kernel image for version PKGVER on
+ 64 bit ARM (aarch64) .
+ .
+ Also includes the corresponding System.map file and kernel modules.

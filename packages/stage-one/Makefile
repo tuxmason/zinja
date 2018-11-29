@@ -5,7 +5,7 @@ all: xtools
 
 xtools: host-tools host-pl pkgmgr x-compiler fhs-pkg.o kheaders-pkg.o musl-pkg.o musl-extras
 
-host-tools: bc.o file.o m4.o ncurses.o wayland.o perl.o whois.o
+host-tools: bc.o file.o m4.o ncurses.o wayland.o perl.o whois.o libtool.o
 
 host-pl: pl-syshostnamelong.o pl-mailsendmail.o pl-timedate.o pl-termreadkey.o \
 	pl-localegettext.o pl-textcharwidth.o pl-textwrapi18n.o pl-compressrawbzip2.o \
@@ -89,6 +89,11 @@ whois.o:
 	@echo "whois started $(shell date -R) "
 	( make -C whois 2>&1 | tee $(PKGLOGDIR)/whois.log && exit $$PIPESTATUS )
 	@echo "whois finished $(shell date -R) "
+
+libtool.o: 
+	@echo "libtool cross started $(shell date -R) "
+	( make -C libtool 2>&1 | tee $(PKGLOGDIR)/libtool-cross.log && exit $$PIPESTATUS )
+	@echo "libtool cross finished $(shell date -R) "
 
 gmp.o: 
 	@echo "GMP started $(shell date -R) "

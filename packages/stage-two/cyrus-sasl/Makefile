@@ -7,7 +7,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch autoconf configure build pkg-src install-deps build-pkg install-pkg
+targets: clean extract patch configure build pkg-src install-deps build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -32,14 +32,7 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-autoconf: patch
-	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
-		cd $(PKGSRCDIR) ;\
-		autoreconf -vif || exit 1 ;\
-		touch $(PKGOBJDIR)/autoconf-stamp ;\
-	fi
-
-configure: autoconf
+configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
 		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
@@ -58,7 +51,7 @@ build-host: configure
 
 build-target: build-host
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGSRCDIR) ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGSRCDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 

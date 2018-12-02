@@ -7,6 +7,7 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://ftp.acc.umu.se/pub/gnome/sources/glib/2.55/$(PKGSRC)
 COPTS := --prefix=/usr \
+	--enable-man \
 	--disable-libelf \
 	--enable-static \
 	--build=$(BUILDARCH) \

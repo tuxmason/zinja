@@ -5,7 +5,8 @@ all: xtools
 
 xtools: host-tools host-pl pkgmgr x-compiler fhs-pkg.o kheaders-pkg.o musl-pkg.o musl-extras
 
-host-tools: bc.o file.o m4.o ncurses.o wayland.o perl.o whois.o libtool.o
+host-tools: pkg-config-lite.o libtool.o autoconf.o automake.o bc.o file.o m4.o ncurses.o \
+	wayland.o perl.o whois.o
 
 host-pl: pl-syshostnamelong.o pl-mailsendmail.o pl-timedate.o pl-termreadkey.o \
 	pl-localegettext.o pl-textcharwidth.o pl-textwrapi18n.o pl-compressrawbzip2.o \
@@ -20,7 +21,7 @@ host-pl: pl-syshostnamelong.o pl-mailsendmail.o pl-timedate.o pl-termreadkey.o \
 	pl-testrequiresinternet.o pl-wwwrobotrules.o pl-libwww.o pl-xmlparser.o \
 	pl-develsymdump.o pl-podcoverage.o pl-testpodcoverage.o pl-configfile.o
 
-x-compiler: pkg-config-lite.o fhs-sysroot.o kheaders-sysroot.o gmp.o mpfr.o mpc.o isl.o \
+x-compiler: fhs-sysroot.o kheaders-sysroot.o gmp.o mpfr.o mpc.o isl.o \
 	binutils.o gcc-stage1.o musl-sysroot.o gcc-stage2.o
 
 musl-extras: musl-locales.o musl-fts.o musl-obstack.o timezone.o argp-standalone.o
@@ -94,6 +95,16 @@ libtool.o:
 	@echo "libtool cross started $(shell date -R) "
 	( make -C libtool 2>&1 | tee $(PKGLOGDIR)/libtool-cross.log && exit $$PIPESTATUS )
 	@echo "libtool cross finished $(shell date -R) "
+
+autoconf.o: 
+	@echo "autoconf cross started $(shell date -R) "
+	( make -C autoconf 2>&1 | tee $(PKGLOGDIR)/autoconf-cross.log && exit $$PIPESTATUS )
+	@echo "autoconf cross finished $(shell date -R) "
+
+automake.o: 
+	@echo "automake cross started $(shell date -R) "
+	( make -C automake 2>&1 | tee $(PKGLOGDIR)/automake-cross.log && exit $$PIPESTATUS )
+	@echo "automake cross finished $(shell date -R) "
 
 gmp.o: 
 	@echo "GMP started $(shell date -R) "

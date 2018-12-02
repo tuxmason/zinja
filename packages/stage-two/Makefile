@@ -10,7 +10,7 @@ targetfs: sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binuti
 	iana-etc.o libtool.o gdbm.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o db.o \
 	diffutils.o file.o gawk.o findutils.o gettext.o gperf.o grep.o groff.o less.o gzip.o \
 	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o perl.o dpkg.o intltool.o \
-	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o util-linux-ext.o \
+	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux-ext.o \
 	vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
 	openssh.o pcre.o glib2.o libsigcpp.o glibmm.o libgudev.o wget.o kernel.o npth.o libaio.o \
 	libevent.o libusb.o libusb-compat.o usbutils.o libgusb.o fuse2.o lua.o icu.o sqlite3.o \

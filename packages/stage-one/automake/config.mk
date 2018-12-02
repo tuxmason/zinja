@@ -1,0 +1,9 @@
+PKGNAME := automake
+PKGVER := 1.15.1
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-stage-one-obj
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+PATCHLIST := $(PATCHDIR)/list.txt
+SRCURL := http://ftp.gnu.org/gnu/$(PKGNAME)/$(PKGSRC)
+COPTS := --prefix=$(CROSSTOOLS)

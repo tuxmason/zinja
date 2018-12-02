@@ -2,4 +2,3 @@ usr/bin
 usr/share/texmf
 usr/share/locale
 usr/share/texinfo
-usr/lib/texinfo/*.so

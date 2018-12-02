@@ -6,10 +6,12 @@ PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://ftp.gnu.org/gnu/$(PKGNAME)/$(PKGSRC)
-COPTS := --prefix=/usr  \
+COPTS := --prefix=/usr \
+	--disable-tp-tests \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
-	--with-sysroot=$(SYSROOTDIR)
+	--with-sysroot=$(SYSROOTDIR) \
+	--disable-pod-simple-texinfo-tests
 
 CC := "${CC}"
 CXX := "${CXX}"

@@ -1,0 +1,4 @@
+texinfo-4.12-zlib.patch
+link-zip.patch
+dont-depend-on-help2man.patch
+0001-Unset-need_charset_alias-when-building-for-musl.patch

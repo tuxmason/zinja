@@ -32,15 +32,17 @@ patch: extract
 autoconf: patch
 	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( PATH=$(HOSTPATH) autoreconf -vif ) || exit 1 ;\
+		( PATH=$(PATH) autoreconf -vif -I $(PKGSRCDIR)/gnulib/m4 ) || exit 1 ;\
 		touch $(PKGOBJDIR)/autoconf-stamp ;\
 	fi
 
 configure: autoconf
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) CC=$(CC) CXX=$(CXX) \
-			BUILD_RANLIB=$(BUILD_RANLIB) BUILD_CC=$(BUILD_CC) BUILD_AR=$(BUILD_AR) HOST_CC=$(CC) ) || exit 1 ;\
+		( PATH=$(PATH) $(PKGSRCDIR)/configure $(COPTS) CC=$(CC) CXX=$(CXX) \
+			BUILD_RANLIB=$(BUILD_RANLIB) BUILD_CC=$(BUILD_CC) \
+			BUILD_AR=$(BUILD_AR) HOST_CC=$(CC) PERL_EXT_CC=$(CC) \
+			PERL_CONF_cc=$(CC) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
@@ -64,7 +66,8 @@ install-bin: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) TEXMF=/usr/share/texmf install-tex ) || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/texinfo/*.la || exit 1 ;\
+		sed -i -e "s@$(CROSSTOOLS)@/usr@g" \
+			$(PKGBINDIR)/usr/bin/{pdftexi2dvi,pod2texi,texi2any,texi2dvi,texi2pdf,texindex} || exit 1 ;\
 		touch $(PKGOBJDIR)/install-bin-stamp ;\
 	fi
 

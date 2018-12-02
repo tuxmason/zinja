@@ -33,7 +33,7 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(WPKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) $(WCOPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CPPFLAGS="-P" CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) $(WCOPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 

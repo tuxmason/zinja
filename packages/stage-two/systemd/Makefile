@@ -27,13 +27,14 @@ patch: extract
 			done ;\
 		fi ;\
 		cp -v $(PATCHDIR)/$(PKGNAME).cache $(PKGOBJDIR) || exit 1 ;\
+		sed -i -e "s@autoreconf@& -I $(SYSROOTDIR)/usr/share/aclocal@g" $(PKGSRCDIR)/autogen.sh || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
 autogen: patch
 	@if [ ! -f $(PKGOBJDIR)/autogen-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		./autogen.sh || exit 1 ;\
+		( PATH=$(PATH) ./autogen.sh ) || exit 1 ;\
 		touch $(PKGOBJDIR)/autogen-stamp ;\
 	fi
 

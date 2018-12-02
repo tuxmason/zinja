@@ -32,7 +32,7 @@ patch: extract
 autoconf: patch
 	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( PATH=$(PATH) autoreconf -vif ) || exit 1 ;\
+		( PATH=$(PATH) ./bootstrap.sh ) || exit 1 ;\
 		touch $(PKGOBJDIR)/autoconf-stamp ;\
 	fi
 

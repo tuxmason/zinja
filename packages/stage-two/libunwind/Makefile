@@ -32,7 +32,7 @@ patch: extract
 autoconf: patch
 	@if [ ! -f $(PKGOBJDIR)/autogen-stamp  ]; then \
 		cd $(PKGSRCDIR) ;\
-		( autoreconf -vif -I $(SYSROOTDIR)/usr/share/aclocal ) || exit 1 ;\
+		( PATH=$(PATH) autoreconf -vif -I $(CROSSTOOLS)/share/aclocal ) || exit 1 ;\
 		touch $(PKGOBJDIR)/autogen-stamp ;\
 	fi
 

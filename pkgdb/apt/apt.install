@@ -1,4 +1,4 @@
 usr/bin
 etc/apt
-usr/libexec
+usr/lib/apt
 usr/share/bash-completion

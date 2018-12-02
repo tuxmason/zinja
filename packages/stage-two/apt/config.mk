@@ -8,6 +8,7 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://ftp.debian.org/debian/pool/main/a/$(PKGNAME)/$(PKGSRC)
 COPTS := -D WITH_DOC=OFF \
 	-D USE_NLS=OFF \
+	-D LIBEXEC_DIR="/usr/lib/apt" \
 	-D DPKG_DATADIR="/usr/share/dpkg" \
 	-D BUILD_SHARED_LIBS=ON \
 	-D CMAKE_BUILD_TYPE=Release \

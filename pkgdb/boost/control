@@ -1,0 +1,28 @@
+Source: boost
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://www.boost.org
+
+Package: boost
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a set of free peer-reviewed portable C++ source libraries
+ Boost provides a set of free peer-reviewed portable C++ source libraries.
+ .
+ It includes libraries for linear algebra, pseudorandom number generation,
+ multithreading, image processing, regular expressions and unit testing.
+
+Package: boost-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libboost-dev
+Depends: boost (= ${binary:Version})
+Description: boost development headers
+ This package provides header files required for developing applications
+ using boost.

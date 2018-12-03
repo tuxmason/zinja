@@ -1,0 +1,2 @@
+using gcc : PROC : TARGETARCH-g++ ;
+using python : 2.7 : : SYSROOT/usr/include/python2.7 : SYSROOT/usr/lib ;

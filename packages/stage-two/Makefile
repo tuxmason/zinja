@@ -19,7 +19,7 @@ targetfs: sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binuti
 	libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o libnetfilter_cthelper.o \
 	ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o snappy.o mariadb.o unixODBC.o \
 	freetds.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o ulogd.o yaml.o ruby.o \
-	Python.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o libexecinfo.o libunwind.o gc.o \
+	Python.o boost.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o libexecinfo.o libunwind.o gc.o \
 	libunistring.o libtasn1.o libgpg-error.o libassuan.o libksba.o libgcrypt.o libidn2.o p11-kit.o \
 	gnutls.o cyrus-sasl.o openldap.o gnupg.o libpng.o giflib.o libid3tag.o libjpeg-turbo.o jasper.o \
 	freetype.o fontconfig.o graphite2.o harfbuzz.o freetype-harfbuzz.o atk.o atkmm.o
@@ -656,6 +656,11 @@ Python.o:
 	@echo "Python started $(shell date -R) "
 	(make -C Python 2>&1 | tee $(PKGLOGDIR)/Python.log && exit $$PIPESTATUS)
 	@echo "Python finished $(shell date -R) "
+
+boost.o:
+	@echo "Boost started $(shell date -R) "
+	(make -C boost 2>&1 | tee $(PKGLOGDIR)/boost.log && exit $$PIPESTATUS)
+	@echo "Boost finished $(shell date -R) "
 
 wayland.o:
 	@echo "wayland started $(shell date -R) "

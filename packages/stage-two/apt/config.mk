@@ -8,13 +8,14 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://ftp.debian.org/debian/pool/main/a/$(PKGNAME)/$(PKGSRC)
 COPTS := -D WITH_DOC=OFF \
 	-D USE_NLS=OFF \
-	-D LIBEXEC_DIR="/usr/lib/apt" \
-	-D DPKG_DATADIR="/usr/share/dpkg" \
 	-D BUILD_SHARED_LIBS=ON \
 	-D CMAKE_BUILD_TYPE=Release \
 	-D CMAKE_INSTALL_PREFIX=/usr \
 	-D CMAKE_SKIP_INSTALL_RPATH=YES \
 	-D CMAKE_INSTALL_SYSCONFDIR=/etc \
+	-D LIBEXEC_DIR="/usr/lib/apt" \
+	-D CMAKE_INSTALL_LIBEXECDIR=lib \
+	-D DPKG_DATADIR="/usr/share/dpkg" \
 	-D CMAKE_FIND_ROOT_PATH=$(SYSROOTDIR) \
 	-D CMAKE_LINKER=$(CROSSTOOLS)/bin/"${LD}" \
 	-D CMAKE_C_COMPILER_AR=$(CROSSTOOLS)/bin/"${AR}" \

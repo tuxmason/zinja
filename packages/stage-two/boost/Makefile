@@ -83,8 +83,8 @@ install-pkg: build-pkg
 	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
 		cd $(PKGROOT) ;\
 		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
-			boost_$(PKGVER)-1_$(PKGARCH).deb \
-			boost-dev_$(PKGVER)-1_$(PKGARCH).deb ) || exit 1 ;\
+			boost_$(DEBVER)-1_$(PKGARCH).deb \
+			boost-dev_$(DEBVER)-1_$(PKGARCH).deb ) || exit 1 ;\
 		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi

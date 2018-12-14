@@ -8,18 +8,22 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://dl.bintray.com/boostorg/release/1.68.0/source/$(PKGSRC)
 
-BOOTSTRAP_OPTS = --prefix=/usr \
+BOOTSTRAP_OPTS := --prefix=/usr \
 		 --with-python-root=$(SYSROOTDIR)
 
-B2_OPTS = threading=multi \
+B2_OPTS := threading=multi \
 	  link=shared \
-	  toolset=gcc-arm \
 	  target-os=linux \
 	  variant=release \
 	  --user-config=user-config.jam
 
 ifeq ($(ARCH),$(filter $(ARCH),arm aarch64))
 	PROC := arm
+	B2_OPTS := $(B2_OPTS) toolset=gcc-arm
+endif
+ifeq ($(ARCH),x86_64)
+	PROC :=
+	B2_OPTS := $(B2_OPTS) toolset=gcc
 endif
 
 PKGDIR := $(PKGDB)/$(PKGNAME)

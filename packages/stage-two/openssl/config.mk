@@ -7,10 +7,11 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://openssl.org/source/$(PKGSRC)
 COPTS := shared \
-	-DOPENSSL_NO_ASYNC \
 	zlib-dynamic \
-	--openssldir=/etc/ssl \
-	--prefix=/usr
+	--libdir=lib \
+	--prefix=/usr \
+	-DOPENSSL_NO_ASYNC \
+	--openssldir=/etc/ssl
 
 CC := "${CC}"
 AR := "${AR}"

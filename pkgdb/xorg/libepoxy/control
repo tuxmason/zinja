@@ -1,0 +1,29 @@
+Source: libepoxy
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libmesa-dev, libglvnd-dev,
+ libglvnd-static
+Standards-Version: 3.9.5
+Homepage: https://github.com/anholt/libepoxy
+
+Package: libepoxy
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Library handling OpenGL function pointer management
+ This package provides libepoxy, a shared library which
+ provides API routines for handling OpenGL function
+ pointer management. 
+
+Package: libepoxy-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libepoxy (= ${binary:Version}), libmesa-dev, libglvnd-static, 
+ libglvnd-dev
+Description: libepoxy development headers and static library
+ This package provides the libepoxy static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libepoxy API routines.

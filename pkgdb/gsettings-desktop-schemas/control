@@ -1,0 +1,16 @@
+Source: gsettings-desktop-schemas
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/GNOME/gsettings-desktop-schemas
+
+Package: gsettings-desktop-schemas
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: libglib2
+Description: Shared GSettings schemas for the desktop
+ gsettings-desktop-schemas contains a collection of GSettings 
+ schemas for settings shared by various components of a desktop.

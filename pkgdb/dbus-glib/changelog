@@ -1,0 +1,5 @@
+dbus-glib (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Mon, 31 Dec 2018 18:14:01 +0300

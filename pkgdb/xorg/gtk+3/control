@@ -1,0 +1,56 @@
+Source: gtk+
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://www.gtk.org/
+
+Package: libgtk3
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GTK+ 3, an Object-based multi-platform GUI toolkit
+ GTK+, or the GIMP Toolkit, is a multi-platform toolkit for 
+ creating graphical user interfaces. Offering a complete set 
+ of widgets, GTK+ is suitable for projects ranging from small 
+ one-off tools to complete application suites.
+ .
+ This package provides GTK+ 3 shared libraries and modules.
+
+Package: libgtk3-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: gtk3-dev (= ${binary:Version})
+Depends: libgtk3 (= ${binary:Version})
+Description: GTK+ 3 development headers and static libraries
+ This package provides GTK+ 3 static libraries, pkgconfig data 
+ and header files required for developing applications which 
+ use GTK+ 3 API functions.
+
+Package: gtk3
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GTK+ 3 userspace tools
+ This package provides GTK+ 3 userspace utilities.
+
+Package: gtk3-demo
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GTK+ 3 demos
+ This package provides GTK+ 3 demos.
+
+Package: gtk3-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: gtk3 (= ${binary:Version})
+Description: documentation for GTK+ 3 userspace tools
+ This package provides manual pages for GTK+ 3 userspace tools.

@@ -1,0 +1,6 @@
+etc
+usr/lib/libgdk-3.so.0.2000.10
+usr/lib/libgtk-3.so.0.2000.10
+usr/lib/libgailutil-3.so.0.0.0
+usr/lib/gtk-3.0/3.0.0/immodules/*.so
+usr/lib/gtk-3.0/3.0.0/printbackends/*.so

@@ -1,0 +1,6 @@
+usr/lib/*.a
+usr/include
+usr/share/aclocal
+usr/lib/pkgconfig
+usr/lib/gtk-3.0/3.0.0/immodules/*.a
+usr/lib/gtk-3.0/3.0.0/printbackends/*.a

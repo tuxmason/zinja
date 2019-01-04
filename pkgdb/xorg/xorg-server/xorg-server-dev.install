@@ -1,0 +1,6 @@
+usr/include
+usr/share/aclocal
+usr/lib/pkgconfig
+usr/lib/xorg/modules/*.a
+usr/lib/xorg/modules/drivers/*.a
+usr/lib/xorg/modules/extensions/*.a

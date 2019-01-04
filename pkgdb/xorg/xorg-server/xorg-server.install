@@ -1,0 +1,8 @@
+var
+usr/bin
+usr/libexec
+usr/share/X11
+usr/lib/xorg/protocol.txt
+usr/lib/xorg/modules/*.so
+usr/lib/xorg/modules/drivers/*.so
+usr/lib/xorg/modules/extensions/*.so

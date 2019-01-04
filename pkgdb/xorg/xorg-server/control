@@ -1,0 +1,36 @@
+Source: xorg-server
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libdmx-dev, libdrm-dev, libepoxy-dev, libglvnd-dev, libmesa-dev, libnettle-dev, libpciaccess-dev, libpixman-dev, systemd-dev, libunwind-dev, libwayland-dev, libx11-dev, libxau-dev, libxaw-dev, libxcb-dev, libxcb-icccm-dev, libxcb-image-dev, libxcb-keysyms-dev, libxcb-render-util-dev, libxcb-util-dev, libxdmcp-dev, libxext-dev, libxfixes-dev, libxfont2-dev, libxi-dev, libxmu-dev, libxpm-dev, libxrender-dev, libxshmfence-dev, libxt-dev
+Standards-Version: 3.9.5
+Homepage: http://xorg.freedesktop.org/
+
+Package: xorg-server
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Xorg X server
+ This package provides the Xorg X server, the core of the
+ X Window system.
+
+Package: xorg-server-dev
+Section: devel
+Priority: optional
+Provides: xorg-server-dev
+Architecture: ARCH
+Depends: xorg-server (= ${binary:Version})
+Description: xorg-server development headers and pkgconfig data
+ This package provides xorg-server pkgconfig data and header 
+ files required for developing applications which use 
+ xorg-server API routines.
+
+Package: xorg-server-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, xorg-server (= ${binary:Version})
+Description: xorg-server documentation
+ This package provides man pages for the X.Org server and 
+ it's associated userspace tools.

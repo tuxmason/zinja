@@ -1,0 +1,46 @@
+Source: lcms2
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libjpeg-turbo-dev, libtiff-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: liblcms2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: routines which implement the LCMS2 API
+ The Little Color Management System is a small-footprint color 
+ management engine, which focuses on accuracy and performance. 
+ .
+ This package provides liblcms2, a shared library which contains
+ LCMS2 API routines.
+
+Package: lcms2
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools for generating Little CMS ICC files
+ This package provides userspace tools for generating Little CMS 
+ ICC files.
+
+Package: liblcms2-dev
+Section: libdevel
+Priority: optional
+Provides: lcms2-dev
+Architecture: ARCH
+Depends: libjpeg-turbo-dev, libtiff-dev, lcms2 (= ${binary:Version})
+Description: liblcms2 development headers and pkgconfig data
+ This package provides liblcms2 pkgconfig data and header files 
+ required for developing applications which use liblcms2 routines.
+
+Package: lcms2-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, lcms2 (= ${binary:Version})
+Description: documentation for lcms2 userspace tools
+ This package provides man pages for lcms2 userspace tools.

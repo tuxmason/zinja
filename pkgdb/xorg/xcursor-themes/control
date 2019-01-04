@@ -1,0 +1,16 @@
+Source: xcursor-themes
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xcursorgen
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xcursor-themes
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: xcursorgen
+Description: X.org Cursor themes
+ This package provides X.org redglass and whiteglass animated 
+ cursor themes.

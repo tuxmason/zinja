@@ -1,0 +1,16 @@
+Source: glib-networking
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, gsettings-desktop-schemas
+Standards-Version: 3.9.5
+Homepage: https://gitlab.gnome.org/GNOME/glib-networking
+
+Package: glib-networking
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}, gsettings-desktop-schemas
+Description: Network extensions for GLib
+ GLib Networking provides Network related gio modules 
+ for GLib.

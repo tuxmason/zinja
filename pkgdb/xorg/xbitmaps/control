@@ -1,0 +1,15 @@
+Source: xbitmaps
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), util-macros
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xbitmaps
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: util-macros
+Description: commonly used X.org Bitmap images
+ This package provides commonly used X.org bitmap images.

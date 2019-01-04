@@ -1,0 +1,27 @@
+Source: gnome-menus
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnome.org/
+
+Package: libgnome-menu
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides runtime routines for GNOME menu specifications
+ This package provides libgnome-menu, a shared library which
+ provides functions required to support GNOME's implementation 
+ of the Desktop Menu Specification.
+
+Package: libgnome-menu-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libgnome-menu (= ${binary:Version}), glib2-dev
+Description: Gnome Menus development headers and static library
+ This package provides the Gnome Menus static library, headers 
+ and pkgconfig data required to build applications, libraries 
+ or plugins which use the Gnome Menus API.

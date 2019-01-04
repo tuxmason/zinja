@@ -1,0 +1,5 @@
+usr/lib/*.a
+usr/include
+usr/lib/pkgconfig
+usr/lib/bellagio/*.a
+usr/lib/omxloaders/*.a

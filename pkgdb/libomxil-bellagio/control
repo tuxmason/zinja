@@ -1,0 +1,41 @@
+Source: libomxil-bellagio
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://omxil.sourceforge.net/
+
+Package: libomxil-bellagio
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: an API used to access Multimedia Components on mobile platforms
+ OpenMAX Integration Layer (IL) is a standard API to access Multimedia 
+ Components on mobile platforms. Using the OpenMAX IL API, multimedia 
+ frameworks can access hardware accelerators on supported platforms.
+ .
+ Bellagio is an opensource implementation of the OpenMAX IL API.
+ . 
+ This package provides the libomxil-bellagio shared library and 
+ OpenMAX component extensions.
+
+Package: libomxil-bellagio-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev, libomxil-bellagio (= ${binary:Version})
+Description: libomxil-bellagio headers and static libraries
+ This package provides libomxil-bellagio static libraries, pkgconfig 
+ data and header files required for developing applications which use 
+ libomxil-bellagio API routines.
+
+Package: libomxil-bellagio-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libomxil-bellagio (= ${binary:Version})
+Description: documentation for libomxil-bellagio userspace tools
+ This package provides man pages for the userspace tools provided by
+ libomxil-bellagio.

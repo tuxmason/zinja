@@ -1,0 +1,30 @@
+Source: libvdpau
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxext-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/VDPAU/
+
+Package: libvdpau
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Nvidia VDPAU library
+ VDPAU is the Video Decode and Presentation API for UNIX. 
+ It provides an interface to video decode acceleration and 
+ presentation hardware present in modern GPUs.
+ .
+ This package provides libvdpau, a shared library which 
+ contains VDPAU API routines.
+
+Package: libvdpau-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxext-dev, libvdpau (= ${binary:Version})
+Description: libvdpau development headers and pkgconfig data
+ This package provides the libvdpau pkgconfig data and header 
+ files required for developing applications which use VDPAU 
+ API routines.

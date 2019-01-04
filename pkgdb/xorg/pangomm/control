@@ -1,0 +1,30 @@
+Source: pangomm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcairomm-dev, libsigc++-dev, 
+ glib2-dev, libglibmm-dev, libpango-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gtkmm.org/
+
+Package: libpangomm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Provides: pangomm (= ${binary:Version})
+Depends: ${shlibs:Depends}
+Description: C++ bindings for Pango
+ This package provides libpangomm, a shared library
+ which provides C++ bindings for Pango.
+
+Package: libpangomm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: pangomm-dev (= ${binary:Version})
+Depends: libpangomm (= ${binary:Version}), libcairomm-dev, 
+ libsigc++-dev, glib2-dev, libglibmm-dev, libpango-dev
+Description: Pangomm development headers and static libraries
+ This package provides the libpangomm static library, 
+ pkgconfig data and header files required for developing 
+ applications which use Pango C++ API routines.

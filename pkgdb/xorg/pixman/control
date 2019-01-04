@@ -1,0 +1,27 @@
+Source: pixman
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://xorg.freedesktop.org/
+
+Package: libpixman
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides low level pixel manipulation routines
+ This package provides libpixman, a shared library which
+ provides ow-level pixel manipulation features such as image 
+ compositing and trapezoid rasterization. 
+
+Package: libpixman-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev, libpixman (= ${binary:Version})
+Description: libpixman development headers and static library
+ This package provides the libpixman static library, pkgconfig 
+ data and header files required for developing applications 
+ which use libpixman API routines.

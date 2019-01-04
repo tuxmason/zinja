@@ -1,0 +1,5 @@
+usr/lib/libva-drm.so.2.300.0
+usr/lib/libva-glx.so.2.300.0
+usr/lib/libva-wayland.so.2.300.0
+usr/lib/libva-x11.so.2.300.0
+usr/lib/libva.so.2.300.0

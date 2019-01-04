@@ -1,0 +1,10 @@
+usr/lib/libva-drm.so.2.300.0 usr/lib/libva-drm.so.2
+usr/lib/libva-drm.so.2 usr/lib/libva-drm.so
+usr/lib/libva-glx.so.2.300.0 usr/lib/libva-glx.so.2
+usr/lib/libva-glx.so.2 usr/lib/libva-glx.so
+usr/lib/libva-wayland.so.2.300.0 usr/lib/libva-wayland.so.2
+usr/lib/libva-wayland.so.2 usr/lib/libva-wayland.so
+usr/lib/libva-x11.so.2.300.0 usr/lib/libva-x11.so.2
+usr/lib/libva-x11.so.2 usr/lib/libva-x11.so
+usr/lib/libva.so.2.300.0 usr/lib/libva.so.2
+usr/lib/libva.so.2 usr/lib/libva.so

@@ -1,2 +1,2 @@
-0001-cairo-Fix-CVE-2017-9814.patch
+musl-stacksize.patch
 cairo-get_bitmap_surface-bsc1036789-CVE-2017-7475.diff

@@ -1,0 +1,4 @@
+usr/lib/cairo/*.so
+usr/lib/libcairo.so.2.11600.0
+usr/lib/libcairo-gobject.so.2.11600.0
+usr/lib/libcairo-script-interpreter.so.2.11600.0

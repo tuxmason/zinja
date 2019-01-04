@@ -1,5 +1,5 @@
 PKGNAME := cairo
-PKGVER := 1.14.12
+PKGVER := 1.16.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -8,15 +8,21 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://www.cairographics.org/releases/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--enable-gl \
+	--enable-xml \
 	--enable-tee \
-	--sysconfdir=/etc \
 	--enable-xlib-xcb \
 	--disable-gtk-doc \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
 	--build=$(BUILDARCH) \
-	--host=$(TARGETARCH)
+	--host=$(TARGETARCH) \
+	--with-html-dir=/usr/share/doc/$(PKGNAME)-$(PKGVER)/html
 
-CC := "${CC} "
-CXX := "${CXX} "
-LDFLAGS := "-L$(SYSROOTDIR)/usr/lib -L$(SYSROOTDIR)/usr/lib"
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
-PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

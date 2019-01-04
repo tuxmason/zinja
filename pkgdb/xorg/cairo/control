@@ -1,0 +1,52 @@
+Source: cairo
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), binutils-dev, libfontconfig-dev, libfreetype-dev, 
+ glib2-dev, libglvnd-dev, liblzo2-dev, libpixman-dev, libpng-dev, libx11-dev, 
+ libxcb-dev, libxext-dev, libxrender-dev
+Standards-Version: 3.9.5
+Homepage: https://cairographics.org/
+
+Package: libcairo
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a 2D graphics library with support for multiple output devices
+ This package provides libcairo, a set of shared libraries 
+ which provide routines for rendering 2D graphics to various
+ output targets. 
+
+Package: libcairo-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libcairo (= ${binary:Version}), binutils-dev, libfontconfig-dev, 
+ libfreetype-dev, glib2-dev, libglvnd-dev, liblzo2-dev, libpixman-dev, 
+ libpng-dev, libx11-dev, libxcb-dev, libxext-dev, libxrender-dev
+Description: libcairo development headers and static libraries
+ This package provides libcairo static libraries, pkgconfig 
+ data and header files required for developing applications 
+ which use Cairo API routines.
+
+Package: cairo
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: cairo userspace tools
+ Cairo is a 2D graphics library with support for multiple 
+ output devices.
+ .
+ This package provides cairo userspace utilities.
+
+Package: cairo-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links
+Provides: libcairo-doc
+Depends: cairo (= ${binary:Version})
+Description: Cairo html documentation
+ This package provides html documentation for the Cairo API.

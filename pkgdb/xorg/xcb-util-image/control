@@ -1,0 +1,27 @@
+Source: xcb-util-image
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-util-dev
+Standards-Version: 3.9.5
+Homepage: https://xcb.freedesktop.org
+
+Package: libxcb-image
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a Port of Xlib's XImage and XShmImage functions
+ This package provides libxcb-image, a shared library which 
+ contains a port of Xlib's XImage and XShmImage functions.
+
+Package: libxcb-image-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxcb-util-dev, libxcb-image (= ${binary:Version})
+Description: libxcb-image headers and static libraries
+ This package provides the libxcb-image static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libxcb-image API routines.
+

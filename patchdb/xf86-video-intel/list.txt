@@ -1,1 +1,0 @@
-disable-setuid.patch

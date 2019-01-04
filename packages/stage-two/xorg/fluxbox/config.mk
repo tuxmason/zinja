@@ -7,12 +7,18 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://downloads.sourceforge.net/$(PKGNAME)/$(PKGSRC)
 COPTS := --prefix=/usr \
+	--enable-imlib2 \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
-	--enable-imlib2 \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
 
-CC := "${CC} "
-CXX := "${CXX} "
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
-PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

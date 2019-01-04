@@ -1,0 +1,30 @@
+Source: fluxbox
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libfontconfig-dev, libfreetype-dev,
+ libfribidi-dev, libimlib2-dev, libx11-dev, libxext-dev, libxft-dev,
+ libxinerama-dev, libxpm-dev, libxrandr-dev, libxrender-dev
+Standards-Version: 3.9.5
+Homepage: http://www.fluxbox.org/
+
+Package: fluxbox
+Section: utils
+Architecture: ARCH
+Replaces: ncursesw
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A lightweight and highly-configurable window manager
+ Fluxbox is a lightweight and highly-configurable window 
+ manager for X. It is very light on resources and easy to 
+ handle but yet full of features to make an easy, and extremely 
+ fast, desktop experience.
+
+Package: fluxbox-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: fluxbox (= ${binary:Version})
+Description: fluxbox documentation
+ This package provides manual pages for fluxbox.

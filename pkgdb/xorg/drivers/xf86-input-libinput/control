@@ -1,0 +1,41 @@
+Source: xf86-input-libinput
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libinput-dev, xorg-server-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xf86-input-libinput
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X.Org Libinput Driver 
+ This package provides the X.Org Libinput Driver is a 
+ thin wrapper around libinput which allows for libinput 
+ to be used for managing input devices in X. 
+ .
+ This driver can be used as as drop-in replacement for 
+ evdev and synaptics. 
+
+Package: xf86-input-libinput-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: xf86-input-libinput (= ${binary:Version}), libinput-dev, 
+ xorg-server-dev
+Description: xf86-input-libinput headers and pkgconfig data
+ This packag provides headers and pkgconfig data required
+ to build applications or X server extensions which use the
+ X.Org Libinput Driver API.
+
+Package: xf86-input-libinput-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xf86-input-libinput (= ${binary:Version})
+Recommends: man-db
+Description: X.Org Libinput Driver documentation
+ This package provides X.Org Libinput Driver html documentation.
+

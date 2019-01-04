@@ -1,0 +1,26 @@
+Source: xf86-video-intel
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xorg-server-dev
+Standards-Version: 3.9.5
+Homepage: https://01.org/linuxgraphics
+
+Package: xf86-video-intel
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X.org video driver for Intel i810/i830/i915/945G/G965+
+ This package provides the X.Org video driver for Intel
+ i810/i830/i915/945G/G965+ graphics cards and Intel GPUs.
+
+Package: xf86-video-intel-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xf86-video-intel (= ${binary:Version})
+Recommends: man-db
+Description: documentation for X.org Intel video driver userspace tools
+ This package provides man pages for the X.Org Intel video 
+ driver userspace tools.

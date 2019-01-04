@@ -1,0 +1,28 @@
+Source: xf86-input-vmmouse
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xorg-server-dev, systemd-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xf86-input-vmmouse
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Xorg VMMouse Driver
+ This package provides the VMMouse input driver for the Xorg 
+ X server. The VMMouse driver enables support for the special 
+ VMMouse protocol which provides absolute pointer positioning
+ for VMware and Qemu virtual machines.
+
+Package: xf86-input-vmmouse-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xf86-input-vmmouse (= ${binary:Version})
+Recommends: man-db
+Description: X.Org VMMouse Driver documentation
+ This package provides man pages for the X.Org VMMouse Driver 
+ API and userspace tools.

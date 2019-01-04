@@ -1,0 +1,27 @@
+Source: xf86-video-ati
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xorg-server-dev, systemd-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xf86-video-ati
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X.Org Video Driver for ATI Radeon video cards
+ This package provides the X.Org Video Driver for ATI Radeon 
+ video cards including all chipsets ranging from R100 to the 
+ "Volcanic Islands" chipsets.
+
+Package: xf86-video-ati-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xf86-video-ati (= ${binary:Version})
+Recommends: man-db
+Description: X.Org ATI Radeon video driver documentation
+ This package provides man pages for the X.Org ATI Radeon 
+ video driver.

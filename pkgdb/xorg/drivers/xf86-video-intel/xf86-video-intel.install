@@ -1,0 +1,4 @@
+usr/bin
+usr/share/polkit-1
+usr/lib/libIntelXvMC.so.1.0.0
+usr/lib/xorg/modules/drivers/intel_drv.so

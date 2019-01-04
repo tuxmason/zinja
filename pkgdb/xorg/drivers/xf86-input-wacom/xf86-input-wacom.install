@@ -1,0 +1,5 @@
+usr/bin
+lib/udev
+lib/systemd
+usr/share/X11
+usr/lib/xorg/modules/input/wacom_drv.so

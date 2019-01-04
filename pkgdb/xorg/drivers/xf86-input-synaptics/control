@@ -1,0 +1,40 @@
+Source: xf86-input-synaptics
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libevdev-dev, xorg-server-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xf86-input-synaptics
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Xorg Synaptics Driver
+ This package provides the X.Org Synaptics Driver and support
+ tools. Even though the evdev driver can handle touchpads very 
+ well, this driver is required if you want to use advanced 
+ features like multi tapping, scrolling with touchpad, turning 
+ the touchpad off while typing, et cetera.
+
+Package: xf86-input-synaptics-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: xf86-input-synaptics (= ${binary:Version}), libevdev-dev, 
+ xorg-server-dev
+Description: Xorg Synaptics Driver headers and pkgconfig data
+ This packag provides headers and pkgconfig data required
+ to build applications or X server extensions which use the
+ X.Org Synaptics Driver API.
+
+Package: xf86-input-synaptics-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xf86-input-synaptics (= ${binary:Version})
+Recommends: man-db
+Description: X.Org Synaptics Driver documentation
+ This package provides man pages for the X.Org Synaptics 
+ Driver API and userspace tools.

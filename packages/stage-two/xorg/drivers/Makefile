@@ -2,36 +2,27 @@
 include ../../../../conf/environment.mk
 include ../../../../conf/shell-env.mk
 
-common: libevdev.o libinput.o xf86-input-evdev.o xf86-input-libinput.o xf86-input-synaptics.o \
-	xf86-video-fbdev.o xf86-input-wacom.o xf86-video-amdgpu.o xf86-video-ati.o xf86-video-nouveau.o
+common-drivers := xf86-input-evdev.o xf86-input-libinput.o xf86-input-synaptics.o \
+	xf86-video-fbdev.o xf86-input-wacom.o xf86-input-vmmouse.o
 
-x86_64: xf86-input-vmmouse.o xf86-video-vmware.o xf86-video-intel.o
+x86_64-drivers := xf86-video-vmware.o xf86-video-intel.o xf86-video-amdgpu.o \
+	xf86-video-ati.o xf86-video-nouveau.o
 
-ifeq ($(ARCH),arm)
-	xorg-drivers: common
+ifeq ($(ARCH),$(filter $(ARCH),arm aarch64))
+	build-drivers := $(common-drivers)
 endif
 
 ifeq ($(ARCH),x86_64)
-	xorg-drivers: common x86_64
+	build-drivers := $(common-drivers) $(x86_64-drivers)
 endif
 
-all: xorg-drivers
+all: $(build-drivers)
 
-
-libevdev.o:
-	@echo "libevdev started $(shell date -R) "
-	(make -C libevdev 2>&1 | tee $(PKGLOGDIR)/xf86-input-evdev.log && exit $$PIPESTATUS)
-	@echo "libevdev finished $(shell date -R) "
 
 xf86-input-evdev.o:
 	@echo "xf86-input-evdev started $(shell date -R) "
 	(make -C xf86-input-evdev 2>&1 | tee $(PKGLOGDIR)/xf86-input-evdev.log && exit $$PIPESTATUS)
 	@echo "xf86-input-evdev finished $(shell date -R) "
-
-libinput.o:
-	@echo "libinput started $(shell date -R) "
-	(make -C libinput 2>&1 | tee $(PKGLOGDIR)/libinput.log && exit $$PIPESTATUS)
-	@echo "libinput finished $(shell date -R) "
 
 xf86-input-libinput.o:
 	@echo "xf86-input-libinput started $(shell date -R) "
@@ -84,8 +75,6 @@ xf86-video-intel.o:
 	@echo "xf86-video-intel finished $(shell date -R) "
 
 clean:
-	@for pkg in `ls | grep -v Makefile`; do \
-		make -C $$pkg clean ;\
-	done ;\
-  
+	@find . -maxdepth 1 -mindepth 1 -type d -exec make -C "{}" clean \; || exit 1 ;\
+
 PHONY: all xorg-drivers

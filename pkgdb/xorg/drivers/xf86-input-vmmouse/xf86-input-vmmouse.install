@@ -1,0 +1,4 @@
+usr/bin
+lib/udev
+usr/share/X11
+usr/lib/xorg/modules/input/vmmouse_drv.so

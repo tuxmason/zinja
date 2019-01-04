@@ -1,0 +1,40 @@
+Source: xf86-input-evdev
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xorg-server-dev, libevdev-dev, 
+ libmtdev-dev, systemd-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xf86-input-evdev
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Generic Linux input driver for the Xorg X server 
+ This package provides the Xorg Evdev Driver. A generic 
+ Linux input driver for the Xorg X server. 
+ .
+ It handles keyboard, mouse, touchpads and wacom devices.
+
+Package: xf86-input-evdev-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: xf86-input-evdev (= ${binary:Version}), xorg-server-dev, 
+ libevdev-dev, libmtdev-dev, systemd-dev
+Description: Xorg Evdev Driver headers and pkgconfig data
+ This package provides headers and pkgconfig data required 
+ to build applications or X server extensions which use the
+ Xorg Evdev Driver API.
+
+Package: xf86-input-evdev-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xf86-input-evdev-dev (= ${binary:Version})
+Recommends: man-db
+Description: xf86-input-evdev documentation
+ This package provides man pages for the Xorg Evdev Driver API. 
+

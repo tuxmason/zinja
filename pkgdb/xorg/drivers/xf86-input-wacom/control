@@ -1,0 +1,39 @@
+Source: xf86-input-wacom
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xorg-server-dev, systemd-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xf86-input-wacom
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X.Org X11 driver for Wacom and Wacom-like tablets
+ This package provides the X.Org X11 driver for Wacom and 
+ Wacom-like tablets.
+ .
+ Also included are userspace tools for testing, querying 
+ and modifying wacom driver settings.
+
+Package: xf86-input-wacom-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: xf86-input-wacom (= ${binary:Version}), xorg-server-dev, systemd-dev
+Description: X.Org X11 SDK for Wacom and Wacom-like tablets
+ This package provides headers and pkgconfig data required
+ to build applications or X server extensions which use the
+ X.Org X11 Wacom Driver SDK.
+
+Package: xf86-input-wacom-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xf86-input-wacom (= ${binary:Version})
+Recommends: man-db
+Description: X.Org X11 Wacom Driver documentation
+ This package provides man pages for the X.Org X11 Driver 
+ API and userspace tools.

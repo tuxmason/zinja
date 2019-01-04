@@ -1,0 +1,40 @@
+Source: cairomm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcairo-dev, libsigc++-dev
+Standards-Version: 3.9.5
+Homepage: https://cairographics.org/
+
+Package: libcairomm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Provides: cairomm (= ${binary:Version})
+Depends: ${shlibs:Depends}
+Description: a C++ interface to Cairo
+ This package provides libcairomm, a shared library
+ which provides C++ bindings for Cairo.
+
+Package: libcairomm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libcairomm (= ${binary:Version}), libcairo-dev, 
+ libsigc++-dev
+Provides: cairomm-dev (= ${binary:Version})
+Description: Cairomm development headers and static libraries
+ This package provides the libcairomm static library, 
+ pkgconfig data and header files required for developing 
+ applications which use Cairo C++ API routines.
+
+Package: libcairomm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links
+Provides: cairomm-doc (= ${binary:Version})
+Depends: libcairomm (= ${binary:Version})
+Description: documentation for Cairomm
+ This package provides html documentation for the Cairo C++ 
+ API.

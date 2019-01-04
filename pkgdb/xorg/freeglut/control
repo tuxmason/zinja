@@ -1,0 +1,34 @@
+Source: freeglut
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libglvnd-dev, libice-dev, 
+ libsm-dev, libx11-dev, libxext-dev, libxi-dev, libxrandr-dev, 
+ libxxf86vm-dev, libmesa-dev
+Standards-Version: 3.9.5
+Homepage: http://cgit.freedesktop.org/mesa/freeglut/
+
+Package: libglut
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: alternative to the OpenGL Utility Toolkit (GLUT) library
+ FreeGLUT is a free-software/open-source alternative to the OpenGL 
+ Utility Toolkit (GLUT) library.
+ .
+ This package provides libglut, a shared library which contains 
+ OpenGL utility API routines.
+
+Package: libglut-dev
+Section: libdevel
+Priority: optional
+Provides: freeglut-dev
+Architecture: ARCH
+Depends: libglut (= ${binary:Version}), libglvnd-dev, libice-dev, 
+ libsm-dev, libx11-dev, libxext-dev, libxi-dev, libxrandr-dev, 
+ libxxf86vm-dev, libmesa-dev
+Description: libglut development headers and static library
+ This package provides the libglut static library, pkgconfig
+ data and header files required for developing applications which
+ use libglut API routines.

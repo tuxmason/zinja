@@ -1,0 +1,16 @@
+Source: gelasio
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontscale, mkfontdir
+Standards-Version: 3.9.5
+Homepage: https://fontlibrary.org/en/font/gelasio
+
+Package: gelasio
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: xcursor-themes, mkfontscale, mkfontdir
+Description: a font which is metrically comaptible with Georgia.
+ Gelasio is a Google font that is metrically comaptible 
+ with MS Georgia.

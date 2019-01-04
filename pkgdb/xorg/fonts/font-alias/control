@@ -1,0 +1,16 @@
+Source: font-alias
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xcursor-themes, mkfontscale
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: font-alias
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: xcursor-themes
+Description: X.Org font aliases
+ This package provides X.Org font aliases.
+

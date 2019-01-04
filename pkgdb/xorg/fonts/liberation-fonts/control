@@ -1,0 +1,17 @@
+Source: liberation-fonts-ttf
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontscale, mkfontdir
+Standards-Version: 3.9.5
+Homepage: https://github.com/liberationfonts/liberation-fonts
+
+Package: liberation-fonts
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: xcursor-themes, mkfontscale, mkfontdir
+Description: substitutes for Arial, Courier New, and Times New Roman
+ The Liberation(tm) Fonts is a font family which aims 
+ at metric compatibility with Arial, Times New Roman, 
+ and Courier New.

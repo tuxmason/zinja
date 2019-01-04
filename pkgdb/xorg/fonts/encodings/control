@@ -1,0 +1,16 @@
+Source: encodings
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xcursor-themes, mkfontscale
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: encodings
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: xcursor-themes
+Description: X.org font encoding files 
+ This package provides X.org font encoding files.
+

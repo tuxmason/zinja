@@ -1,0 +1,19 @@
+Source: dejavu-fonts-ttf
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontscale, mkfontdir
+Standards-Version: 3.9.5
+Homepage: https://sourceforge.net/projects/dejavu/
+
+Package: dejavu-fonts-ttf
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: xcursor-themes, mkfontscale, mkfontdir
+Description: a font family based on the Bitstream Vera Fonts
+ The DejaVu fonts are a font family based on the Bitstream 
+ Vera Fonts. Its purpose is to provide a wider range of 
+ characters while maintaining the original look and feel.
+ .
+ This package provides DejaVu TTF fonts.

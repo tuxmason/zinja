@@ -1,0 +1,20 @@
+Source: freefont
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontscale, mkfontdir
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/freefont/
+
+Package: freefont
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: xcursor-themes, mkfontscale, mkfontdir
+Description: Set of free outline fonts covering the Unicode character set
+ GNU FreeFont is a free family of scalable outline fonts, 
+ suitable for general use on computers and for desktop 
+ publishing. 
+ .
+ It is Unicode-encoded for compatibility with all modern 
+ operating systems.

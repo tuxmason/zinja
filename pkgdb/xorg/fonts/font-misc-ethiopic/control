@@ -1,0 +1,15 @@
+Source: font-misc-ethiopic
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontdir, xcursor-themes
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: font-misc-ethiopic
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: mkfontdir, xcursor-themes
+Description: miscellaneous Ethiopic fonts 
+ This package provides miscellaneous Ethiopic fonts.

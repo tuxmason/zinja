@@ -1,0 +1,17 @@
+Source: crosextrafonts
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontscale, mkfontdir
+Standards-Version: 3.9.5
+Homepage: https://code.google.com/p/chromium/issues/detail?id=280557
+
+Package: caladea
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: xcursor-themes, mkfontscale, mkfontdir
+Description: Google's Caladea font
+ Caladea is metrically compatible with MS Cambria and can 
+ be used if you have to edit a document which somebody started 
+ in Microsoft Office using Cambria and then return it to them.

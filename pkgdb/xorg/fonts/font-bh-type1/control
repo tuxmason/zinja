@@ -1,0 +1,17 @@
+Source: font-bh-type1
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xcursor-themes, mkfontdir
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: font-bh-type1
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: xcursor-themes, mkfontdir
+Description: X.Org Bigelow & Holmes Type 1 fonts 
+ This package provides X.Org Bigelow & Holmes 
+ Type 1 fonts.
+

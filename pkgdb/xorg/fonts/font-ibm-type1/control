@@ -1,0 +1,15 @@
+Source: font-ibm-type1
+Section: fonts
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontdir, xcursor-themes
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: font-ibm-type1
+Section: fonts
+Architecture: ARCH
+Priority: optional
+Depends: mkfontdir, xcursor-themes
+Description: X.Org IBM Courier font
+ This package provides X.Org IBM Courier font.

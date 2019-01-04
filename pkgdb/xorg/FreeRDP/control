@@ -1,0 +1,41 @@
+Source: freerdp
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libexecinfo-dev, systemd-dev, 
+ libwayland-dev, libx11-dev, libxkbcommon-dev, libxkbfile-dev, 
+ openssl-dev
+Standards-Version: 3.9.5
+Homepage: http://www.freerdp.com/
+
+Package: libfreerdp
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: FreeRDP shared libraries
+ FreeRDP is a free implementation of the Remote Desktop
+ Protocol (RDP).
+ .
+ This package provides FreeRDP shared libraries.
+
+Package: freerdp
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: FreeRDP userspace tools
+ This package provides FreeRDP userspace tools.
+
+Package: libfreerdp-dev
+Section: libdevel
+Priority: optional
+Provides: freerdp-dev
+Architecture: ARCH
+Depends: freerdp (= ${binary:Version}), libexecinfo-dev, systemd-dev, 
+ libwayland-dev, libx11-dev, libxkbcommon-dev, libxkbfile-dev, 
+ openssl-dev
+Description: FreeRDP development headers and pkgconfig data
+ This package provides FreeRDP pkgconfig data and header 
+ files required for developing applications which use 
+ FreeRDP API routines.

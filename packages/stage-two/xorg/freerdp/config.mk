@@ -1,15 +1,19 @@
 PKGNAME := FreeRDP
-PKGVER := 2.0.0-rc1
+DEBPKGNAME := freerdp
+PKGVER := 2.0.0-rc2
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/freerdp/list.txt
 PATCHDIR := $(PATCHDB)/freerdp
-SRCURL := https://github.com/FreeRDP/FreeRDP/archive/2.0.0-rc1.tar.gz
+SRCURL := https://github.com/FreeRDP/FreeRDP/archive/$(PKGSRC)
 COPTS := -D BUILD_SHARED_LIBS=ON \
 	-D WITH_FFMPEG=OFF \
 	-D WITH_CUPS=OFF \
 	-D WITH_MANPAGES=OFF \
+	-D CMAKE_SKIP_RPATH=ON \
+	-D CMAKE_CROSSCOMPILING=1 \
+	-D CMAKE_SYSTEM_NAME=Linux \
 	-D CMAKE_BUILD_TYPE=Release \
 	-D CMAKE_INSTALL_PREFIX=/usr \
 	-D CMAKE_INSTALL_SYSCONFDIR=/etc \
@@ -23,18 +27,27 @@ COPTS := -D BUILD_SHARED_LIBS=ON \
 	-D WAYLAND_SCANNER:FILEPATH=$(CROSSTOOLS)/bin/wayland-scanner
 
 ifeq ($(ARCH),arm)
-        COPTS := $(COPTS) \
-		-D CMAKE_CROSSCOMPILING=1 \
-		-D CMAKE_SYSTEM_NAME=Linux \
+	COPTS := $(COPTS) \
 		-D CMAKE_SYSTEM_PROCESSOR=arm
 endif
 
+ifeq ($(ARCH),aarch64)
+	COPTS := $(COPTS) \
+		-D CMAKE_SYSTEM_PROCESSOR=aarch64
+endif
+
 ifeq ($(ARCH),x86_64)
-        COPTS := $(COPTS) \
-		-D CMAKE_CROSSCOMPILING=1 \
-		-D CMAKE_SYSTEM_NAME=Linux \
+	COPTS := $(COPTS) \
 		-D CMAKE_SYSTEM_PROCESSOR=x86_64
 endif
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
+LDFLAGS := "-lexecinfo"
+
+PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
+ORIGSRC := $(DEBPKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

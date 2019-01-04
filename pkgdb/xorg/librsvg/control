@@ -1,0 +1,50 @@
+Source: librsvg
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcairo-dev, libcroco-dev, 
+ libfontconfig-dev, libfreetype-dev, libgdk-pixbuf-dev, 
+ glib2-dev, libpango-dev, libpng-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Projects/LibRsvg
+
+Package: librsvg
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides functions for rendering Scalable Vector Graphics
+ This package provides librsvg, a shared library which
+ provides API routines for manipulating and rendering 
+ Scalable Vector Graphics(SVG).
+
+Package: librsvg-bin
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: userspace tools for handling SVG files
+ This package provides tools for converting and viewing
+ SVG files.
+
+Package: librsvg-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: librsvg (= ${binary:Version}), libcairo-dev, libcroco-dev, 
+ libfontconfig-dev, libfreetype-dev, libgdk-pixbuf-dev, 
+ glib2-dev, libpango-dev, libpng-dev, libxml2-dev
+Description: librsvg development headers and static library
+ This package provides the librsvg static library, 
+ pkgconfig data and header files required for developing 
+ applications which use librsvg API routines.
+
+Package: librsvg-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: librsvg-bin (= ${binary:Version})
+Description: documentation for librsvg's userspace tools
+ This package provides manual pages for librsvg's userspace 
+ tools.

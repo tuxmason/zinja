@@ -1,0 +1,113 @@
+diff -ura a/apps/sethost.c b/apps/sethost.c
+--- a/apps/sethost.c	2008-10-20 15:57:11.000000000 +0300
++++ b/apps/sethost.c	2019-01-01 22:44:25.003494828 +0300
+@@ -23,7 +23,7 @@
+ #include <sys/ioctl.h>
+ #include <sys/types.h>
+ #include <sys/time.h>
+-#include <sys/fcntl.h>
++#include <fcntl.h>
+ #include <netdnet/dn.h>
+ #include <netdnet/dnetdb.h>
+ #include "cterm.h"
+@@ -36,7 +36,7 @@
+ 
+ struct	sockaddr_dn		sockaddr;
+ struct	accessdata_dn		accessdata;
+-struct	termio			raw,cooked;
++struct	termios			raw,cooked;
+ struct	logical_terminal_characteristics
+ 				log_char = {FALSE,3,{5,'V','T','2','0','0'}
+ 					    ,TRUE,
+@@ -689,7 +689,7 @@
+ 	}
+         fcntl(ttyfd, F_SETFL, fcntl(ttyfd, F_GETFL, 0) | O_NONBLOCK);
+ 
+-	memcpy(&raw,&cooked,sizeof(struct termio));
++	memcpy(&raw,&cooked,sizeof(struct termios));
+ 
+ 	raw.c_iflag &= INLCR;
+ 	raw.c_lflag &= ~(ICANON | ISIG | ECHO);
+diff -ura a/dncopy/unixfile.cc b/dncopy/unixfile.cc
+--- a/dncopy/unixfile.cc	2010-07-23 11:17:19.000000000 +0300
++++ b/dncopy/unixfile.cc	2019-01-01 22:44:39.819494506 +0300
+@@ -18,12 +18,11 @@
+ #include <sys/stat.h>
+ #include <sys/param.h>
+ #include <string.h>
++
+ #include "file.h"
+ #include "unixfile.h"
+ 
+-#ifdef __FreeBSD__
+ #include <libgen.h>
+-#endif
+ 
+ // basename() is in libc but not in my header files
+ //extern "C" char *basename(const char *);
+diff -ura a/libdaemon/dnet_priv_check.c b/libdaemon/dnet_priv_check.c
+--- a/libdaemon/dnet_priv_check.c	2011-12-09 17:40:25.000000000 +0300
++++ b/libdaemon/dnet_priv_check.c	2019-01-01 22:46:27.355492166 +0300
+@@ -23,6 +23,8 @@
+ #include <stdlib.h>
+ #include <ctype.h>
+ 
++#include <sys/types.h>
++
+ #include <netdnet/dn.h>
+ #include <netdnet/dnetdb.h>
+ 
+diff -ura a/librms/close.cc b/librms/close.cc
+--- a/librms/close.cc	2008-08-20 15:43:59.000000000 +0300
++++ b/librms/close.cc	2019-01-01 22:45:09.207493866 +0300
+@@ -23,6 +23,10 @@
+ #include <stdarg.h>
+ #include <string.h>
+ #include <errno.h>
++
++#include <stdio.h>
++#include <sys/types.h>
++
+ #include <netdnet/dn.h>
+ #include <netdnet/dnetdb.h>
+ #include "connection.h"
+diff -ura a/librms/getreply.cc b/librms/getreply.cc
+--- a/librms/getreply.cc	2008-08-20 15:43:59.000000000 +0300
++++ b/librms/getreply.cc	2019-01-01 22:45:46.524493055 +0300
+@@ -24,6 +24,9 @@
+ #include <stdarg.h>
+ #include <string.h>
+ #include <errno.h>
++
++#include <sys/types.h>
++
+ #include <netdnet/dn.h>
+ #include <netdnet/dnetdb.h>
+ #include "connection.h"
+diff -ura a/librms/parse.cc b/librms/parse.cc
+--- a/librms/parse.cc	2012-03-10 13:37:48.000000000 +0300
++++ b/librms/parse.cc	2019-01-01 22:46:07.646492595 +0300
+@@ -217,8 +217,8 @@
+     if (!options) return true;
+ 
+ // Oh dear, oh dear, oh dear.
+-#ifdef __va_copy
+-    __va_copy(vlp.ap, ap);
++#ifdef va_copy
++    va_copy(vlp.ap, ap);
+ #else
+     vlp.ap = ap;
+ #endif
+diff -ura a/librms/readwrite.cc b/librms/readwrite.cc
+--- a/librms/readwrite.cc	2008-08-20 15:43:59.000000000 +0300
++++ b/librms/readwrite.cc	2019-01-01 22:45:28.122493455 +0300
+@@ -24,6 +24,9 @@
+ #include <errno.h>
+ #include <stdio.h>
+ #include <stdarg.h>
++
++#include <sys/types.h>
++
+ #include <netdnet/dn.h>
+ #include <netdnet/dnetdb.h>
+ #include "connection.h"

@@ -1,0 +1,44 @@
+Source: dnprogs
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev, libncursesw-dev
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/ubuntu/+source/dnprogs
+
+Package: libdnet
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides DECnet runtime routines
+ This package provides libdnet, a set of shared libraries 
+ which contain runtime routines required by DECnet programs.
+
+Package: libdnet-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libdnet (= ${binary:Version}), gcc-dev, libncursesw-dev
+Description: libdnet development headers and static libraries
+ This package provides libdnet static libraries and header 
+ files required for developing applications which use DECnet 
+ API functions.
+
+Package: dnprogs
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: DECnet userspace tools
+ This package provides DECnet userspace utilities.
+
+Package: dnprogs-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: dnprogs (= ${binary:Version})
+Description: manual pages for DECnet userspace tools
+ This package provides manual pages for DECnet userspace 
+ tools.

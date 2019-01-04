@@ -1,0 +1,5 @@
+usr/bin
+usr/sbin
+etc/dnetd.conf
+etc/decnet.proxy
+etc/decnet.conf.sample

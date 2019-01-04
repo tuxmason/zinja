@@ -1,0 +1,27 @@
+Source: xcb-util-renderutil
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xcb.freedesktop.org
+
+Package: libxcb-render-util
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description:  Convenience functions for the Render extension
+ This package provides libxcb-render-util, a shared library
+ which contains convenience functions for the Render extension.
+
+Package: libxcb-render-util-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxcb-dev, libxcb-render-util (= ${binary:Version})
+Description: libxcb-render-util headers and static library
+ This package provides the libxcb-render-util static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libxcb-render-util API routines.
+

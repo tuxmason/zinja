@@ -1,0 +1,36 @@
+Source: telepathy-glib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libdbus-glib-dev, glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://telepathy.freedesktop.org/
+
+Package: libtelepathy-glib
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Provides: telepathy-glib (= ${binary:Version})
+Description: a D-Bus framework for unifying real time communication
+ Telepathy is a D-Bus framework for unifying real time 
+ communication, including instant messaging, voice calls 
+ and video calls. 
+ .
+ It abstracts differences between protocols to provide a 
+ unified interface for applications.
+ .
+ This package provides libtelepathy-glib, a shared library
+ which contains Telepathy GLib runtime functions.
+
+Package: libtelepathy-glib-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: telepathy-glib-dev (= ${binary:Version})
+Depends: libtelepathy-glib (= ${binary:Version}), libdbus-glib-dev, 
+ glib2-dev
+Description: telepathy-glib headers and static library
+ This package provides the Telepathy GLib static library, 
+ headers and pkgconfig data required to develop applications, 
+ libraries or plugins which use the telepathy-glib API.

@@ -1,0 +1,28 @@
+Source: xcb-util-keysyms
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xcb.freedesktop.org
+
+Package: libxcb-keysyms
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: routines for handling X key constants and conversions
+ This package provides libxcb-keysyms, a shared library which 
+ contains routines for handling standard X key constants and 
+ conversion to/from keycodes.
+
+Package: libxcb-keysyms-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxcb-dev, libxcb-keysyms (= ${binary:Version})
+Description: libxcb-keysyms headers and static library
+ This package provides the libxcb-keysyms static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libxcb-keysyms API routines.
+

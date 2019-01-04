@@ -1,0 +1,8 @@
+etc
+usr/lib/gtk-2.0/modules/*.so
+usr/lib/libgailutil.so.18.0.1
+usr/lib/libgdk-x11-2.0.so.0.2400.32
+usr/lib/libgtk-x11-2.0.so.0.2400.32
+usr/lib/gtk-2.0/2.10.0/engines/*.so
+usr/lib/gtk-2.0/2.10.0/immodules/*.so
+usr/lib/gtk-2.0/2.10.0/printbackends/*.so

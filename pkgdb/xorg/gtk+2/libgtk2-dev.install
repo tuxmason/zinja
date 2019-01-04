@@ -1,0 +1,9 @@
+usr/lib/*.a
+usr/include
+usr/lib/pkgconfig
+usr/share/aclocal
+usr/lib/gtk-2.0/include
+usr/lib/gtk-2.0/modules/*.a
+usr/lib/gtk-2.0/2.10.0/engines/*.a
+usr/lib/gtk-2.0/2.10.0/immodules/*.a
+usr/lib/gtk-2.0/2.10.0/printbackends/*.a

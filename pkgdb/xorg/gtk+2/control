@@ -1,0 +1,51 @@
+Source: gtk+
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libatk-dev, libcairo-dev, 
+ libfontconfig-dev, libgdk-pixbuf-dev, glib2-dev, libpango-dev,
+ xorg-server-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gtk.org/
+
+Package: libgtk2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GTK+ 2, an Object-based multi-platform GUI toolkit
+ GTK+, or the GIMP Toolkit, is a multi-platform toolkit for 
+ creating graphical user interfaces. Offering a complete set 
+ of widgets, GTK+ is suitable for projects ranging from small 
+ one-off tools to complete application suites.
+ .
+ This package provides GTK+ 2 shared libraries and modules.
+
+Package: libgtk2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: gtk2-dev (= ${binary:Version})
+Depends: libgtk2 (= ${binary:Version}), libatk-dev, libcairo-dev, 
+ libfontconfig-dev, libgdk-pixbuf-dev, glib2-dev, libpango-dev,
+ xorg-server-dev
+Description: GTK+ 2 development headers and static libraries
+ This package provides GTK+ 2 static libraries, pkgconfig data 
+ and header files required for developing applications which 
+ use GTK+ 2 API functions.
+
+Package: gtk2
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GTK+ 2 userspace tools
+ This package provides GTK+ 2 userspace utilities.
+
+Package: gtk2-demo
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}, libgtk2-dev (= ${binary:Version})
+Description: GTK+ 2 demos
+ This package provides GTK+ 2 demos.

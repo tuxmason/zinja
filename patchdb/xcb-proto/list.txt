@@ -1,2 +1,0 @@
-xcb-proto-1.12-python3-1.patch
-xcb-proto-1.12-schema-1.patch

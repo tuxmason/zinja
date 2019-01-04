@@ -26,7 +26,6 @@ patch: extract
 				echo -e " --- done --- \n"  ;\
 			done ;\
 		fi ;\
-		cp -v $(PATCHDIR)/$(PKGNAME).cache $(PKGOBJDIR) || exit 1 ;\
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
@@ -69,7 +68,8 @@ install-pkg: build-pkg
 	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
 		cd $(PKGROOT) ;\
 		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
-			xcb-proto_$(PKGVER)-1_$(PKGARCH).deb ) || exit 1 ;\
+			xorgproto_$(PKGVER)-1_$(PKGARCH).deb \
+			xorgproto-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 

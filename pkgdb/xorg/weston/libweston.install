@@ -1,0 +1,4 @@
+usr/lib/weston/*.so
+usr/lib/libweston-5/*.so
+usr/lib/libweston-5.so.0.0.0
+usr/lib/libweston-desktop-5.so.0.0.0

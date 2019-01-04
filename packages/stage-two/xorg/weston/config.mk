@@ -1,5 +1,5 @@
 PKGNAME := weston
-PKGVER := 3.0.0
+PKGVER := 5.0.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -8,9 +8,11 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://wayland.freedesktop.org/releases/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--with-pam \
+	--enable-static \
 	--enable-clients \
 	--enable-xwayland \
 	--sysconfdir=/etc \
+	--libexecdir=/usr/sbin \
 	--disable-setuid-install \
 	--enable-x11-compositor \
 	--enable-drm-compositor \
@@ -28,9 +30,11 @@ COPTS := --prefix=/usr \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH)
 
-CC := "${CC} "
-CXX := "${CXX} "
-LDFLAGS := "-L$(SYSROOTDIR)/usr/lib -L$(SYSROOTDIR)/usr/lib"
+CC := "${CC}"
+CXX := "${CXX}"
 
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
-PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

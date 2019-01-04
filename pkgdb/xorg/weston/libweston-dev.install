@@ -1,0 +1,5 @@
+usr/lib/*.a
+usr/include
+usr/lib/pkgconfig
+usr/lib/weston/*.a
+usr/lib/libweston-5/*.a

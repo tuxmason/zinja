@@ -1,0 +1,5 @@
+lib
+usr/bin
+usr/sbin
+usr/share/weston
+usr/share/wayland-sessions

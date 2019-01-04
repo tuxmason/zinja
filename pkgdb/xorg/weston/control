@@ -1,0 +1,60 @@
+Source: weston
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcairo-dev, libdrm-dev, 
+ glib2-dev, libglvnd-dev, libinput-dev, libjpeg-turbo-dev, 
+ libpam-dev, libpango-dev, libpixman-dev, libpng-dev, 
+ systemd-dev, libwayland-dev, libxkbcommon-dev
+Standards-Version: 3.9.5
+Homepage: https://wayland.freedesktop.org/
+
+Package: libweston
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides Weston API functions
+ Weston is the reference implementation of a Wayland 
+ compositor.
+ .
+ This package provides Weston shared libraries and 
+ modules.
+
+Package: libweston-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: weston-dev (= ${binary:Version})
+Depends: libweston (= ${binary:Version}), libcairo-dev, 
+ libdrm-dev, glib2-dev, libglvnd-dev, libinput-dev, 
+ libjpeg-turbo-dev, libpam-dev, libpango-dev, libpixman-dev, 
+ libpng-dev, systemd-dev, libwayland-dev, libxkbcommon-dev
+Description: Weston development headers and static libraries
+ This package provides Weston static libraries, 
+ pkgconfig data and header files required for 
+ developing applications which use Weston API 
+ routines.
+
+Package: weston
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: the reference implementation of a Wayland compositor
+ Weston is the reference implementation of a Wayland 
+ compositor, as well as a useful environment in and 
+ of itself.
+ .
+ This package provides the Weston compositor and its
+ associated support tools.
+
+Package: weston-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: weston (= ${binary:Version})
+Description: Weston documentation
+ This package provides manual pages for Weston and its
+ associated userspace tools.

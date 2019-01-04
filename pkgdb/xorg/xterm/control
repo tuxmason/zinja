@@ -1,0 +1,26 @@
+Source: xterm
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: http://invisible-island.net/xterm/
+
+Package: xterm
+Section: utils
+Architecture: ARCH
+Replaces: ncursesw
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X Terminal Emulator
+ This package provides xterm, a terminal emulator for 
+ the X Window System.
+
+Package: xterm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xterm (= ${binary:Version})
+Description: documentation for xterm, the X Terminal Emulator
+ This package provides manual pages for xterm.

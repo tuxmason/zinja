@@ -1,0 +1,15 @@
+Source: mesa-demos
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libc-dev
+Standards-Version: 3.9.5
+Homepage: http://mesa3d.sourceforge.net/
+
+Package: mesa-demos
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Mesa demos and tools
+ This package provides mesa demos and tools.

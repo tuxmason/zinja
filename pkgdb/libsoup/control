@@ -1,0 +1,31 @@
+Source: libsoup
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libpsl-dev, sqlite3-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Projects/libsoup
+
+Package: libsoup
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}, glib-networking
+Description: an HTTP client/server library for GNOME.
+ libsoup is an HTTP client/server library for GNOME. It uses 
+ GObjects and the glib main loop, to integrate well with GNOME 
+ applications, and also has a synchronous API, for use in 
+ threaded applications.
+ .
+ This package provides libsoup shared libraries.
+
+Package: libsoup-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libsoup (= ${binary:Version}), glib2-dev, libpsl-dev, 
+ sqlite3-dev, libxml2-dev
+Description: libsoup headers and pkgconfig data
+ This package provides libsoup, headers and pkgconfig data 
+ required to build applications, libraries or plugins which 
+ use libsoup API functions.

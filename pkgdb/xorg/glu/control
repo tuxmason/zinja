@@ -1,0 +1,27 @@
+Source: glu
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libglvnd-dev, libmesa-dev
+Standards-Version: 3.9.5
+Homepage: http://cgit.freedesktop.org/mesa/glu/
+
+Package: libglu
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Mesa OpenGL Utility library
+ This package provides libglu, a shared library which contains 
+ OpenGL utility API routines.
+
+Package: libglu-dev
+Section: libdevel
+Priority: optional
+Provides: glu-dev
+Architecture: ARCH
+Depends: libglu (= ${binary:Version}), libglvnd-dev, libmesa-dev
+Description: libglu development headers and static library
+ This package provides the libglu static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libglu API routines.

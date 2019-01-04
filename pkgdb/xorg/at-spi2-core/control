@@ -1,0 +1,31 @@
+Source: at-spi2-core
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), dbus-dev, libglib2-dev, 
+ libx11-dev, libxi-dev, libxtst-dev
+Standards-Version: 3.9.5
+Homepage: https://gitlab.gnome.org/GNOME/at-spi2-core
+
+Package: libatspi
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Service Provider Interface for GNOME Assistive Technologies
+ The At-Spi2 Core package is a part of the GNOME Accessibility 
+ Project. It provides a Service Provider Interface for the 
+ Assistive Technologies available on the GNOME platform.
+ .
+ This package provides the libatspi shared library.
+
+Package: libatspi-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libatspi (= ${binary:Version}), dbus-dev, libglib2-dev, 
+ libx11-dev, libxi-dev, libxtst-dev
+Description: at-spi2-core headers and static library
+ This package provides the libatspi static library, 
+ pkgconfig data and header files required for developing 
+ applications which use At-Spi2 API routines.

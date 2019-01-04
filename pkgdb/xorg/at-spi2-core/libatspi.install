@@ -1,0 +1,7 @@
+usr/share/dbus-1
+usr/share/locale
+usr/share/defaults
+usr/lib/at-spi2-core
+usr/lib/libatspi.so.0.0.1
+etc/xdg/autostart/at-spi-dbus-bus.desktop
+usr/lib/systemd/user/at-spi-dbus-bus.service

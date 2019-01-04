@@ -7,13 +7,19 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := http://ftp.gnome.org/pub/gnome/sources/$(PKGNAME)/2.26/$(PKGSRC)
 COPTS := --prefix=/usr \
-	--sysconfdir=/etc \
+	--enable-static \
 	--disable-gtk-doc \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
 	--build=$(BUILDARCH) \
-	--host=$(TARGETARCH)
+	--host=$(TARGETARCH) \
+	--libexecdir=/usr/lib/at-spi2-core
 
-CC := "${CC} "
-CXX := "${CXX} "
-LDFLAGS := "-L$(SYSROOTDIR)/usr/lib -L$(SYSROOTDIR)/usr/lib"
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
-PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

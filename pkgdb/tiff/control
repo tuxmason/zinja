@@ -1,0 +1,49 @@
+Source: tiff
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libtiff
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: API functions used for reading and writing TIFF files.
+ Tagged Image File Format (TIFF), is a file format for storing raster 
+ graphics images.
+ .
+ This package provides libtiff and libtiffxx, shared libraries which 
+ contain C and C++ routines used for reading and writing TIFF files.
+
+Package: tiff
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools for reading and writing TIFF files
+ This package provides userspace tools for reading and writing TIFF
+ files.
+
+Package: libtiff-dev
+Section: libdevel
+Priority: optional
+Provides: tiff-dev
+Architecture: ARCH
+Depends: tiff (= ${binary:Version}), gcc-dev, libjpeg-turbo-dev, 
+ liblzma-dev
+Description: libtiff development headers and pkgconfig data
+ This package provides libtiff pkgconfig data and header files 
+ required for developing applications which use libtiff routines.
+
+Package: tiff-doc
+Section: doc
+Priority: optional
+Architecture: all
+Provides: libtiff-doc
+Recommends: man-db, links, tiff (= ${binary:Version})
+Description: documentation for libtiff
+ This package provides html documentation and man pages for
+ libtiff library routines and userspace tools.

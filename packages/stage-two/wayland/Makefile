@@ -7,7 +7,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch autoconf configure build pkg-src install-deps build-pkg install-pkg
+targets: clean extract patch configure build pkg-src install-deps build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -30,14 +30,7 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-autoconf: patch
-	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
-		cd $(PKGSRCDIR) ;\
-		autoreconf -vif || exit 1 ;\
-		touch $(PKGOBJDIR)/autoconf-stamp ;\
-	fi
-
-configure: autoconf
+configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
 		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) LDFLAGS=$(LDFLAGS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
@@ -65,14 +58,16 @@ install-deps: install-sysroot install-pkgroot
 install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libwayland-client,libwayland-cursor,libwayland-server}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libwayland-client,libwayland-egl}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libwayland-cursor,libwayland-server}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
 
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/{libwayland-client,libwayland-cursor,libwayland-server}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libwayland-client,libwayland-egl}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libwayland-cursor,libwayland-server}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

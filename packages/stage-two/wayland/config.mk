@@ -1,5 +1,5 @@
 PKGNAME := wayland
-PKGVER := 1.14.0
+PKGVER := 1.16.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -7,7 +7,7 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://wayland.freedesktop.org/releases/$(PKGSRC)
 COPTS := --prefix=/usr \
-	--disable-tests \
+	--enable-static \
 	--sysconfdir=/etc \
 	--with-host-scanner \
 	--build=$(BUILDARCH) \
@@ -18,7 +18,7 @@ COPTS := --prefix=/usr \
 CC := "${CC}"
 CXX := "${CXX}"
 
-LDFLAGS := "-Wl,-z,lazy -L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"
+LDFLAGS := "-Wl,-z,lazy"
 
 PKGDIR := $(PKGDB)/$(PKGNAME)
 ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz

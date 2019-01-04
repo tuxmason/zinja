@@ -1,0 +1,42 @@
+Source: glew
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libglvnd-dev, libx11-dev, 
+ libmesa-dev
+Standards-Version: 3.9.5
+Homepage: http://glew.sourceforge.net
+
+Package: libglew
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: The OpenGL Extension Wrangler Library
+ The OpenGL Extension Wrangler Library (GLEW) is a cross-platform 
+ open-source C/C++ extension loading library. GLEW provides efficient 
+ run-time mechanisms for determining which OpenGL extensions are 
+ supported on the target platform.
+ .
+ This package provides libGLEW, a shared library which contains OpenGL 
+ API routines.
+
+Package: glew
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: OpenGL Extension Wrangler userspace tools
+ This package provides OpenGL Extension Wrangler userspace tools.
+
+Package: libglew-dev
+Section: libdevel
+Priority: optional
+Provides: glew-dev
+Architecture: ARCH
+Depends: glew (= ${binary:Version}), libglvnd-dev, libx11-dev, 
+ libmesa-dev
+Description: libglew development headers and static library
+ This package provides the libglew static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libglew API routines.

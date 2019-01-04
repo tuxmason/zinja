@@ -1,0 +1,3 @@
+usr/lib/libxcb-icccm.a
+usr/include/xcb/xcb_icccm.h
+usr/lib/pkgconfig/xcb-icccm.pc

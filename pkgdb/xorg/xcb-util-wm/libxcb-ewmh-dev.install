@@ -1,0 +1,3 @@
+usr/lib/libxcb-ewmh.a
+usr/include/xcb/xcb_ewmh.h
+usr/lib/pkgconfig/xcb-ewmh.pc

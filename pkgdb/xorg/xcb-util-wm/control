@@ -1,0 +1,46 @@
+Source: xcb-util-wm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xcb.freedesktop.org
+
+Package: libxcb-ewmh
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides client and window-manager helpers for EWMH
+ This package provides libxcb-ewmh, a shared library which 
+ contains client and window-manager helpers for EWMH.
+
+Package: libxcb-icccm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides client and window-manager helpers for ICCCM
+ This package provides libxcb-icccm, a shared library which 
+ contains client and window-manager helpers for ICCCM.
+
+Package: libxcb-ewmh-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxcb-dev, libxcb-ewmh (= ${binary:Version})
+Description: libxcb-ewmh header and static library
+ This package provides the libxcb-ewmh static library, 
+ pkgconfig data and header file for developing applications 
+ which use libxcb-ewmh API routines.
+
+Package: libxcb-icccm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxcb-dev, libxcb-icccm (= ${binary:Version})
+Description: libxcb-icccm header and static library
+ This package provides the libxcb-ewmh static library, 
+ pkgconfig data and header file for developing applications 
+ which use libxcb-icccm API routines.
+

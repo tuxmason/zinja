@@ -1,0 +1,35 @@
+Source: libproxy
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev
+Standards-Version: 3.9.5
+Homepage: http://libproxy.github.io/libproxy/
+
+Package: libproxy
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides automatic proxy configuration management
+ This package provides libproxy, a shared library which
+ provides automatic proxy configuration management.
+
+Package: libproxy-dev
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libproxy (= ${binary:Version}), glib2-dev
+Description: libproxy headers and static library
+ This package provides the libproxy static library, 
+ headers and pkgconfig data required to build applications, 
+ libraries or plugins which use libproxy API functions.
+
+Package: proxy
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: proxy configuration utility
+ This package provides proxy, a command line tool used
+ for configuring and managing proxy settings.

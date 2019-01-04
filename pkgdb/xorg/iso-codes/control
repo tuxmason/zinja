@@ -1,0 +1,17 @@
+Source: iso-codes
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://salsa.debian.org/iso-codes-team/iso-codes
+
+Package: iso-codes
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev
+Description: a list of country, language and currency names
+ This package provides a list of country, language 
+ and currency names and it is used as a central 
+ database for accessing this data.

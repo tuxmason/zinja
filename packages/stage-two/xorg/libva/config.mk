@@ -1,21 +1,23 @@
 PKGNAME := libva
-PKGVER := 2.0.0
+PKGVER := 2.3.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
-PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGNAME)-$(PKGVER)
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://github.com/intel/$(PKGNAME)/archive/$(PKGSRC)
 COPTS := --prefix=/usr \
+	--enable-static \
 	--sysconfdir=/etc \
 	--localstatedir=/var \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH)
 
-CC := "${CC} "
-CXX := "${CXX} "
-LDFLAGS := "-L$(SYSROOTDIR)/usr/lib -L$(SYSROOTDIR)/usr/lib"
+CC := "${CC}"
+CXX := "${CXX}"
 
-TURBOJPEG_PATH := $(SYSROOTDIR)/usr
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
-PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

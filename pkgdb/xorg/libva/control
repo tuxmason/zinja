@@ -1,0 +1,35 @@
+Source: libva
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libdrm-dev, libwayland-dev, 
+ libx11-dev, libxext-dev, libxfixes-dev
+Standards-Version: 3.9.5
+Homepage: https://01.org/linuxmedia/vaapi
+
+Package: libva
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Video Acceleration (VA) API for Linux
+ VAAPI (Video Acceleration API) is an open-source library 
+ and API specification, which provides access to graphics 
+ hardware acceleration capabilities for video processing. 
+ .
+ It consists of a main library and driver-specific 
+ acceleration backends for each supported hardware vendor.
+ .
+ This package provides the libva shared library and libva
+ driver backends.
+
+Package: libva-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libva (= ${binary:Version}), libdrm-dev, libwayland-dev, 
+ libx11-dev, libxext-dev, libxfixes-dev
+Description: libva development headers and static libraries
+ This package provides libva static libraries, pkgconfig 
+ data and header files required for developing applications 
+ which use libva API routines.

@@ -1,0 +1,38 @@
+Source: libevdev
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libevdev
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: common functions for Xorg input drivers 
+ This package provides libevdev, a shared library which
+ provides common functions for Xorg input drivers.
+ .
+ This package also includes libevded userspace tools.
+
+Package: libevdev-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libevdev (= ${binary:Version}), gcc-dev 
+Description: libevdev headers and static library
+ This package provides the libevdev static library,
+ pkgconfig data, and header files required to develop
+ applications which use libevdev API routines.
+
+Package: libevdev-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libevdev (= ${binary:Version})
+Recommends: man-db
+Description: libevdev documentation
+ This package provides man pages for the API routines
+ provided by libevdev. 

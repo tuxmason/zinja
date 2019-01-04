@@ -1,0 +1,47 @@
+Source: libinput
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libevdev-dev, libmtdev-dev, 
+ systemd-dev, libwacom-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/libinput/
+
+Package: libinput
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Input device management and event handling library
+ This package provides libinput, a shared library which
+ provides input device management and event handling
+ routines.
+
+Package: libinput-bin
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: libinput userspace tools
+ This package provides libinput userspace tools.
+
+Package: libinput-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libinput-bin (= ${binary:Version}), libevdev-dev, libmtdev-dev, 
+ systemd-dev, libwacom-dev
+Description: libinput headers and static library
+ This package provides the libinput static library,
+ pkgconfig data, and header files required to develop
+ applications which use libinput API routines.
+
+Package: libinput-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libinput (= ${binary:Version})
+Recommends: man-db
+Description: libinput documentation
+ This package provides man pages for the API routines
+ provided by libinput. 

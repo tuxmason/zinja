@@ -1,0 +1,30 @@
+Source: libzeitgeist
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/libzeitgeist
+
+Package: libzeitgeist
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a client library used to access and manage the Zeitgeist event log
+ Zeitgeist is a service which logs a user's activities and 
+ events (files opened, websites visited, conversations hold 
+ with other people, etc.) and makes the relevant information 
+ available to other applications.
+ .
+ This package provides the shared library libzeitgeist.
+
+Package: libzeitgeist-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libzeitgeist (= ${binary:Version}), glib2-dev
+Description: libzeitgeist headers and static library
+ This package provides the libzeitgeist static library, 
+ headers and pkgconfig data required to build applications, 
+ libraries or plugins which use the libzeitgeist API.

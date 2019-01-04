@@ -1,0 +1,22 @@
+Source: libglvnd
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxext-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/NVIDIA/libglvnd
+
+Package: libglvnd-static
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libx11-dev, libxext-dev, libglvnd (= ${binary:Version})
+Description: The GL Vendor-Neutral Dispatch library
+ libglvnd is a vendor-neutral dispatch layer for arbitrating 
+ OpenGL API calls between multiple vendors. 
+ .
+ It allows multiple drivers from different vendors to coexist 
+ on the same filesystem, and determines which vendor to dispatch 
+ each API call to at runtime.
+ .
+ This package provides libglvnd static libraries.

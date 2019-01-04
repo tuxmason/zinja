@@ -1,0 +1,47 @@
+Source: gdk-pixbuf
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libglib2-dev, libpng-dev, libjasper, 
+ libjpeg-turbo-dev, libtiff-dev, libx11-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Projects/GdkPixbuf
+
+Package: libgdk-pixbuf
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: toolkit for image loading and pixel buffer manipulation
+ This package provides libgdk_pixbuf and libgdk_pixbuf_xlib, a set of 
+ shared libraries which contain routines used for loading images and
+ manipulating pixel buffers.
+
+Package: gdk-pixbuf
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools for loading and manipulating images
+ This package provides userspace tools for loading and manipulating 
+ images.
+
+Package: libgdk-pixbuf-dev
+Section: libdevel
+Priority: optional
+Provides: gdk-pixbuf-dev
+Architecture: ARCH
+Depends: gdk-pixbuf (= ${binary:Version}), libglib2-dev, libpng-dev, 
+ libjasper, libjpeg-turbo-dev, libtiff-dev, libx11-dev
+Description: libgdk-pixbuf development headers and static libraries
+ This package provides libgdk-pixbuf static libraries, pkgconfig data 
+ and header files required for developing applications which use 
+ libgdk-pixbuf API routines.
+
+Package: gdk-pixbuf-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, gdk-pixbuf (= ${binary:Version})
+Description: documentation for gdk-pixbuf userspace tools
+ This package provides man pages for gdk-pixbuf userspace tools.

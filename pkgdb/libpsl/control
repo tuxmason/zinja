@@ -1,0 +1,50 @@
+Source: libpsl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libunistring-dev, libidn2-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/rockdaboot/libpsl
+
+Package: libpsl
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Public Suffix List library
+ A Public Suffix List is a collection of Top Level Domains 
+ (TLDs) suffixes. TLDs include Global Top Level Domains (gTLDs) 
+ like .com and .net; Country Top Level Domains (ccTLDs) like .de 
+ and .cn; and Brand Top Level Domains like .apple and .google.
+ .
+ This package provides libpsl, a shared library which provides
+ routines used for accessing the Public Suffix List. 
+
+Package: psl
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: queries the Public Suffix List
+ This package provides psl, a command line tool used for querying
+ the Public Suffix List.
+
+Package: libpsl-dev
+Section: libdevel
+Provides: psl-dev
+Priority: optional
+Architecture: ARCH
+Depends: libpsl (= ${binary:Version}), libunistring-dev, libidn2-dev
+Description: libpsl headers and static library
+ This package provides the libpsl static library, headers and 
+ pkgconfig data required to build applications, libraries or 
+ plugins which use libpsl API functions.
+
+Package: psl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: psl (= ${binary:Version})
+Description: documentation for psl
+ This package provides man pages for psl.

@@ -58,6 +58,7 @@ install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		mv -v $(SYSROOTDIR)/usr/bin/{kbd_mode,dumpkeys,loadkeys,openvt,setfont} $(SYSROOTDIR)/bin || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/libkeymap.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
 
@@ -65,6 +66,7 @@ install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
 		mv -v $(PKGBINDIR)/usr/bin/{kbd_mode,dumpkeys,loadkeys,openvt,setfont} $(PKGBINDIR)/bin || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/libkeymap.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

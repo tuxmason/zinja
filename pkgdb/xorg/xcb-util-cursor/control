@@ -1,0 +1,27 @@
+Source: xcb-util-cursor
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-image-dev, libxcb-render-util-dev
+Standards-Version: 3.9.5
+Homepage: https://xcb.freedesktop.org
+
+Package: libxcb-cursor
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a Port of Xlib's libXcursor functions
+ This package provides libxcb-cursor, a shared library which 
+ contains a port of Xlib's libXcursor functions.
+
+Package: libxcb-cursor-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxcb-cursor (= ${binary:Version}), libxcb-image-dev,
+ libxcb-render-util-dev
+Description: libxcb-cursor headers and static library
+ This package provides the libxcb-cursor static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libxcb-cursor API routines.

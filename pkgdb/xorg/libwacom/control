@@ -1,0 +1,27 @@
+Source: libwacom
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), glib2-dev, libgudev-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/linuxwacom/libwacom/wiki
+
+Package: libwacom
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a library used to identify wacom tablets 
+ This package provides libwacom, a shared library which
+ provides routines used to identify wacom tablets and
+ their model specific features.
+
+Package: libwacom-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libwacom (= ${binary:Version}), glib2-dev, libgudev-dev
+Description: libwacom headers and static library
+ This package provides the libwacom static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libwacom API routines.

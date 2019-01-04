@@ -1,0 +1,36 @@
+Source: libxkbcommon
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xkbcommon.org/
+
+Package: libxkbcommon
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Keymap handling library for toolkits and window systems
+ This package provides libxkbcommon, a shared library which
+ provides toolkits and windows systems with routines for
+ handling keymaps.
+
+Package: libxkbcommon-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxkbcommon (= ${binary:Version}), libxcb-dev
+Description: libxkbcommon headers and static library
+ This package provides the libxkbcommon static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libxkbcommon API routines.
+
+Package: libxkbcommon-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links, libxkbcommon (= ${binary:Version})
+Description: documentation for libxkbcommon
+ This package provides html pages for the library routines 
+ provided by libxkbcommon.

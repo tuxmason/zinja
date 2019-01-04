@@ -1,0 +1,29 @@
+Source: at-spi2-atk
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libatspi-dev
+Standards-Version: 3.9.5
+Homepage: https://gitlab.gnome.org/GNOME/at-spi2-atk
+
+Package: libatk-bridge
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a library that bridges ATK to the At-Spi2 D-Bus service
+ This package provides libatk-bridge, a shared library 
+ which bridges ATK to the At-Spi2 D-Bus service.
+ .
+ Also included is GTK+ module that bridges ATK to the 
+ D-Bus at-spi service.
+
+Package: libatk-bridge-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libatk-bridge (= ${binary:Version}), libatspi-dev
+Description: libatk headers and static library
+ This package provides the libatk static library, 
+ pkgconfig data and header files required for developing 
+ applications which use At-Spi2 ATK API routines.

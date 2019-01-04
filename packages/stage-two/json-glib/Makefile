@@ -1,0 +1,100 @@
+#include the shared config file
+include ../../../conf/environment.mk
+include ../../../conf/shell-env.mk
+
+#include package specific config file
+include ./config.mk 
+
+all: targets
+
+targets: clean extract patch configure build pkg-src install-deps build-pkg install-pkg
+
+extract:
+	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
+		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
+		mkdir $(PKGOBJDIR) ;\
+		mkdir -pv $(PKGBINDIR) ;\
+		touch $(PKGOBJDIR)/extract-stamp ;\
+	fi
+
+patch: extract 
+	@if [ ! -f $(PKGOBJDIR)/patch-stamp  ]; then \
+		if [ -f $(PATCHLIST) ]; then \
+			for f in `cat $(PATCHLIST)` ; do \
+				echo -e " --- Patch: $$f --- "  ;\
+				( patch -d $(PKGSRCDIR) -p1 -i $(PATCHDIR)/$$f ) || exit 1 ;\
+				echo -e " --- done --- \n"  ;\
+			done ;\
+		fi ;\
+		touch $(PKGOBJDIR)/patch-stamp ;\
+	fi
+
+configure: patch
+	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
+		cd $(PKGOBJDIR) ;\
+		sed -e "s@TARGETARCH@$(TARGETARCH)@g" -e "s@TPROC@$(TPROC)@g" \
+			-e "s@ARCH@$(ARCH)@g" -e "s@SYSROOTDIR@$(SYSROOTDIR)@g" \
+			$(PATCHDB)/common/meson_cross.tpl > $(MESONCROSS) || exit 1 ;\
+		( PATH=$(PATH) CC=$(HOST_CC) CXX=$(HOST_CXX) \
+			LANG="en_US.UTF-8" meson $(COPTS) \
+			--cross-file $(MESONCROSS) $(PKGSRCDIR)  ) || exit 1 ;\
+		touch $(PKGOBJDIR)/configure-stamp ;\
+	fi
+
+build: configure
+	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
+		( PATH=$(PATH) ninja -C $(PKGOBJDIR) -j$(NPROCS) -v ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-stamp ;\
+	fi
+
+pkg-src: build
+	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(PKGOBJDIR)/pkg-src-stamp ;\
+	fi
+
+install-deps: install-sysroot install-pkgroot
+
+install-sysroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
+		( PATH=$(PATH) DESTDIR=$(SYSROOTDIR) ninja -C $(PKGOBJDIR) install ) || exit 1 ;\
+		rm -rfv $(SYSROOTDIR)/usr/{share,libexec}/installed-tests || exit 1 ;\
+		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
+	fi
+
+install-pkgroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
+		( PATH=$(PATH) DESTDIR=$(PKGBINDIR) ninja -C $(PKGOBJDIR) install ) || exit 1 ;\
+		rm -rfv $(PKGBINDIR)/usr/{share,libexec}/installed-tests || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
+	fi
+
+build-pkg: install-deps
+	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			libjson-glib_$(PKGVER)-1_$(PKGARCH).deb \
+			json-glib_$(PKGVER)-1_$(PKGARCH).deb \
+			libjson-glib-dev_$(PKGVER)-1_$(PKGARCH).deb \
+			json-glib-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkg-stamp ;\
+	fi
+
+clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
+	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
+	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
+
+PHONY: all targets install-deps

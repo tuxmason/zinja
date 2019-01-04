@@ -1,0 +1,49 @@
+Source: json-glib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Projects/JsonGlib
+
+Package: libjson-glib
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: JSON library built on GLib
+ JSON-GLib is a library providing serialization and 
+ deserialization support for the JavaScript Object 
+ Notation (JSON) format described by RFC 4627. 
+ .
+ This package provides the JSON GLib shared library.
+ 
+Package: libjson-glib-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: json-glib-dev (= ${binary:Version})
+Depends: libjson-glib (= ${binary:Version}), glib2-dev
+Description: JSON GLib headers and static library
+ This package provides the JSON GLib static library, 
+ pkgconfig data and header files required for developing 
+ applications which use the JSON GLib API.
+
+Package: json-glib
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: JSON GLib userspace tools
+ This package provides tools for validating and formatting
+ JSON data.
+
+Package: json-glib-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: vim
+Depends: json-glib (= ${binary:Version})
+Description: documentation for JSON GLib userspace tools
+ This package provides man pages for JSON GLib userspace 
+ tools.

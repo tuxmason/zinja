@@ -1,0 +1,25 @@
+Source: xrdb
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxmu-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xrdb
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X server resource database utility
+ This package provides xrdb, a utility used for
+ managing the X server resource database.
+
+Package: xrdb-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xrdb (= ${binary:Version})
+Description: documentation for xrdb
+ This package provides a man page for xrdb.

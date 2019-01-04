@@ -1,0 +1,25 @@
+Source: xgamma
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxxf86vm-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xgamma
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: alter a monitor's gamma correction 
+ This package provides xgamma, a utility used to alter 
+ a monitor's gamma correction.
+
+Package: xgamma-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xgamma (= ${binary:Version})
+Description: documentation for xgamma
+ This package provides a man page for xgamma.

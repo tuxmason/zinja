@@ -1,0 +1,25 @@
+Source: xset
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxext-dev, libxmu-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xset
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: user preference utility for X 
+ This package provides xset, a utility used to set
+ X server user preferences.
+
+Package: xset-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xset (= ${binary:Version})
+Description: documentation for xset
+ This package provides a man page for xset.

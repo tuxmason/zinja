@@ -1,0 +1,26 @@
+Source: bdftopcf
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), util-macros
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: bdftopcf
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: converts X fonts from BDF to PCF
+ This package provides bdftopcf, a utility which converts
+ X fonts from Bitmap Distribution Format to Portable Compiled 
+ Format.
+
+Package: bdftopcf-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: bdftopcf (= ${binary:Version})
+Description: documentation for bdftopcf
+ This package provides a man page for bdftopcf.

@@ -1,0 +1,25 @@
+Source: xhost
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxmu-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xhost
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: server access control program for X 
+ This package provides xhost, a utility used to
+ control X.Org server access. 
+
+Package: xhost-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xhost (= ${binary:Version})
+Description: documentation for xhost
+ This package provides a man page for xhost.

@@ -1,0 +1,25 @@
+Source: xlsatoms
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xlsatoms
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: list interned atoms defined on server 
+ This package provides xlsatoms, a utility which lists
+ interned atoms defined on server.
+
+Package: xlsatoms-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xlsatoms (= ${binary:Version})
+Description: documentation for xlsatoms
+ This package provides a man page for xlsatoms.

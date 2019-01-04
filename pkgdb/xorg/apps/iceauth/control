@@ -1,0 +1,25 @@
+Source: iceauth
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libice-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: iceauth
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X11 ICE authority file utility 
+ This package provides iceauth, a utility used for
+ managing ICE authority files. 
+
+Package: iceauth-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: iceauth (= ${binary:Version})
+Description: documentation for iceauth
+ This package provides a man page for iceauth.

@@ -1,0 +1,26 @@
+Source: mkfontscale
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libfontenc-dev, libfreetype-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: mkfontscale
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: creates an index of scalable font files for X 
+ This package provides mkfontscale, a utility used for
+ creating and index of scalable font files for the X
+ server.
+
+Package: mkfontscale-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: mkfontscale (= ${binary:Version})
+Description: documentation for mkfontscale
+ This package provides a man page for mkfontscale.

@@ -1,0 +1,25 @@
+Source: xdriinfo
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libglvnd-dev, libx11-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xdriinfo
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: queries DRI driver configuration information
+ This package provides xdriinfo, a utility used to query
+ DRI driver configuration information.
+
+Package: xdriinfo-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xdriinfo (= ${binary:Version})
+Description: documentation for xdriinfo
+ This package provides a man page for xdriinfo.

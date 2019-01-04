@@ -1,0 +1,26 @@
+Source: x11perf
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxext-dev, 
+ libxft-dev, libxmu-dev, libxrender-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: x11perf
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Simple X server performance benchmarker 
+ This package provides x11perf, a utility used for
+ benchmarking X server performance.
+
+Package: x11perf-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: x11perf (= ${binary:Version})
+Description: documentation for x11perf
+ This package provides a man page for x11perf.

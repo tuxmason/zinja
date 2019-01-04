@@ -1,0 +1,26 @@
+Source: xsetroot
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxcursor-dev, libxmu-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xsetroot
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: set root window background to a given pattern or color 
+ This package provides xsetroot, a utility used to set
+ your root window's background to a given pattern or 
+ color.
+
+Package: xsetroot-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xsetroot (= ${binary:Version})
+Description: documentation for xsetroot
+ This package provides a man page for xsetroot.

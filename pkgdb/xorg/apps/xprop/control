@@ -1,0 +1,25 @@
+Source: xprop
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xprop
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Property displayer for X 
+ This package provides xprop, a utility used to
+ display X.Org properties.
+
+Package: xprop-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xprop (= ${binary:Version})
+Description: documentation for xprop
+ This package provides a man page for xprop.

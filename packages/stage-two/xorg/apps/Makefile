@@ -4,7 +4,7 @@ include ../../../../conf/shell-env.mk
 
 all: xorg-apps
 
-xorg-apps: bdftopcf.o iceauth.o luit.o mkfontdir.o mkfontscale.o sessreg.o setxkbmap.o smproxy.o \
+xorg-apps: bdftopcf.o iceauth.o luit.o mkfontscale.o mkfontdir.o sessreg.o setxkbmap.o smproxy.o \
 	x11perf.o xauth.o xbacklight.o xcmsdb.o xcursorgen.o xdpyinfo.o xdriinfo.o xev.o xgamma.o \
 	xhost.o xinput.o xkbcomp.o xkbevd.o xkbutils.o xkill.o xlsatoms.o xlsclients.o xmessage.o \
 	xmodmap.o xpr.o xprop.o xrandr.o xrdb.o xrefresh.o xset.o xsetroot.o xvinfo.o xwd.o \
@@ -217,8 +217,6 @@ xinit.o:
 	@echo "xinit finished $(shell date -R)"
 
 clean:
-	@for pkg in `ls | grep -v Makefile`; do \
-		make -C $$pkg clean ;\
-	done ;\
-  
+	@find . -maxdepth 1 -mindepth 1 -type d -exec make -C "{}" clean \; || exit 1 ;\
+ 
 PHONY: all xorg-apps

@@ -1,0 +1,25 @@
+Source: xbacklight
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev, libxcb-util-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xbacklight
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: RandR-based backlight control application 
+ This package provides xbacklight, a utility used for
+ adjusting backlight brightness using the RandR extension.
+
+Package: xbacklight-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xbacklight (= ${binary:Version})
+Description: documentation for xbacklight
+ This package provides a man page for xbacklight.

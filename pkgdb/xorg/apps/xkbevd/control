@@ -1,0 +1,24 @@
+Source: xkbevd
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxkbfile-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xkbevd
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: XKB event daemon 
+ This package provides xkbevd, the XKB event daemon.
+
+Package: xkbevd-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xkbevd (= ${binary:Version})
+Description: documentation for xkbevd
+ This package provides a man page for xkbevd.

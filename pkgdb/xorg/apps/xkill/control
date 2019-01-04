@@ -1,0 +1,25 @@
+Source: xkill
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxmu-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xkill
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: kill a client by its X resource 
+ This package provides xkill, a utility which kills
+ a client by its X resource.
+
+Package: xkill-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xkill (= ${binary:Version})
+Description: documentation for xkill
+ This package provides a man page for xkill.

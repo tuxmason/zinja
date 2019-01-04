@@ -1,5 +1,5 @@
 PKGNAME := xinit
-PKGVER := 1.3.4
+PKGVER := 1.4.0
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -11,7 +11,13 @@ COPTS := --prefix=/usr \
 	--localstatedir=/var \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
-	--with-xinitdir=/etc/X11/xinit
+	--with-xinitdir=/etc/X11/app-defaults
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/apps/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

@@ -1,0 +1,25 @@
+Source: xev
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxrandr-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xev
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: prints contents of X events 
+ This package provides xev, a utility used to print 
+ contents of X events. 
+
+Package: xev-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xev (= ${binary:Version})
+Description: documentation for xev
+ This package provides a man page for xev.

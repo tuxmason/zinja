@@ -1,0 +1,25 @@
+Source: xwininfo
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xwininfo
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: prints information about windows on an X server 
+ This package provides xwininfo, a utility which prints
+ information about windows on an X server.
+
+Package: xwininfo-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xwininfo (= ${binary:Version})
+Description: documentation for xwininfo
+ This package provides a man page for xwininfo.

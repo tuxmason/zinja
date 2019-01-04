@@ -1,0 +1,26 @@
+Source: luit
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libfontenc-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: luit
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides locale support for Unicode terminals 
+ This package provides luit, a command line utility 
+ which provides locale and ISO 2022 support for Unicode 
+ terminals.
+
+Package: luit-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: luit (= ${binary:Version})
+Description: documentation for luit
+ This package provides a man page for luit.

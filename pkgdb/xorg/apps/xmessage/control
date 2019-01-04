@@ -1,0 +1,25 @@
+Source: xmessage
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxaw-dev, libxt-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xmessage
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: displays a message or query in a window 
+ This package provides xmessage, a utility which 
+ displays a message or query in a window.
+
+Package: xmessage-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xmessage (= ${binary:Version})
+Description: documentation for xmessage
+ This package provides a man page for xmessage.

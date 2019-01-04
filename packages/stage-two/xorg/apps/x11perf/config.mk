@@ -12,7 +12,11 @@ COPTS := --prefix=/usr \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH)
 
-CC := "${CC} "
-CXX := "${CXX} "
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
-PKG_CONFIG_PATH := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/apps/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

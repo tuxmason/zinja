@@ -1,0 +1,28 @@
+Source: smproxy
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libice-dev, libsm-dev, 
+ libx11-dev, libxmu-dev, libxt-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: smproxy
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: the Session Manager Proxy 
+ This package provides smproxy, a utility which 
+ allows X applications that do not support X11R6 
+ session management to participate in an X11R6 
+ session. 
+
+Package: smproxy-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: smproxy (= ${binary:Version})
+Description: documentation for smproxy
+ This package provides a man page for smproxy.

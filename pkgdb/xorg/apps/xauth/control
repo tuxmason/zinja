@@ -1,0 +1,26 @@
+Source: xauth
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxau-dev, 
+ libxext-dev, libxmu-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xauth
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X.Org authorization settings tool
+ This package provides xauth, a utility used to manage
+ X.Org authorization settings.
+
+Package: xauth-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xauth (= ${binary:Version})
+Description: documentation for xauth
+ This package provides a man page for xauth.

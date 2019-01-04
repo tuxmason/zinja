@@ -1,0 +1,25 @@
+Source: xmodmap
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xmodmap
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: utility for modifying keymaps and button mappings 
+ This package provides xmodmap, a utility used for
+ modifying keymaps and button mappings. 
+
+Package: xmodmap-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xmodmap (= ${binary:Version})
+Description: documentation for xmodmap
+ This package provides a man page for xmodmap.

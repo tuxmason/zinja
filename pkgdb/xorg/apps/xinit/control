@@ -1,0 +1,25 @@
+Source: xinit
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xinit
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X.Org server initialization tools
+ This package provides xinit and startx, utilities used
+ for initializing the X server.
+
+Package: xinit-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xinit (= ${binary:Version})
+Description: documentation for X server initialization tools
+ This package provides manual pages for xinit and startx.

@@ -1,0 +1,25 @@
+Source: sessreg
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: sessreg
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: manages utmp/wtmp entries for non-init clients.
+ This package provides sessreg, a utility which manages
+ utmp/wtmp entries for non-init clients. 
+
+Package: sessreg-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: sessreg (= ${binary:Version})
+Description: documentation for sessreg
+ This package provides a man page for sessreg.

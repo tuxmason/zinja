@@ -1,0 +1,25 @@
+Source: xlsclients
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xlsclients
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: lists client applications running on a display 
+ This package provides xlsclients, a utility which lists
+ client applications running on a display.
+
+Package: xlsclients-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xlsclients (= ${binary:Version})
+Description: documentation for xlsclients
+ This package provides a man page for xlsclients.

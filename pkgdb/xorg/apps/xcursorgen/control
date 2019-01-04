@@ -1,0 +1,25 @@
+Source: xcursorgen
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libpng-dev, libx11-dev, libxcursor-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xcursorgen
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Create an X cursor file from PNG images 
+ This package provides xcursorgen, a utility used for
+ creating X cursor files from PNG images.
+
+Package: xcursorgen-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xcursorgen (= ${binary:Version})
+Description: documentation for xcursorgen
+ This package provides a man page for xcursorgen.

@@ -1,0 +1,28 @@
+Source: xdpyinfo
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libdmx-dev, libx11-dev, 
+ libxcb-dev, libxcomposite-dev, libxext-dev, libxi-dev, 
+ libxinerama-dev, libxrender-dev, libxtst-dev, libxxf86dga-dev, 
+ libxxf86vm-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xdpyinfo
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Display information utility for X 
+ This package provides xdpyinfo, a utility which
+ provides X.Org server display information. 
+
+Package: xdpyinfo-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xdpyinfo (= ${binary:Version})
+Description: documentation for xdpyinfo
+ This package provides a man page for xdpyinfo.

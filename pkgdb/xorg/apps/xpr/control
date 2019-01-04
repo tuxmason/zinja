@@ -1,0 +1,25 @@
+Source: xpr
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxmu-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xpr
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: prints an X window dump from xwd 
+ This package provides xpr, a utility used to print 
+ an X window dump from xwd.
+
+Package: xpr-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xpr (= ${binary:Version})
+Description: documentation for xpr
+ This package provides a man page for xpr.

@@ -1,0 +1,25 @@
+Source: twm
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libice-dev, libsm-dev, libx11-dev, libxext-dev, libxmu-dev, libxt-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: twm
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X.org Tab Window Manager
+ This package provides twm, a very minimal window 
+ manager. 
+
+Package: twm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: twm (= ${binary:Version})
+Description: documentation for twm
+ This package provides a man page for twm.

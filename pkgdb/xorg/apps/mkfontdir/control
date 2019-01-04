@@ -1,0 +1,25 @@
+Source: mkfontdir
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontscale
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: mkfontdir
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: mkfontscale
+Description: creates an index of X font files 
+ This package provides mkfontdir, a utility which creates 
+ an index of X font files in a directory.
+
+Package: mkfontdir-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: mkfontdir (= ${binary:Version})
+Description: documentation for mkfontdir
+ This package provides a man page for mkfontdir.

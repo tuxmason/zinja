@@ -1,0 +1,25 @@
+Source: xrandr
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxrandr-dev, libxrender-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xrandr
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: command line interface to RandR extension
+ This package provides xrandr, a utility which provides
+ a command line interface to RandR extension. 
+
+Package: xrandr-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xrandr (= ${binary:Version})
+Description: documentation for xrandr
+ This package provides a man page for xrandr.

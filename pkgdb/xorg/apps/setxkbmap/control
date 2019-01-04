@@ -1,0 +1,25 @@
+Source: setxkbmap
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxkbfile-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: setxkbmap
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: sets the keyboard using the X Keyboard Extension.
+ This package provides setxkbmap, a utility which sets 
+ the keyboard using the X Keyboard Extension. 
+
+Package: setxkbmap-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: setxkbmap (= ${binary:Version})
+Description: documentation for setxkbmap
+ This package provides a man page for setxkbmap.

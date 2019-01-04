@@ -1,0 +1,25 @@
+Source: xwd
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxkbfile-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xwd
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: X Window System image dumping utility
+ This package provides xwd, a utility used to create
+ an image dump of an X Window System.
+
+Package: xwd-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xwd (= ${binary:Version})
+Description: documentation for xwd
+ This package provides a man page for xwd.

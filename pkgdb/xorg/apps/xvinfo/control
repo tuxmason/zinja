@@ -1,0 +1,26 @@
+Source: xvinfo
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxv-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xvinfo
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: prints out the capabilities of video adaptors 
+ This package provides xvinfo, a utility which prints out 
+ the capabilities of any video adaptors associated with the 
+ display that are accessible through the X-Video extension.
+
+Package: xvinfo-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xvinfo (= ${binary:Version})
+Description: documentation for xvinfo
+ This package provides a man page for xvinfo.

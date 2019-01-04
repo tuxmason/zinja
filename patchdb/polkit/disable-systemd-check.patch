@@ -1,0 +1,25 @@
+When building Polkit with systemd logind support, the configure script 
+explicitly checks if system is booted using systemd. This can cause problems 
+if building the package in chroot, where the configure would fail to detect 
+systemd.
+
+--- polkit-0.115/configure.ac.orig	2019-01-02 02:35:52.516192674 +0300
++++ polkit-0.115/configure.ac	2019-01-02 02:36:04.756192408 +0300
+@@ -201,7 +201,7 @@
+ 
+ AS_IF([test "x$cross_compiling" != "xyes" ], [
+   AS_IF([test "$have_libsystemd" = "yes"], [
+-    AS_IF([test ! -d /sys/fs/cgroup/systemd/ ], [
++    AS_IF([test ! -d /sys ], [
+       AS_IF([test "$enable_libsystemd_login" = "yes"], [
+         AC_MSG_WARN([libsystemd requested but system does not appear to be using systemd])
+       ], [
+@@ -209,7 +209,7 @@
+       ])
+     ])
+   ], [
+-    AS_IF([test -d /sys/fs/cgroup/systemd/ ], [
++    AS_IF([test -d /sys ], [
+       AS_IF([test "$enable_libsystemd_login" = "no" ], [
+         AC_MSG_WARN([ConsoleKit requested but system appears to use systemd])
+       ], [

@@ -1,0 +1,8 @@
+etc
+lib
+usr/bin
+usr/lib/polkit-1
+usr/share/dbus-1
+usr/share/locale
+usr/share/gettext
+usr/share/polkit-1

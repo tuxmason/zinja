@@ -1,0 +1,10 @@
+[Unit]
+Description=Authorization Manager
+Documentation=man:polkit(8)
+
+[Service]
+Type=dbus
+BusName=org.freedesktop.PolicyKit1
+ExecStartPre=/bin/bash -c "if ! /bin/grep -q -c '^polkitd' /etc/group ; then groupadd -g 27 polkitd ; fi"
+ExecStartPre=/bin/bash -c "if ! /bin/grep -q -c '^polkitd' /etc/passwd ; then useradd  -c 'PolicyKit Daemon' -d /etc/polkit-1 -u 27 -g polkitd -s /bin/false polkitd ; fi"
+ExecStart=/usr/lib/polkit-1/polkitd --no-debug

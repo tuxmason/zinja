@@ -1,0 +1,5 @@
+polkit (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Wed, 02 Jan 2019 02:00:39 +0300

@@ -1,0 +1,51 @@
+Source: polkit
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libexpat-dev, glib2-dev, 
+ libmozjs-dev, libpam-dev, systemd-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/polkit/
+
+Package: libpolkit
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Polkit agent authentication and authentication functions
+ Polkit is a toolkit for defining and handling authorizations. It is 
+ used for allowing unprivileged processes to communicate with privileged 
+ processes.
+ .
+ This package provides libpolkit, a set of shared libraries 
+ which contain functions for Polkit authentication and authorization.
+
+Package: libpolkit-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libpolkit (= ${binary:Version})
+Provides: polkit-dev (= ${binary:Version}), libexpat-dev, glib2-dev,    
+ libmozjs-dev, libpam-dev, systemd-dev
+Description: Polkit development headers and static libraries
+ This package provides libpolkit static libraries, pkgconfig data and 
+ header files required for developing applications which use Polkit API 
+ functions.
+
+Package: polkit
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Polkit daemon and userspace tools
+ This package provides the Polkit daemon and its userspace utilities.
+
+Package: polkit-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: polkit (= ${binary:Version})
+Description: manual pages for polkit's userspace tools
+ This package provides manual pages for the Polkit daemon and its 
+ userspace tools.

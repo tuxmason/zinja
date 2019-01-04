@@ -1,0 +1,11 @@
+etc/drirc
+usr/share/vulkan
+usr/lib/dri/*.so
+usr/lib/vdpau/*.so*
+usr/lib/bellagio/*.so*
+usr/lib/libOSMesa.so.8.0.0
+usr/lib/libXvMCnouveau.so.1.0.0
+usr/lib/libgbm.so.1.0.0
+usr/lib/libglapi.so.0.0.0
+usr/lib/libvulkan_intel.so
+usr/lib/libxatracker.so.2.3.0

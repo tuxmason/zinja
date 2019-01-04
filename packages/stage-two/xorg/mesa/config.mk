@@ -7,47 +7,44 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 COPTS := --prefix=/usr \
 	--enable-xa \
-	--enable-gbm \
-	--disable-asm \
-	--enable-dri \
-	--enable-egl \
-	--enable-glx \
-	--enable-gles1 \
-	--enable-gles2 \
+	--enable-va \
+	--enable-vdpau \
 	--disable-llvm \
-	--enable-osmesa \
+	--enable-shared \
 	--enable-glx-tls \
-	--enable-libglvnd \
 	--sysconfdir=/etc \
-	--disable-mangling \
 	--enable-omx-bellagio \
 	--enable-shared-glapi \
 	--enable-driglx-direct \
 	--enable-texture-float \
-	--enable-gallium-extra-hud \
+	--enable-gallium-osmesa \
 	--with-platforms="drm,x11,wayland" \
 	--localstatedir=/var \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) 
 
-ifeq ($(ARCH),arm)
+ifeq ($(ARCH),$(filter $(ARCH),arm aarch64))
 	COPTS := $(COPTS) \
+		--disable-asm \
+		--disable-mangling \
 		--with-dri-drivers="nouveau,swrast" \
-		--with-gallium-drivers="nouveau,swrast,vc4"
+		--with-gallium-drivers="nouveau,swrast,vc4,freedreno,tegra"
 endif
 
 ifeq ($(ARCH),x86_64)
 	COPTS := $(COPTS) \
+		--with-vulkan-drivers="intel" \
 		--with-dri-drivers="nouveau,swrast" \
 		--with-gallium-drivers="i915,nouveau,svga,swrast"
 endif
 
-CC := "${CC} "
-CXX := "${CXX} "
-CPPFLAGS := "-I$(SYSROOTDIR)/usr/include/libdrm -I$(SYSROOTDIR)/usr/include/libdrm/nouveau"
-PKGCONFIG := "$(SYSROOTDIR)/usr/lib/pkgconfig:$(SYSROOTDIR)/usr/share/pkgconfig"
+CC := "${CC}"
+CXX := "${CXX}"
+
 WAYLAND_SCANNER := "$(CROSSTOOLS)/bin/wayland-scanner"
-PKG_CONFIG_SYSROOT_DIR := $(SYSROOTDIR)
-WAYLAND_PROTOCOLS_DATADIR := "$(SYSROOTDIR)/usr/share/wayland-protocols"
-LIBS := "-latomic"
-LDFLAGS := "-L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"
+
+PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

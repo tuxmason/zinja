@@ -1,0 +1,5 @@
+usr/lib/librfxencode.so.0.0.0 usr/lib/librfxencode.so.0
+usr/lib/librfxencode.so.0 usr/lib/librfxencode.so
+usr/lib/libpainter.so.0.0.0 usr/lib/libpainter.so.0
+usr/lib/libpainter.so.0 usr/lib/libpainter.so
+usr/lib/xrdp/*.so*

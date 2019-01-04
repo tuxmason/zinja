@@ -1,0 +1,50 @@
+Source: xrdp
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libfuse2-dev, libice-dev, 
+ libjpeg-turbo-dev, libpam-dev, libpixman-dev, libsm-dev, 
+ libx11-dev, libxfixes-dev, libxrandr-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: http://www.xrdp.org/
+
+Package: libxrdp
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: XRDP shared libraries
+ XRDP is an open source remote desktop protocol(rdp) server.
+ .
+ This package provides XRDP shared libraries and modules.
+
+Package: libxrdp-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: xrdp-dev (= ${binary:Version})
+Depends: libxrdp (= ${binary:Version}), libfuse2-dev, libice-dev, 
+ libjpeg-turbo-dev, libpam-dev, libpixman-dev, libsm-dev, 
+ libx11-dev, libxfixes-dev, libxrandr-dev, openssl-dev
+Description: XRDP development headers and static libraries
+ This package provides XRDP static libraries, pkgconfig data 
+ and header files required for developing applications which 
+ use XRDP API routines.
+
+Package: xrdp
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: XRDP server and userspace tools
+ This package provides the XRDP server and userspace tools.
+
+Package: xrdp-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xrdp (= ${binary:Version})
+Description: XRDP documentation
+ This package provides manual pages for the XRDP server and
+ associated userspace tools.

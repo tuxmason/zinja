@@ -7,12 +7,13 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch autoconf configure build install
+targets: clean extract patch autoconf configure build pkg-src install-deps build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
 		mkdir $(PKGOBJDIR) ;\
+		mkdir -pv $(PKGBINDIR)/lib/systemd/system ;\
 		touch $(PKGOBJDIR)/extract-stamp ;\
 	fi
 
@@ -38,9 +39,7 @@ autoconf: patch
 configure: autoconf
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) LDFLAGS=$(LDFLAGS) \
-			PKG_CONFIG_SYSROOT_DIR=$(PKG_CONFIG_SYSROOT_DIR) TURBOJPEG_PATH=$(TURBOJPEG_PATH) \
-			PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
@@ -50,17 +49,58 @@ build: configure
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
-install: build
-	@if [ ! -f $(PKGOBJDIR)/install-stamp  ]; then \
+pkg-src: build
+	@if [ ! -f $(PKGOBJDIR)/pkg-src-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		cp -rv $(PKGDIR)/* $(DISTRIBSRC)/debian || exit 1 ;\
+		sed -i -e "s@ARCH@$(PKGARCH)@g" $(DISTRIBSRC)/debian/control || exit 1 ;\
+		sed -i -e "s@PKGVER@$(PKGVER)@g" $(DISTRIBSRC)/debian/changelog || exit 1 ;\
+		tar cvfJ $(ORIGSRC) $(PKGNAME)-$(PKGVER) || exit 1 ;\
+		touch $(PKGOBJDIR)/pkg-src-stamp ;\
+	fi
+
+install-deps: install-sysroot install-pkgroot
+
+install-sysroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libpainter,librfxencode}.la || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/xrdp/*.la || exit 1 ;\
-		cp -vf $(PATCHDIR)/xrdp.service $(SYSROOTDIR)/lib/systemd/system/xrdp.service || exit 1 ;\
-		touch $(PKGOBJDIR)/install-stamp ;\
+		cp -vf $(PATCHDIR)/{xrdp,xrdp-sesman}.service $(SYSROOTDIR)/lib/systemd/system || exit 1 ;\
+		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
+	fi
+
+install-pkgroot: pkg-src
+	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libpainter,librfxencode}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/xrdp/*.la || exit 1 ;\
+		cp -vf $(PATCHDIR)/{xrdp,xrdp-sesman}.service $(PKGBINDIR)/lib/systemd/system || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
+	fi
+
+build-pkg: install-deps
+	@if [ ! -f $(PKGOBJDIR)/build-pkg-stamp  ]; then \
+		cd $(DISTRIBSRC) ;\
+		( PATH=$(PATH) dpkg-buildpackage -us -uc -d -a $(PKGARCH) --source-option=--include-binaries ) || exit 1 ;\
+		touch $(PKGOBJDIR)/build-pkg-stamp ;\
+	fi
+
+install-pkg: build-pkg
+	@if [ ! -f $(PKGOBJDIR)/install-pkg-stamp  ]; then \
+		cd $(PKGROOT) ;\
+		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
+			libxrdp_$(PKGVER)-1_$(PKGARCH).deb \
+			xrdp_$(PKGVER)-1_$(PKGARCH).deb \
+			libxrdp-dev_$(PKGVER)-1_$(PKGARCH).deb \
+			xrdp-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
+		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
+		touch $(PKGOBJDIR)/install-pkg-stamp ;\
 	fi
 
 clean:
+	@if [ -d $(PKGROOT) ]; then rm -rf $(PKGROOT); fi
 	@if [ -d $(PKGSRCDIR) ]; then rm -rf $(PKGSRCDIR); fi
 	@if [ -d $(PKGOBJDIR) ]; then rm -rf $(PKGOBJDIR); fi
 
-PHONY: all targets
+PHONY: all targets install-deps

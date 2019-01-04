@@ -1,0 +1,30 @@
+Source: nspr
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libz-dev
+Standards-Version: 3.9.5
+Homepage: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR
+
+Package: libnspr
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Provides: nspr (= ${binary:Version})
+Description: Netscape Portable Runtime
+ The Netscape Portable Runtime (NSPR) provides a platform 
+ neutral API for system level and libc like functions.
+ .
+ This package provides NSPR shared libraries.
+
+Package: libnspr-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libnspr (= ${binary:Version})
+Provides: nspr-dev (= ${binary:Version})
+Description: NSPR Development headers and static libraries
+ This package provides NSPR static libraries, headers and 
+ pkgconfig data required to build applications which use 
+ the NSPR API.

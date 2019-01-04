@@ -1,5 +1,5 @@
 PKGNAME := nspr
-PKGVER := 4.17
+PKGVER := 4.20
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -13,9 +13,18 @@ COPTS := --prefix=/usr \
 	--host=$(TARGETARCH) \
 	--build=$(BUILDARCH) \
 	--cache-file=$(PKGOBJDIR)/$(PKGNAME).cache
+
 CC := "${CC} "
 CXX := "${CXX} "
+
 HOST_CC := gcc
-ifeq ($(ARCH),x86_64)
-        COPTS := $(COPTS) --enable-64bit
+
+ifeq ($(ARCH),$(filter $(ARCH),x86_64 aarch64))
+	COPTS := $(COPTS) --enable-64bit
 endif
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

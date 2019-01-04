@@ -1,0 +1,15 @@
+
+Based on: https://git.yoctoproject.org/cgit.cgi/poky/plain/meta/recipes-support/nspr/nspr/remove-rpath-from-tests.patch
+
+diff -ura a/nspr/pr/tests/Makefile.in b/nspr/pr/tests/Makefile.in
+--- a/nspr/pr/tests/Makefile.in	2018-08-28 15:42:28.000000000 +0300
++++ b/nspr/pr/tests/Makefile.in	2019-01-01 12:55:06.977264122 +0300
+@@ -316,7 +316,7 @@
+ endif # SunOS
+ 
+ ifeq (,$(filter-out Linux GNU GNU_%,$(OS_ARCH)))
+-    LDOPTS += -Xlinker -rpath $(ABSOLUTE_LIB_DIR)
++    LDOPTS += -Xlinker
+     ifeq ($(USE_PTHREADS),1)
+         EXTRA_LIBS = -lpthread
+     endif

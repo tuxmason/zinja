@@ -1,1 +1,3 @@
+fix-build-on-x86_64.patch
 nspr-disable-unneeded.patch
+remove-rpath-from-tests.patch

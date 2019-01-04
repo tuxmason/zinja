@@ -1,0 +1,46 @@
+Source: libdbusmenu
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libatk-dev, libcairo-dev, 
+ libfontconfig-dev, libfreetype-dev, libgdk-pixbuf-dev, 
+ glib2-dev, libgtk2-dev, libpango-dev, libx11-dev, 
+ libxcomposite-dev, libxcursor-dev, libxdamage-dev, 
+ libxext-dev, libxfixes-dev, libxi-dev, libxinerama-dev, 
+ libxrandr-dev, libxrender-dev, libgtk3-dev
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/libdbusmenu
+
+Package: libdbusmenu
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Library for passing menus over DBus
+ This package provides libdbusmenu, a set of shared 
+ libraries which provide routines for passing GTK+ 
+ menus over D-Bus.
+
+Package: libdbusmenu-debug
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools for debugging and benchmarking libdbusmenu
+ This package provides tools for benchmarking and 
+ debugging libdbusmenu.
+
+Package: libdbusmenu-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libdbusmenu (= ${binary:Version}), libatk-dev, 
+ libcairo-dev, libfontconfig-dev, libfreetype-dev, 
+ libgdk-pixbuf-dev, glib2-dev, libgtk2-dev, libpango-dev, 
+ libx11-dev, libxcomposite-dev, libxcursor-dev, libxdamage-dev, 
+ libxext-dev, libxfixes-dev, libxi-dev, libxinerama-dev, 
+ libxrandr-dev, libxrender-dev, libgtk3-dev
+Description: libdbusmenu development headers and static library
+ This package provides libdbusmenu static libraries, 
+ pkgconfig data and header files required for developing 
+ applications which use libdbusmenu API routines.

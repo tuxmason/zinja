@@ -1,0 +1,36 @@
+Source: libdrm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libpciaccess-dev
+Standards-Version: 3.9.5
+Homepage: https://dri.freedesktop.org/
+
+Package: libdrm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Userspace interface to kernel DRM services
+ This package provides libdrm, a set of shared libraries which 
+ contain API routines for accessing the DRM, direct rendering 
+ manager, on operating systems that support the ioctl interface.
+
+Package: libdrm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libpciaccess-dev, libdrm (= ${binary:Version})
+Description: libdrm headers and static libraries
+ This package provides libdrm static libraries, pkgconfig data 
+ and header files required for developing applications which use 
+ libdrm API routines.
+
+Package: libdrm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libdrm (= ${binary:Version})
+Description: documentation for libdrm
+ This package provides man pages for the library routines 
+ provided by libdrm.

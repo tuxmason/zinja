@@ -1,0 +1,51 @@
+Source: vala
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Projects/Vala
+
+Package: libvala
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides Vala API runtime routines
+ This package provides libvala, a shared library which provides
+ Vala API runtime routines. 
+
+Package: libvala-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: vala-dev (= ${binary:Version})
+Depends: libvala (= ${binary:Version}), glib2-dev
+Description: libvala development headers and static library
+ This package provides the libvala static library, 
+ pkgconfig data and header files required for developing 
+ applications which use Libvala API functions.
+
+Package: vala
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Vala userspace tools
+ Vala is a programming language using modern high level 
+ abstractions without imposing additional runtime requirements 
+ and without using a different ABI compared to applications and 
+ libraries written in C. 
+ .
+ This package provides the Vala compiler and its associated
+ support tools.
+
+Package: vala-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links-lite
+Depends: vala (= ${binary:Version})
+Description: documentation for vala
+ This package provides API documentation and manual pages for
+ Vala's userspace tools

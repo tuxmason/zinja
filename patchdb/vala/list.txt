@@ -1,0 +1,1 @@
+vala-0.42.4-avoid_graphviz-1.patch

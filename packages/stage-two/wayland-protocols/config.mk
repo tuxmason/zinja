@@ -1,5 +1,5 @@
 PKGNAME := wayland-protocols
-PKGVER := 1.12
+PKGVER := 1.16
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -13,8 +13,6 @@ COPTS := --prefix=/usr \
 
 CC := "${CC}"
 CXX := "${CXX}"
-
-LDFLAGS := "-L$(SYSROOTDIR)/lib -L$(SYSROOTDIR)/usr/lib"
 
 PKGDIR := $(PKGDB)/$(PKGNAME)
 ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz

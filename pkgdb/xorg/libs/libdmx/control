@@ -1,0 +1,35 @@
+Source: libdmx
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxxf86vm-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libdmx
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Distributed Multihead extension library
+ This package provides libdmx, a shared library which contains 
+ X11 Distributed Multihead routines.
+
+Package: libdmx-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxxf86vm-dev, libdmx (= ${binary:Version})
+Description: libdmx development headers and static libraries
+ This package provides the libdmx static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libdmx routines.
+
+Package: libdmx-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libdmx (= ${binary:Version})
+Description: documentation for libdmx
+ This package provides man pages for the library routines 
+ provided by libdmx.

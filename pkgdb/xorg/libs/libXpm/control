@@ -1,0 +1,39 @@
+Source: libxpm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxmu-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxpm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 pixmap library
+ This package provides libXpm, a shared library which contains 
+ X11 pixmap routines.
+ .
+ Also included are the userspace tools;
+ - cxpm: checks the format of an XPM file
+ - sxpm: shows an XPM file and/or converts XPM 1 or 2 files to XPM 3
+
+Package: libxpm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxmu-dev, libxpm (= ${binary:Version})
+Description: libXpm development headers and static libraries
+ This package provides the libXpm static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXpm routines.
+
+Package: libxpm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxpm (= ${binary:Version})
+Description: documentation for libXpm
+ This package provides man pages for the userspace tools provided 
+ by libXpm.

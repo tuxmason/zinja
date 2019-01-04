@@ -1,0 +1,35 @@
+Source: libxfixes
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxaw-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxfixes
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 miscellaneous 'fixes' extension library
+ This package provides libXfixes, a shared library which contains 
+ miscellaneous X11 'fixes' routines.
+
+Package: libxfixes-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxaw-dev, libxfixes (= ${binary:Version})
+Description: libXfixes development headers and static libraries
+ This package provides the libXfixes static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXfixes routines.
+
+Package: libxfixes-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxfixes (= ${binary:Version})
+Description: documentation for libXfixes
+ This package provides man pages for the routines provided 
+ by libXfixes.

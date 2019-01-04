@@ -1,0 +1,26 @@
+Source: libxdamage
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcursor-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxdamage
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 damaged region extension library
+ This package provides libXdamage, a shared library which contains 
+ X11 damaged region routines.
+
+Package: libxdamage-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxcursor-dev, libxdamage (= ${binary:Version})
+Description: libXdamage development headers and static libraries
+ This package provides the libXdamage static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXdamage routines.

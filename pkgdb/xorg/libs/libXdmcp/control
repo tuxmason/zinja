@@ -1,0 +1,36 @@
+Source: libxdmcp
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxau-dev
+Standards-Version: 3.9.5
+Homepage: https://www.x.org/wiki/
+
+Package: libxdmcp
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: routines for implementing the XDM Control Protocol
+ This package provides libXdmcp, a shared library which contains 
+ routines for implementing the X Display Manager Control Protocol.
+ .
+ These routines allow clients to interact with the X Display Manager.
+
+Package: libxdmcp-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxau-dev, libxdmcp (= ${binary:Version})
+Description: Development headers and static libraries for libxdmcp
+ This package provides libXdmcp.a, pkgconfig data and header files 
+ required for developing applications which use libXdmcp routines.
+
+Package: libxdmcp-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxdmcp (= ${binary:Version})
+Description: documentation for libxdmcp
+ This package provides man pages for the library routines provided 
+ by libXdmcp.

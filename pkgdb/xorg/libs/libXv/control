@@ -1,0 +1,35 @@
+Source: libxv
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxtst-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxv
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Video extension library
+ This package provides libXv, a shared library which contains 
+ X11 video routines.
+
+Package: libxv-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxtst-dev, libxv (= ${binary:Version})
+Description: libXv development headers and static libraries
+ This package provides the libXv static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXv routines.
+
+Package: libxv-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxv (= ${binary:Version})
+Description: documentation for libXv
+ This package provides man pages for the library routines 
+ provided by libXv.

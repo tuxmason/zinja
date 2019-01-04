@@ -1,0 +1,35 @@
+Source: libxxf86vm
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxxf86dga-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxxf86vm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 XFree86 video mode extension library
+ This package provides libXxf86vm, a shared library which contains 
+ X11 XFree86 video mode routines.
+
+Package: libxxf86vm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxxf86dga-dev, libxxf86vm (= ${binary:Version})
+Description: libXxf86vm development headers and static libraries
+ This package provides the libXxf86vm static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXxf86vm routines.
+
+Package: libxxf86vm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxxf86vm (= ${binary:Version})
+Description: documentation for libXxf86vm
+ This package provides man pages for the library routines 
+ provided by libXxf86vm.

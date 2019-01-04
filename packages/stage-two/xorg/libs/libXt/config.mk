@@ -1,4 +1,5 @@
 PKGNAME := libXt
+DEBPKGNAME := libxt
 PKGVER := 1.1.5
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
@@ -7,8 +8,8 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://www.x.org/pub/individual/lib/$(PKGSRC)
 COPTS := --prefix=/usr \
-	--disable-specs \
 	--without-perl \
+	--disable-specs \
 	--sysconfdir=/etc \
 	--localstatedir=/var \
 	--build=$(BUILDARCH) \
@@ -16,5 +17,11 @@ COPTS := --prefix=/usr \
 	--disable-malloc0returnsnull \
 	--with-appdefaultdir=/etc/X11/app-defaults
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/libs/$(PKGNAME)
+ORIGSRC := $(DEBPKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

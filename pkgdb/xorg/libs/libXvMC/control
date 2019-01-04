@@ -1,0 +1,35 @@
+Source: libxvmc
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxv-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxvmc
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Video Motion Compensation extension library
+ This package provides libXvMC, a shared library which contains 
+ X11 Video Motion Compensation routines.
+
+Package: libxvmc-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxv-dev, libxvmc (= ${binary:Version})
+Description: libXvMC development headers and static libraries
+ This package provides the libXvMC static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXvMC routines.
+
+Package: libxvmc-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxvmc (= ${binary:Version})
+Description: documentation for libXvMC
+ This package provides man pages for the library routines 
+ provided by libXvMC.

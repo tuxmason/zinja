@@ -1,0 +1,35 @@
+Source: libxi
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxft-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxi
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Input extension library
+ This package provides libXi, a shared library which contains 
+ X11 Input routines.
+
+Package: libxi-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxft-dev, libxi (= ${binary:Version})
+Description: libXi development headers and static libraries
+ This package provides the libXi static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXi routines.
+
+Package: libxi-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxi (= ${binary:Version})
+Description: documentation for libXi
+ This package provides man pages for the library routines 
+ provided by libXi.

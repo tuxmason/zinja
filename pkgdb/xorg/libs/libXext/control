@@ -1,0 +1,35 @@
+Source: libxext
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxext
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 miscellaneous extensions library
+ This package provides libXext, a shared libraries which contains 
+ miscellaneous X11 routines.
+
+Package: libxext-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libx11-dev, libxext (= ${binary:Version})
+Description: libXext development headers and static libraries
+ This package provides the libXext static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXext routines.
+
+Package: libxext-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxext (= ${binary:Version})
+Description: documentation for libXext
+ This package provides man pages for the library routines provided 
+ by libXext.

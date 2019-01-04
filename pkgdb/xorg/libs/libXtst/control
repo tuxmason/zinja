@@ -1,0 +1,35 @@
+Source: libxtst
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxres-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxtst
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Testing Resource extension library
+ This package provides libXtst, a shared library which contains 
+ X11 testing resource routines.
+
+Package: libxtst-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxres-dev, libxtst (= ${binary:Version})
+Description: libXtst development headers and static libraries
+ This package provides the libXtst static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXtst routines.
+
+Package: libxtst-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxtst (= ${binary:Version})
+Description: documentation for libXtst
+ This package provides man pages for the library routines 
+ provided by libXtst.

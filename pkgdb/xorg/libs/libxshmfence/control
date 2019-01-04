@@ -1,0 +1,27 @@
+Source: libxshmfence
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxkbfile-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxshmfence
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Shared memory fences using futexes
+ This library offers a CPU-based synchronization primitive compatible
+ with the X SyncFence objects that can be shared between processes
+ using file descriptor passing.
+
+Package: libxshmfence-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxkbfile-dev, libxshmfence (= ${binary:Version})
+Description: libxshmfence development headers and static libraries
+ This package provides the libxshmfence static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libxshmfence routines.

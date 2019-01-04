@@ -1,4 +1,5 @@
 PKGNAME := libXfont2
+DEBPKGNAME := libxfont2
 PKGVER := 2.0.3
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
@@ -8,11 +9,16 @@ PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://www.x.org/pub/individual/lib/$(PKGSRC)
 COPTS := --prefix=/usr \
 	--sysconfdir=/etc \
+	--disable-devel-docs \
 	--localstatedir=/var \
 	--build=$(BUILDARCH) \
-	--host=$(TARGETARCH) \
-	--disable-devel-docs 
+	--host=$(TARGETARCH)
 
-CC := "${CC} "
-CXX := "${CXX} "
-CFLAGS := "-I$(SYSROOTDIR)/usr/include/freetype2"
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/libs/$(PKGNAME)
+ORIGSRC := $(DEBPKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

@@ -1,0 +1,26 @@
+Source: libxfont2
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libfontenc-dev, libfreetype-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxfont2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libz, ${shlibs:Depends}
+Description: X11 font rasterisation library
+ This package provides libXfont2, a shared library which contains 
+ X11 font rasterisation routines.
+
+Package: libxfont2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libfontenc-dev, libfreetype-dev, libxfont2 (= ${binary:Version})
+Description: libXfont2 development headers and static libraries
+ This package provides the libXfont2 static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXfont2 routines.

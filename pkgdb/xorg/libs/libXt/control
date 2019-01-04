@@ -1,0 +1,35 @@
+Source: libxt
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxss-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxt
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 toolkit intrinsics library
+ This package provides libXt, a shared library which contains 
+ X11 toolkit intrinsics.
+
+Package: libxt-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxss-dev, libxt (= ${binary:Version})
+Description: libXt development headers and static libraries
+ This package provides the libXt static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXt routines.
+
+Package: libxt-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: vim, libxt (= ${binary:Version})
+Description: documentation for libXt
+ This package provides text documentation for the library routines 
+ provided by libXt.

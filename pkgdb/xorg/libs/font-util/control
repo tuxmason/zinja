@@ -1,0 +1,34 @@
+Source: font-util
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxdamage-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: font-util
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X.Org font utilities
+ This package provides X.Org font utilities.
+
+Package: font-util-dev
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libxdamage-dev, font-util (= ${binary:Version})
+Description: font-util macros and pkgconfig data
+ This package provides font-util macros and pkgconfig data 
+ required for developing applications which use font-util
+ macros.
+
+Package: font-util-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, font-util (= ${binary:Version})
+Description: documentation for font-util
+ This package provides man pages for the X.Org font 
+ utilities.

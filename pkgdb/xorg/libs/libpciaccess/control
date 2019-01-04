@@ -1,0 +1,25 @@
+Source: libpciaccess
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xorgproto, xcb-proto
+Standards-Version: 3.9.5
+Homepage: https://www.x.org/wiki/
+
+Package: libpciaccess
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: routines for implementing the X11 Authorization Protocol
+ This package provides libpciaccess, a shared library which contains 
+ routines for implementing the X11 Authorization Protocol.
+
+Package: libpciaccess-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: xcb-proto, libpciaccess (= ${binary:Version})
+Description: Development headers and static libraries for libpciaccess
+ This package provides libpciaccess.a, pkgconfig data and header files 
+ required for developing applications which use libpciaccess routines.

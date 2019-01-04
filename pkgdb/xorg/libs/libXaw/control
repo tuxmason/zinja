@@ -1,0 +1,35 @@
+Source: libxaw
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxpm-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxaw
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Athena Widget library
+ This package provides libXaw, a shared library which contains 
+ X11 Athena Widget routines.
+
+Package: libxaw-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxpm-dev, libxaw (= ${binary:Version})
+Description: libXaw development headers and static libraries
+ This package provides the libXaw static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXaw routines.
+
+Package: libxaw-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxaw (= ${binary:Version})
+Description: documentation for libXaw
+ This package provides man pages for the routines provided 
+ by libXaw.

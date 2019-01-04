@@ -1,0 +1,41 @@
+Source: libxrandr
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxinerama-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxrandr
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Resize and Rotate extension library
+ RandR (resize and rotate) is an X11 extention which provides the 
+ ability to resize, rotate and reflect the root window of a screen. 
+ .
+ RandR is responsible for setting the screen refresh rate and allows 
+ for the control of multiple monitors.
+ .
+ This package provides libXrandr, a shared library which contains 
+ X11 Resize and Rotate routines.
+
+Package: libxrandr-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxinerama-dev, libxrandr (= ${binary:Version})
+Description: libXrandr development headers and static libraries
+ This package provides the libXrandr static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXrandr routines.
+
+Package: libxrandr-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxrandr (= ${binary:Version})
+Description: documentation for libXrandr
+ This package provides man pages for the library routines 
+ provided by libXrandr.

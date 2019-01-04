@@ -1,0 +1,38 @@
+Source: libxcb
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxdmcp-dev
+Standards-Version: 3.9.5
+Homepage: https://xcb.freedesktop.org/
+
+Package: libxcb
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a replacement for Xlib
+ The X protocol C-language Binding (XCB) is a replacement for Xlib 
+ featuring a small footprint, latency hiding, direct access to the 
+ protocol, improved threading support, and extensibility.
+ .
+ This package provide libxcb shared libraries.
+
+Package: libxcb-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxdmcp-dev, libxcb (= ${binary:Version})
+Description: Development headers and static libraries for libxcb
+ This package provides libxcb static libraries, pkgconfig data and 
+ header files required for developing applications which use libxcb 
+ routines.
+
+Package: libxcb-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, lynx, libxcb (= ${binary:Version})
+Description: documentation for libxcb
+ This package provides html documentation and man pages for the 
+ library routines provided by libxcb.

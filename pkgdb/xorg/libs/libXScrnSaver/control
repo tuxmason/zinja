@@ -1,0 +1,35 @@
+Source: libxscrnsaver
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libsm-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxss
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Screen Saver extension library
+ This package provides libXss, a shared library which 
+ contains X11 Screen Saver management routines.
+
+Package: libxss-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libsm-dev, libxss (= ${binary:Version})
+Description: libXss development headers and static library
+ This package provides the libXss static library, pkgconfig 
+ data and header files required for developing applications 
+ which use libXScrnSaver routines.
+
+Package: libxss-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: vim, libxss (= ${binary:Version})
+Description: documentation for libXss
+ This package provides man pages for the library routines 
+ provided by libXss.

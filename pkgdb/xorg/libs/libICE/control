@@ -1,0 +1,35 @@
+Source: libice
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libfs-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libice
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Inter-Client Exchange library
+ This package provides libICE, a shared library which contains 
+ X11 Inter-Client Exchange routines.
+
+Package: libice-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libfs-dev, libice (= ${binary:Version})
+Description: libICE development headers and static libraries
+ This package provides the libICE static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libICE routines.
+
+Package: libice-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: vim, libice (= ${binary:Version})
+Description: documentation for libICE
+ This package provides text documentation for the library routines 
+ provided by libICE.

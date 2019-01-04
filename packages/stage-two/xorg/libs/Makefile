@@ -6,7 +6,7 @@ all: xorg-libs
 
 xorg-libs: libpciaccess.o libXau.o libXdmcp.o libxcb.o xtrans.o libX11.o libXext.o libFS.o \
 	libICE.o libSM.o libXScrnSaver.o libXt.o libXmu.o libXpm.o libXaw.o libXfixes.o \
-	libXcomposite.o libXrender.o libXcursor.o libXdamage.o libfontenc.o libXfont2.o \
+	libXcomposite.o libXrender.o libXcursor.o libXdamage.o font-util.o libfontenc.o libXfont2.o \
 	libXft.o libXi.o libXinerama.o libXrandr.o libXres.o libXtst.o libXv.o libXvMC.o \
 	libXxf86dga.o libXxf86vm.o libdmx.o libxkbfile.o libxshmfence.o
 
@@ -111,6 +111,11 @@ libXdamage.o:
 	(make -C libXdamage 2>&1 | tee $(PKGLOGDIR)/libXdamage.log && exit $$PIPESTATUS)
 	@echo "libXdamage finished $(shell date -R)"
 
+font-util.o:
+	@echo "font-util started $(shell date -R)"
+	(make -C font-util 2>&1 | tee $(PKGLOGDIR)/font-util.log && exit $$PIPESTATUS)
+	@echo "font-util finished $(shell date -R)"
+
 libfontenc.o:
 	@echo "libfontenc started $(shell date -R)"
 	(make -C libfontenc 2>&1 | tee $(PKGLOGDIR)/libfontenc.log && exit $$PIPESTATUS)
@@ -188,8 +193,6 @@ libxshmfence.o:
 
 
 clean:
-	@for pkg in `ls | grep -v Makefile`; do \
-		make -C $$pkg clean ;\
-	done ;\
-  
+	@find . -maxdepth 1 -mindepth 1 -type d -exec make -C "{}" clean \; || exit 1 ;\
+
 PHONY: all xorg-libs

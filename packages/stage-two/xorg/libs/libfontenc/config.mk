@@ -10,7 +10,13 @@ COPTS := --prefix=/usr \
 	--sysconfdir=/etc \
 	--localstatedir=/var \
 	--build=$(BUILDARCH) \
-	--host=$(TARGETARCH) 
+	--host=$(TARGETARCH)
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/libs/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

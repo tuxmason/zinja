@@ -1,0 +1,26 @@
+Source: libxkbfile
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libdmx-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxkbfile
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 keyboard file manipulation library
+ This package provides libxkbfile, a shared library which contains 
+ X11 keyboard file manipulation routines.
+
+Package: libxkbfile-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libdmx-dev, libxkbfile (= ${binary:Version})
+Description: libxkbfile development headers and static libraries
+ This package provides the libxkbfile static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libxkbfile routines.

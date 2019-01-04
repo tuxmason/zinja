@@ -1,5 +1,6 @@
 PKGNAME := libXScrnSaver
-PKGVER := 1.2.2
+DEBPKGNAME := libxscrnsaver
+PKGVER := 1.2.3
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -13,5 +14,11 @@ COPTS := --prefix=/usr \
 	--host=$(TARGETARCH) \
 	--disable-malloc0returnsnull
 
-CC := "${CC} "
-CXX := "${CXX} "
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/xorg/libs/$(PKGNAME)
+ORIGSRC := $(DEBPKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

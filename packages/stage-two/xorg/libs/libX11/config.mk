@@ -1,5 +1,6 @@
 PKGNAME := libX11
-PKGVER := 1.6.5
+DEBPKGNAME := libx11
+PKGVER := 1.6.7
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.bz2
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -19,3 +20,9 @@ COPTS := --prefix=/usr \
 CC := "${CC} "
 CXX := "${CXX} "
 X11_CFLAGS := "-I$(SYSROOTDIR)/usr/include"
+
+PKGDIR := $(PKGDB)/xorg/libs/$(PKGNAME)
+ORIGSRC := $(DEBPKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

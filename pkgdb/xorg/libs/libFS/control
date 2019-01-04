@@ -1,0 +1,35 @@
+Source: libfs
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxext-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libfs
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X Font Service client library
+ This package provides libFS, a shared library which contains 
+ X11 font management routines.
+
+Package: libfs-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxext-dev, libfs (= ${binary:Version})
+Description: libFS development headers and static libraries
+ This package provides the libFS static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libFS routines.
+
+Package: libfs-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: vim, libfs (= ${binary:Version})
+Description: documentation for libFS
+ This package provides text documentation for the library routines 
+ provided by libFS.

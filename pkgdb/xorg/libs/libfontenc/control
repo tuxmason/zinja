@@ -1,0 +1,26 @@
+Source: libfontenc
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libz-dev, font-util-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libfontenc
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 font encoding library
+ This package provides libfontenc, a shared library which contains 
+ X11 font encoding routines.
+
+Package: libfontenc-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: font-util-dev, libz-dev, libfontenc (= ${binary:Version})
+Description: libfontenc development headers and static libraries
+ This package provides the libfontenc static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libfontenc routines.

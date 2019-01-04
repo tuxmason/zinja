@@ -1,0 +1,39 @@
+Source: libxinerama
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxi-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxinerama
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Xinerama extension library
+ Xinerama is an extension to the X Window System that enables X 
+ applications and window managers to use two or more physical displays 
+ as one large virtual display.
+ .
+ This package provides libXinerama, a shared library which contains 
+ X11 Xinerama routines.
+
+Package: libxinerama-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxi-dev, libxinerama (= ${binary:Version})
+Description: libXinerama development headers and static libraries
+ This package provides the libXinerama static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXinerama routines.
+
+Package: libxinerama-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxinerama (= ${binary:Version})
+Description: documentation for libXinerama
+ This package provides man pages for the library routines 
+ provided by libXinerama.

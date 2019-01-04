@@ -1,0 +1,35 @@
+Source: libxres
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxrandr-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxres
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Resource extension library
+ This package provides libXres, a shared library which contains 
+ X11 Resource routines.
+
+Package: libxres-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxrandr-dev, libxres (= ${binary:Version})
+Description: libXres development headers and static libraries
+ This package provides the libXres static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXres routines.
+
+Package: libxres-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxres (= ${binary:Version})
+Description: documentation for libXres
+ This package provides man pages for the library routines 
+ provided by libXres.

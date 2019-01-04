@@ -1,0 +1,34 @@
+Source: libxau
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xorgproto, xcb-proto
+Standards-Version: 3.9.5
+Homepage: https://www.x.org/wiki/
+
+Package: libxau
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: routines for implementing the X11 Authorization Protocol
+ This package provides libxau, a shared library which contains 
+ routines for implementing the X11 Authorization Protocol.
+
+Package: libxau-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: xcb-proto, libxau (= ${binary:Version})
+Description: Development headers and static libraries for libxau
+ This package provides libxau.a, pkgconfig data and header files 
+ required for developing applications which use libxau routines.
+
+Package: libxau-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxau (= ${binary:Version})
+Description: documentation for libxau
+ This package provides man pages for the library routines provided 
+ by libxau.

@@ -1,0 +1,35 @@
+Source: libxft
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxfont2-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxft
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 FreeType-based font drawing library
+ This package provides libXft, a shared library which contains 
+ FreeType-based X11 font drawing routines.
+
+Package: libxft-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxfont2-dev, libxft (= ${binary:Version})
+Description: libXft development headers and static libraries
+ This package provides the libXft static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXft routines.
+
+Package: libxft-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxft (= ${binary:Version})
+Description: documentation for libXft
+ This package provides man pages for the library routines 
+ provided by libXft.

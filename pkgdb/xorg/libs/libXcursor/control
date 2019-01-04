@@ -1,0 +1,35 @@
+Source: libxcursor
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxrender-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxcursor
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X cursor management library
+ This package provides libXcursor, a shared library which contains 
+ X11 cursor management routines.
+
+Package: libxcursor-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxrender-dev, libxcursor (= ${binary:Version})
+Description: libXcursor development headers and static libraries
+ This package provides the libXcursor static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXcursor routines.
+
+Package: libxcursor-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxcursor (= ${binary:Version})
+Description: documentation for libXcursor
+ This package provides man pages for the library routines 
+ provided by libXcursor.

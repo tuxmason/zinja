@@ -1,0 +1,35 @@
+Source: libxcomposite
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxfixes-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxcomposite
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 Composite extension library
+ This package provides libXcomposite, a shared library which contains 
+ X11 Composite routines.
+
+Package: libxcomposite-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxfixes-dev, libxcomposite (= ${binary:Version})
+Description: libXcomposite development headers and static libraries
+ This package provides the libXcomposite static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXcomposite routines.
+
+Package: libxcomposite-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxcomposite (= ${binary:Version})
+Description: documentation for libXcomposite
+ This package provides man pages for the routines provided 
+ by libXcomposite.

@@ -1,0 +1,35 @@
+Source: libx11
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), xtrans
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libx11
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 client-side library
+ This package provides libX11*, a set of shared libraries which 
+ contain the core X11 routines.
+
+Package: libx11-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: xtrans, libx11 (= ${binary:Version})
+Description: libX11 development headers and static libraries
+ This package provides libX11 static libraries, pkgconfig data and 
+ header files required for developing applications which use libX11
+ routines.
+
+Package: libx11-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libx11 (= ${binary:Version})
+Description: documentation for libX11
+ This package provides man pages for the library routines provided 
+ by libX11.

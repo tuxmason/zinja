@@ -1,0 +1,26 @@
+Source: xtrans
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xtrans
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: libxcb-dev
+Description: X transport library
+ xtrans is a library of code that is shared among various X
+ packages to handle network protocol transport in a modular
+ fashion, allowing a single place to add new transport types.
+
+Package: xtrans-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, xtrans (= ${binary:Version})
+Description: documentation for xtrans
+ This package provides html documentation and man pages for the 
+ library routines provided by xtrans.

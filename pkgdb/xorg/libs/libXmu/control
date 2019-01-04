@@ -1,0 +1,35 @@
+Source: libxmu
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxt-dev
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: libxmu
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: X11 miscellaneous micro-utility library
+ This package provides libXmu, a shared library which contains 
+ miscellaneous X11 micro-utility routines.
+
+Package: libxmu-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxt-dev, libxmu (= ${binary:Version})
+Description: libXmu development headers and static libraries
+ This package provides the libXmu static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libXmu routines.
+
+Package: libxmu-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, libxmu (= ${binary:Version})
+Description: documentation for libXmu
+ This package provides man pages for the library routines 
+ provided by libXmu.

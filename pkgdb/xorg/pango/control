@@ -1,0 +1,45 @@
+Source: pango
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcairo-dev, glib2-dev, 
+ libfontconfig-dev, libfreetype-dev
+Standards-Version: 3.9.5
+Homepage: https://www.pango.org/
+
+Package: libpango
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a library for laying out and rendering text
+ This package provides libpango, a shared library which
+ contains routines for for laying out and rendering text.
+
+Package: libpango-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libpango (= ${binary:Version}), libcairo-dev, glib2-dev,
+ libfontconfig-dev, libfreetype-dev
+Description: libpango development headers and static libraries
+ This package provides the libpango static library, 
+ pkgconfig data and header files required for developing 
+ applications which use Pango API functions.
+
+Package: pango
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: pango userspace tools
+ This package provides pango userspace utilities.
+
+Package: pango-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: pango (= ${binary:Version})
+Description: manual pages for pango's userspace tools
+ This package provides manual pages for pango's userspace tools.

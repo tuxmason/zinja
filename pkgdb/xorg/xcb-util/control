@@ -1,0 +1,27 @@
+Source: xcb-util
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libxcb-dev
+Standards-Version: 3.9.5
+Homepage: https://xcb.freedesktop.org
+
+Package: libxcb-util
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: additional extensions to the XCB library
+ This package provides libxcb-util, a shared library which 
+ contains additional extensions to the XCB library.
+
+Package: libxcb-util-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxcb-dev, libxcb-util (= ${binary:Version})
+Description: libXi development headers and static libraries
+ This package provides the libxcb-util static library, pkgconfig 
+ data and header files required for developing applications which 
+ use libxcb-util API routines.
+

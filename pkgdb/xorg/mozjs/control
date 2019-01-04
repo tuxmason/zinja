@@ -1,0 +1,39 @@
+Source: mozjs
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev, icu-dev, 
+ readline-dev, libnspr-dev, xorg-server-dev
+Standards-Version: 3.9.5
+Homepage: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
+
+Package: libmozjs
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides the Mozilla JavaScript API functions
+ This package provides libmozjs, a shared library which
+ contains Mozilla JavaScript API runtime routines.
+
+Package: libmozjs-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: js-dev (= ${binary:Version})
+Depends: libmozjs (= ${binary:Version}), gcc-dev, icu-dev, 
+ readline-dev, libnspr-dev, xorg-server-dev
+Description: libmozjs development headers and static libraries
+ This package provides the libmozjs static library, 
+ pkgconfig data and header files required for developing 
+ applications which use Mozilla JavaScript API functions.
+
+Package: mozjs
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Provides: js (= ${binary:Version})
+Description: Mozilla JavaScript interpreter
+ This package provides js52, provides a command line interface 
+ to the Mozilla JavaScript engine.

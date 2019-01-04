@@ -1,0 +1,5 @@
+0001-js.pc.in-do-not-include-RequiredDefines.h-for-depend.patch
+0001-mozjs-fix-coredump-caused-by-getenv.patch
+0006-support-musl.patch
+0010-fix-cross-compilation-on-i586-targets.patch
+musl-fixes.patch

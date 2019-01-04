@@ -1,0 +1,18 @@
+Source: icon-naming-utils
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev, perl
+Standards-Version: 3.9.5
+Homepage: http://tango.freedesktop.org/
+
+Package: icon-naming-utils
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}, perl
+Description: Maps Freedesktop icons names to the legacy icons names
+ This package provides icon-name-mapping, a Perl script used 
+ for maintaining backwards compatibility with current desktop 
+ icon themes, while migrating to the names specified in the 
+ Icon Naming Specification.

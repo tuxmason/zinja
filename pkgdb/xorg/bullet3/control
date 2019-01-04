@@ -1,0 +1,27 @@
+Source: bullet3
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libmesa-dev, libglvnd-dev
+Standards-Version: 3.9.5
+Homepage: http://www.bulletphysics.com/Bullet/
+
+Package: libbullet3
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: A 3D Collision Detection and Rigid Body Dynamics Library
+ This package provides libbullet3, a set of shared libraries
+ which contain functions for 3D Collision Detection and Rigid 
+ Body Dynamics.
+
+Package: libbullet3-dev
+Section: libdevel
+Priority: optional
+Provides: bullet3-dev
+Architecture: ARCH
+Depends: libbullet3 (= ${binary:Version}), libmesa-dev, libglvnd-dev
+Description: Bullet 3D development headers and pkgconfig data
+ This package provides pkgconfig data and header files required 
+ for developing applications which use Bullet 3D routines.

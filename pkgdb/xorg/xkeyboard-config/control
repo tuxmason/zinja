@@ -1,0 +1,16 @@
+Source: xkeyboard-config
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), mkfontdir
+Standards-Version: 3.9.5
+Homepage: https://xorg.freedesktop.org/
+
+Package: xkeyboard-config
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: mkfontdir
+Description: X keyboard configuration database
+ This package provides the X keyboard configuration 
+ database.

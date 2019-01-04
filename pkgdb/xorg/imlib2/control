@@ -1,0 +1,39 @@
+Source: imlib2
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libfreetype-dev, libimlib2-dev,
+ libx11-dev, libxcb-dev, libxext-dev, libgif-dev, libid3tag-dev,
+ libjpeg-turbo-dev, libpng-dev, libtiff-dev
+Standards-Version: 3.9.5
+Homepage: https://enlightenment.org
+
+Package: libimlib2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: routines for managing various image data formats 
+ This package provides libimlib2, a shared library which contains
+ routines for fast file loading, saving, rendering and manipulation.
+
+Package: imlib2
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools for manipulating image files
+ This package provides userspace tools for manipulating image files.
+
+Package: libimlib2-dev
+Section: libdevel
+Priority: optional
+Provides: imlib2-dev
+Architecture: ARCH
+Depends: libimlib2 (= ${binary:Version}), libfreetype-dev, libimlib2-dev, 
+ libx11-dev, libxcb-dev, libxext-dev, libgif-dev, libid3tag-dev, 
+ libjpeg-turbo-dev, libpng-dev, libtiff-dev
+Description: libimlib2 development headers and pkgconfig data
+ This package provides the libimlib2 static library, pkgconfig data 
+ and header files required for developing applications which use 
+ libimlib2 routines.

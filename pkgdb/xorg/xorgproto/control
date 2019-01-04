@@ -1,0 +1,26 @@
+Source: xorgproto
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: http://www.x.org/
+
+Package: xorgproto
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: util-macros
+Description: X Window System Unified Protocol headers
+ This package provides the headers defining the core protocol 
+ and (many) extensions for the X Window System.
+
+Package: xorgproto-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: vim
+Depends: xorgproto (= ${binary:Version})
+Description: documentation for xorgproto
+ This package provides text documentation for the X.Org protocol
+ headers.

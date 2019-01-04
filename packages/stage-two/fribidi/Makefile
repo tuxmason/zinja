@@ -32,18 +32,13 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		cat $(PATCHDB)/meson_cross.tpl | sed -e 's@TARGETARCH@$(TARGETARCH)@g' -e 's@ARCH@$(ARCH)@g' \
-			-e 's@TPROC@$(TPROC)@g' > $(MESON_CROSS) ;\
-		( PATH=$(PATH) CC=$(BUILD_CC) CXX=$(BUILD_CXX) PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) \
-			PKG_CONFIG_SYSROOT_DIR=$(PKG_CONFIG_SYSROOT_DIR) \
-			meson $(COPTS) --cross-file $(MESON_CROSS) $(PKGSRCDIR)  ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 
 build: configure
 	@if [ ! -f $(PKGOBJDIR)/build-stamp  ]; then \
-		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) ninja -v ) || exit 1 ;\
+		( PATH=$(PATH) make -j$(NPROCS) -C $(PKGOBJDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/build-stamp ;\
 	fi
 
@@ -61,15 +56,15 @@ install-deps: install-sysroot install-pkgroot
 
 install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
-		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) DESTDIR=$(SYSROOTDIR) ninja install ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/libfribidi.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
 
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
-		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) DESTDIR=$(PKGBINDIR) ninja install ) || exit 1 ;\
+		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/libfribidi.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 
@@ -85,8 +80,8 @@ install-pkg: build-pkg
 		cd $(PKGROOT) ;\
 		( PATH=$(PATH) fakeroot dpkg --root=$(SYSROOTDIR) --admindir=$(PKGADMINDIR) -i \
 			libfribidi_$(PKGVER)-1_$(PKGARCH).deb \
-			libfribidi-dev_$(PKGVER)-1_$(PKGARCH).deb \
 			fribidi_$(PKGVER)-1_$(PKGARCH).deb \
+			libfribidi-dev_$(PKGVER)-1_$(PKGARCH).deb \
 			fribidi-doc_$(PKGVER)-1_all.deb ) || exit 1 ;\
 		cat $(SYSROOTDIR)/var/lib/dpkg/info/*.shlibs > $(CROSSTOOLS)/etc/dpkg/shlibs.default || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkg-stamp ;\

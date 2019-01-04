@@ -10,7 +10,7 @@ Package: libfribidi
 Section: libs
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: set of functions that implement the Unicode Bidirectional Algorithm.
  FriBidi is an implementation of the Unicode Bidirectional Algorithm (BIDI). It 
  provides other applications with support for Arabic and Hebrew alphabets.
@@ -21,7 +21,7 @@ Package: fribidi
 Section: utils
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: Free Implementation of the Unicode BiDi algorithm
  FriBiDi is a BiDi algorithm implementation for Hebrew and/or Arabic
  languages.
@@ -33,8 +33,8 @@ Package: libfribidi-dev
 Section: libdevel
 Priority: optional
 Architecture: ARCH
-Provides: libfribidi-dev
-Depends: libc-dev, fribidi (= ${binary:Version})
+Provides: fribidi-dev
+Depends: gcc-dev, fribidi (= ${binary:Version})
 Description: Fribidi development headers and static libraries
  This package provides pkgconfig data and header files required for
  development using Fribidi.

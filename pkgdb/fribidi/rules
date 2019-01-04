@@ -16,7 +16,7 @@ binary:
 	dh_clean
 	dh_prep
 	dh_install --sourcedir=debian/pkg
-	dh_link -v
+	#dh_link -v
 	dh_compress
 	#dh_fixperms
 	dh_strip

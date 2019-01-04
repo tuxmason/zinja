@@ -1,0 +1,29 @@
+Source: startup-notification
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libx11-dev, libxcb-util-dev 
+Standards-Version: 3.9.5
+Homepage: https://dri.freedesktop.org/
+
+Package: libstartup-notification
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Monitor and display application startup
+ This package provides libstartup-notification, a shared library 
+ which contains API routines for communicating with the cursor 
+ system to provide feedback to the user that an application is 
+ loading.
+
+Package: libstartup-notification-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libx11-dev, libxcb-util-dev,
+ libstartup-notification (= ${binary:Version})
+Description: libstartup-notification headers and static library
+ This package provides the libstartup-notification static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libstartup-notification API routines.

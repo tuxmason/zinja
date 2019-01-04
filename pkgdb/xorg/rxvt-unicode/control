@@ -1,0 +1,26 @@
+Source: rxvt-unicode
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libfontconfig-dev, libfreetype-dev, 
+ libgdk-pixbuf-dev, glib2-dev, libstartup-notification-dev, 
+ libx11-dev, libxft-dev, libxmu-dev, libxrender-dev, libxt-dev
+Standards-Version: 3.9.5
+Homepage: http://software.schmorp.de/pkg/rxvt-unicode.html
+
+Package: rxvt-unicode
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: an X Window System terminal emulator 
+ rxvt-unicode is an X Window System terminal emulator 
+ which includes support for XFT and Unicode.
+
+Package: rxvt-unicode-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Description: documentation for rxvt-unicode
+ This package provides man pages for rxvt-unicode.

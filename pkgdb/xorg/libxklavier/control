@@ -1,0 +1,28 @@
+Source: libxklavier
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), glib2-dev, libx11-dev, 
+ libxi-dev, libxkbfile-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/LibXklavier/
+
+Package: libxklavier
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: High-level API for X Keyboard Extension
+ This package provides libxklavier, a shared library 
+ which provides X Keyboard utility functions.
+
+Package: libxklavier-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libxklavier (= ${binary:Version}), glib2-dev, libx11-dev, 
+ libxi-dev, libxkbfile-dev, libxml2-dev
+Description: libxklavier development headers and static library
+ This package provides the libxklavier static library, 
+ pkgconfig data and header files required for developing 
+ applications which use libxklavier API routines.

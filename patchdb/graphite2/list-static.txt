@@ -1,0 +1,3 @@
+cmake.patch
+graphite2-1.2.0-cmakepath.patch
+graphite2-1.3.10-static.patch

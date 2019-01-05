@@ -1,0 +1,17 @@
+Source: hicolor-icon-theme
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/icon-theme/
+
+Package: hicolor-icon-theme
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Freedesktop.org Hicolor icon theme
+ This package provides the Freedesktop.org Hicolor icon 
+ theme, a default fallback theme for implementations of 
+ the icon theme specification.

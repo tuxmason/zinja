@@ -1,0 +1,27 @@
+Source: lightdm-gtk-greeter
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libatk-dev, libcairo-dev, 
+ libgdk-pixbuf-dev, glib2-dev, libgtk3-dev, libindicator-dev, 
+ liblightdm-dev, libpango-dev, libx11-dev, libxklavier-dev
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/lightdm-gtk-greeter
+
+Package: lightdm-gtk-greeter
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GTK+ greeter for LightDM
+ This package provides a GTK+ greeter for LightDM.
+
+Package: lightdm-gtk-greeter-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: lightdm-gtk-greeter (= ${binary:Version})
+Description: lightdm-gtk-greeter documentation
+ This package provides documentation for lightDM 
+ GTK+ greeter. 

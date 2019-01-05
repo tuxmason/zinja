@@ -1,0 +1,5 @@
+lightdm-gtk-greeter (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Sun, 30 Dec 2018 15:47:57 +0300

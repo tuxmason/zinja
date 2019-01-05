@@ -1,0 +1,20 @@
+
+Source: https://raw.githubusercontent.com/OpenIndiana/oi-userland/054ac3cad89a90389c065c62e8e6a2c69d1ab5a1/components/desktop/lightdm-gtk-greeter/patches/03-exo-csource.patch
+
+exo-csource is necessary only in maintainer mode
+
+--- lightdm-gtk-greeter-2.0.2/configure.ac.1	2017-08-29 18:26:57.845778728 +0000
++++ lightdm-gtk-greeter-2.0.2/configure.ac	2017-08-29 18:28:36.183599352 +0000
+@@ -48,10 +48,12 @@
+ )
+ PKG_CHECK_MODULES([LIBX11], [x11])
+ 
++if test $USE_MAINTAINER_MODE = yes; then
+ AC_CHECK_PROG([HAVE_EXO_CSOURCE], [exo-csource], [yes])
+ if test x"$HAVE_EXO_CSOURCE" != xyes; then
+   AC_MSG_FAILURE([exo-csource not installed])
+ fi
++fi
+ 
+ dnl ###########################################################################
+ dnl Optional dependencies

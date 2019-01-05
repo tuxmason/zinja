@@ -1,0 +1,16 @@
+Source: xcb-proto
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), python-dev
+Standards-Version: 3.9.5
+Homepage: https://xcb.freedesktop.org
+
+Package: xcb-proto
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: xorgproto, python-dev
+Description: XML-XCB protocol descriptions
+ This package provides the XML-XCB protocol descriptions that libxcb 
+ uses to generate the majority of its code and API.

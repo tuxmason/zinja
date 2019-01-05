@@ -1,0 +1,16 @@
+Source: xlunch
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libimlib2-dev, libx11-dev
+Standards-Version: 3.9.5
+Homepage: http://xlunch.org/
+
+Package: xlunch
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}, hicolor-icon-theme
+Description: a light weight application launcher
+ This package provides Xlunch, a small and simple graphical 
+ launcher for Xorg/X11.

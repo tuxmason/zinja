@@ -1,0 +1,20 @@
+--- xlunch-4.1.1/Makefile.orig	2019-01-04 01:56:49.031484010 +0300
++++ xlunch-4.1.1/Makefile	2019-01-04 02:01:46.373477541 +0300
+@@ -3,7 +3,7 @@
+ CFLAGS ?= -O2 -s
+ #CFLAGS ?= -ggdb -g3 # For debugging
+ 
+-all: xlunch entries.dsv
++all: xlunch
+ 
+ install: xlunch
+ 	mkdir -p $(DESTDIR)/etc/xlunch/
+@@ -18,8 +18,6 @@
+ 	cp extra/updateentries $(DESTDIR)/usr/bin
+ 	cp extra/genentries.desktop $(DESTDIR)/usr/share/applications/
+ 	cp default.conf $(DESTDIR)/etc/xlunch/default.conf
+-	bash extra/genentries --path $(DESTDIR)/usr/share/xlunch/svgicons/ > $(DESTDIR)/etc/xlunch/entries.dsv
+-	cp -r svgicons/ $(DESTDIR)/usr/share/xlunch/ 2>/dev/null || :
+ 
+ remove:
+ 	rm -r $(DESTDIR)/etc/xlunch

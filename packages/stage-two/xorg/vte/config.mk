@@ -1,0 +1,27 @@
+PKGNAME := vte
+PKGVER := 0.54.2
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://ftp.gnome.org/pub/gnome/sources/$(PKGNAME)/0.54/$(PKGSRC)
+COPTS := --prefix=/usr \
+	--disable-vala \
+	--disable-gtk-doc \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+	--build=$(BUILDARCH) \
+	--host=$(TARGETARCH) \
+	--disable-introspection
+
+CC := "${CC}"
+CXX := "${CXX}"
+
+CFLAGS := "-D_GNU_SOURCE"
+
+PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

@@ -1,0 +1,28 @@
+From 4a576abbae9ce8d144ec1e1cd787da6c07d54269 Mon Sep 17 00:00:00 2001
+From: Ross Burton <ross.burton@intel.com>
+Date: Fri, 16 Nov 2018 16:57:29 +0000
+Subject: [PATCH] widget: define W_EXITCODE
+
+W_EXITCODE is glibc-specific so if sys/wait.h didn't define it, define it
+ourselves.
+---
+ src/widget.cc | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/widget.cc b/src/widget.cc
+index deaf789d..4bf45ee0 100644
+--- a/src/widget.cc
++++ b/src/widget.cc
+@@ -21,6 +21,9 @@
+ #include "widget.hh"
+ 
+ #include <sys/wait.h> // for W_EXITCODE
++#ifndef W_EXITCODE
++#define W_EXITCODE(ret, sig) ((ret) << 8 | (sig))
++#endif
+ 
+ #include <new>
+ #include <string>
+-- 
+2.11.0
+

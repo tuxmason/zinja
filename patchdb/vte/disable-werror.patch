@@ -1,0 +1,16 @@
+--- vte-0.54.2/configure.ac.orig	2018-12-28 06:02:28.729322097 +0300
++++ vte-0.54.2/configure.ac	2018-12-28 06:02:57.953321461 +0300
+@@ -145,13 +145,6 @@
+   -Wall dnl
+   -Wcast-align dnl
+   -Wendif-labels dnl
+-  -Werror=declaration-after-statement dnl
+-  "-Werror=format=2 -Werror=format-nonliteral -Werror=format-security" dnl
+-  -Werror=implicit-function-declaration dnl
+-  -Werror=init-self dnl
+-  -Werror=missing-include-dirs dnl
+-  -Werror=missing-prototypes dnl
+-  -Werror=pointer-arith dnl
+   -Wextra dnl
+   -Wfloat-equal dnl
+   -Wlogical-op dnl

@@ -1,0 +1,40 @@
+Source: vte
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libatk-dev, libcairo-dev, 
+ glib2-dev, libgnutls-dev, libgtk3-dev, libpango-dev, 
+ libpcre2-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Apps/Terminal/VTE
+
+Package: libvte
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: implements a terminal emulator widget for GTK+ 3
+ This package provides libvte, a shared library which 
+ implements a GTK+ 3 terminal emulator widget.
+
+Package: libvte-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: vte-dev (= ${binary:Version})
+Depends: libvte (= ${binary:Version}), libatk-dev, libcairo-dev, 
+ glib2-dev, libgnutls-dev, libgtk3-dev, libpango-dev, 
+ libpcre2-dev
+Description: VTE development headers and static libraries
+ This package provides the libvte static library, 
+ pkgconfig data and header files required for developing 
+ applications which use VTE API routines.
+
+Package: vte
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: VTE test application
+ This package provides a test application for the VTE libraries.
+

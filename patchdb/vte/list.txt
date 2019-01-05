@@ -1,0 +1,3 @@
+0001-widget-define-W_EXITCODE.patch
+allow_alt_in_terminal.patch
+disable-werror.patch

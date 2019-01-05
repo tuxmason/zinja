@@ -1,0 +1,17 @@
+Source: util-macros
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/freedesktop/xorg-macros
+
+Package: util-macros
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: gcc-dev
+Description: m4 macros used by all of the Xorg packages
+ This is a set of autoconf macros used by the configure.ac scripts 
+ in other Xorg modular packages, and is needed to generate new 
+ versions of their configure scripts with autoconf.

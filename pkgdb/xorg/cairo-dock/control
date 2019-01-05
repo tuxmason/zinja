@@ -1,0 +1,59 @@
+Source: cairo-dock
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), dbus-dev, libatk-dev, libcairo-dev, 
+ curl-dev, libdbus-glib-dev, libgdk-pixbuf-dev, glib2-dev, 
+ libglu-dev, libglvnd-dev, libgtk3-dev, libpango-dev, librsvg-dev, 
+ libwayland-dev, libx11-dev, libxcomposite-dev, libxinerama-dev, 
+ libxml2-dev, libxrandr-dev, libxrender-dev, libxtst-dev
+Standards-Version: 3.9.5
+Homepage: http://glx-dock.org/
+
+Package: libgldi
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: runtime routines for Cairo Dock.
+ Cairo Dock is a light, fast, and fully customizable animated 
+ dock.
+ .
+ This package provides libgldi, a shared library which provides
+ runtime routines for Cairo Dock.
+
+Package: libgldi-dev
+Section: libdevel
+Priority: optional
+Provides: cairo-dock-dev
+Architecture: ARCH
+Depends: libgldi (= ${binary:Version}), dbus-dev, libatk-dev, 
+ libcairo-dev, curl-dev, libdbus-glib-dev, libgdk-pixbuf-dev, 
+ glib2-dev, libglu-dev, libglvnd-dev, libgtk3-dev, libpango-dev, 
+ librsvg-dev, libwayland-dev, libx11-dev, libxcomposite-dev, 
+ libxinerama-dev, libxml2-dev, libxrandr-dev, libxrender-dev, 
+ libxtst-dev
+Description: Cairo Dock development headers and pkgconfig data
+ This package provides pkgconfig data and header files required 
+ for developing applications which use libgldi API routines.
+
+Package: cairo-dock
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a light weight desktop-agnotic dock
+ Cairo Dock is a light, fast, and fully customizable animated 
+ dock.
+ .
+ This package provides Cairo Dock userspace tools.
+
+Package: cairo-dock-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: cairo-dock-doc (= ${binary:Version})
+Description: documentation for Cairo Dock
+ This package provides manual pages for Cairo Dock's userspace 
+ tools.

@@ -1,0 +1,39 @@
+Source: dee
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), icu-dev, glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/dee
+
+Package: libdee
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Model to synchronize multiple instances over DBus
+ Libdee is a library that uses DBus to provide objects allowing 
+ you to create Model-View-Controller type programs across DBus. 
+ .
+ This package provides the Libdee shared library.
+
+Package: libdee-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: dee-dev (= ${binary:Version})
+Depends: libdee (= ${binary:Version}), icu-dev, glib2-dev
+Description: libdee development headers and static libraries
+ This package provides the libdee static library, 
+ pkgconfig data and header files required for developing 
+ applications which use Libdee API functions.
+
+Package: dee
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a userspace tool for introspecting dee data.
+ This package provides dee-tool, a tool for introspecting dee 
+ data. 
+

@@ -1,0 +1,25 @@
+Source: sakura
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/sakura
+
+Package: sakura
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a terminal emulator based just on GTK and VTE.
+ Sakura is a simple but powerful libvte based terminal 
+ emulator, supporting utf-8 and input methods as provided 
+ by gtk+ and pango libraries.
+
+Package: sakura-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Description: documentation for sakura
+ This package provides man pages for sakura.

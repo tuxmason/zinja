@@ -1,0 +1,52 @@
+Source: upower
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), glib2-dev, libgudev-dev, 
+ libusb-dev
+Standards-Version: 3.9.5
+Homepage: https://upower.freedesktop.org/
+
+Package: libupower
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: library which provides Power management routines
+ This package contains libupower, a shared library which
+ provides an interface to enumerating power devices, listening 
+ to device events and querying history and statistics. 
+ .
+ Any application or service on the system can access the 
+ org.freedesktop.UPower service via the system message bus.
+
+Package: libupower-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: upower-dev (= ${binary:Version})
+Depends: libupower (= ${binary:Version}),  glib2-dev, libgudev-dev, 
+ libusb-dev
+Description: UPower development headers and static libraries
+ This package provides the libupower static library, pkgconfig 
+ data and header files required for developing applications 
+ which use UPower API routines.
+
+Package: upower
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: UPower daemon and userspace tools
+ This package provides the UPower daemon and the upower command
+ line tool.
+
+Package: upower-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: upower (= ${binary:Version})
+Description: manual pages for UPower userspace tools
+ This package provides manual pages for the UPower daemon and its 
+ userspace tools.

@@ -1,0 +1,36 @@
+Source: cairo-dock-plugins
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), dbus-dev, libatk-dev, libcairo-dev, 
+ curl-dev, libdbus-glib-dev, libdbusmenu-dev, libgdk-pixbuf-dev, 
+ glib2-dev, libglu-dev, libglvnd-dev, libgnutls-dev, libgtk3-dev, 
+ libical-dev, libindicator-dev, libpango-dev, libpcre2-dev, librsvg-dev, 
+ libvte-dev, libwayland-dev, libx11-dev, libxcomposite-dev, libxklavier-dev, 
+ libxml2-dev, libxrandr-dev, libxrender-dev, libxtst-dev, libxxf86vm-dev
+Standards-Version: 3.9.5
+Homepage: http://glx-dock.org/
+
+Package: cairo-dock-plugins
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Cairo Dock plugins
+ This package provides a collection of views, applets, animations, 
+ and effects for the Cairo Dock.
+
+Package: cairo-dock-plugins-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: cairo-dock-plugins (= ${binary:Version}),  dbus-dev, 
+ libatk-dev, libcairo-dev, curl-dev, libdbus-glib-dev, libdbusmenu-dev, 
+ libgdk-pixbuf-dev, glib2-dev, libglu-dev, libglvnd-dev, libgnutls-dev, 
+ libgtk3-dev, libical-dev, libindicator-dev, libpango-dev, libpcre2-dev, 
+ librsvg-dev, libvte-dev, libwayland-dev, libx11-dev, libxcomposite-dev, 
+ libxklavier-dev, libxml2-dev, libxrandr-dev, libxrender-dev, libxtst-dev, 
+ libxxf86vm-dev
+Description: Cairo Dock plugins pkgconfig data
+ This package provides pkgconfig data required for developing 
+ Cairo Dock plugins.

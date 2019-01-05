@@ -1,0 +1,21 @@
+[Unit]
+Description=Light Display Manager
+Documentation=man:lightdm(1)
+Conflicts=getty@tty1.service
+After=getty@tty1.service systemd-user-sessions.service plymouth-quit.service acpid.service
+
+[Service]
+ExecStartPre=/bin/bash -c "if ! /bin/grep -q -c '^lightdm' /etc/group ; then groupadd -g 65 lightdm ; fi"
+ExecStartPre=/bin/bash -c "if ! /bin/grep -q -c '^lightdm' /etc/passwd ; then useradd  -c 'LightDM Daemon' -d /var/lib/lightdm -u 65 -g lightdm -s /bin/false lightdm ; fi"
+ExecStartPre=-/bin/sh -c "[ ! -d /var/lib/lightdm ] && install -dm755 -o lightdm -g lightdm /var/lib/lightdm"
+ExecStartPre=-/bin/sh -c "[ ! -d /var/log/lightdm ] && install -dm755 -o lightdm -g lightdm /var/log/lightdm"
+ExecStartPre=-/bin/sh -c "[ ! -d /var/cache/lightdm ] && install -dm755 -o lightdm -g lightdm /var/cache/lightdm"
+ExecStartPre=-/bin/sh -c "[ ! -d /var/lib/lightdm-data ] && install -dm755 -o lightdm -g lightdm /var/lib/lightdm-data"
+ExecStart=/usr/bin/lightdm
+Restart=always
+IgnoreSIGPIPE=no
+BusName=org.freedesktop.DisplayManager
+
+[Install]
+Alias=display-manager.service
+

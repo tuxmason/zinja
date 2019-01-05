@@ -1,0 +1,53 @@
+Source: lightdm
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libgcrypt-dev, glib2-dev, 
+ libpam-dev, libxcb-dev, libxdmcp-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/LightDM/
+
+Package: liblightdm
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides LightDM runtime routinges
+ LightDM is a cross-desktop display manager. 
+ .
+ This package provides lightdm shared libraries and
+ modules. 
+
+Package: liblightdm-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: lightdm-dev (= ${binary:Version})
+Depends: liblightdm (= ${binary:Version}), libgcrypt-dev, 
+ glib2-dev, libpam-dev, libxcb-dev, libxdmcp-dev
+Description: LightDM development headers and static libraries
+ This package provides lightdm static libraries, 
+ pkgconfig data and header files required for 
+ developing applications which use LightDM API 
+ routines.
+
+Package: lightdm
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: A lightweight display manager
+ LightDM is a cross-desktop display manager. 
+ .
+ This package provides the LightDM display manager 
+ and its associated support tools.
+
+Package: lightdm-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: lightdm (= ${binary:Version})
+Description: lightdm documentation
+ This package provides manual pages for lightdm and its
+ associated userspace tools.

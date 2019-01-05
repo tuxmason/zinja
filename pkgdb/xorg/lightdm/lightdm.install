@@ -1,0 +1,11 @@
+usr/bin
+etc/pam.d
+etc/dbus-1
+etc/lightdm
+lib/systemd
+usr/lib/lightdm
+usr/share/dbus-1
+usr/share/locale
+usr/share/polkit-1
+usr/share/accountsservice
+usr/share/bash-completion

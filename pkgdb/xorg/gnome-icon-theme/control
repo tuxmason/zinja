@@ -1,0 +1,18 @@
+Source: gnome-icon-theme
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), hicolor-icon-theme,
+  icon-naming-utils
+Standards-Version: 3.9.5
+Homepage: https://github.com/GNOME/gnome-icon-theme
+
+Package: gnome-icon-theme
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}, hicolor-icon-theme, 
+  icon-naming-utils, gtk3
+Description: an assortment of non-scalable icons
+ This package provides an assortment of non-scalable 
+ icons of different sizes and themes.

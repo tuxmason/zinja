@@ -1,0 +1,6 @@
+usr/bin
+usr/share/vala
+usr/lib/systemd
+usr/share/dbus-1
+usr/share/zeitgeist
+usr/share/bash-completion

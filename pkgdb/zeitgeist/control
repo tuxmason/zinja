@@ -1,0 +1,54 @@
+Source: zeitgeist
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, sqlite3-dev
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/zeitgeist
+
+Package: libzeitgeist2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a client library used to log user activities and events
+ Zeitgeist is a service which logs a user's activities and 
+ events (files opened, websites visited, conversations hold 
+ with other people, etc.) and makes the relevant information 
+ available to other applications.
+ .
+ This package provides the shared library zeitgeist.
+
+Package: libzeitgeist2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: zeitgeist2-dev (= ${binary:Version})
+Depends: libzeitgeist2 (= ${binary:Version}), glib2-dev, 
+ sqlite3-dev
+Description: zeitgeist headers and static library
+ This package provides the zeitgeist static library, 
+ headers and pkgconfig data required to build applications, 
+ libraries or plugins which use the zeitgeist API.
+
+Package: zeitgeist
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: zeitgeist daemon
+ Zeitgeist is a service which logs a user's activities and 
+ events (files opened, websites visited, conversations hold 
+ with other people, etc.) and makes the relevant information 
+ available to other applications.
+ .
+ This package provides the zeitgeist daemon.
+
+Package: zeitgeist-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: zeitgeist (= ${binary:Version})
+Description: manual page for zeitgeist daemon
+ This package provides manual pages for the zeitgeist daemon.

@@ -1,0 +1,30 @@
+Source: libindicator
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libatk-dev, libcairo-dev, 
+ libgdk-pixbuf-dev, glib2-dev, libgtk3-dev, libpango-dev
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/libindicator
+
+Package: libindicator
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: symbols and convenience functions for Ayatana indicators
+ This package provides libindicator, a shared library
+ which provides a set of symbols and convenience functions 
+ for Ayatana indicators.
+
+Package: libindicator-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libindicator (= ${binary:Version}), libatk-dev, 
+ libcairo-dev, libgdk-pixbuf-dev, glib2-dev, libgtk3-dev, 
+ libpango-dev
+Description: libindicator development headers and static library
+ This package provides libindicator static libraries, 
+ pkgconfig data and header files required for developing 
+ applications which use libindicator API routines.

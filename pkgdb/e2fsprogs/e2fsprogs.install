@@ -1,8 +1,16 @@
 etc
-lib
 sbin
 usr/bin
 usr/sbin
 usr/share/et
 usr/share/ss
+usr/lib/*.so
 usr/lib/e2initrd_helper
+lib/libcom_err.so.2.1
+lib/libext2fs.so.2.4
+lib/libe2p.so.2.3
+lib/libss.so.2.0
+lib/libcom_err.so.2
+lib/libext2fs.so.2
+lib/libe2p.so.2
+lib/libss.so.2

@@ -58,6 +58,10 @@ install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install-libs ) || exit 1 ;\
+		ln -svf ../../lib/libcom_err.so.2 $(SYSROOTDIR)/usr/lib/libcom_err.so || exit 1 ;\
+		ln -svf ../../lib/libext2fs.so.2 $(SYSROOTDIR)/usr/lib/libext2fs.so || exit 1 ;\
+		ln -svf ../../lib/libe2p.so.2 $(SYSROOTDIR)/usr/lib/libe2p.so || exit 1 ;\
+		ln -svf ../../lib/libss.so.2 $(SYSROOTDIR)/usr/lib/libss.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
 
@@ -65,6 +69,10 @@ install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install-libs ) || exit 1 ;\
+		ln -svf ../../lib/libcom_err.so.2 $(PKGBINDIR)/usr/lib/libcom_err.so || exit 1 ;\
+		ln -svf ../../lib/libext2fs.so.2 $(PKGBINDIR)/usr/lib/libext2fs.so || exit 1 ;\
+		ln -svf ../../lib/libe2p.so.2 $(PKGBINDIR)/usr/lib/libe2p.so || exit 1 ;\
+		ln -svf ../../lib/libss.so.2 $(PKGBINDIR)/usr/lib/libss.so || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

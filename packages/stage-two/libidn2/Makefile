@@ -32,7 +32,7 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) LDFLAGS=$(LDFLAGS) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
 

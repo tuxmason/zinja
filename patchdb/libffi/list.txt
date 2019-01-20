@@ -1,1 +1,4 @@
 000-fix-header-installation-path.patch
+gnu-linux-define.patch
+pax-dlmmap.patch
+use-stdc-compatible-linux-define.patch

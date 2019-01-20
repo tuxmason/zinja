@@ -2,7 +2,7 @@ Source: tiff
 Section: libs
 Priority: optional
 Maintainer: Tux Mason <tuxmason@gmail.com>
-Build-Depends: debhelper (>= 9)
+Build-Depends: libjpeg-turbo-dev, xz-dev
 Standards-Version: 3.9.5
 Homepage: https://xorg.freedesktop.org/
 
@@ -32,8 +32,7 @@ Section: libdevel
 Priority: optional
 Provides: tiff-dev
 Architecture: ARCH
-Depends: tiff (= ${binary:Version}), gcc-dev, libjpeg-turbo-dev, 
- liblzma-dev
+Depends: tiff (= ${binary:Version}), libjpeg-turbo-dev, xz-dev
 Description: libtiff development headers and pkgconfig data
  This package provides libtiff pkgconfig data and header files 
  required for developing applications which use libtiff routines.

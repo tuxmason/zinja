@@ -73,6 +73,8 @@ install-sysroot: pkg-src
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGSRCDIR)/source DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		cp -v $(PKGBINDIR)/usr/bin/icu-config $(CROSSTOOLS)/bin || exit 1 ;\
+		sed -i -e "s@/usr@$(SYSROOTDIR)&@g" $(CROSSTOOLS)/bin/icu-config || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

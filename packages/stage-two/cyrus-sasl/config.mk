@@ -11,9 +11,12 @@ COPTS := --prefix=/usr \
 	--enable-login \
 	--sysconfdir=/etc \
 	--with-dblib=gdbm \
+	--enable-spnego=yes \
+	--enable-gssapi=yes \
 	--build=$(BUILDARCH) \
 	--host=$(TARGETARCH) \
 	--enable-auth-sasldb \
+	--with-plugindir=/usr/lib/sasl2 \
 	--with-dbpath=/var/lib/sasl/sasldb2 \
 	--with-saslauthd=/var/run/saslauthd
 

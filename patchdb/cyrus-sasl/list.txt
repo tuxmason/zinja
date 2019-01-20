@@ -1,0 +1,2 @@
+avoid-to-call-AC_TRY_RUN.patch
+debian_patches_0014_avoid_pic_overwrite.diff

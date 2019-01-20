@@ -33,7 +33,7 @@ configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
 		ln -sv $(PKGSRCDIR)/* . ;\
-		( PATH=$(PATH) CHOST=$(TARGETARCH) CC=$(CC) CXX=$(CXX) \
+		( PATH=$(PATH) CHOST=$(TARGETARCH) CC=$(CC) CXX=$(CXX) LDFLAGS=$(LDFLAGS) \
 			$(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi

@@ -13,6 +13,8 @@ COPTS := --prefix=/usr \
 CC := "${CC}"
 CXX := "${CXX}"
 
+LDFLAGS := "-Wl,-soname,libz.so.1"
+
 PKGDIR := $(PKGDB)/$(PKGNAME)
 ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
 PKGROOT := $(DISTRIBROOT)/$(PKGNAME)

@@ -58,6 +58,7 @@ install-sysroot: pkg-src
 		cd $(PKGSRCDIR) ;\
 		( PATH=$(PATH) make prefix=$(SYSROOTDIR)/usr RELEASE=true BUILDING_DEB=false \
 			CC=$(CC) CXX=$(CXX) AR=$(AR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		mv -v $(SYSROOTDIR)/usr/bin/node $(SYSROOTDIR)/usr/bin/dnnode || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
 
@@ -66,6 +67,8 @@ install-pkgroot: pkg-src
 		cd $(PKGSRCDIR) ;\
 		( PATH=$(PATH) make prefix=$(PKGBINDIR)/usr RELEASE=true BUILDING_DEB=false \
 			CC=$(CC) CXX=$(CXX) AR=$(AR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		mv -v $(PKGBINDIR)/usr/bin/node $(PKGBINDIR)/usr/bin/dnnode || exit 1 ;\
+		mv -v $(PKGBINDIR)/usr/share/man/man1/{node.1,dnnode.1} || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

@@ -64,6 +64,8 @@ pkg-src: build
 install-bin: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGSRCDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		cp -v $(PKGBINDIR)/usr/bin/libesmtp-config $(CROSSTOOLS)/bin/libesmtp-config || exit 1 ;\
+		sed -i -e "s@/usr@$(SYSROOTDIR)&@g" $(CROSSTOOLS)/bin/libesmtp-config || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/$(PKGNAME).la || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/esmtp-plugins/*.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-bin-stamp ;\

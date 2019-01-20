@@ -1,0 +1,48 @@
+Source: ntfs-3g
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://www.tuxera.com/community/open-source-ntfs-3g/
+
+Package: libntfs-3g
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides NTFS-3G runtime functions
+ NTFS-3G is a stable, full-featured, read-write NTFS driver 
+ for Linux, Android, Mac OS X, FreeBSD, NetBSD, OpenSolaris, 
+ QNX, Haiku, and other operating systems.
+ .
+ This package provides libntfs-3g, a shared library which
+ provides NTFS-3G API functions.
+
+Package: ntfs-3g
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: NTFS-3G userspace tools
+ This package provides NTFS-3G userspace tools.
+
+Package: libntfs-3g-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: ntfs-3g-dev (= ${binary:Version})
+Depends: ntfs-3g (= ${binary:Version}), util-linux-dev
+Description: NTFS-3G headers and static library
+ This package provides the NTFS-3G static library, headers 
+ and pkgconfig data required to build applications, libraries 
+ or plugins which use the NTFS-3G API.
+
+Package: ntfs-3g-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: ntfs-3g (= ${binary:Version})
+Description: documentation for NTFS-3G userspace tools
+ This package provides manual pages for NTFS-3G userspace tools.

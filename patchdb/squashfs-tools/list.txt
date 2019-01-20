@@ -1,0 +1,4 @@
+0001-mksquashfs-fix-rare-race-in-fragment-waiting-in-file.patch
+CVE-2015-4645.patch
+fix-compat.patch
+vla-overlow.patch

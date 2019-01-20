@@ -1,0 +1,25 @@
+Source: jfsutils
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: util-linux-dev
+Standards-Version: 3.9.5
+Homepage: http://jfs.sourceforge.net
+
+Package: jfsutils
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: JFS filesystem utilities
+ This package provides administration and debugging 
+ tools for the JFS filesystem.
+
+Package: jfsutils-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: jfsutils (= ${binary:Version})
+Description: jfsutils documentation
+ This package provides manual pages for jfsutils. 

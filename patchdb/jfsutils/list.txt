@@ -1,0 +1,2 @@
+missing-stdinth.patch
+musl-fix-includes.patch

@@ -1,0 +1,38 @@
+Source: libogg
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://xiph.org/ogg/
+
+Package: libogg
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Description: provides functions for handling Ogg formatted bit streams.
+ This package provides libogg, a shared library 
+ which provides functions for reading and writing 
+ Ogg formatted bit streams.
+
+Package: libogg-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libogg (= ${binary:Version}), gcc-dev
+Description: libogg headers and static library
+ This package provides the libogg static library, 
+ headers and pkgconfig data required for building 
+ applications, libraries or plugins which use 
+ libogg API functions.
+
+Package: libogg-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links
+Depends: libogg (= ${binary:Version})
+Description: libogg documentation
+ This package provides html documentation for the
+ libogg API.

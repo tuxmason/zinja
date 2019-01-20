@@ -1,0 +1,41 @@
+Source: alsa-lib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.alsa-project.org/
+
+Package: libasound
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Provides: alsa-lib (= ${binary:Version})
+Description: provides ALSA API functions
+ The Advanced Linux Sound Architecture (ALSA) provides 
+ audio and MIDI functionality for Linux based operating 
+ systems.
+ .
+ This package provides libasound, a shared library which
+ contains ALSA API functions. 
+
+Package: aserver
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: the ALSA server
+ This package provides aserver, the ALSA sound server. 
+
+Package: libasound-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: alsa-lib-dev (= ${binary:Version})
+Depends: libasound (= ${binary:Version}), gcc-dev 
+Description: libasound headers and static libraries
+ This package provides the libasound static library, 
+ pkg-config data, and headers required for building
+ applications which use ALSA API functions.
+

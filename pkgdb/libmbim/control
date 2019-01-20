@@ -1,0 +1,46 @@
+Source: libmbim
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libgudev-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/libmbim/
+
+Package: libmbim
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: MBIM modem protocol helper library 
+ This package provides libmbim, a shared library which 
+ provides an API for talking to WWAN modems and devices which 
+ speak the Mobile Interface Broadband Model (MBIM) protocol.
+
+Package: libmbim-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Mobile Interface Broadband (MBIM) userspace tools
+ This package provides utilities for managing MBIM enabled
+ devices. 
+
+Package: libmbim-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libmbim (= ${binary:Version}), glib2-dev, libgudev-dev 
+Description: libmbim headers and static library
+ This package provides the libmbim static library, pkgconfig 
+ data and header files required to develop applications which 
+ use libmbim API functions.
+
+Package: libmbim-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libmbim (= ${binary:Version})
+Recommends: man-db
+Description: libmbim documentation
+ This package provides manual pages for libmbim's userspace
+ tools.

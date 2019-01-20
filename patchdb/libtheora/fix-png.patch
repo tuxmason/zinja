@@ -1,0 +1,14 @@
+--- libtheora-1.1.1/examples/png2theora.c.orig	2019-01-10 20:19:33.008765508 +0300
++++ libtheora-1.1.1/examples/png2theora.c	2019-01-10 20:19:48.282765176 +0300
+@@ -462,9 +462,9 @@
+   png_set_strip_alpha(png_ptr);
+ 
+   row_data = (png_bytep)png_malloc(png_ptr,
+-    3*height*width*png_sizeof(*row_data));
++    3*height*width*sizeof(*row_data));
+   row_pointers = (png_bytep *)png_malloc(png_ptr,
+-    height*png_sizeof(*row_pointers));
++    height*sizeof(*row_pointers));
+   for(y = 0; y < height; y++) {
+     row_pointers[y] = row_data + y*(3*width);
+   }

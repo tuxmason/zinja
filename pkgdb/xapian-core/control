@@ -1,0 +1,52 @@
+Source: xapian-core
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: util-linux-dev
+Standards-Version: 3.9.5
+Homepage: http://www.xapian.org/
+
+Package: libxapian
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Xapian support library
+ Xapian is a highly adaptable toolkit which allows developers 
+ to easily add advanced indexing and search facilities to their 
+ own applications. 
+ .
+ It has built-in support for several families of weighting models 
+ and also supports a rich set of boolean query operators.
+ .
+ This package provides libxapian, a shared library which 
+ contains Xapian API functions.
+
+Package: xapian
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Xapian userspace tools
+ This package provides Xapian userspace tools. 
+
+Package: libxapian-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: xapian-dev (= ${binary:Version}) 
+Depends: xapian (= ${binary:Version}), util-linux-dev 
+Description: xapian headers and static library
+ This package provides the Xapian static library, pkgconfig data 
+ and header files required to develop applications which use 
+ Xapian API functions.
+
+Package: xapian-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xapian (= ${binary:Version})
+Recommends: man-db, links
+Description: xapian documentation
+ This package provides man pages and html documentation 
+ for Xapian. 

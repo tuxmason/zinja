@@ -1,0 +1,45 @@
+Source: libcdio-paranoia
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcdio-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/libcdio/
+
+Package: libcdio-paranoia
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: CD paranoia libraries from libcdio
+ This package provides libcdio-paranoia, a set of shared 
+ libraries which provide a port of xiph.org's cdda paranoia 
+ to use libcdio for CDROM access.
+
+Package: cd-paranoia
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: GNU cd-paranoia, a tool for accessing CD-ROMs
+ This package provides cd-paranoia, a userspace tools for 
+ accessing CD-ROMs.
+
+Package: libcdio-paranoia-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libcdio-paranoia (= ${binary:Version}), libcdio-dev
+Description: libcdio-paranoia headers and static library
+ This package provides libcdio-paranoia static libraries, 
+ pkgconfig data and header files required to develop
+ applications which use libcdio-paranoia API functions.
+
+Package: cd-paranoia-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: cd-paranoia (= ${binary:Version})
+Description: cd-paranoia documentation
+ This package provides man pages for cd-paranoia.

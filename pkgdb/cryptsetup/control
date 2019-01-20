@@ -1,0 +1,51 @@
+Source: cryptsetup
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libargon2-dev, libjson-c-dev, liblvm2-dev, 
+ openssl-dev, util-linux-dev, libpopt-dev
+Standards-Version: 3.9.5
+Homepage: https://gitlab.com/cryptsetup/cryptsetup/
+
+Package: libcryptsetup
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides runtime functions for encrypting block devices
+ This package provides libcryptsetup, a shared library
+ which provides functions required to set up transparent 
+ encryption of block devices using the Linux Kernel's 
+ crypto API.
+
+Package: cryptsetup
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools for setting up and managing encrypted block devices 
+ Cryptsetup is a set of userspace tools used to set up
+ encrypted block devices. 
+
+Package: libcryptsetup-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: cryptsetup-dev (= ${binary:Version})
+Depends: cryptsetup (= ${binary:Version}), libargon2-dev, 
+ libjson-c-dev, liblvm2-dev, openssl-dev, util-linux-dev, 
+ libpopt-dev
+Description: Cryptsetup headers and static library
+ This package provides the cryptsetup static library, 
+ headers and pkgconfig data required to build applications, 
+ libraries or plugins which use the cryptsetup API.
+
+Package: cryptsetup-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: cryptsetup (= ${binary:Version})
+Description: documentation for cryptsetup
+ This package provides manual pages for cryptsetup userspace
+ tools.

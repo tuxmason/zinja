@@ -1,0 +1,14 @@
+diff -Nurd libstatgrab-0.91/configure.ac libstatgrab-0.91.new/configure.ac
+--- libstatgrab-0.91/configure.ac	2014-07-11 19:12:06.000000000 +0000
++++ libstatgrab-0.91.new/configure.ac	2017-10-10 18:17:14.094496592 +0000
+@@ -609,8 +609,8 @@
+ 	[openbsd*], [
+ 		AC_DEFINE(OPENBSD, , [Building on OpenBSD])
+ 	],
+-	[linux-gnu*], [
+-		AC_DEFINE(LINUX, , [Building on GNU/Linux])
++	[linux*], [
++		AC_DEFINE(LINUX, , [Building on Linux])
+ 		AM_CONDITIONAL(SETUIDBINS, true)
+ 		BIN_OWNER="root"
+ 		BIN_PERM="4755"

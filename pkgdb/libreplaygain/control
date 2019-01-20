@@ -1,0 +1,26 @@
+Source: libreplaygain
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.musepack.net/index.php?pg=src
+
+Package: libreplaygain
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A library used for adjusting audio gain
+ This package provides libreplaygain, a shared library 
+ which provides functions for adjusting audio gain.
+
+Package: libreplaygain-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libreplaygain (= ${binary:Version}), gcc-dev
+Description: libreplaygain headers and static library
+ This package provides the libreplaygain, pkgconfig 
+ data and header files required to develop applications 
+ which use libreplaygain API functions.

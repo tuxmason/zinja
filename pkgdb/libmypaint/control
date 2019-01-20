@@ -1,0 +1,28 @@
+Source: libmypaint
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libjson-c-dev
+Standards-Version: 3.9.5
+Homepage: http://mypaint.org/
+
+Package: libmypaint
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides MyPaint's brushstroke rendering API routines
+ This package provides libmypaint, a shared library 
+ which contains MyPaint's brushstroke rendering API 
+ routines.
+
+Package: libmypaint-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libmypaint (= ${binary:Version}), glib2-dev, 
+ libjson-c-dev 
+Description: libmypaint headers and static library
+ This package provides the libmypaint static library, 
+ pkgconfig data and header files required to develop
+ applications which use libmypaint API functions.

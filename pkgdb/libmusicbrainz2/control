@@ -1,0 +1,28 @@
+Source: libmusicbrainz
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev, libexpat-dev
+Standards-Version: 3.9.5
+Homepage: https://musicbrainz.org/doc/libmusicbrainz
+
+Package: libmusicbrainz2
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: library which provides access to the MusicBrainz server
+ This package provides libmusicbrainz, a shared library 
+ which contains functions for accessing the data held on 
+ the MusicBrainz server. 
+
+Package: libmusicbrainz2-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libmusicbrainz2 (= ${binary:Version}), gcc-dev, 
+ libexpat-dev 
+Description: libmusicbrainz headers and static library
+ This package provides the libmusicbrainz static library, 
+ pkgconfig data and header files required to develop
+ applications which use libmusicbrainz API functions.

@@ -1,0 +1,48 @@
+Source: fftw
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.fftw.org/
+
+Package: libfftw
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Discrete Fourier transform (DFT) libraries
+ FFTW is a C subroutine library for computing the discrete Fourier 
+ transform (DFT) in one or more dimensions, of arbitrary input size, 
+ and of both real and complex data (as well as of even/odd data, 
+ i.e. the discrete cosine/sine transforms or DCT/DST).
+ .
+ This package provides libfftw shared libraries.
+
+Package: libfftw-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libfftw (= ${binary:Version}), gcc-dev
+Description: libfftw headers and static libraries
+ This package provides the libfftw static libraries, pkgconfig data 
+ and header files required for developing applications which use 
+ FFTW API functions.
+
+Package: fftw
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: fftw userspace tools
+ This package provides fftw userspace utilities.
+
+Package: fftw-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: fftw (= ${binary:Version})
+Description: documentation for fftw's userspace tools
+ This package provides info and manual pages for fftw's userspace 
+ tools.

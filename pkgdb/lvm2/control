@@ -1,0 +1,48 @@
+Source: lvm2
+Section: admin
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libaio-dev, readline-dev, systemd-dev, 
+ util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://sourceware.org/lvm2/
+
+Package: liblvm2
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Logical Volume Manager runtime libraries
+ This package provides Logical Volume Manager shared 
+ runtime libraries.
+
+Package: lvm2
+Section: admin
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Logical Volume Manager userspace tools
+ LVM2 refers to the userspace toolset that provide 
+ logical volume management facilities on linux. 
+
+Package: liblvm2-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: lvm2-dev (= ${binary:Version}) 
+Depends: lvm2 (= ${binary:Version}), libaio-dev, readline-dev, 
+ systemd-dev, util-linux-dev 
+Description: LVM2 headers and static library
+ This package provides pkgconfig data and header files 
+ required to develop applications which use LVM2 API 
+ functions.
+
+Package: lvm2-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: lvm2 (= ${binary:Version})
+Description: LVM2 documentation
+ This package provides manual pages for the Logical 
+ Volume Manager userspace tools.

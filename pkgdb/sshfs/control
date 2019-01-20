@@ -1,0 +1,16 @@
+Source: sshfs
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libfuse3-dev, glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/libfuse/sshfs
+
+Package: sshfs
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A network filesystem client used to connect to SSH servers
+ SSHFS allows you to mount a remote filesystem 
+ using SFTP. 

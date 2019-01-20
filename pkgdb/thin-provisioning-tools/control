@@ -1,0 +1,27 @@
+Source: thin-provisioning-tools
+Section: admin
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libexpat-dev, libaio-dev, boost-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/jthornber/thin-provisioning-tools
+
+Package: thin-provisioning-tools
+Section: admin
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools for manipulating the metadata of device-mapper targets
+ This package provides tools a suite of tools for 
+ manipulating the metadata of the dm-thin, dm-cache 
+ and dm-era device-mapper targets.
+
+Package: thin-provisioning-tools-doc
+Section: libdevel
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: thin-provisioning-tools (= ${binary:Version})
+Description: thin-provisioning-tools documentation
+ This package provides manual pages for thin provisioning 
+ userspace tools.

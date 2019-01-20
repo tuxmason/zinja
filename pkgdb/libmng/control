@@ -1,0 +1,38 @@
+Source: libmng
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libjpeg-turbo-dev, liblcms2-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: http://www.libmng.com/
+
+Package: libmng
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides routines for creating and manipulating MNG files
+ This package provides libmng, a shared library which 
+ contains a collection of routines used to create and 
+ manipulate MNG format graphics files.
+
+Package: libmng-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libmng (= ${binary:Version}), libjpeg-turbo-dev, 
+ liblcms2-dev, libz-dev 
+Description: libmng headers and static library
+ This package provides the libmng static library, 
+ pkgconfig data and header files required to develop
+ applications which use libmng API functions.
+
+Package: libmng-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libmng (= ${binary:Version})
+Recommends: man-db
+Description: libmng documentation
+ This package provides manual pages for libmng API
+ functions. 

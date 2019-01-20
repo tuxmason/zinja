@@ -1,0 +1,28 @@
+Source: fdk-aac
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://sourceforge.net/projects/opencore-amr/
+
+Package: libfdk-aac
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Fraunhofer FDK AAC codec library
+ This package provides libfdk-aac, a shared library 
+ which provides functions used for encoding audio in
+ AAC format.
+
+Package: libfdk-aac-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libfdk-aac (= ${binary:Version}), gcc-dev
+Description: libfdk-aac headers and static library
+ This package provides the libfdk-aac static library, 
+ headers and pkgconfig data required for building 
+ applications, libraries or plugins which use fdk-aac 
+ API functions.

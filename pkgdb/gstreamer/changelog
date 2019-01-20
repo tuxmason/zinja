@@ -1,0 +1,5 @@
+gstreamer (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Tue, 08 Jan 2019 12:03:11 +0300

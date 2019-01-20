@@ -1,0 +1,36 @@
+Source: libdvdread
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.videolan.org/developers/libdvdnav.html
+
+Package: libdvdread
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Provides a simple foundation for reading DVD video disks
+ This package provides libdvdread, a shared library 
+ which contains routines for reading DVD video disks.
+
+Package: libdvdread-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libdvdread (= ${binary:Version}), gcc-dev 
+Description: libdvdread headers and static library
+ This package provides the libdvdread static library, 
+ pkgconfig data and header files required to develop
+ applications which use libdvdread API functions.
+
+Package: libdvdread-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links
+Depends: libdvdread (= ${binary:Version})
+Description: libdvdread documentation
+ This package provides html documentation for libdvdread
+ API routines.

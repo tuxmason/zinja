@@ -1,0 +1,43 @@
+Source: faad2
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libasound-dev
+Standards-Version: 3.9.5
+Homepage: http://faac.sourceforge.net/
+
+Package: libfaad
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: ISO AAC audio decoder
+ This package provides libfaad, a shared library which 
+ contains functions for decoding AAC streams.
+
+Package: faad2
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a command-line AAC encoder.
+ This package provides faad2, a command-line AAC encoder.
+
+Package: libfaad-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libfaad (= ${binary:Version}), libasound-dev
+Description: libfaad headers and static libraries
+ This package provides libfaad static libraries, pkg-config 
+ data, and headers required for building applications which 
+ use FAAD2 API functions.
+
+Package: faad2-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: faad2 (= ${binary:Version})
+Description: faad2 documentation
+ This package provides the man page for faad2.

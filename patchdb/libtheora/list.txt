@@ -1,0 +1,6 @@
+automake.patch
+enc.patch
+fix-mmx.patch
+fix-png.patch
+fix-timeb.patch
+libtheora-flags.patch

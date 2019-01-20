@@ -1,0 +1,38 @@
+Source: libdvdnav
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libdvdread-dev
+Standards-Version: 3.9.5
+Homepage: https://www.videolan.org/developers/libdvdnav.html
+
+Package: libdvdnav
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: DVD navigation library
+ This package provides libdvdnav, a shared library 
+ which allows easy use of sophisticated DVD navigation 
+ features such as DVD menus, multiangle playback and 
+ even interactive DVD games.
+
+Package: libdvdnav-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libdvdnav (= ${binary:Version}), libdvdread-dev
+Description: libdvdnav headers and static library
+ This package provides the libdvdnav static library, 
+ pkgconfig data and header files required to develop
+ applications which use libdvdnav API functions.
+
+Package: libdvdnav-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links
+Depends: libdvdnav (= ${binary:Version})
+Description: libdvdnav documentation
+ This package provides html documentation for libdvdnav
+ API routines.

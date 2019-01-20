@@ -1,0 +1,29 @@
+Source: xvidcore
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.xvid.org/
+
+Package: libxvidcore
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Provides: xvid (= ${binary:Version})
+Description: provides functions for encoding and decoding MPEG-4 video data.
+ This package provides libxvidcore, a shared library 
+ which provides functions for encoding and decoding 
+ MPEG-4 video data. 
+
+Package: libxvidcore-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: xvid-dev (= ${binary:Version})
+Depends: libxvidcore (= ${binary:Version}), gcc-dev
+Description: XviD headers and static library
+ This package provides the libxvidcore static library, 
+ headers and pkgconfig data required to build applications, 
+ libraries or plugins which use XviD API functions.

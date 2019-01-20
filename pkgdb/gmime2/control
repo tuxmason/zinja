@@ -1,0 +1,34 @@
+Source: gmime
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libassuan-dev, glib2-dev, libgpg-error-dev, 
+ libgpgme-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/jstedfast/gmime
+
+Package: libgmime2
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Provides: gmime2 (= ${binary:Version})
+Description: A C/C++ MIME creation and parser library
+ GMime is a C/C++ library which may be used for the 
+ creation and parsing of messages using the Multipurpose 
+ Internet Mail Extension (MIME) as defined by numerous 
+ IETF specifications.
+ .
+ This package provides the libgmime shared library.
+
+Package: libgmime2-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: gmime2-dev (= ${binary:Version})
+Depends: libgmime2 (= ${binary:Version}), libassuan-dev, 
+ glib2-dev, libgpg-error-dev, libgpgme-dev
+Description: GMime headers and static library
+ This package provides the libgmime static library, 
+ pkgconfig data and header files required to develop
+ applications which use GMime API functions.

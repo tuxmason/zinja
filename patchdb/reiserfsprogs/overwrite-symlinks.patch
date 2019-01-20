@@ -1,0 +1,108 @@
+diff -ura a/Makefile.in b/Makefile.in
+--- a/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/Makefile.in	2019-01-15 22:27:55.755198787 +0300
+@@ -239,7 +239,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@
+diff -ura a/debugreiserfs/Makefile.in b/debugreiserfs/Makefile.in
+--- a/debugreiserfs/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/debugreiserfs/Makefile.in	2019-01-15 22:27:55.758198787 +0300
+@@ -243,7 +243,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@
+diff -ura a/fsck/Makefile.in b/fsck/Makefile.in
+--- a/fsck/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/fsck/Makefile.in	2019-01-15 22:27:55.743198788 +0300
+@@ -245,7 +245,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@
+diff -ura a/include/Makefile.in b/include/Makefile.in
+--- a/include/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/include/Makefile.in	2019-01-15 22:27:55.773198787 +0300
+@@ -207,7 +207,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@
+diff -ura a/lib/Makefile.in b/lib/Makefile.in
+--- a/lib/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/lib/Makefile.in	2019-01-15 22:27:55.766198787 +0300
+@@ -206,7 +206,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@
+diff -ura a/mkreiserfs/Makefile.in b/mkreiserfs/Makefile.in
+--- a/mkreiserfs/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/mkreiserfs/Makefile.in	2019-01-15 22:27:55.751198787 +0300
+@@ -241,7 +241,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@
+diff -ura a/reiserfscore/Makefile.in b/reiserfscore/Makefile.in
+--- a/reiserfscore/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/reiserfscore/Makefile.in	2019-01-15 22:27:55.747198788 +0300
+@@ -243,7 +243,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@
+diff -ura a/resize_reiserfs/Makefile.in b/resize_reiserfs/Makefile.in
+--- a/resize_reiserfs/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/resize_reiserfs/Makefile.in	2019-01-15 22:27:55.769198787 +0300
+@@ -242,7 +242,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@
+diff -ura a/tune/Makefile.in b/tune/Makefile.in
+--- a/tune/Makefile.in	2017-07-25 04:36:30.000000000 +0300
++++ b/tune/Makefile.in	2019-01-15 22:27:55.762198787 +0300
+@@ -241,7 +241,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIPO = @LIPO@
+-LN_S = @LN_S@
++LN_S = @LN_S@ -f -v
+ LTLIBOBJS = @LTLIBOBJS@
+ LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
+ MAINT = @MAINT@

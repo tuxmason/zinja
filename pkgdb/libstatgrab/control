@@ -1,0 +1,46 @@
+Source: libstatgrab
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev
+Standards-Version: 3.9.5
+Homepage: http://www.i-scream.org/libstatgrab
+
+Package: libstatgrab
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides cross platform access to system statistics
+ This package provides libstatgrab, a shared library which 
+ provides cross platform access to statistics about the 
+ system on which it's run. 
+
+Package: libstatgrab-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for accessing and viewing system statistics
+ This package provides tools for accessing and viewing system 
+ statistics.
+
+Package: libstatgrab-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libstatgrab (= ${binary:Version}), libncursesw-dev
+Description: libstatgrab headers and static library
+ This package provides the libstatgrab static library, pkgconfig 
+ data and header files required to develop applications which 
+ use libstatgrab API functions.
+
+Package: libstatgrab-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libstatgrab (= ${binary:Version})
+Recommends: man-db
+Description: libstatgrab documentation
+ This package provides manual pages for libstatgrab's userspace
+ tools.

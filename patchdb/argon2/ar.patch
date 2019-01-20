@@ -1,0 +1,20 @@
+--- ./Makefile.orig	2019-01-16 18:08:36.833657481 +0300
++++ ./Makefile	2019-01-16 18:12:10.840652824 +0300
+@@ -30,6 +30,8 @@
+ SRC_GENKAT = src/genkat.c
+ OBJ = $(SRC:.c=.o)
+ 
++AR := ar
++
+ CFLAGS += -std=c89 -O3 -Wall -g -Iinclude -Isrc
+ 
+ ifeq ($(NO_THREADS), 1)
+@@ -139,7 +141,7 @@
+ 		$(CC) $(CFLAGS) $(LIB_CFLAGS) $(LDFLAGS) $(SO_LDFLAGS) $^ -o $@
+ 
+ $(LIB_ST): 	$(OBJ)
+-		ar rcs $@ $^
++		$(AR) rcs $@ $^
+ 
+ clean:
+ 		rm -f $(RUN) $(BENCH) $(GENKAT)

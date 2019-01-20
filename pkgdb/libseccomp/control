@@ -1,0 +1,46 @@
+Source: libseccomp
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/seccomp/libseccomp
+
+Package: libseccomp
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: an interface to the kernel's syscall filtering mechanism.
+ This package provides libseccomp, a shared library which 
+ provides an easy to use, platform independent, interface 
+ to the Linux Kernel's syscall filtering mechanism. 
+
+Package: libseccomp-bin
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a command line interface to libseccomp
+ This package provides scmp_sys_resolver, a tool used to 
+ resolve system calls for applications.
+
+Package: libseccomp-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libseccomp (= ${binary:Version}), gcc-dev
+Description: libseccomp headers and static library
+ This package provides the libseccomp static library, 
+ headers, and pkgconfig data required to build applications, 
+ libraries or plugins which use libseccomp API routines.
+
+Package: libseccomp-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libseccomp-bin (= ${binary:Version})
+Description: libseccomp documentation
+ This package provides man pages for scmp_sys_resolver and
+ libseccomp API routines.

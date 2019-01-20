@@ -1,0 +1,3 @@
+0001-do-not-strip-pdata_tools-at-do_install.patch
+0001-fix-compile-failed-with-libc-musl.patch
+use-sh-on-path.patch

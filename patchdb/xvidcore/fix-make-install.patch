@@ -1,0 +1,11 @@
+--- xvidcore-1.3.5/build/generic/platform.inc.in.orig	2019-01-11 23:49:18.377611859 +0300
++++ xvidcore-1.3.5/build/generic/platform.inc.in	2019-01-11 23:49:33.485611530 +0300
+@@ -58,7 +58,7 @@
+ # ============================================================================
+ 
+ INSTALL=@INSTALL@
+-LN_S=@LN_S@
++LN_S=@LN_S@ -f -v
+ DESTDIR=
+ prefix=@prefix@
+ exec_prefix=@exec_prefix@

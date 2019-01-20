@@ -1,0 +1,45 @@
+Source: libcdio
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcddb-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/libcdio/
+
+Package: libcdio
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: GNU Compact Disc Input and Control Library
+ This package provides libcdio, a shared library which
+ contains routines for accessing CD-ROMs and CD images.
+
+Package: libcdio-bin
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tool for accessing CD-ROMs and CD images.
+ This package provides userspace tools for accessing
+ CD-ROMs and CD images.
+
+Package: libcdio-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libcdio (= ${binary:Version}), libcddb-dev 
+Description: libcdio headers and static library
+ This package provides the libcdio static library, 
+ pkgconfig data and header files required to develop
+ applications which use libcdio API functions.
+
+Package: libcdio-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libcdio (= ${binary:Version})
+Description: libcdio documentation
+ This package provides man and info pages for libcdio's
+ userspace utilities.

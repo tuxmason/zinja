@@ -1,0 +1,49 @@
+Source: xfsprogs
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: icu-dev, readline-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: http://xfs.org/index.php/Main_Page
+
+Package: libhandle
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides XFS-specific runtime routines
+ This package provides libhandle, a shared library which
+ contains XFS-specific functions that provide a way to 
+ perform certain filesystem operations without using a file 
+ descriptor to access filesystem objects.
+
+Package: xfsprogs
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: administration and debugging tools for the XFS file system.
+ This package provides tools for creating, managing and
+ debugging XFS file systems.
+
+Package: xfsprogs-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libhandle-dev (= ${binary:Version})
+Depends: xfsprogs (= ${binary:Version}), icu-dev, readline-dev, 
+ util-linux-dev
+Description: xfsprogs headers and static library
+ This package provides the libhandle static library, headers 
+ and pkgconfig data required to build applications, libraries 
+ or plugins which use xfsprogs API functions.
+
+Package: xfsprogs-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: xfsprogs (= ${binary:Version})
+Description: documentation for xfsprogs
+ This package provides manual pages for xfsprogs userspace
+ tools and API.

@@ -1,0 +1,36 @@
+Source: opus
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.opus-codec.org/
+
+Package: libopus
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: highly versatile, royalty-free audio codec 
+ This package provides libopus, a shared library which 
+ provides functions for reading and writing Opus files. 
+
+Package: libopus-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libopus (= ${binary:Version}), gcc-dev
+Description: libopus headers and static library
+ This package provides the libopus static library, 
+ pkgconfig data and header files required to develop
+ applications which use libopus API functions.
+
+Package: libopus-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libopus (= ${binary:Version})
+Recommends: man-db, links
+Description: opus documentation
+ This package provides man pages and html documentation 
+ for opus API functions. 

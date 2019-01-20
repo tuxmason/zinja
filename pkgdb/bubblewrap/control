@@ -1,0 +1,29 @@
+Source: bubblewrap
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libcap-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/projectatomic/bubblewrap
+
+Package: bubblewrap
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Unprivileged sandboxing tool
+ Bubblewrap is a setuid implementation of user namespaces, or 
+ sandboxing, that provides access to a subset of kernel user 
+ namespace features. 
+ .
+ Bubblewrap allows user owned processes to run in an isolated 
+ environment with limited access to the underlying filesystem.
+
+Package: bubblewrap-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: bubblewrap (= ${binary:Version})
+Description: documentation for bubblewrap
+ This package provides the manual page for bubblewrap.

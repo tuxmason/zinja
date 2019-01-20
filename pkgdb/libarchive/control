@@ -1,0 +1,48 @@
+Source: libarchive
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libacl-dev, libbz2-dev, liblz4-dev, xz-dev, 
+ libnettle-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: http://libarchive.org/
+
+Package: libarchive
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Multi-format archive and compression library
+ This package provides libarchive, a shared library which 
+ provides functions for creating and reading several 
+ streaming archive formats. 
+
+Package: libarchive-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for creating and extracting archives
+ This package provides tools for creating and extracting
+ archives. 
+
+Package: libarchive-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libarchive (= ${binary:Version}), libacl-dev, 
+ libbz2-dev, liblz4-dev, xz-dev, libnettle-dev, libxml2-dev 
+Description: libarchive headers and static library
+ This package provides the libarchive static library, 
+ pkgconfig data and header files required to develop
+ applications which use libarchive API functions.
+
+Package: libarchive-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libarchive (= ${binary:Version})
+Recommends: man-db
+Description: libarchive documentation
+ This package provides manual pages for libarchive's 
+ userspace tools and API functions. 

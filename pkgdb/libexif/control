@@ -1,0 +1,39 @@
+Source: libexif
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://sourceforge.net/projects/libexif
+
+Package: libexif
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a library for parsing, editing, and saving EXIF data.
+ This package provides libexif, a shared library which 
+ contains functions for parsing, editing, and saving 
+ EXIF data. 
+
+Package: libexif-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libexif (= ${binary:Version}), gcc-dev
+Description: libexif headers and static library
+ This package provides the libexif static library, 
+ headers and pkgconfig data required for building 
+ applications, libraries or plugins which use libexif 
+ API routines.
+
+Package: libexif-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links
+Depends: libexif (= ${binary:Version})
+Description: libexif API documentation
+ This package provides html documentation for the 
+ libexif API.
+

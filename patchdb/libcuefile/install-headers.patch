@@ -1,0 +1,7 @@
+--- libcuefile_r475/src/CMakeLists.txt.orig	2019-01-11 21:54:08.383762201 +0300
++++ libcuefile_r475/src/CMakeLists.txt	2019-01-11 21:54:17.317762007 +0300
+@@ -8,3 +8,4 @@
+ set_target_properties(cuefile-shared PROPERTIES OUTPUT_NAME cuefile CLEAN_DIRECT_OUTPUT 1 VERSION 0.0.0 SOVERSION 0)
+ 
+ install(TARGETS cuefile-static cuefile-shared LIBRARY DESTINATION "lib${LIB_SUFFIX}" ARCHIVE DESTINATION "lib${LIB_SUFFIX}")
++INSTALL(FILES ${libcuefile_SOURCE_DIR}/include/cuetools/cuefile.h ${libcuefile_SOURCE_DIR}/include/cuetools/cd.h ${libcuefile_SOURCE_DIR}/include/cuetools/cdtext.h DESTINATION include/cuetools)

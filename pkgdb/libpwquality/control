@@ -1,0 +1,51 @@
+Source: libpwquality
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libcrack-dev, libpam-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/libpwquality/libpwquality
+
+Package: libpwquality
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides password generation and quality checking
+ This package provides libpwquality, a shared library
+ which contains common functions for password quality 
+ checking and also scoring them based on their apparent 
+ randomness. 
+ .
+ The library also provides a function for generating 
+ random passwords with good pronounceability.
+
+Package: libpwquality-bin
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools for generating and checking password quality
+ This package provides userspace tools for generating 
+ and checking password quality.
+
+Package: libpwquality-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libpwquality (= ${binary:Version})
+Description: libpwquality headers and static library
+ This package provides the libpwquality static library, 
+ headers and pkgconfig data required to build applications, 
+ libraries or plugins which use libpwquality API functions.
+
+Package: libpwquality-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libpwquality (= ${binary:Version}), libcrack-dev, 
+ libpam-dev
+Description: documentation for libpwquality
+ This package provides manual pages for libpwquality's
+ userspace tools.

@@ -1,0 +1,36 @@
+Source: c-ares
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://c-ares.haxx.se/
+
+Package: libcares
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a C library for asynchronous DNS requests
+ This package provides libcares, a shared library which 
+ provides an API for asynchronous DNS requests (including 
+ name resolves).
+
+Package: c-ares
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for performing DNS requests
+ This package provides userspace tools for performing DNS
+ requests.
+
+Package: libcares-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libcares (= ${binary:Version}), gcc-dev
+Description: libcares headers and static library
+ This package provides the libcares static library, 
+ pkgconfig data and header files required to develop
+ applications which use libcares API functions.

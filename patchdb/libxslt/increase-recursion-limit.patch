@@ -1,0 +1,36 @@
+diff -ura a/doc/xsltproc.1 b/doc/xsltproc.1
+--- a/doc/xsltproc.1	2017-11-14 00:59:24.000000000 +0300
++++ b/doc/xsltproc.1	2019-01-07 18:43:15.131530697 +0300
+@@ -93,7 +93,7 @@
+ .RS 4
+ Adjust the maximum depth of the template stack before
+ \fBlibxslt\fR(3)
+-concludes it is in an infinite loop\. The default is 3000\.
++concludes it is in an infinite loop\. The default is 5000\.
+ .RE
+ .PP
+ \fB\-\-nodtdattr\fR
+diff -ura a/doc/xsltproc.xml b/doc/xsltproc.xml
+--- a/doc/xsltproc.xml	2019-01-03 21:29:57.000000000 +0300
++++ b/doc/xsltproc.xml	2019-01-07 18:43:15.133530697 +0300
+@@ -203,7 +203,7 @@
+ 			before <citerefentry>
+ 			<refentrytitle>libxslt</refentrytitle>
+ 			<manvolnum>3</manvolnum>
+-		</citerefentry> concludes it is in an infinite loop. The default is 3000.
++		</citerefentry> concludes it is in an infinite loop. The default is 5000.
+ 		</para>
+ 	</listitem>
+ 		</varlistentry>
+diff -ura a/libxslt/transform.c b/libxslt/transform.c
+--- a/libxslt/transform.c	2018-11-22 20:59:38.000000000 +0300
++++ b/libxslt/transform.c	2019-01-07 18:43:15.129530697 +0300
+@@ -67,7 +67,7 @@
+ 			  const xmlChar **systemID);
+ #endif
+ 
+-int xsltMaxDepth = 3000;
++int xsltMaxDepth = 5000;
+ int xsltMaxVars = 15000;
+ 
+ /*

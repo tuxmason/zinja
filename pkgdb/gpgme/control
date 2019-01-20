@@ -1,0 +1,49 @@
+Source: gpgme
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgpg-error-dev, libassuan-dev
+Standards-Version: 3.9.5
+Homepage: http://www.gnupg.org/related_software/gpgme/
+
+Package: libgpgme
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A C wrapper library for GnuPG
+ This package provides libgpgme, a set of shared 
+ libraries which contain a High-Level Crypto API 
+ for encryption, decryption, signing, signature 
+ verification and key management.
+
+Package: gpgme
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: prints fingerprint and keyid with keyservers
+ This package provides gpgme-tool, a command line 
+ utility used for retreiving fingerprint and keyids 
+ from keyservers.
+
+Package: libgpgme-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: gpgme-dev (= ${binary:Version})
+Depends: libgpgme (= ${binary:Version}), libgpg-error-dev, 
+ libassuan-dev
+Description: gpgme headers and static library
+ This package provides libgpgme static libraries, 
+ pkgconfig data and header files required to develop
+ applications which use gpgme API functions.
+
+Package: gpgme-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: texinfo
+Depends: gpgme (= ${binary:Version})
+Description: gpgme documentation
+ This package provides the info page for gpgme-tool.

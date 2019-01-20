@@ -1,0 +1,31 @@
+Source: clucene
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), boost-dev, 
+ libz-dev
+Standards-Version: 3.9.5
+Homepage: http://clucene.sourceforge.net/
+
+Package: libclucene
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: C++ port of the Java Lucene text search engine
+ CLucene is a high-performance, scalable, cross platform, 
+ full-featured, open-source indexing and searching API.
+ .
+ This package provides CLucene shared libraries.
+ 
+
+Package: libclucene-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libclucene (= ${binary:Version}), boost-dev, 
+ libz-dev
+Description: CLucene headers and pkgconfig data 
+ This package provides CLucene pkgconfig data and header 
+ files required to develop applications which use CLucene 
+ API functions.

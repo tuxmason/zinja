@@ -1,0 +1,48 @@
+Source: newt
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libpopt-dev, libslang-dev
+Standards-Version: 3.9.5
+Homepage: https://pagure.io/newt/
+
+Package: libnewt
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides color text mode and widget based user interfaces. 
+ This package provides libnewt, a shared library which 
+ provides functions for color text mode and widget based 
+ user interfaces.
+
+Package: newt
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Provides: whiptail (= ${binary:Version})
+Description: displays dialog boxes from shell scripts 
+ This package provides whiptail, a utility used to
+ display dialog boxes from shell scripts.
+
+Package: libnewt-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: newt-dev (= ${binary:Version})
+Depends: newt (= ${binary:Version}), libpopt-dev, 
+ libslang-dev 
+Description: newt headers and static library
+ This package provides the newt static library, 
+ pkgconfig data and header files required to develop
+ applications which use libnewt API functions.
+
+Package: newt-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: newt (= ${binary:Version})
+Recommends: man-db
+Description: newt documentation
+ This package provides the manual page for whiptail.

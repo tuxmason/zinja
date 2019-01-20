@@ -1,0 +1,42 @@
+Source: openjpeg
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: liblcms2-dev, libpng-dev, libtiff-dev, 
+ libz-dev
+Standards-Version: 3.9.5
+Homepage: http://www.openjpeg.org/
+
+Package: libopenjp2
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Open-source implementation of JPEG2000 image codec 
+ This package provides libopenjp2, a shared library 
+ which contains functions for compressing and 
+ decompressing lossless 16-bit images.
+
+Package: openjpeg
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: OpenJPEG userspace tools
+ OpenJPEG is an open-source implementation of the 
+ JPEG-2000 standard.
+ .
+ This package provides tools for compressing, 
+ decompressing and dumping OpenJPEG-2000 encoded 
+ images.
+
+Package: libopenjp2-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: openjpeg (= ${binary:Version}), liblcms2-dev, 
+ libpng-dev, libtiff-dev, libz-dev 
+Description: openjpeg headers and static library
+ This package provides the OpenJPEG-2000 static library, 
+ pkgconfig data and header files required to develop
+ applications which use libopenjp2 API functions.

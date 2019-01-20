@@ -1,0 +1,32 @@
+Source: taglib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), boost-dev
+Standards-Version: 3.9.5
+Homepage: https://taglib.org/
+
+Package: libtag
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a library for reading and editing audio file tags
+ This package provides libtag, a shared library which 
+ provides functions for reading and editing the meta-data 
+ of several popular audio formats. 
+ .
+ Currently it supports both ID3v1 and ID3v2 for MP3 files, 
+ Ogg Vorbis comments and ID3 tags and Vorbis comments in 
+ FLAC, MPC, Speex, WavPack, TrueAudio, WAV, AIFF, MP4 and 
+ ASF files. 
+
+Package: libtag-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libtag (= ${binary:Version}), boost-dev
+Description: TagLib headers and static library
+ This package provides the libtag static library, 
+ pkgconfig data and header files required to develop
+ applications which use TagLib API functions.

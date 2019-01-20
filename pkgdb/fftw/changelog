@@ -1,0 +1,5 @@
+fftw (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Tue, 08 Jan 2019 15:43:05 +0300

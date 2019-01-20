@@ -1,0 +1,46 @@
+Source: exempi
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: boost-dev, libexpat-dev
+Standards-Version: 3.9.5
+Homepage: https://libopenraw.freedesktop.org/wiki/Exempi
+
+Package: libexempi
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a library used for parsing XMP metadata 
+ This package provides libexempi, a shared library which 
+ contains functions for parsing XMP metadata.
+
+Package: exempi
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a command line tool for manipulating XMP metadata 
+ This package provides exempi, a command line tool used
+ for manipulating XMP metadata.
+
+Package: libexempi-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: exempi-dev (= ${binary:Version})
+Depends: libexempi (= ${binary:Version}), boost-dev, 
+ libexpat-dev
+Description: exempi headers and static library
+ This package provides the libexempi static library, 
+ pkgconfig data and header files required to develop
+ applications which use libexempi API functions.
+
+Package: exempi-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: exempi (= ${binary:Version})
+Description: exempi documentation
+ This package provides the manual page for exempi.

@@ -1,0 +1,16 @@
+Source: mypaint-brushes
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libmypaint-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/Jehan/mypaint-brushes
+
+Package: mypaint-brushes
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: libmypaint
+Description: Brushes used by MyPaint 
+ This package provides brushes used by applications which
+ use libmypaint.

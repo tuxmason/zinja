@@ -1,0 +1,12 @@
+diff -Nurd libstatgrab-0.91/src/libstatgrab/os_info.c libstatgrab-0.91.new/src/libstatgrab/os_info.c
+--- libstatgrab-0.91/src/libstatgrab/os_info.c	2014-06-19 11:41:10.000000000 +0000
++++ libstatgrab-0.91.new/src/libstatgrab/os_info.c	2017-10-10 18:42:04.844471568 +0000
+@@ -472,7 +472,7 @@
+ 		host_info_buf->bitwidth = 64;
+ 	}
+ 	else {
+-		host_info_buf->bitwidth = sysconf(_SC_LONG_BIT); // well, maybe 64-bit disabled 128-bit system o.O
++		host_info_buf->bitwidth = sizeof(long int) * 8; // well, maybe 64-bit disabled 128-bit system o.O
+ 	}
+ 	host_info_buf->host_state = sg_unknown_configuration;
+ # endif

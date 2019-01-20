@@ -1,0 +1,46 @@
+Source: speex
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libogg-dev
+Standards-Version: 3.9.5
+Homepage: https://speex.org/
+
+Package: libspeex
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A free codec for free speech 
+ Speex is an Open Source/Free Software patent-free audio 
+ compression format designed for speech.
+ .
+ This package provides Speex shared libraries.
+
+Package: speex
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for encoding and decoding speex files
+ This package provides speexdec and speexenc, tools for
+ decoding and encoding speex files. 
+
+Package: libspeex-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libspeex (= ${binary:Version}), libogg-dev
+Description: libspeex headers and static library
+ This package provides the libspeex static library, 
+ pkgconfig data and header files required to develop
+ applications which use libspeex API functions.
+
+Package: speex-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: speex (= ${binary:Version})
+Description: speex documentation
+ This package provides manual pages for speex.

@@ -1,0 +1,29 @@
+Source: libssh
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: e2fsprogs-dev, libargp-dev, libkrb5-dev, 
+ openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.libssh.org/
+
+Package: libssh
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: C library which implements the SSH protocol
+ This package provides libssh, a shared library which 
+ provides functions for accessing SSH client services.
+
+Package: libssh-dev
+Section: libdevel
+Priority: optional
+Provides: libssh-dev
+Architecture: ARCH
+Depends: libssh (= ${binary:Version}), e2fsprogs-dev, 
+ libargp-dev, libkrb5-dev, openssl-dev
+Description: libssh headers and pkgconfig data
+ This package provides libssh pkgconfig data and header 
+ files required to build applications which use libssh 
+ API routines.

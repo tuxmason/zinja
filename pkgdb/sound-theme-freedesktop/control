@@ -1,0 +1,15 @@
+Source: sound-theme-freedesktop
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://freedesktop.org/wiki/Specifications/sound-theme-spec
+
+Package: sound-theme-freedesktop
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: libc
+Description: Freedesktop sound theme
+ This package provides sound themes for the desktop. 

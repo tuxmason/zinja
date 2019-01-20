@@ -1,0 +1,30 @@
+Source: ijs
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.openprinting.org/download/ijs/
+
+Package: libijs
+Section: libs
+Architecture: ARCH
+Priority: optional
+Provides: ijs (= ${binary:Version}) 
+Depends: ${shlibs:Depends}
+Description: implements a protocol for transmission of raster page images. 
+ This package provides libijs, a shared library which 
+ implements a protocol for transmission of raster page 
+ images.
+
+Package: libijs-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: ijs-dev (= ${binary:Version}) 
+Depends: libijs (= ${binary:Version}), gcc-dev 
+Description: ijs headers and static library
+ This package provides the ijs static library, pkgconfig 
+ data and header files required to develop applications 
+ which use libijs API functions.
+

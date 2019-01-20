@@ -1,0 +1,5 @@
+usr/lib/*.a
+usr/include
+usr/share/aclocal
+usr/lib/pkgconfig
+usr/bin/gsl-config

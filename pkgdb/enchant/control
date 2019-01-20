@@ -1,0 +1,45 @@
+Source: enchant
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libaspell-dev, glib2-dev, libhunspell-dev
+Standards-Version: 3.9.5
+Homepage: https://abiword.github.io/enchant/
+
+Package: libenchant
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: A wrapper library for generic spell checking
+ This package provide libenchant, a shared library 
+ which contains spell checking interface API functions.
+
+Package: enchant
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Enchant spell checker
+ This package provides enchant, a commandline spell checker.
+
+Package: libenchant-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: enchant-dev (= ${binary:Version})
+Depends: enchant (= ${binary:Version}), libaspell-dev, 
+ glib2-dev, libhunspell-dev
+Description: Enchant headers and static library
+ This package provides the enchant static library, headers 
+ and pkgconfig data required to build applications, libraries 
+ or plugins which use enchant API functions.
+
+Package: enchant-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: enchant (= ${binary:Version})
+Description: documentation for enchant
+ This package provides manual pages for enchant.

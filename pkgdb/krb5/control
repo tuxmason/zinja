@@ -1,0 +1,53 @@
+Source: krb5
+Section: admin
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: e2fsprogs-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://web.mit.edu/kerberos/
+
+Package: libkrb5
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: MIT Kerberos support libraries
+ MIT Kerberos V5 is a free implementation of Kerberos 5. 
+ .
+ Kerberos is a network authentication protocol. It centralizes 
+ the authentication database and uses kerberized applications 
+ to work with servers or services that support Kerberos allowing 
+ single logins and encrypted communication over internal networks 
+ or the Internet.
+ .
+ This package provides MIT Kerberos V5 shared libraries.
+
+Package: krb5
+Section: admin
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: MIT Kerberos server
+ This package provides the MIT Kerberos V5 server and it's
+ associated support tools.
+
+Package: libkrb5-dev
+Section: libdevel
+Provides: krb5-dev
+Priority: optional
+Architecture: ARCH
+Depends: krb5 (= ${binary:Version})
+Description: MIT Kerberos V5 headers and pkgconfig data
+ This package provides headers and pkgconfig data required to 
+ build applications, libraries or plugins which use MIT Kerberos 
+ V5 API functions.
+
+Package: krb5-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: krb5 (= ${binary:Version})
+Description: MIT Kerberos V5 documentation
+ This package provides manual pages for the MIT Kerberos V5 server
+ and it's associated support tools.

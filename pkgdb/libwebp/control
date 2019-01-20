@@ -1,0 +1,51 @@
+Source: libwebp
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgif-dev, libjpeg-turbo-dev, libpng-dev, 
+ libtiff-dev
+Standards-Version: 3.9.5
+Homepage: https://developers.google.com/speed/webp/
+
+Package: libwebp
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides an API for encoding and decoding WebP images
+ WebP is a modern image format that provides superior 
+ lossless and lossy compression for images on the web.
+ .
+ This package provides libwebp, a shared library which 
+ provides functions for encoding and decoding WebP
+ encoded images. 
+
+Package: libwebp-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for encoding and decoding images using WebP
+ This package provides tools for encoding and decoding 
+ images using the WebP format.
+
+Package: libwebp-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libwebp (= ${binary:Version}), libgif-dev, 
+ libjpeg-turbo-dev, libpng-dev, libtiff-dev 
+Description: libwebp headers and static library
+ This package provides libwebp static libraries, pkgconfig 
+ data and header files required to develop applications 
+ which use libwebp API functions.
+
+Package: libwebp-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libwebp (= ${binary:Version})
+Recommends: man-db
+Description: libwebp documentation
+ This package provides manual pages for libwebp userspace
+ tools. 

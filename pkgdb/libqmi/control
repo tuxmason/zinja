@@ -1,0 +1,47 @@
+Source: libqmi
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libgudev-dev, libmbim-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/libqmi/
+
+Package: libqmi
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Qualcomm MSM Interface (QMI) protocol helper library 
+ This package provides libqmi, a shared library which provides 
+ an API for talking to WWAN modems and devices which speak the 
+ Qualcomm MSM Interface (QMI) protocol.
+
+Package: libqmi-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Qualcomm MSM Interface (QMI) protocol userspace tools
+ This package provides utilities for managing QMI enabled
+ devices. 
+
+Package: libqmi-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libqmi (= ${binary:Version}), glib2-dev, libgudev-dev, 
+ libmbim-dev
+Description: libqmi headers and static library
+ This package provides the libqmi static library, pkgconfig 
+ data and header files required to develop applications which 
+ use libqmi API functions.
+
+Package: libqmi-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libqmi (= ${binary:Version})
+Recommends: man-db
+Description: libqmi documentation
+ This package provides manual pages for libqmi's userspace
+ tools.

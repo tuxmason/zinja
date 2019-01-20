@@ -1,0 +1,50 @@
+Source: soundtouch
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.surina.net/soundtouch/
+
+Package: libsoundtouch
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: An audio processing library
+ SoundTouch is an open-source audio processing library 
+ for changing the Tempo, Pitch and Playback Rates of 
+ audio streams or audio files. 
+ . 
+ This package provides the libsoundtouch shared library.
+
+Package: soundtouch
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a program for processing WAV audio files
+ This package provides soundtouch, a program for 
+ processing WAV audio files by modifying sound tempo, 
+ pitch and playback rate properties independently from 
+ each other. 
+
+Package: libsoundtouch-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libsoundtouch (= ${binary:Version}), gcc-dev 
+Description: soundtouch headers and static library
+ This package provides the libsoundtouch static library, 
+ pkgconfig data and header files required to develop
+ applications which use SoundTouch API functions.
+
+Package: libsoundtouch-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: soundtouch (= ${binary:Version})
+Recommends: links
+Description: soundtouch documentation
+ This package provides html documentation for the 
+ soundTouch API. 

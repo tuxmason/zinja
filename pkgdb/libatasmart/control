@@ -1,0 +1,38 @@
+Source: libatasmart
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), systemd-dev
+Standards-Version: 3.9.5
+Homepage: http://0pointer.de/blog/projects/being-smart.html
+
+Package: libatasmart
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a disk reporting library.
+ This package provides libatasmart, a lean, small and clean 
+ implementation of an ATA S.M.A.R.T. reading and parsing 
+ library.
+ .
+ This package provides the libatasmart shared library.
+
+Package: libatasmart-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: libatasmart userspace tools
+ This package provides userspace tools for testing and 
+ retrieving disk information.
+
+Package: libatasmart-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libatasmart (= ${binary:Version}), systemd-dev
+Description: libatasmart headers and static library
+ This package provides the libatasmart static library, 
+ pkgconfig data and header files required to develop
+ applications which use libatasmart API functions.

@@ -1,0 +1,6 @@
+usr/lib/*.a
+usr/include
+usr/lib/cmake
+usr/share/aclocal
+usr/bin/gpgme-config
+usr/share/common-lisp

@@ -1,0 +1,50 @@
+Source: parted
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev, readline-dev, liblvm2-dev, 
+ util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gnu.org/software/parted/parted.html
+
+Package: libparted
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides libraries for manipulating partition tables.
+ This package provides libparted and libparted-fs-resize, 
+ shared libraries which contain functions for manipulating
+ partition tables.
+
+Package: parted
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: disk partitioning and partition resizing tool.
+ This package provides; 
+ - parted, a disk partitioning and partition resizing tool.
+ - partprobe, a utility which informs the OS of partition 
+   table changes.
+
+Package: libparted-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: parted-dev (= ${binary:Version}) 
+Depends: parted (= ${binary:Version}), libncursesw-dev, readline-dev, 
+ liblvm2-dev, util-linux-dev 
+Description: parted headers and static library
+ This package provides parted static libraries, pkgconfig 
+ data and header files required to develop applications which 
+ use parted API functions.
+
+Package: parted-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: parted (= ${binary:Version})
+Description: parted documentation
+ This package provides info and manual pages for parted.

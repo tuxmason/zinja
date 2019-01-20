@@ -1,0 +1,45 @@
+Source: a52dec
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://liba52.sourceforge.net/
+
+Package: liba52
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A free library for decoding ATSC A/52 streams
+ This package provides liba52, a shared library which 
+ provides routines for decoding ATSC A/52 streams. 
+
+Package: a52dec
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for decoding ATSC A/52 streams
+ This package provides userspace tools for decoding 
+ and extracting information from ATSC A/52 streams.
+
+Package: liba52-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: liba52 (= ${binary:Version}), gcc-dev
+Description: a52dec headers and static libraries
+ This package provides the liba52 static library, 
+ pkg-config data, and headers required for building 
+ applications which use a52dec API functions.
+
+Package: a52dec-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: a52dec (= ${binary:Version})
+Description: documentation for a52dec userspace tools
+ This package provides manual pages for a52dec userspace
+ tools.

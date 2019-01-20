@@ -1,0 +1,2 @@
+Fix-X32-build-by-disabling-asm.patch
+don-t-default-to-cortex-a9-with-neon.patch

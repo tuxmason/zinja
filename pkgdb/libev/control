@@ -1,0 +1,37 @@
+Source: libev
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://libev.schmorp.de/
+
+Package: libev
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: event dispatch library
+ This package provides libev, a full-featured 
+ and high-performance event loop that is loosely 
+ modelled after libevent.
+
+Package: libev-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libev (= ${binary:Version}), gcc-dev
+Description: libev headers and static library
+ This package provides the libev static library, 
+ pkgconfig data and header files required to 
+ develop applications which use libev API functions.
+
+Package: libev-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libev (= ${binary:Version})
+Description: libev API documentation
+ This package provides manual pages for libev API
+ functions.

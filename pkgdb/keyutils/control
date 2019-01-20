@@ -1,0 +1,47 @@
+Source: keyutils
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libkrb5-dev
+Standards-Version: 3.9.5
+Homepage: https://www.kernel.org/
+
+Package: libkeyutils
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: library for the key management facility system calls.  
+ This package provides libkeyutils, a shared library which 
+ provides key management facility system calls. 
+
+Package: keyutils
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: utilities for managing the kernel's key retention facility
+ Keyutils is a set of utilities for managing the key retention 
+ facility in the kernel, which can be used by filesystems, 
+ block devices and more to gain and retain the authorization 
+ and encryption keys required to perform secure operations.
+
+Package: libkeyutils-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: keyutils-dev (= ${binary:Version}) 
+Depends: keyutils (= ${binary:Version}), libkrb5-dev 
+Description: keyutils headers and static library
+ This package provides the libkeyutils static library, 
+ pkgconfig data and header files required to develop
+ applications which use libkeyutils API functions.
+
+Package: keyutils-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: keyutils (= ${binary:Version})
+Recommends: man-db
+Description: keyutils documentation
+ This package provides manual pages for keyutils.

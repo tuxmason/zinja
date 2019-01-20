@@ -1,0 +1,52 @@
+Source: slang
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libpcre-dev, libpng-dev, libz-dev, 
+ readline-dev
+Standards-Version: 3.9.5
+Homepage: http://www.jedsoft.org/slang
+
+Package: libslang
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: S-Lang support library and modules
+ This package provides libslang, a shared library which
+ provides runtime functions for the S-Lang interpreter.
+
+Package: slang
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tool for interpreting slang scripts
+ S-Lang (slang) is an interpreted language that can be 
+ embedded into an application to make the application 
+ extensible. 
+ .
+ This package provides slsh, a commandline utility used 
+ for interpreting slang scripts.
+
+Package: libslang-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: slang-dev (= ${binary:Version})
+Depends: libslang (= ${binary:Version}), libpcre-dev, 
+ libpng-dev, libz-dev, readline-dev
+Description: S-Lang headers and static library
+ This package provides the S-Lang static library, headers 
+ and pkgconfig data required to build applications, 
+ libraries or plugins which use S-Lang API routines.
+
+Package: slang-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links
+Depends: slang (= ${binary:Version})
+Description: documentation for S-Lang
+ This package provides manual pages and html reference guide
+ for S-Lang

@@ -1,0 +1,37 @@
+Source: btrfs-progs
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: e2fsprogs-dev, liblzo2-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://btrfs.wiki.kernel.org/
+
+Package: libbtrfs
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides runtime functions for Btrfs filesystem utilities 
+ This package provides libbtrfs and libbtrfsutil, a set 
+ of shared libraries which provide runtime functions for 
+ Btrfs filesystem utilities.
+
+Package: btrfs-progs
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Btrfs filesystem utilities
+ This package provides Btrfs filesystem utilities. 
+
+Package: libbtrfs-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: btrfs-progs (= ${binary:Version}), e2fsprogs-dev, 
+ liblzo2-dev, util-linux-dev
+Description: btrfs-progs headers and static library
+ This package provides the libbtrfs and libbtrfsutil static 
+ libraries, pkgconfig data and header files required to 
+ develop applications which use libbtrfs API functions.
+

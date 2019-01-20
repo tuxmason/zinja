@@ -1,0 +1,25 @@
+Source: dosfstools
+Section: admin
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: systemd-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/dosfstools/dosfstools
+
+Package: dosfstools
+Section: admin
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: DOS filesystem utilities
+ This package provides various utilities for use with 
+ the FAT family of file systems. 
+
+Package: dosfstools-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: dosfstools (= ${binary:Version})
+Description: dosfstools documentation
+ This package provides man pages for dosfstools.

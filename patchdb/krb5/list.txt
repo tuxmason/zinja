@@ -1,0 +1,1 @@
+mit-krb5_krb5-config_LDFLAGS.patch

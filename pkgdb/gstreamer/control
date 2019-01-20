@@ -1,0 +1,50 @@
+Source: gstreamer
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://gstreamer.freedesktop.org/
+
+Package: libgstreamer
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GStreamer open-source multimedia framework core library
+ GStreamer is a streaming media framework that enables 
+ applications to share a common set of plugins for 
+ tasks like video encoding and decoding, audio encoding 
+ and decoding, audio and video filters, audio visualisation, 
+ web streaming and anything else that streams in real-time 
+ or otherwise.
+ .
+ This package provides GStreamer shared libraries.
+
+Package: libgstreamer-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libgstreamer (= ${binary:Version})
+Description: GStreamer headers and static libraries
+ This package provides GStreamer static libraries, 
+ pkgconfig data and header files required for developing 
+ applications which use GStreamer API functions.
+
+Package: gstreamer
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GStreamer userspace tools
+ This package provides GStreamer userspace tools.
+
+Package: gstreamer-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: gstreamer (= ${binary:Version})
+Description: manual pages for GStreamer's userspace tools
+ This package provides manual pages for GStreamer's 
+ userspace tools.

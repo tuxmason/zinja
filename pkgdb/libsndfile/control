@@ -1,0 +1,47 @@
+Source: libsndfile
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libasound-dev, libogg-dev, 
+ libvorbis-dev, libflac-dev, sqlite3-dev
+Standards-Version: 3.9.5
+Homepage: http://www.mega-nerd.com/libsndfile
+
+Package: libsndfile
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: library for reading and writing files containing sampled audio data.
+ This package provides libsndfile, a shared library 
+ which provides functions for reading and writing files 
+ containing sampled sound.
+
+Package: libsndfile-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: libsndfile userspace tools
+ This package provides libsndfile userspace tools.
+
+Package: libsndfile-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libsndfile (= ${binary:Version}), libasound-dev, 
+ libogg-dev,libvorbis-dev, libflac-dev, sqlite3-dev 
+Description: libsndfile headers and static library
+ This package provides the libsndfile static library, 
+ pkgconfig data and header files required to develop
+ applications which use libsndfile API functions.
+
+Package: libsndfile-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libsndfile (= ${binary:Version})
+Recommends: man-db, links
+Description: libsndfile documentation
+ This package provides man pages and html documentation 
+ for libsndfile API. 

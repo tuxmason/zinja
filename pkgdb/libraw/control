@@ -1,0 +1,30 @@
+Source: libraw
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libjasper-dev, libjpeg-turbo-dev, 
+ liblcms2-dev
+Standards-Version: 3.9.5
+Homepage: https://www.libraw.org/
+
+Package: libraw
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A library for reading RAW files obtained from digital cameras  
+ This package provides libraw, a shared library which 
+ contains functions for reading RAW files obtained from 
+ digital photo cameras (CRW/CR2, NEF, RAF, DNG, and 
+ others).
+
+Package: libraw-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libraw (= ${binary:Version}), libjasper-dev, 
+ libjpeg-turbo-dev, liblcms2-dev 
+Description: libraw headers and static library
+ This package provides the libraw static library, 
+ pkgconfig data and header files required to develop
+ applications which use libraw API functions.

@@ -1,0 +1,49 @@
+Source: gsl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.gnu.org/software/gsl/gsl.html
+
+Package: libgsl
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a modern numerical library for C and C++ programmers
+ GNU Scientific Library (GSL), is a numerical library for 
+ C and C++ programmers which provides a wide range of 
+ mathematical routines such as random number generators, 
+ special functions and least-squares fitting.
+ .
+ This package provides GSL shared libraries.
+
+Package: libgsl-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libgsl (= ${binary:Version}), gcc-dev
+Description: libgsl development headers and static libraries
+ This package provides the libgsl static library, 
+ pkgconfig data and header files required for developing 
+ applications which use GSL API functions.
+
+Package: gsl
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: GSL demo programs
+ This package provides gsl-histogram, a tool which computes 
+ a histogram from data taken from stdin and gsl-randist, a 
+ tool which generates random samples from various distributions.
+
+Package: gsl-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: gsl (= ${binary:Version})
+Description: manual pages for gsl's userspace tools
+ This package provides manual pages for gsl's userspace tools.

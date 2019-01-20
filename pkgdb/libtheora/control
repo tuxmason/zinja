@@ -1,0 +1,42 @@
+Source: libtheora
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libogg-dev, libvorbis-dev
+Standards-Version: 3.9.5
+Homepage: https://www.theora.org/
+
+Package: libtheora
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a free and open video compression format 
+ Theora is a free and open video compression format from 
+ the Xiph.org Foundation. 
+ .
+ Theora scales from postage stamp to HD resolution, and 
+ is considered particularly competitive at low bitrates.
+ .
+ This package provides libtheora shared libraries.
+
+Package: libtheora-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libtheora (= ${binary:Version}), libogg-dev, 
+ libvorbis-dev 
+Description: libtheora headers and static library
+ This package provides the libtheora static libraries, 
+ pkgconfig data and header files required to develop
+ applications which use libtheora API functions.
+
+Package: libtheora-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libtheora (= ${binary:Version})
+Recommends: links
+Description: libtheora documentation
+ This package provides html documentation for libtheora 
+ API functions. 

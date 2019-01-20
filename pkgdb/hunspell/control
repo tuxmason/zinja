@@ -1,0 +1,47 @@
+Source: hunspell
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev, readline-dev
+Standards-Version: 3.9.5
+Homepage: https://hunspell.github.io/
+
+Package: libhunspell
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Spell checker and morphological analyzer library
+ This package provides libhunspell, a shared library which
+ contains spell checking and morphological analysis API
+ functions.
+
+Package: hunspell
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Hunspell spell checker and userspace tools
+ This package provides the hunspell commandline checker
+ and associated support utilities.
+
+Package: libhunspell-dev
+Section: libdevel
+Provides: hunspell-dev
+Priority: optional
+Architecture: ARCH
+Depends: hunspell (= ${binary:Version}), libncursesw-dev, 
+ readline-dev
+Description: Hunspell headers and static library
+ This package provides the Hunspell static library, headers 
+ and pkgconfig data required to build applications, libraries 
+ or plugins which use Hunspell API functions.
+
+Package: hunspell-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: hunspell (= ${binary:Version})
+Description: documentation for hunspell
+ This package provides man pages for Hunspell.

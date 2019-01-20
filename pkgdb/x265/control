@@ -1,0 +1,37 @@
+Source: x265
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://bitbucket.org/multicoreware/x265
+
+Package: libx265
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: library used to encode video streams into the H.265/HEVC format 
+ This package provides libx265, a shared library which 
+ contains the functions used to encode video streams 
+ into the H.265/HEVC format. 
+
+Package: x265
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: commandline H.265/HEVC encoder
+ This package provides x265, a commandline tool used 
+ to encode video streams into the H.265/HEVC format.
+
+Package: libx265-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libx265 (= ${binary:Version}), gcc-dev
+Description: x265 headers and static library
+ This package provides the libx265 static library, 
+ pkgconfig data and header files required to develop
+ applications which use libx265 API functions.
+

@@ -1,0 +1,48 @@
+Source: wavpack
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.wavpack.com/
+
+Package: libwavpack
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides WavPack API functions
+ WavPack is a completely open audio compression format 
+ which provides lossless, high-quality lossy, and a 
+ unique hybrid compression mode.
+ .
+ This package provides libwavpack, a shared library which
+ provides WavPack API functions. 
+
+Package: wavpack
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: WavPack userspace tools
+ This package provides WavPack userspace tools.
+
+Package: libwavpack-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: wavpack-dev (= ${binary:Version})
+Depends: libwavpack (= ${binary:Version}), gcc-dev
+Description: WavPack headers and static library
+ This package provides the libwavpack static library, 
+ headers and pkgconfig data required to build applications, 
+ libraries or plugins which use WavPack API functions.
+
+Package: wavpack-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: wavpack (= ${binary:Version})
+Description: documentation for WavPack userspace tools
+ This package provides man pages for WavPack userspace tools.

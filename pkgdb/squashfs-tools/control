@@ -1,0 +1,27 @@
+Source: squashfs
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: liblz4-dev, xz-dev, liblzo2-dev
+Standards-Version: 3.9.5
+Homepage: http://squashfs.sourceforge.net/
+
+Package: squashfs-tools
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: squashfs userspace tools
+ Squashfs is a compressed read-only filesystem for Linux. 
+ .
+ This package provides tools for creating and managing 
+ squashed filesystems.
+
+Package: squashfs-tools-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: squashfs-tools (= ${binary:Version})
+Description: squashfs-tools documentation
+ This package provides manual pages for squashfs-tools. 

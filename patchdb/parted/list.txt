@@ -1,0 +1,7 @@
+0001-Unset-need_charset_alias-when-building-for-musl.patch
+0001-libparted-Use-read-only-when-probing-devices-on-linu.patch
+fix-doc-mandir.patch
+fix-includes.patch
+make-tests.patch
+parted-3.2-sysmacros.patch
+syscalls.patch

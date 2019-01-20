@@ -1,0 +1,48 @@
+Source: audiofile
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libflac-dev, libasound-dev
+Standards-Version: 3.9.5
+Homepage: https://audiofile.68k.org/
+
+Package: libaudiofile
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Silicon Graphics Audio File Library
+ This package provides libaudiofile, a shared library which
+ contains functions used by programs to support AIFF, 
+ AIFF-compressed, Sun/NeXT, WAV and BIC audio formats.
+
+Package: audiofile
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for converting AIFF, WAV, and BIC audio files
+ This package provides tools for converting and displaying
+ information about AIFF, AIFF-compressed, Sun/NeXT, WAV and 
+ BIC audio files.
+
+Package: libaudiofile-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libaudiofile (= ${binary:Version}), libogg-dev, 
+ libasound-dev
+Description: libaudiofile headers and static libraries
+ This package provides the libaudiofile static library, 
+ pkg-config data, and headers required for building
+ applications which use libaudio API functions.
+
+Package: audiofile-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links
+Depends: audiofile (= ${binary:Version})
+Description: documentation for audiofile userspace tools
+ This package provides manual pages for audiofile userspace
+ tools.

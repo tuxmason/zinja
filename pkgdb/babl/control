@@ -1,0 +1,31 @@
+Source: babl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://gegl.org/babl/
+
+Package: libbabl
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Provides: babl (= ${binary:Version}) 
+Description: dynamic, any to any, pixel format conversion library 
+ This package provides libbabl, a shared library which 
+ contains functions used to access BablFishes.
+ .
+ BablFishes provide a framework for converting images 
+ between different formats. 
+
+Package: libbabl-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: babl-dev (= ${binary:Version}) 
+Depends: libbabl (= ${binary:Version}), gcc-dev 
+Description: babl headers and static library
+ This package provides the babl static library, pkgconfig 
+ data and header files required to develop applications 
+ which use libbabl API functions.

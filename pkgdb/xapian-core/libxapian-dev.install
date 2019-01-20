@@ -1,0 +1,5 @@
+usr/lib/*.a
+usr/include
+usr/lib/cmake
+usr/lib/pkgconfig
+usr/share/aclocal

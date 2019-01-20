@@ -1,0 +1,50 @@
+Source: fuse
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/libfuse/libfuse
+
+Package: libfuse3
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides FUSE 3 API functions.
+ FUSE (Filesystem in Userspace) is an interface for 
+ userspace programs to export a filesystem to the 
+ Linux kernel.
+ .
+ This package provides libfuse3, a shared library 
+ which contains FUSE 3 API functions.
+
+Package: fuse3
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: FUSE 3 userspace utilities
+ This package provides tools for managing FUSE 
+ (Filesystem in Userspace) filesystems.
+
+Package: libfuse3-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: fuse3 (= ${binary:Version})
+Provides: fuse3-dev (= ${binary:Version}), gcc-dev
+Description: FUSE 3 development headers and static library
+ This package provides the FUSE 3 static library, 
+ pkgconfig data and header files required for developing 
+ applications which use FUSE 3 API functions.
+
+Package: fuse3-doc
+Section: doc
+Priority: optional
+Architecture: all
+Depends: fuse3 (= ${binary:Version})
+Recommends: man-db
+Description: documentation for FUSE
+ This package provides manual pages for FUSE 3 userspace
+ tools.

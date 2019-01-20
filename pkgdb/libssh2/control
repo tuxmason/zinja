@@ -1,0 +1,35 @@
+Source: libssh2
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: openssl-dev
+Standards-Version: 3.9.5
+Homepage: http://www.libssh2.org/
+
+Package: libssh2
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a client-side C library which implements the SSH2 protocol
+ This package provides libssh2, a shared library which 
+ which implements the SSH2 protocol.
+
+Package: libssh2-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libssh2 (= ${binary:Version}), openssl-dev
+Description: libssh2 headers and static library
+ This package provides the libssh2 static library, 
+ pkgconfig data and header files required to develop
+ applications which use libssh2 API functions.
+
+Package: libssh2-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: libssh2 (= ${binary:Version})
+Description: libssh2 documentation
+ This package provides manual pages for the libssh2 API. 

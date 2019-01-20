@@ -1,0 +1,4 @@
+CVE-2017-17480.patch
+CVE-2018-14423.patch
+CVE-2018-18088.patch
+CVE-2018-6616.patch

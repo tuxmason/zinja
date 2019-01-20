@@ -1,0 +1,26 @@
+Source: libuv
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://libuv.org
+
+Package: libuv
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a cross platform support library with a focus on asynchronous I/O. 
+ This package provides libuv, a shared library which contains 
+ API functions for asynchronous I/O operations.
+
+Package: libuv-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libuv (= ${binary:Version}), gcc-dev
+Description: libuv headers and static library
+ This package provides the libuv static library, pkgconfig data 
+ and header files required to develop applications which use 
+ libuv API functions.

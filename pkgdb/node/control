@@ -1,0 +1,37 @@
+Source: node
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: icu-dev, libcares-dev, libhttp-parser-dev, 
+ libnghttp2-dev, libuv-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://nodejs.org/
+
+Package: nodejs
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: JavaScript runtime built on Chrome's V8 JavaScript engine.
+ Node.js is a JavaScript runtime built on Chrome's V8 
+ JavaScript engine.
+
+Package: nodejs-dev
+Section: devel
+Architecture: ARCH
+Priority: optional
+Depends: nodejs (= ${binary:Version}), icu-dev, libcares-dev, 
+ libhttp-parser-dev, libnghttp2-dev, libuv-dev, openssl-dev
+Description: Node.js headers
+ This package provides Node.js header files required to 
+ develop applications which use Node.js API functions.
+
+Package: nodejs-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: nodejs (= ${binary:Version})
+Recommends: man-db, links
+Description: Node.js documentation
+ This package provides manual pages and html documentation
+ for Node.js userspace tools and API functions.

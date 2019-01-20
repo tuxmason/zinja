@@ -1,0 +1,27 @@
+Source: libcue
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/lipnitsk/libcue/
+
+Package: libcue
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides an API for parsing CUE sheets.
+ This package provides libcue, a shared library which 
+ provides an API for parsing and extracting data from 
+ CUE sheets.
+
+Package: libcue-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libcue (= ${binary:Version}), gcc-dev
+Description: libcue headers and static library
+ This package provides the libcue static library, 
+ pkgconfig data and header files required to develop
+ applications which use libcue API functions.

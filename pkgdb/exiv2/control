@@ -1,0 +1,46 @@
+Source: exiv2
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: curl-dev, libexpat-dev, libssh-dev
+Standards-Version: 3.9.5
+Homepage: http://www.exiv2.org/
+
+Package: libexiv2
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a C++ library for managing image metadata 
+ This package provides libexiv2, a shared library which 
+ contains functions for managing image metadata. 
+
+Package: exiv2
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a tool for managing image and video metadata. 
+ This package provides exiv2, a command line utility for 
+ managing image and video metadata.
+
+Package: libexiv2-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: exiv2-dev (= ${binary:Version}) 
+Depends: exiv2 (= ${binary:Version}), curl-dev, 
+ libexpat-dev, libssh-dev 
+Description: exiv2 headers and static library
+ This package provides the libxmp static library, pkgconfig 
+ data and header files required to develop applications which 
+ use Exiv2 API functions.
+
+Package: exiv2-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: exiv2 (= ${binary:Version})
+Recommends: man-db
+Description: exiv2 documentation
+ This package provides the manual page for exiv2.

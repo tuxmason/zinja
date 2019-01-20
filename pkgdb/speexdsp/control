@@ -1,0 +1,28 @@
+Source: speexdsp
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.speex.org/
+
+Package: libspeexdsp
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: DSP library derived from Speex
+ SpeexDSP is a patent-free, Open Source/Free Software 
+ DSP library.
+ .
+ This package provides the libspeexdsp shared library.
+
+Package: libspeexdsp-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libspeexdsp (= ${binary:Version}), gcc-dev
+Description: libspeexdsp headers and static library
+ This package provides the libspeexdsp static library, 
+ pkgconfig data and header files required to develop
+ applications which use libspeexdsp API functions.

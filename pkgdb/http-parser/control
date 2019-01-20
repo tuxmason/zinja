@@ -1,0 +1,26 @@
+Source: http-parser
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/nodejs/http-parser
+
+Package: libhttp-parser
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: http request/response parser for c
+ This package provides libhttp_parser, a shared library 
+ which contains API functions for parsing HTTP requests
+ and responses.
+
+Package: libhttp-parser-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libhttp-parser (= ${binary:Version}), gcc-dev
+Description: http-parser header
+ This package provides header files required to develop 
+ applications which use http-parser API functions.

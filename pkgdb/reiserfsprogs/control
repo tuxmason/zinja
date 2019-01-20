@@ -1,0 +1,47 @@
+Source: reiserfsprogs
+Section: admin
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: e2fsprogs-dev, libobstack-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: http://www.kernel.org/
+
+Package: libreiserfscore
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides core functions for handling Reiser filesystems
+ This package provides libreiserfscore, a shared library 
+ which provides runtime functions for handling Reiser
+ filesystems.
+
+Package: reiserfsprogs
+Section: admin
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: utilities for managing Reiser filesystems.
+ This package provides various utilities for use with the 
+ Reiser filesystem. 
+
+Package: reiserfsprogs-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: libreiserfscore-dev (= ${binary:Version})
+Depends: reiserfsprogs (= ${binary:Version}), e2fsprogs-dev, 
+ libobstack-dev, util-linux-dev
+Description: libreiserfscore headers and static library
+ This package provides the libreiserfscore static library, 
+ pkgconfig data and header files required to develop
+ applications which use libreiserfscore API functions.
+
+Package: reiserfsprogs-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: reiserfsprogs (= ${binary:Version})
+Recommends: man-db, links
+Description: reiserfsprogs documentation
+ This package provides manual pages for reiserfsprogs.

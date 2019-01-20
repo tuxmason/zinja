@@ -1,0 +1,7 @@
+etc
+lib
+usr/bin
+usr/sbin
+var/lib/krb5kdc
+usr/share/locale
+usr/share/examples

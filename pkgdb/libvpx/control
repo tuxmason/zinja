@@ -1,0 +1,35 @@
+Source: libvpx
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.webmproject.org/
+
+Package: libvpx
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: VP8 and VP9 codec 
+ This package provides libvpx, a shared library which 
+ provides functions for using VP8 and VP9 video codecs. 
+
+Package: libvpx-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for decoding and encoding WebM video files
+ This package provides userspace tools for decoding and 
+ encoding WebM video files.
+
+Package: libvpx-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libvpx (= ${binary:Version}), gcc-dev
+Description: libvpx headers and static library
+ This package provides the libvpx static library, 
+ pkgconfig data and header files required to develop
+ applications which use libvpx API functions.

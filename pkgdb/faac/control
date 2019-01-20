@@ -1,0 +1,44 @@
+Source: faac
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libasound-dev
+Standards-Version: 3.9.5
+Homepage: http://www.audiocoding.com/
+
+Package: libfaac
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides functions for encoding AAC streams
+ This package provides libfaac and libmp4v2, shared libraries
+ which contain functions for encoding AAC streams, creating
+ and manipulating MP4 files.
+
+Package: faac
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a command-line AAC encoder.
+ This package provides faac, a command-line AAC encoder.
+
+Package: libfaac-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libfaac (= ${binary:Version}), libasound-dev
+Description: libfaac headers and static libraries
+ This package provides libfaac and libmp4v2 static libraries, 
+ and headers required for building applications which use FAAC 
+ API functions.
+
+Package: faac-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: faac (= ${binary:Version})
+Description: faac documentation
+ This package provides the man page for faac.

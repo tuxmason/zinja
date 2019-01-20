@@ -1,0 +1,28 @@
+Source: libbytesize
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgmp-dev, libmpfr-dev, libpcre-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/rhinstaller/libbytesize
+
+Package: libbytesize
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a library facilitates the common operations with sizes in bytes
+ This package provides libbytesize, a shared library 
+ which contains a C "class" for working with arbitrary 
+ big sizes in bytes.
+
+Package: libbytesize-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libbytesize (= ${binary:Version}), libgmp-dev, 
+ libmpfr-dev, libpcre-dev 
+Description: libbytesize headers and static library
+ This package provides the libbytesize static library, 
+ pkgconfig data and header files required to develop
+ applications which use libbytesize API functions.

@@ -1,0 +1,26 @@
+Source: libmad
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.underbit.com/products/mad/
+
+Package: libmad
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A high-quality MPEG audio decoder
+ This package provides libmad, a high-quality MPEG audio 
+ decoder capable of 24-bit output.
+
+Package: libmad-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libmad (= ${binary:Version}), gcc-dev 
+Description: libmad headers and static library
+ This package provides the libmad static library, 
+ pkgconfig data and header files required to develop
+ applications which use libmad API functions.

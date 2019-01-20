@@ -1,0 +1,31 @@
+Source: gptfdisk
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev, libpopt-dev, 
+ util-linux-dev
+Standards-Version: 3.9.5
+Homepage: https://www.rodsbooks.com/gdisk/
+
+Package: gptfdisk
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a set of text-mode partitioning tools
+ gptfdisk is a set of text-mode partitioning tools for 
+ creating and maintaining GPT (GUID Partition Table) 
+ partitioned disk drives. 
+ .
+ A GPT partitioned disk is required for drives greater 
+ than 2 TB and is a modern replacement for legacy PC-BIOS 
+ partitioned disk drives that use a Master Boot Record (MBR). 
+
+Package: gptfdisk-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: gptfdisk (= ${binary:Version})
+Description: gptfdisk documentation
+ This package provides manual pages for gptfdisk tools.

@@ -1,0 +1,51 @@
+Source: argon2
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/P-H-C/phc-winner-argon2
+
+Package: libargon2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides an API to functions for using Argon2
+ Argon2 is a password-hashing function that summarizes the 
+ state of the art in the design of memory-hard functions 
+ and can be used to hash passwords for credential storage, 
+ key derivation, or other applications.
+ .
+ This package provides libargon2, a shared library which
+ provides an API to both low-level and high-level functions 
+ for using the Argon2 password-hashing function.
+
+Package: argon2
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: password-hashing utility
+ Argon2 is a commandline password hashing utility which
+ uses the Argon2 password-hashing function.
+
+Package: libargon2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: argon2-dev (= ${binary:Version})
+Depends: argon2 (= ${binary:Version}), gcc-dev
+Description: Argon2 headers and static library
+ This package provides the libargon2 static library, 
+ headers and pkgconfig data required to build applications, 
+ libraries or plugins which use the Argon2 API.
+
+Package: argon2-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: argon2 (= ${binary:Version})
+Description: documentation for argon2
+ This package provides the manual page for argon2.

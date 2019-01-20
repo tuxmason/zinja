@@ -1,0 +1,24 @@
+diff -ura a/src/fault-linux-arm-old.h b/src/fault-linux-arm-old.h
+--- a/src/fault-linux-arm-old.h	2014-01-03 01:26:46.000000000 +0300
++++ b/src/fault-linux-arm-old.h	2019-01-18 00:38:38.176268506 +0300
+@@ -19,8 +19,6 @@
+    kernels would be more complicated, see file
+    glibc/sysdeps/unix/sysv/linux/arm/bits/armsigctx.h.  */
+ 
+-#include <asm/sigcontext.h>
+-
+ #define SIGSEGV_FAULT_HANDLER_ARGLIST  int sig, int r1, int r2, int r3, struct sigcontext sc
+ #define SIGSEGV_FAULT_CONTEXT  &sc
+ #define SIGSEGV_FAULT_STACKPOINTER  sc.arm_sp
+diff -ura a/src/fault-linux-x86_64-old.h b/src/fault-linux-x86_64-old.h
+--- a/src/fault-linux-x86_64-old.h	2014-01-03 01:26:46.000000000 +0300
++++ b/src/fault-linux-x86_64-old.h	2019-01-18 00:37:21.882270166 +0300
+@@ -15,8 +15,6 @@
+    along with this program; if not, write to the Free Software Foundation,
+    Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
+ 
+-#include <asm/sigcontext.h>
+-
+ #define SIGSEGV_FAULT_HANDLER_ARGLIST  int sig, struct sigcontext sc
+ #define SIGSEGV_FAULT_CONTEXT  (&sc)
+ #define SIGSEGV_FAULT_STACKPOINTER  sc.rsp

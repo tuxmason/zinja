@@ -1,0 +1,5 @@
+webrtc-audio-processing (PKGVER-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Tux Mason <tuxmason@gmail.com>  Fri, 11 Jan 2019 22:30:46 +0300

@@ -1,0 +1,48 @@
+Source: flac
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libogg-dev, libasound-dev
+Standards-Version: 3.9.5
+Homepage: https://xiph.org/flac/
+
+Package: libflac
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Free Lossless Audio Codec
+ FLAC, Free Lossless Audio Codec, is an audio format similar 
+ to MP3, but lossless, meaning that audio is compressed in 
+ FLAC without any loss in quality. 
+ .
+ This package provides libFLAC shared libraries.
+
+Package: flac
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: FLAC userspace tools
+ This package provides tools for encoding, decoding
+ and converting flac files.
+
+Package: libflac-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libflac (= ${binary:Version}), libogg-dev, libasound-dev
+Description: libflac headers and static libraries
+ This package provides the libflac static library, 
+ pkg-config data, and headers required for building
+ applications which use ALSA API functions.
+
+Package: flac-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links
+Depends: flac (= ${binary:Version})
+Description: FLAC documentation
+ This package provides manual pages for FLAC userspace
+ tools and html documentation for the FLAC API.

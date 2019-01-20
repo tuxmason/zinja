@@ -1,0 +1,44 @@
+Source: sbc
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libsndfile-dev
+Standards-Version: 3.9.5
+Homepage: http://www.bluez.org/
+
+Package: libsbc
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Bluetooth Subband Codec (SBC) library
+ SBC is a digital audio encoder and decoder used to transfer 
+ data to Bluetooth audio output devices like headphones or 
+ loudspeakers.
+ .
+ This package provides libsbc, a shared library which provides
+ SBC API functions.
+
+Package: sbc
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: SBC userspace tools
+ SBC is a digital audio encoder and decoder used to transfer 
+ data to Bluetooth audio output devices like headphones or 
+ loudspeakers.
+ .
+ This package provides SBC userspace tools.
+
+Package: libsbc-dev
+Section: libdevel
+Provides: sbc-dev
+Priority: optional
+Architecture: ARCH
+Depends: sbc (= ${binary:Version}), libsndfile-dev
+Description: SBC headers and static library
+ This package provides the SBC static library, headers and 
+ pkgconfig data required to build applications, libraries 
+ or plugins which use SBC API routines.
+

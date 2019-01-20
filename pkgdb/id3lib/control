@@ -1,0 +1,46 @@
+Source: id3lib
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://id3lib.sourceforge.net/
+
+Package: libid3
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: library for manipulating ID3v1 and ID3v2 tags
+ This package provides libid3, a shared library which 
+ provides routines for reading, writing and manipulating 
+ id3v1 and id3v2 multimedia data containers.
+
+Package: id3lib
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for manipulating ID3v1 and ID3v2 tags
+ This package provides userspace tools for reading, writing 
+ and manipulating id3v1 and id3v2 multimedia data containers.
+
+Package: libid3-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libid3 (= ${binary:Version}), gcc-dev
+Description: id3lib headers and static libraries
+ This package provides the libid3 static library, pkg-config 
+ data, and headers required for building applications which 
+ use id3lib API functions.
+
+Package: id3lib-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links
+Depends: id3lib (= ${binary:Version})
+Description: documentation for the id3lib API and userspace tools
+ This package provides manual pages for id3lib userspace
+ tools and html documentation for the id3lib API.

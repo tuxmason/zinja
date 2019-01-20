@@ -1,0 +1,31 @@
+Source: webrtc-audio-processing
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://webrtc-audio-processing.sourceforge.net/
+
+Package: libwebrtc-audio-processing
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: AudioProcessing library based on Google's implementation of WebRTC
+ This package provides libwebrtc_audio_processing, 
+ a shared library which provides browsers and mobile 
+ applications with Real-Time Communications (RTC) 
+ capabilities via simple APIs.
+
+
+Package: libwebrtc-audio-processing-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libwebrtc-audio-processing (= ${binary:Version}),
+ gcc-dev
+Description: WebRTC headers and static library
+ This package provides the libwebrtc_audio_processing
+ static library, headers and pkgconfig data required
+ to build applications, libraries or plugins which use 
+ WebRTC API functions.

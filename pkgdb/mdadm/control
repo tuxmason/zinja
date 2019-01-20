@@ -1,0 +1,26 @@
+Source: mdadm
+Section: admin
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://neil.brown.name/blog/mdadm
+
+Package: mdadm
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: administration tools for Linux software RAID.
+ This package provides tools for managing/monitoring Linux 
+ md device arrays, also known as Software RAID.
+
+Package: mdadm-doc
+Section: libdevel
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: mdadm (= ${binary:Version})
+Description: mdadm documentation
+ This package provides manual pages for mdadm userspace
+ tools.

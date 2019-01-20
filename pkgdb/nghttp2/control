@@ -1,0 +1,48 @@
+Source: nghttp2
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libcares-dev, libev-dev, libjansson-dev, 
+ systemd-dev, libxml2-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://nghttp2.org/
+
+Package: libnghttp2
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: C implementation of the Hypertext Transfer Protocol version 2
+ nghttp2 is an implementation of HTTP/2 and its header 
+ compression algorithm, HPACK.
+ .
+ This package provides the nghttp2 shared library.
+
+Package: nghttp2
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: nghttp2 userspace tools
+ This package provides nghttp2 userspace tools.
+
+Package: libnghttp2-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: nghttp2-dev (= ${binary:Version})
+Depends: nghttp2 (= ${binary:Version}), libcares-dev, libev-dev, 
+ libjansson-dev, systemd-dev, libxml2-dev, openssl-dev
+Description: nghttp2 headers and static library
+ This package provides the nghttp2 static library, headers 
+ and pkgconfig data required to build applications, libraries 
+ or plugins which use nghttp2 API functions.
+
+Package: nghttp2-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: nghttp2 (= ${binary:Version})
+Description: nghttp2 documentation
+ This package provides manual pages for nghttp2 userspace tools.

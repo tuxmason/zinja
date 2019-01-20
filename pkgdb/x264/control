@@ -1,0 +1,27 @@
+Source: x264
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.videolan.org/developers/x264.html
+
+Package: libx264
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: library used to encode video streams into the H.264/MPEG-4 AVC format 
+ This package provides libx264, a shared library which 
+ provides functions for encoding video streams into the 
+ H.264/MPEG-4 AVC format.
+
+Package: libx264-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libx264 (= ${binary:Version}), gcc-dev
+Description: x264 headers and static library
+ This package provides the libx264 static library, 
+ pkgconfig data and header files required to develop
+ applications which use libx264 API functions.

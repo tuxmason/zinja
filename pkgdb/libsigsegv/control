@@ -1,0 +1,31 @@
+Source: libsigsegv
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.gnu.org/software/libsigsegv/
+
+Package: libsigsegv
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a library for handling page faults in user mode.
+ GNU libsigsegv is a library for handling page faults in 
+ user mode. 
+ .
+ A page fault occurs when a program tries to access to a 
+ region of memory that is currently not available.
+ .
+ This package provides the libsigsegv shared library.
+
+Package: libsigsegv-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libsigsegv (= ${binary:Version}), gcc-dev
+Description: libsigsegv headers and static library
+ This package provides the libsigsegv static library, 
+ and header files required to develop applications which 
+ use libsigsegv API functions.

@@ -1,0 +1,28 @@
+Source: smartmontools
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: systemd-dev
+Standards-Version: 3.9.5
+Homepage: http://smartmontools.sourceforge.net/
+
+Package: smartmontools
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for monitoring S.M.A.R.T. enabled hard drives 
+ This package provides utility programs (smartctl, smartd) used 
+ to control/monitor storage systems using the Self-Monitoring, 
+ Analysis and Reporting Technology System (S.M.A.R.T.) built into 
+ most modern ATA and SCSI disks.
+
+Package: smartmontools-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db, vim
+Depends: smartmontools (= ${binary:Version})
+Description: smartmontools documentation
+ This package provides manual pages and example documentation
+ for smartmontools. 

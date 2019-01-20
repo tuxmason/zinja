@@ -1,0 +1,37 @@
+Source: libcddb
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://sourceforge.net/projects/libcddb/
+
+Package: libcddb
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides functions for accessing a CDDB server 
+ This package provides libcddb, a shared library which
+ contains routines for accessing a CDDB server using
+ different protocols (CDDBP, HTTP, SMTP).
+
+Package: libcddb-bin
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tool for accessing CDDB servers
+ This package provides cddb_query, a userspace tool
+ used for accessing CDDB servers.
+
+Package: libcddb-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libcddb (= ${binary:Version}), gcc-dev 
+Description: libcddb headers and static library
+ This package provides the libcddb static library, 
+ pkgconfig data and header files required to develop
+ applications which use libcddb API functions.
+

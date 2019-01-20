@@ -1,0 +1,46 @@
+Source: libsamplerate
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), libsndfile-dev, 
+ libasound-dev
+Standards-Version: 3.9.5
+Homepage: http://www.mega-nerd.com/SRC/index.html
+
+Package: libsamplerate
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Secret Rabbit Code - aka Sample Rate Converter for audio
+ This package provides libsamplerate, a shared library 
+ which provides functions for converting sampled audio. 
+
+Package: libsamplerate-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: libsamplerate userspace tools
+ This package provides libsamplerate userspace tools. 
+
+Package: libsamplerate-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libsamplerate (= ${binary:Version}), libsndfile-dev, 
+ libasound-dev
+Description: libsamplerate headers and static library
+ This package provides the libsamplerate static library, 
+ pkgconfig data and header files required to develop
+ applications which use libsamplerate API functions.
+
+Package: libsamplerate-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libsamplerate (= ${binary:Version})
+Recommends: man-db, links
+Description: libsamplerate documentation
+ This package provides html documentation for 
+ libsamplerate API functions. 

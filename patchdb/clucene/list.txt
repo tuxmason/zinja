@@ -1,0 +1,6 @@
+0001-cmake-remplace-CHECK_CXX_SOURCE_RUNS-by-CHECK_CXX_SO.patch
+0002-exclude-external-sources-from-build.patch
+0003-align-pkg-config.patch
+0004-fix-location-s-for-our-cmake-config.patch
+0005-install-contribs-lib.patch
+gcc-version.diff

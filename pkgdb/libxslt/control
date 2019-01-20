@@ -1,0 +1,49 @@
+Source: libxslt
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libxml2-dev, libgcrypt-dev, python-dev
+Standards-Version: 3.9.5
+Homepage: http://xmlsoft.org/XSLT/
+
+Package: libxslt
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: XML stylesheet transformation library
+ This package provides libxslt, a shared library which
+ provides extensions to the libxml2 libraries used for 
+ parsing XSLT formatted files.
+
+Package: xsltproc
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tool used to apply XSLT stylesheets to XML documents
+ This package provides xsltproc, a utility used for 
+ applying XSLT stylesheets to XML documents.
+
+Package: libxslt-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: libxslt-dev
+Depends: libxslt (= ${binary:Version}), libxml2-dev, 
+ libgcrypt-dev, python-dev
+Description: libxslt headers and static library
+ This package provides the libxslt static library, 
+ headers and pkgconfig data required for building 
+ applications, libraries or plugins which use libxslt 
+ API routines.
+
+Package: libxslt-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db, links
+Depends: libxslt (= ${binary:Version})
+Description: documentation for libxslt
+ This package provides html documentation and man pages
+ for libxslt.

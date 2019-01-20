@@ -1,0 +1,37 @@
+Source: libdvdcss
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.videolan.org/developers/libdvdcss.html
+
+Package: libdvdcss
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Portable abstraction library for DVD decryption
+ This package provides libdvdcss, a shared library which
+ contains routines for accessing DVDs as a block device 
+ without having to bother about the decryption.
+
+Package: libdvdcss-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libdvdcss (= ${binary:Version}), gcc-dev 
+Description: libdvdcss headers and static library
+ This package provides the libdvdcss static library, 
+ pkgconfig data and header files required to develop
+ applications which use libdvdcss API functions.
+
+Package: libdvdcss-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links
+Depends: libdvdcss (= ${binary:Version})
+Description: libdvdcss documentation
+ This package provides html documentation for libdvdcss
+ API routines.

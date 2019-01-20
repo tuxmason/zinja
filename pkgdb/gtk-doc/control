@@ -1,0 +1,16 @@
+Source: gtk-doc
+Section: devel
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9), gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://www.gtk.org/gtk-doc/
+
+Package: gtk-doc
+Section: devel
+Priority: optional
+Architecture: ARCH
+Depends: python
+Description: generates documentation from comments added to C code
+ GTK-DOC is a tool used to generate API documentation from 
+ comments added to C code.

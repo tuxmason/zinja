@@ -1,0 +1,2 @@
+keyutils-fix-error-report-by-adding-default-message.patch
+request-key.conf.patch

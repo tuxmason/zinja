@@ -1,0 +1,39 @@
+Source: libvorbis
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libogg-dev
+Standards-Version: 3.9.5
+Homepage: https://xiph.org/vorbis
+
+Package: libvorbis
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: a general purpose audio and music encoding format
+ This package provides libvorbis, a set of shared 
+ libraries which provide functions for creating 
+ (encoding) and playing (decoding) sound using 
+ Vorbis, an open (patent free) format.
+
+Package: libvorbis-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libvorbis (= ${binary:Version}), libogg-dev
+Description: libvorbis headers and static library
+ This package provides the libvorbis static library, 
+ headers and pkgconfig data required for building 
+ applications, libraries or plugins which use 
+ libvorbis API functions.
+
+Package: libvorbis-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: links
+Depends: libvorbis (= ${binary:Version})
+Description: libvorbis documentation
+ This package provides html documentation for the
+ libvorbis API.

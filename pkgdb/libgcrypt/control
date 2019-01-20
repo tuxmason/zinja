@@ -2,7 +2,7 @@ Source: libgcrypt
 Section: libs
 Priority: optional
 Maintainer: Tux Mason <tuxmason@gmail.com>
-Build-Depends: gcc-dev
+Build-Depends: gcc-dev, libgpg-error-dev, libcap-dev
 Standards-Version: 3.9.5
 Homepage: https://gnupg.org/software/libgcrypt/index.html
 
@@ -10,7 +10,7 @@ Package: libgcrypt
 Section: libs
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: a general purpose crypto library
  libgcrypt is a general purpose crypto library based on the code 
  used in GnuPG. 
@@ -24,7 +24,7 @@ Package: libgcrypt-bin
 Section: utils
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: libgcrypt userspace tools
  This package provides libgcrypt utilities.
 
@@ -32,7 +32,8 @@ Package: libgcrypt-dev
 Section: libdevel
 Priority: optional
 Architecture: ARCH
-Depends: libgcrypt-bin (= ${binary:Version}), gcc-dev
+Depends: libgcrypt-bin (= ${binary:Version}), libgpg-error-dev, 
+ libcap-dev
 Description: Development headers and libgcrypt static library
  This package provides libgcrypt.a, headers and pkgconfig data 
  required to build applications, libraries or plugins using the 

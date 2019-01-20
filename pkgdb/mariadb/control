@@ -2,17 +2,18 @@ Source: mariadb
 Section: database
 Priority: optional
 Maintainer: Tux Mason <tuxmason@gmail.com>
-Build-Depends: libaio-dev, libbz2-dev, libcrack-dev, liblz4-dev, xz-dev,
- liblzo2-dev, libncursesw-dev, libpam-dev, libsnappy-dev, systemd-dev, libxml2-dev,
- libz-dev, openssl-dev
+Build-Depends: e2fsprogs-dev, libaio-dev, libbz2-dev, libcrack-dev, 
+ libexecinfo-dev, libkrb5-dev, liblz4-dev, xz-dev, liblzo2-dev, 
+ libncursesw-dev, libpam-dev, libsnappy-dev, systemd-dev, libxml2-dev, 
+ openssl-dev
 Standards-Version: 3.9.5
 Homepage: https://mariadb.org/
 
 Package: mariadb
 Section: admin
-Priority: required
+Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: a fast, scalable and robust relational database management system.
  MariaDB turns data into structured information in a wide array of applications,
  ranging from banking to websites.
@@ -28,9 +29,10 @@ Package: mariadb-dev
 Section: libdevel
 Priority: optional
 Architecture: ARCH
-Depends: mariadb (= ${binary:Version}), libaio-dev, libbz2-dev, libcrack-dev,
- liblz4-dev, xz-dev, liblzo2-dev, libncursesw-dev, libpam-dev, libsnappy-dev,
- systemd-dev, libxml2-dev, libz-dev, openssl-dev
+Depends: mariadb (= ${binary:Version}), e2fsprogs-dev, libaio-dev, libbz2-dev, 
+ libcrack-dev, libexecinfo-dev, libkrb5-dev, liblz4-dev, xz-dev, liblzo2-dev, 
+ libncursesw-dev, libpam-dev, libsnappy-dev, systemd-dev, libxml2-dev, 
+ openssl-dev
 Description: Development headers and mariadb static libraries
  This package provides mariadb static libraries, headers and pkgconfig data
  required to build applications, libraries or plugins using the mariadb API.

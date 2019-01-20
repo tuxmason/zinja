@@ -10,7 +10,7 @@ Package: libunixodbc
 Section: libs
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: provides a predictable API with which to access Data Sources
  unixODBC is an Open Source ODBC (Open DataBase Connectivity) sub-system and 
  an ODBC SDK for Linux, Mac OSX, and UNIX. 
@@ -23,9 +23,9 @@ Description: provides a predictable API with which to access Data Sources
 
 Package: unixodbc
 Section: admin
-Priority: required
+Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: tools for managing unixODBC data sources
  This package provides userspace utilities for managing unixODBC data sources.
 

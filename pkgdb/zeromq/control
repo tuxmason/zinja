@@ -2,7 +2,7 @@ Source: zeromq
 Section: libs
 Priority: optional
 Maintainer: Tux Mason <tuxmason@gmail.com>
-Build-Depends: gcc-dev
+Build-Depends: gcc-dev, libunwind-dev
 Standards-Version: 3.9.5
 Homepage: http://zeromq.org/
 
@@ -10,7 +10,7 @@ Package: libzmq
 Section: libs
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: a high-performance asynchronous messaging library
  zeromq is a high-performance asynchronous messaging library, aimed
  at use in distributed or concurrent applications.
@@ -22,7 +22,7 @@ Package: libzmq-dev
 Section: libdevel
 Priority: optional
 Architecture: ARCH
-Depends: libzmq (= ${binary:Version})
+Depends: libzmq (= ${binary:Version}), libunwind-dev
 Description: Development headers and libzmq static library
  This package provides libzmq.a, headers and pkgconfig data required
  to build applications, libraries or plugins using the libzmq API. 

@@ -2,15 +2,15 @@ Source: nettle
 Section: net
 Priority: optional
 Maintainer: Tux Mason <tuxmason@gmail.com>
-Build-Depends: gcc-dev
+Build-Depends: gcc-dev, libgmp-dev
 Standards-Version: 3.9.5
 Homepage: https://www.lysator.liu.se/~nisse/nettle/
 
 Package: libnettle
 Section: libs
-Priority: required
+Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: a low-level cryptographic library
  Nettle is a cryptographic library that is designed to fit easily in more
  or less any context: In crypto toolkits for object-oriented languages (C++,
@@ -23,7 +23,7 @@ Package: nettle
 Section: net
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: Nettle userspace tools
  Nettle is a cryptographic library that is designed to fit easily in more 
  or less any context: In crypto toolkits for object-oriented languages (C++, 
@@ -37,7 +37,7 @@ Section: libdevel
 Provides: nettle-dev
 Priority: optional
 Architecture: ARCH
-Depends: libnettle (= ${binary:Version}), gcc-dev
+Depends: libnettle (= ${binary:Version}), gcc-dev, libgmp-dev
 Description: Development headers and Nettle static libraries
  This package provides libnettle.a, libhogweed.a, headers and pkgconfig data 
  required to build applications, libraries or plugins using the Nettle API.

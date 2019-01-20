@@ -73,6 +73,9 @@ install-sysroot: pkg-src
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		cp -vf $(PKGBINDIR)/usr/bin/gpg-error-config $(CROSSTOOLS)/bin/gpg-error-config || exit 1 ;\
+		sed -i -e "s@/usr@$(SYSROOTDIR)&@g" -e "s@|/lib@|$(SYSROOTDIR)/lib@g"  \
+			-e "s@|/lib64@|$(SYSROOTDIR)/lib64@g" $(CROSSTOOLS)/bin/gpg-error-config || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/$(PKGNAME).la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi

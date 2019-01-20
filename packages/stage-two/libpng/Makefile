@@ -72,6 +72,8 @@ install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/{libpng,libpng16}.la || exit 1 ;\
+		cp -v $(PKGBINDIR)/usr/bin/libpng16-config $(CROSSTOOLS)/bin/libpng-config || exit 1 ;\
+		sed -i -e "s@/usr@$(SYSROOTDIR)&@g" $(CROSSTOOLS)/bin/libpng-config || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

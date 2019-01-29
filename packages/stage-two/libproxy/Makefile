@@ -32,7 +32,7 @@ patch: extract
 configure: patch
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
-		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) LDFLAGS=$(LDFLAGS) \
+		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) \
 			cmake -G "Unix Makefiles" $(COPTS) $(PKGSRCDIR) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi

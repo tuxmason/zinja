@@ -64,6 +64,8 @@ install-sysroot: pkg-src
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		cp -v $(PKGBINDIR)/usr/bin/libgcrypt-config $(CROSSTOOLS)/bin/libgcrypt-config || exit 1 ;\
+		sed -i -e "s@/usr@$(SYSROOTDIR)&@g" $(CROSSTOOLS)/bin/libgcrypt-config || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/$(PKGNAME).la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi

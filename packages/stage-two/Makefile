@@ -2,27 +2,63 @@
 include ../../conf/environment.mk
 include ../../conf/shell-env.mk
 
-all: targetfs
+include Makefile.snip
 
-targetfs: sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binutils.o gcc.o \
-	libffi.o attr.o acl.o libcap.o sed.o pkg-config-lite.o ncurses.o gpm.o check.o cracklib.o \
-	cracklib-dict.o linux-pam.o shadow.o util-linux.o procps-ng.o e2fsprogs.o coreutils.o \
-	iana-etc.o libtool.o gdbm.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o db.o \
-	diffutils.o file.o gawk.o findutils.o gettext.o gperf.o grep.o groff.o less.o gzip.o \
-	inetutils.o net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o perl.o dpkg.o intltool.o \
-	kmod.o patch.o psmisc.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux-ext.o \
-	vim.o grub.o libestr.o libee.o json-c.o libmicrohttpd.o openssl.o curl.o libedit.o \
-	openssh.o pcre.o glib2.o libsigcpp.o glibmm.o libgudev.o wget.o kernel.o npth.o libaio.o \
-	libevent.o libusb.o libusb-compat.o usbutils.o libgusb.o fuse2.o lua.o icu.o sqlite3.o \
-	libxml2.o docbook-xsl.o apt.o libcroco.o shared-mime-info.o jansson.o libnl.o mtdev.o libical.o bluez.o \
-	libpcap.o libmnl.o libnftnl.o libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o \
-	libnetfilter_queue.o libnetfilter_conntrack.o libnetfilter_cttimeout.o libnetfilter_cthelper.o \
-	ipset.o iptables.o nftables.o iproute2.o zeromq.o msgpack.o snappy.o mariadb.o unixODBC.o \
-	freetds.o libdbi.o libdbi-drivers.o popt.o libesmtp.o syslog-ng.o ulogd.o yaml.o ruby.o \
-	Python.o boost.o wayland.o wayland-protocols.o nettle.o libatomic_ops.o libexecinfo.o libunwind.o gc.o \
-	libunistring.o libtasn1.o libgpg-error.o libassuan.o libksba.o libgcrypt.o libidn2.o p11-kit.o \
-	gnutls.o cyrus-sasl.o openldap.o gnupg.o libpng.o giflib.o libid3tag.o libjpeg-turbo.o jasper.o \
-	freetype.o fontconfig.o graphite2.o harfbuzz.o freetype-harfbuzz.o atk.o atkmm.o
+all: targetfs-min
+
+
+targetfs-min: sysconfig.o m4.o gmp.o mpfr.o mpc.o isl.o zlib.o flex.o bison.o binutils.o gcc.o iso-codes.o \
+	libffi.o attr.o acl.o libcap.o sed.o pkg-config-lite.o ncurses.o gpm.o check.o cracklib.o time.o \
+	cracklib-dict.o linux-pam.o shadow.o libpwquality.o util-linux.o procps-ng.o e2fsprogs.o coreutils.o \
+	iana-etc.o libtool.o gdbm.o bzip2.o readline.o autoconf.o automake.o bash.o bc.o db.o diffutils.o \
+	file.o gawk.o findutils.o gettext.o gperf.o grep.o groff.o less.o gzip.o iso-codes.o inetutils.o tree.o \
+	net-tools.o kbd.o libpipeline.o make.o xz.o elfutils.o expat.o perl.o dpkg.o intltool.o kmod.o patch.o \
+	psmisc.o nspr.o systemd.o dbus.o lzo.o lzip.o lz4.o tar.o texinfo.o util-linux-ext.o vim.o grub.o \
+	libestr.o libee.o json-c.o libmicrohttpd.o openssl.o libunistring.o libidn2.o libpsl.o curl.o libedit.o \
+	openssh.o pcre.o pcre2.o glib2.o dbus-glib.o telepathy-glib.o json-glib.o gsettings-desktop-schemas.o gnome-menus.o dnprogs.o \
+	libsigcpp.o glibmm.o libgudev.o wget.o npth.o libaio.o icon-naming-utils.o libevent.o libusb.o \
+	libusb-compat.o usbutils.o libgusb.o fuse2.o lua.o icu.o sqlite3.o libxml2.o docbook-xsl.o apt.o \
+	libcroco.o shared-mime-info.o jansson.o libnl.o mtdev.o libical.o bluez.o libpcap.o libmnl.o libnftnl.o \
+	libnfnetlink.o libnetfilter_acct.o libnetfilter_log.o libnetfilter_queue.o libnetfilter_conntrack.o \
+	libnetfilter_cttimeout.o libnetfilter_cthelper.o ipset.o iptables.o nftables.o iproute2.o Python.o popt.o
+
+general: fftw.o gsl.o libev.o libseccomp.o libsigsegv.o libatomic_ops.o libexecinfo.o libunwind.o libnfc.o \
+	libesmtp.o boost.o aspell.o hunspell.o clucene.o enchant.o exempi.o nettle.o krb5.o libx86.o yajl.o \
+	libgpg-error.o libassuan.o libksba.o gpgme.o gmime2.o libtasn1.o libgcrypt.o libxslt.o libsecret.o gtk-doc.o \
+	p11-kit.o nss.o gnutls.o glib-networking.o gmime3.o snappy.o yaml.o ruby.o msgpack.o zeromq.o unixODBC.o \
+	freetds.o mariadb.o cyrus-sasl.o openldap.o keyutils.o libarchive.o libdaemon.o libmbim.o libqmi.o \
+	libssh2.o libstatgrab.o c-ares.o libuv.o http-parser.o nghttp2.o nodejs.o xapian.o libssh.o telepathy-logger.o
+
+disk: libatasmart.o libbytesize.o xfsprogs.o mdadm.o thin-provisioning-tools.o reiserfsprogs.o \
+	lvm2.o btrfs-progs.o argon2.o cryptsetup.o dosfstools.o fuse3.o jfsutils.o squashfs-tools.o \
+	ntfs-3g.o gptfdisk.o parted.o smartmontools.o sshfs.o 
+
+audio: alsa-lib.o libid3tag.o libogg.o flac.o audiofile.o faac.o faad2.o fdk-aac.o gstreamer.o id3lib.o \
+	a52dec.o libvorbis.o libcddb.o libcdio.o libcdio-paranoia.o libdiscid.o libdvdcss.o libdvdread.o \
+	libdvdnav.o libmad.o libmusicbrainz2.o libmusicbrainz5.o libsndfile.o libsamplerate.o libtheora.o libvpx.o opus.o \
+	sbc.o speex.o speexdsp.o sound-theme-freedesktop.o soundtouch.o taglib.o x264.o x265.o libcuefile.o \
+	libreplaygain.o webrtc-audio-processing.o wavpack.o xvidcore.o
+
+gfx-text: babl.o giflib.o fribidi.o libpng.o exiv2.o ijs.o libjpeg-turbo.o jasper.o tiff.o lcms2.o libexif.o \
+	libmng.o libmypaint.o libraw.o libwebp.o mypaint-brushes.o slang.o newt.o openjpeg.o  
+
+net-lib: ldns.o libtirpc.o libproxy.o neon.o rpcsvc-proto.o libsoup.o uhttpmock.o 
+
+gen-utils: asciidoc.o bogofilter.o compface.o desktop-file-utils.o hd2u.o highlight.o lsof.o rarian.o screen.o \
+	sharutils.o xdg-user-dirs.o tidy-html5.o  
+
+sys-utils: zip.o unzip.o ethtool.o pciutils.o wireless-tools.o hdparm.o vbetool.o fcron.o logrotate.o lynx.o \
+	pm-utils.o cpio.o mc.o p7zip.o raptor2.o rasqal.o redland.o unrar.o bridge-utils.o rsync.o whois.o 
+
+gnome: rest.o 
+
+xfce: libxfce4util.o xfconf.o  
+
+targetfs: libdbi.o libdbi-drivers.o syslog-ng.o ulogd.o \
+	wayland.o wayland-protocols.o gc.o bubblewrap.o \
+	gnupg.o \
+	freetype.o fontconfig.o graphite2.o graphite2-static.o harfbuzz.o \
+	freetype-harfbuzz.o atk.o atkmm.o libomxil-bellagio.o libzeitgeist.o vala.o libgee.o dee.o zeitgeist.o
 
 #xorg.o
 
@@ -46,6 +82,11 @@ isl.o:
 	@echo "isl started $(shell date -R) "
 	(make -C isl 2>&1 | tee $(PKGLOGDIR)/isl.log && exit $$PIPESTATUS)
 	@echo "isl finished $(shell date -R) "
+
+iso-codes.o:
+	@echo "iso-codes started $(shell date -R) "
+	(make -C iso-codes 2>&1 | tee $(PKGLOGDIR)/iso-codes.log && exit $$PIPESTATUS)
+	@echo "iso-codes finished $(shell date -R) "
 
 zlib.o:
 	@echo "Zlib started $(shell date -R) "
@@ -267,6 +308,11 @@ gzip.o:
 	(make -C gzip 2>&1 | tee $(PKGLOGDIR)/gzip.log && exit $$PIPESTATUS)
 	@echo "Gzip finished $(shell date -R) "
 
+iso-codes.o:
+	@echo "iso-codes started $(shell date -R) "
+	(make -C iso-codes 2>&1 | tee $(PKGLOGDIR)/iso-codes.log && exit $$PIPESTATUS)
+	@echo "iso-codes finished $(shell date -R) "
+
 inetutils.o:
 	@echo "Inetutils started $(shell date -R) "
 	(make -C inetutils 2>&1 | tee $(PKGLOGDIR)/inetutils.log && exit $$PIPESTATUS)
@@ -371,6 +417,11 @@ libevent.o:
 	@echo "libevent started $(shell date -R) "
 	(make -C libevent 2>&1 | tee $(PKGLOGDIR)/libevent.log && exit $$PIPESTATUS)
 	@echo "libevent finished $(shell date -R) "
+
+icon-naming-utils.o:
+	@echo "icon-naming-utils started $(shell date -R) "
+	(make -C icon-naming-utils 2>&1 | tee $(PKGLOGDIR)/icon-naming-utils.log && exit $$PIPESTATUS)
+	@echo "icon-naming-utils finished $(shell date -R) "
 
 libusb.o:
 	@echo "libusb started $(shell date -R) "
@@ -487,6 +538,11 @@ sqlite3.o:
 	(make -C sqlite3 2>&1 | tee $(PKGLOGDIR)/sqlite3.log && exit $$PIPESTATUS)
 	@echo "sqlite3 finished $(shell date -R) "
 
+libpsl.o:
+	@echo "libpsl started $(shell date -R) "
+	(make -C libpsl 2>&1 | tee $(PKGLOGDIR)/libpsl.log && exit $$PIPESTATUS)
+	@echo "libpsl finished $(shell date -R) "
+
 ulogd.o:
 	@echo "ulogd started $(shell date -R) "
 	(make -C ulogd 2>&1 | tee $(PKGLOGDIR)/ulogd.log && exit $$PIPESTATUS)
@@ -567,6 +623,11 @@ apt.o:
 	(make -C apt 2>&1 | tee $(PKGLOGDIR)/apt.log && exit $$PIPESTATUS)
 	@echo "apt finished $(shell date -R) "
 
+nspr.o:
+	@echo "nspr started $(shell date -R) "
+	(make -C nspr 2>&1 | tee $(PKGLOGDIR)/nspr.log && exit $$PIPESTATUS)
+	@echo "nspr finished $(shell date -R) "
+
 systemd.o:
 	@echo "systemd started $(shell date -R) "
 	(make -C systemd 2>&1 | tee $(PKGLOGDIR)/systemd.log && exit $$PIPESTATUS)
@@ -607,10 +668,40 @@ pcre.o:
 	(make -C pcre 2>&1 | tee $(PKGLOGDIR)/pcre.log && exit $$PIPESTATUS)
 	@echo "pcre finished $(shell date -R) "
 
+pcre2.o:
+	@echo "pcre2 started $(shell date -R) "
+	(make -C pcre2 2>&1 | tee $(PKGLOGDIR)/pcre2.log && exit $$PIPESTATUS)
+	@echo "pcre2 finished $(shell date -R) "
+
 glib2.o:
 	@echo "Glib started $(shell date -R) "
 	(make -C glib2 2>&1 | tee $(PKGLOGDIR)/glib2.log && exit $$PIPESTATUS)
 	@echo "Glib finished $(shell date -R) "
+
+dbus-glib.o:
+	@echo "D-Bus Glib started $(shell date -R) "
+	(make -C dbus-glib 2>&1 | tee $(PKGLOGDIR)/dbus-glib.log && exit $$PIPESTATUS)
+	@echo "dbus-glib finished $(shell date -R) "
+
+telepathy-glib.o:
+	@echo "telepathy-glib started $(shell date -R) "
+	(make -C telepathy-glib 2>&1 | tee $(PKGLOGDIR)/telepathy-glib.log && exit $$PIPESTATUS)
+	@echo "telepathy-glib finished $(shell date -R) "
+
+json-glib.o:
+	@echo "json-glib started $(shell date -R) "
+	(make -C json-glib 2>&1 | tee $(PKGLOGDIR)/json-glib.log && exit $$PIPESTATUS)
+	@echo "json-glib finished $(shell date -R) "
+
+gnome-menus.o:
+	@echo "gnome-menus started $(shell date -R) "
+	(make -C gnome-menus 2>&1 | tee $(PKGLOGDIR)/gnome-menus.log && exit $$PIPESTATUS)
+	@echo "gnome-menus finished $(shell date -R) "
+
+dnprogs.o:
+	@echo "dnprogs started $(shell date -R) "
+	(make -C dnprogs 2>&1 | tee $(PKGLOGDIR)/dnprogs.log && exit $$PIPESTATUS)
+	@echo "dnprogs finished $(shell date -R) "
 
 libgudev.o:
 	@echo "libgudev started $(shell date -R) "
@@ -762,6 +853,21 @@ gnutls.o:
 	(make -C gnutls 2>&1 | tee $(PKGLOGDIR)/gnutls.log && exit $$PIPESTATUS)
 	@echo "gnutls finished $(shell date -R) "
 
+gsettings-desktop-schemas.o:
+	@echo "gsettings-desktop-schemas started $(shell date -R) "
+	(make -C gsettings-desktop-schemas 2>&1 | tee $(PKGLOGDIR)/gsettings-desktop-schemas.log && exit $$PIPESTATUS)
+	@echo "gsettings-desktop-schemas finished $(shell date -R) "
+
+glib-networking.o:
+	@echo "glib-networking started $(shell date -R) "
+	(make -C glib-networking 2>&1 | tee $(PKGLOGDIR)/glib-networking.log && exit $$PIPESTATUS)
+	@echo "glib-networking finished $(shell date -R) "
+
+libsoup.o:
+	@echo "libsoup started $(shell date -R) "
+	(make -C libsoup 2>&1 | tee $(PKGLOGDIR)/libsoup.log && exit $$PIPESTATUS)
+	@echo "libsoup finished $(shell date -R) "
+
 cyrus-sasl.o:
 	@echo "cyrus-sasl started $(shell date -R) "
 	(make -C cyrus-sasl 2>&1 | tee $(PKGLOGDIR)/cyrus-sasl.log && exit $$PIPESTATUS)
@@ -782,6 +888,16 @@ libpng.o:
 	(make -C libpng 2>&1 | tee $(PKGLOGDIR)/libpng.log && exit $$PIPESTATUS)
 	@echo "libpng finished $(shell date -R) "
 
+tiff.o:
+	@echo "tiff started $(shell date -R) "
+	(make -C tiff 2>&1 | tee $(PKGLOGDIR)/tiff.log && exit $$PIPESTATUS)
+	@echo "tiff finished $(shell date -R) "
+
+lcms2.o:
+	@echo "lcms2 started $(shell date -R) "
+	(make -C lcms2 2>&1 | tee $(PKGLOGDIR)/lcms2.log && exit $$PIPESTATUS)
+	@echo "lcms2 finished $(shell date -R) "
+
 freetype.o:
 	@echo "freetype started $(shell date -R) "
 	(make -C freetype 2>&1 | tee $(PKGLOGDIR)/freetype.log && exit $$PIPESTATUS)
@@ -797,10 +913,20 @@ fontconfig.o:
 	(make -C fontconfig 2>&1 | tee $(PKGLOGDIR)/fontconfig.log && exit $$PIPESTATUS)
 	@echo "fontconfig finished $(shell date -R) "
 
+fribidi.o:
+	@echo "fribidi started $(shell date -R) "
+	(make -C fribidi 2>&1 | tee $(PKGLOGDIR)/fribidi.log && exit $$PIPESTATUS)
+	@echo "fribidi finished $(shell date -R) "
+
 graphite2.o:
 	@echo "graphite2 started $(shell date -R) "
 	(make -C graphite2 2>&1 | tee $(PKGLOGDIR)/graphite2.log && exit $$PIPESTATUS)
 	@echo "graphite2 finished $(shell date -R) "
+
+graphite2-static.o:
+	@echo "graphite2-static started $(shell date -R) "
+	(make -C graphite2-static 2>&1 | tee $(PKGLOGDIR)/graphite2-static.log && exit $$PIPESTATUS)
+	@echo "graphite2-static finished $(shell date -R) "
 
 shared-mime-info.o:
 	@echo "shared-mime-info started $(shell date -R) "
@@ -881,6 +1007,41 @@ atkmm.o:
 	@echo "atkmm started $(shell date -R) "
 	(make -C atkmm 2>&1 | tee $(PKGLOGDIR)/atkmm.log && exit $$PIPESTATUS)
 	@echo "atkmm finished $(shell date -R) "
+
+libomxil-bellagio.o:
+	@echo "libomxil-bellagio started $(shell date -R) "
+	(make -C libomxil-bellagio 2>&1 | tee $(PKGLOGDIR)/libomxil-bellagio.log && exit $$PIPESTATUS)
+	@echo "libomxil-bellagio finished $(shell date -R) "
+
+libzeitgeist.o:
+	@echo "libzeitgeist started $(shell date -R) "
+	(make -C libzeitgeist 2>&1 | tee $(PKGLOGDIR)/libzeitgeist.log && exit $$PIPESTATUS)
+	@echo "libzeitgeist finished $(shell date -R) "
+
+zeitgeist.o:
+	@echo "zeitgeist started $(shell date -R) "
+	(make -C zeitgeist 2>&1 | tee $(PKGLOGDIR)/zeitgeist.log && exit $$PIPESTATUS)
+	@echo "zeitgeist finished $(shell date -R) "
+
+libproxy.o:
+	@echo "libproxy started $(shell date -R) "
+	(make -C libproxy 2>&1 | tee $(PKGLOGDIR)/libproxy.log && exit $$PIPESTATUS)
+	@echo "libproxy finished $(shell date -R) "
+
+vala.o:
+	@echo "vala started $(shell date -R) "
+	(make -C vala 2>&1 | tee $(PKGLOGDIR)/vala.log && exit $$PIPESTATUS)
+	@echo "vala finished $(shell date -R) "
+
+libgee.o:
+	@echo "libgee started $(shell date -R) "
+	(make -C libgee 2>&1 | tee $(PKGLOGDIR)/libgee.log && exit $$PIPESTATUS)
+	@echo "libgee finished $(shell date -R) "
+
+dee.o:
+	@echo "dee started $(shell date -R) "
+	(make -C dee 2>&1 | tee $(PKGLOGDIR)/dee.log && exit $$PIPESTATUS)
+	@echo "dee finished $(shell date -R) "
 
 #============== [ targetfs packages ] ========================================================
 

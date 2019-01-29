@@ -1,0 +1,1750 @@
+fftw.o:
+	@echo "fftw started $(shell date -R) "
+	( make -C fftw 2>&1 | tee $(PKGLOGDIR)/fftw.log && exit $$PIPESTATUS )
+	@echo "fftw finished $(shell date -R) "
+
+gsl.o:
+	@echo "gsl started $(shell date -R) "
+	( make -C gsl 2>&1 | tee $(PKGLOGDIR)/gsl.log && exit $$PIPESTATUS )
+	@echo "gsl finished $(shell date -R) "
+
+libev.o:
+	@echo "libev started $(shell date -R) "
+	( make -C libev 2>&1 | tee $(PKGLOGDIR)/libev.log && exit $$PIPESTATUS )
+	@echo "libev finished $(shell date -R) "
+
+libseccomp.o:
+	@echo "libseccomp started $(shell date -R) "
+	( make -C libseccomp 2>&1 | tee $(PKGLOGDIR)/libseccomp.log && exit $$PIPESTATUS )
+	@echo "libseccomp finished $(shell date -R) "
+
+libsigsegv.o:
+	@echo "libsigsegv started $(shell date -R) "
+	( make -C libsigsegv 2>&1 | tee $(PKGLOGDIR)/libsigsegv.log && exit $$PIPESTATUS )
+	@echo "libsigsegv finished $(shell date -R) "
+
+aspell.o:
+	@echo "aspell started $(shell date -R) "
+	( make -C aspell 2>&1 | tee $(PKGLOGDIR)/aspell.log && exit $$PIPESTATUS )
+	@echo "aspell finished $(shell date -R) "
+
+hunspell.o:
+	@echo "hunspell started $(shell date -R) "
+	( make -C hunspell 2>&1 | tee $(PKGLOGDIR)/hunspell.log && exit $$PIPESTATUS )
+	@echo "hunspell finished $(shell date -R) "
+
+clucene.o:
+	@echo "clucene started $(shell date -R) "
+	( make -C clucene 2>&1 | tee $(PKGLOGDIR)/clucene.log && exit $$PIPESTATUS )
+	@echo "clucene finished $(shell date -R) "
+
+enchant.o:
+	@echo "enchant started $(shell date -R) "
+	( make -C enchant 2>&1 | tee $(PKGLOGDIR)/enchant.log && exit $$PIPESTATUS )
+	@echo "enchant finished $(shell date -R) "
+
+exempi.o:
+	@echo "exempi started $(shell date -R) "
+	( make -C exempi 2>&1 | tee $(PKGLOGDIR)/exempi.log && exit $$PIPESTATUS )
+	@echo "exempi finished $(shell date -R) "
+
+krb5.o:
+	@echo "krb5 started $(shell date -R) "
+	( make -C krb5 2>&1 | tee $(PKGLOGDIR)/krb5.log && exit $$PIPESTATUS )
+	@echo "krb5 finished $(shell date -R) "
+
+gpgme.o:
+	@echo "gpgme started $(shell date -R) "
+	( make -C gpgme 2>&1 | tee $(PKGLOGDIR)/gpgme.log && exit $$PIPESTATUS )
+	@echo "gpgme finished $(shell date -R) "
+
+gmime2.o:
+	@echo "gmime2 started $(shell date -R) "
+	( make -C gmime2 2>&1 | tee $(PKGLOGDIR)/gmime2.log && exit $$PIPESTATUS )
+	@echo "gmime2 finished $(shell date -R) "
+
+libxslt.o:
+	@echo "libxslt started $(shell date -R) "
+	( make -C libxslt 2>&1 | tee $(PKGLOGDIR)/libxslt.log && exit $$PIPESTATUS )
+	@echo "libxslt finished $(shell date -R) "
+
+gmime3.o:
+	@echo "gmime3 started $(shell date -R) "
+	( make -C gmime3 2>&1 | tee $(PKGLOGDIR)/gmime3.log && exit $$PIPESTATUS )
+	@echo "gmime3 finished $(shell date -R) "
+
+keyutils.o:
+	@echo "keyutils started $(shell date -R) "
+	( make -C keyutils 2>&1 | tee $(PKGLOGDIR)/keyutils.log && exit $$PIPESTATUS )
+	@echo "keyutils finished $(shell date -R) "
+
+libarchive.o:
+	@echo "libarchive started $(shell date -R) "
+	( make -C libarchive 2>&1 | tee $(PKGLOGDIR)/libarchive.log && exit $$PIPESTATUS )
+	@echo "libarchive finished $(shell date -R) "
+
+libdaemon.o:
+	@echo "libdaemon started $(shell date -R) "
+	( make -C libdaemon 2>&1 | tee $(PKGLOGDIR)/libdaemon.log && exit $$PIPESTATUS )
+	@echo "libdaemon finished $(shell date -R) "
+
+libmbim.o:
+	@echo "libmbim started $(shell date -R) "
+	( make -C libmbim 2>&1 | tee $(PKGLOGDIR)/libmbim.log && exit $$PIPESTATUS )
+	@echo "libmbim finished $(shell date -R) "
+
+libqmi.o:
+	@echo "libqmi started $(shell date -R) "
+	( make -C libqmi 2>&1 | tee $(PKGLOGDIR)/libqmi.log && exit $$PIPESTATUS )
+	@echo "libqmi finished $(shell date -R) "
+
+libssh2.o:
+	@echo "libssh2 started $(shell date -R) "
+	( make -C libssh2 2>&1 | tee $(PKGLOGDIR)/libssh2.log && exit $$PIPESTATUS )
+	@echo "libssh2 finished $(shell date -R) "
+
+libstatgrab.o:
+	@echo "libstatgrab started $(shell date -R) "
+	( make -C libstatgrab 2>&1 | tee $(PKGLOGDIR)/libstatgrab.log && exit $$PIPESTATUS )
+	@echo "libstatgrab finished $(shell date -R) "
+
+c-ares.o:
+	@echo "c-ares started $(shell date -R) "
+	( make -C c-ares 2>&1 | tee $(PKGLOGDIR)/c-ares.log && exit $$PIPESTATUS )
+	@echo "c-ares finished $(shell date -R) "
+
+libuv.o:
+	@echo "libuv started $(shell date -R) "
+	( make -C libuv 2>&1 | tee $(PKGLOGDIR)/libuv.log && exit $$PIPESTATUS )
+	@echo "libuv finished $(shell date -R) "
+
+http-parser.o:
+	@echo "http-parser started $(shell date -R) "
+	( make -C http-parser 2>&1 | tee $(PKGLOGDIR)/http-parser.log && exit $$PIPESTATUS )
+	@echo "http-parser finished $(shell date -R) "
+
+nodejs.o:
+	@echo "nodejs started $(shell date -R) "
+	( make -C nodejs 2>&1 | tee $(PKGLOGDIR)/nodejs.log && exit $$PIPESTATUS )
+	@echo "nodejs finished $(shell date -R) "
+
+xapian.o:
+	@echo "xapian started $(shell date -R) "
+	( make -C xapian 2>&1 | tee $(PKGLOGDIR)/xapian.log && exit $$PIPESTATUS )
+	@echo "xapian finished $(shell date -R) "
+
+libssh.o:
+	@echo "libssh started $(shell date -R) "
+	( make -C libssh 2>&1 | tee $(PKGLOGDIR)/libssh.log && exit $$PIPESTATUS )
+	@echo "libssh finished $(shell date -R) "
+
+libpwquality.o:
+	@echo "libpwquality started $(shell date -R) "
+	( make -C libpwquality 2>&1 | tee $(PKGLOGDIR)/libpwquality.log && exit $$PIPESTATUS )
+	@echo "libpwquality finished $(shell date -R) "
+
+libatasmart.o:
+	@echo "libatasmart started $(shell date -R) "
+	( make -C libatasmart 2>&1 | tee $(PKGLOGDIR)/libatasmart.log && exit $$PIPESTATUS )
+	@echo "libatasmart finished $(shell date -R) "
+
+libbytesize.o:
+	@echo "libbytesize started $(shell date -R) "
+	( make -C libbytesize 2>&1 | tee $(PKGLOGDIR)/libbytesize.log && exit $$PIPESTATUS )
+	@echo "libbytesize finished $(shell date -R) "
+
+xfsprogs.o:
+	@echo "xfsprogs started $(shell date -R) "
+	( make -C xfsprogs 2>&1 | tee $(PKGLOGDIR)/xfsprogs.log && exit $$PIPESTATUS )
+	@echo "xfsprogs finished $(shell date -R) "
+
+mdadm.o:
+	@echo "mdadm started $(shell date -R) "
+	( make -C mdadm 2>&1 | tee $(PKGLOGDIR)/mdadm.log && exit $$PIPESTATUS )
+	@echo "mdadm finished $(shell date -R) "
+
+thin-provisioning-tools.o:
+	@echo "thin-provisioning-tools started $(shell date -R) "
+	( make -C thin-provisioning-tools 2>&1 | tee $(PKGLOGDIR)/thin-provisioning-tools.log && exit $$PIPESTATUS )
+	@echo "thin-provisioning-tools finished $(shell date -R) "
+
+reiserfsprogs.o:
+	@echo "reiserfsprogs started $(shell date -R) "
+	( make -C reiserfsprogs 2>&1 | tee $(PKGLOGDIR)/reiserfsprogs.log && exit $$PIPESTATUS )
+	@echo "reiserfsprogs finished $(shell date -R) "
+
+lvm2.o:
+	@echo "lvm2 started $(shell date -R) "
+	( make -C lvm2 2>&1 | tee $(PKGLOGDIR)/lvm2.log && exit $$PIPESTATUS )
+	@echo "lvm2 finished $(shell date -R) "
+
+btrfs-progs.o:
+	@echo "btrfs-progs started $(shell date -R) "
+	( make -C btrfs-progs 2>&1 | tee $(PKGLOGDIR)/btrfs-progs.log && exit $$PIPESTATUS )
+	@echo "btrfs-progs finished $(shell date -R) "
+
+argon2.o:
+	@echo "argon2 started $(shell date -R) "
+	( make -C argon2 2>&1 | tee $(PKGLOGDIR)/argon2.log && exit $$PIPESTATUS )
+	@echo "argon2 finished $(shell date -R) "
+
+cryptsetup.o:
+	@echo "cryptsetup started $(shell date -R) "
+	( make -C cryptsetup 2>&1 | tee $(PKGLOGDIR)/cryptsetup.log && exit $$PIPESTATUS )
+	@echo "cryptsetup finished $(shell date -R) "
+
+dosfstools.o:
+	@echo "dosfstools started $(shell date -R) "
+	( make -C dosfstools 2>&1 | tee $(PKGLOGDIR)/dosfstools.log && exit $$PIPESTATUS )
+	@echo "dosfstools finished $(shell date -R) "
+
+fuse3.o:
+	@echo "fuse3 started $(shell date -R) "
+	( make -C fuse3 2>&1 | tee $(PKGLOGDIR)/fuse3.log && exit $$PIPESTATUS )
+	@echo "fuse3 finished $(shell date -R) "
+
+jfsutils.o:
+	@echo "jfsutils started $(shell date -R) "
+	( make -C jfsutils 2>&1 | tee $(PKGLOGDIR)/jfsutils.log && exit $$PIPESTATUS )
+	@echo "jfsutils finished $(shell date -R) "
+
+squashfs-tools.o:
+	@echo "squashfs-tools started $(shell date -R) "
+	( make -C squashfs-tools 2>&1 | tee $(PKGLOGDIR)/squashfs-tools.log && exit $$PIPESTATUS )
+	@echo "squashfs-tools finished $(shell date -R) "
+
+ntfs-3g.o:
+	@echo "ntfs-3g started $(shell date -R) "
+	( make -C ntfs-3g 2>&1 | tee $(PKGLOGDIR)/ntfs-3g.log && exit $$PIPESTATUS )
+	@echo "ntfs-3g finished $(shell date -R) "
+
+gptfdisk.o:
+	@echo "gptfdisk started $(shell date -R) "
+	( make -C gptfdisk 2>&1 | tee $(PKGLOGDIR)/gptfdisk.log && exit $$PIPESTATUS )
+	@echo "gptfdisk finished $(shell date -R) "
+
+parted.o:
+	@echo "parted started $(shell date -R) "
+	( make -C parted 2>&1 | tee $(PKGLOGDIR)/parted.log && exit $$PIPESTATUS )
+	@echo "parted finished $(shell date -R) "
+
+smartmontools.o:
+	@echo "smartmontools started $(shell date -R) "
+	( make -C smartmontools 2>&1 | tee $(PKGLOGDIR)/smartmontools.log && exit $$PIPESTATUS )
+	@echo "smartmontools finished $(shell date -R) "
+
+sshfs.o:
+	@echo "sshfs started $(shell date -R) "
+	( make -C sshfs 2>&1 | tee $(PKGLOGDIR)/sshfs.log && exit $$PIPESTATUS )
+	@echo "sshfs finished $(shell date -R) "
+
+alsa-lib.o:
+	@echo "alsa-lib started $(shell date -R) "
+	( make -C alsa-lib 2>&1 | tee $(PKGLOGDIR)/alsa-lib.log && exit $$PIPESTATUS )
+	@echo "alsa-lib finished $(shell date -R) "
+
+libogg.o:
+	@echo "libogg started $(shell date -R) "
+	( make -C libogg 2>&1 | tee $(PKGLOGDIR)/libogg.log && exit $$PIPESTATUS )
+	@echo "libogg finished $(shell date -R) "
+
+flac.o:
+	@echo "flac started $(shell date -R) "
+	( make -C flac 2>&1 | tee $(PKGLOGDIR)/flac.log && exit $$PIPESTATUS )
+	@echo "flac finished $(shell date -R) "
+
+audiofile.o:
+	@echo "audiofile started $(shell date -R) "
+	( make -C audiofile 2>&1 | tee $(PKGLOGDIR)/audiofile.log && exit $$PIPESTATUS )
+	@echo "audiofile finished $(shell date -R) "
+
+faac.o:
+	@echo "faac started $(shell date -R) "
+	( make -C faac 2>&1 | tee $(PKGLOGDIR)/faac.log && exit $$PIPESTATUS )
+	@echo "faac finished $(shell date -R) "
+
+faad2.o:
+	@echo "faad2 started $(shell date -R) "
+	( make -C faad2 2>&1 | tee $(PKGLOGDIR)/faad2.log && exit $$PIPESTATUS )
+	@echo "faad2 finished $(shell date -R) "
+
+fdk-aac.o:
+	@echo "fdk-aac started $(shell date -R) "
+	( make -C fdk-aac 2>&1 | tee $(PKGLOGDIR)/fdk-aac.log && exit $$PIPESTATUS )
+	@echo "fdk-aac finished $(shell date -R) "
+
+gstreamer.o:
+	@echo "gstreamer started $(shell date -R) "
+	( make -C gstreamer 2>&1 | tee $(PKGLOGDIR)/gstreamer.log && exit $$PIPESTATUS )
+	@echo "gstreamer finished $(shell date -R) "
+
+id3lib.o:
+	@echo "id3lib started $(shell date -R) "
+	( make -C id3lib 2>&1 | tee $(PKGLOGDIR)/id3lib.log && exit $$PIPESTATUS )
+	@echo "id3lib finished $(shell date -R) "
+
+a52dec.o:
+	@echo "a52dec started $(shell date -R) "
+	( make -C a52dec 2>&1 | tee $(PKGLOGDIR)/a52dec.log && exit $$PIPESTATUS )
+	@echo "a52dec finished $(shell date -R) "
+
+libvorbis.o:
+	@echo "libvorbis started $(shell date -R) "
+	( make -C libvorbis 2>&1 | tee $(PKGLOGDIR)/libvorbis.log && exit $$PIPESTATUS )
+	@echo "libvorbis finished $(shell date -R) "
+
+libcddb.o:
+	@echo "libcddb started $(shell date -R) "
+	( make -C libcddb 2>&1 | tee $(PKGLOGDIR)/libcddb.log && exit $$PIPESTATUS )
+	@echo "libcddb finished $(shell date -R) "
+
+libcdio.o:
+	@echo "libcdio started $(shell date -R) "
+	( make -C libcdio 2>&1 | tee $(PKGLOGDIR)/libcdio.log && exit $$PIPESTATUS )
+	@echo "libcdio finished $(shell date -R) "
+
+libcdio-paranoia.o:
+	@echo "libcdio-paranoia started $(shell date -R) "
+	( make -C libcdio-paranoia 2>&1 | tee $(PKGLOGDIR)/libcdio-paranoia.log && exit $$PIPESTATUS )
+	@echo "libcdio-paranoia finished $(shell date -R) "
+
+libdiscid.o:
+	@echo "libdiscid started $(shell date -R) "
+	( make -C libdiscid 2>&1 | tee $(PKGLOGDIR)/libdiscid.log && exit $$PIPESTATUS )
+	@echo "libdiscid finished $(shell date -R) "
+
+libdvdcss.o:
+	@echo "libdvdcss started $(shell date -R) "
+	( make -C libdvdcss 2>&1 | tee $(PKGLOGDIR)/libdvdcss.log && exit $$PIPESTATUS )
+	@echo "libdvdcss finished $(shell date -R) "
+
+libdvdread.o:
+	@echo "libdvdread started $(shell date -R) "
+	( make -C libdvdread 2>&1 | tee $(PKGLOGDIR)/libdvdread.log && exit $$PIPESTATUS )
+	@echo "libdvdread finished $(shell date -R) "
+
+libdvdnav.o:
+	@echo "libdvdnav started $(shell date -R) "
+	( make -C libdvdnav 2>&1 | tee $(PKGLOGDIR)/libdvdnav.log && exit $$PIPESTATUS )
+	@echo "libdvdnav finished $(shell date -R) "
+
+libmad.o:
+	@echo "libmad started $(shell date -R) "
+	( make -C libmad 2>&1 | tee $(PKGLOGDIR)/libmad.log && exit $$PIPESTATUS )
+	@echo "libmad finished $(shell date -R) "
+
+libmusicbrainz2.o:
+	@echo "libmusicbrainz2 started $(shell date -R) "
+	( make -C libmusicbrainz2 2>&1 | tee $(PKGLOGDIR)/libmusicbrainz2.log && exit $$PIPESTATUS )
+	@echo "libmusicbrainz2 finished $(shell date -R) "
+
+libsndfile.o:
+	@echo "libsndfile started $(shell date -R) "
+	( make -C libsndfile 2>&1 | tee $(PKGLOGDIR)/libsndfile.log && exit $$PIPESTATUS )
+	@echo "libsndfile finished $(shell date -R) "
+
+libsamplerate.o:
+	@echo "libsamplerate started $(shell date -R) "
+	( make -C libsamplerate 2>&1 | tee $(PKGLOGDIR)/libsamplerate.log && exit $$PIPESTATUS )
+	@echo "libsamplerate finished $(shell date -R) "
+
+libtheora.o:
+	@echo "libtheora started $(shell date -R) "
+	( make -C libtheora 2>&1 | tee $(PKGLOGDIR)/libtheora.log && exit $$PIPESTATUS )
+	@echo "libtheora finished $(shell date -R) "
+
+libvpx.o:
+	@echo "libvpx started $(shell date -R) "
+	( make -C libvpx 2>&1 | tee $(PKGLOGDIR)/libvpx.log && exit $$PIPESTATUS )
+	@echo "libvpx finished $(shell date -R) "
+
+opus.o:
+	@echo "opus started $(shell date -R) "
+	( make -C opus 2>&1 | tee $(PKGLOGDIR)/opus.log && exit $$PIPESTATUS )
+	@echo "opus finished $(shell date -R) "
+
+sbc.o:
+	@echo "sbc started $(shell date -R) "
+	( make -C sbc 2>&1 | tee $(PKGLOGDIR)/sbc.log && exit $$PIPESTATUS )
+	@echo "sbc finished $(shell date -R) "
+
+speex.o:
+	@echo "speex started $(shell date -R) "
+	( make -C speex 2>&1 | tee $(PKGLOGDIR)/speex.log && exit $$PIPESTATUS )
+	@echo "speex finished $(shell date -R) "
+
+speexdsp.o:
+	@echo "speexdsp started $(shell date -R) "
+	( make -C speexdsp 2>&1 | tee $(PKGLOGDIR)/speexdsp.log && exit $$PIPESTATUS )
+	@echo "speexdsp finished $(shell date -R) "
+
+sound-theme-freedesktop.o:
+	@echo "sound-theme-freedesktop started $(shell date -R) "
+	( make -C sound-theme-freedesktop 2>&1 | tee $(PKGLOGDIR)/sound-theme-freedesktop.log && exit $$PIPESTATUS )
+	@echo "sound-theme-freedesktop finished $(shell date -R) "
+
+soundtouch.o:
+	@echo "soundtouch started $(shell date -R) "
+	( make -C soundtouch 2>&1 | tee $(PKGLOGDIR)/soundtouch.log && exit $$PIPESTATUS )
+	@echo "soundtouch finished $(shell date -R) "
+
+taglib.o:
+	@echo "taglib started $(shell date -R) "
+	( make -C taglib 2>&1 | tee $(PKGLOGDIR)/taglib.log && exit $$PIPESTATUS )
+	@echo "taglib finished $(shell date -R) "
+
+x264.o:
+	@echo "x264 started $(shell date -R) "
+	( make -C x264 2>&1 | tee $(PKGLOGDIR)/x264.log && exit $$PIPESTATUS )
+	@echo "x264 finished $(shell date -R) "
+
+x265.o:
+	@echo "x265 started $(shell date -R) "
+	( make -C x265 2>&1 | tee $(PKGLOGDIR)/x265.log && exit $$PIPESTATUS )
+	@echo "x265 finished $(shell date -R) "
+
+libcuefile.o:
+	@echo "libcuefile started $(shell date -R) "
+	( make -C libcuefile 2>&1 | tee $(PKGLOGDIR)/libcuefile.log && exit $$PIPESTATUS )
+	@echo "libcuefile finished $(shell date -R) "
+
+libreplaygain.o:
+	@echo "libreplaygain started $(shell date -R) "
+	( make -C libreplaygain 2>&1 | tee $(PKGLOGDIR)/libreplaygain.log && exit $$PIPESTATUS )
+	@echo "libreplaygain finished $(shell date -R) "
+
+webrtc-audio-processing.o:
+	@echo "webrtc-audio-processing started $(shell date -R) "
+	( make -C webrtc-audio-processing 2>&1 | tee $(PKGLOGDIR)/webrtc-audio-processing.log && exit $$PIPESTATUS )
+	@echo "webrtc-audio-processing finished $(shell date -R) "
+
+wavpack.o:
+	@echo "wavpack started $(shell date -R) "
+	( make -C wavpack 2>&1 | tee $(PKGLOGDIR)/wavpack.log && exit $$PIPESTATUS )
+	@echo "wavpack finished $(shell date -R) "
+
+xvidcore.o:
+	@echo "xvidcore started $(shell date -R) "
+	( make -C xvidcore 2>&1 | tee $(PKGLOGDIR)/xvidcore.log && exit $$PIPESTATUS )
+	@echo "xvidcore finished $(shell date -R) "
+
+babl.o:
+	@echo "babl started $(shell date -R) "
+	( make -C babl 2>&1 | tee $(PKGLOGDIR)/babl.log && exit $$PIPESTATUS )
+	@echo "babl finished $(shell date -R) "
+
+exiv2.o:
+	@echo "exiv2 started $(shell date -R) "
+	( make -C exiv2 2>&1 | tee $(PKGLOGDIR)/exiv2.log && exit $$PIPESTATUS )
+	@echo "exiv2 finished $(shell date -R) "
+
+ijs.o:
+	@echo "ijs started $(shell date -R) "
+	( make -C ijs 2>&1 | tee $(PKGLOGDIR)/ijs.log && exit $$PIPESTATUS )
+	@echo "ijs finished $(shell date -R) "
+
+libexif.o:
+	@echo "libexif started $(shell date -R) "
+	( make -C libexif 2>&1 | tee $(PKGLOGDIR)/libexif.log && exit $$PIPESTATUS )
+	@echo "libexif finished $(shell date -R) "
+
+libmng.o:
+	@echo "libmng started $(shell date -R) "
+	( make -C libmng 2>&1 | tee $(PKGLOGDIR)/libmng.log && exit $$PIPESTATUS )
+	@echo "libmng finished $(shell date -R) "
+
+libmypaint.o:
+	@echo "libmypaint started $(shell date -R) "
+	( make -C libmypaint 2>&1 | tee $(PKGLOGDIR)/libmypaint.log && exit $$PIPESTATUS )
+	@echo "libmypaint finished $(shell date -R) "
+
+libraw.o:
+	@echo "libraw started $(shell date -R) "
+	( make -C libraw 2>&1 | tee $(PKGLOGDIR)/libraw.log && exit $$PIPESTATUS )
+	@echo "libraw finished $(shell date -R) "
+
+libwebp.o:
+	@echo "libwebp started $(shell date -R) "
+	( make -C libwebp 2>&1 | tee $(PKGLOGDIR)/libwebp.log && exit $$PIPESTATUS )
+	@echo "libwebp finished $(shell date -R) "
+
+mypaint-brushes.o:
+	@echo "mypaint-brushes started $(shell date -R) "
+	( make -C mypaint-brushes 2>&1 | tee $(PKGLOGDIR)/mypaint-brushes.log && exit $$PIPESTATUS )
+	@echo "mypaint-brushes finished $(shell date -R) "
+
+slang.o:
+	@echo "slang started $(shell date -R) "
+	( make -C slang 2>&1 | tee $(PKGLOGDIR)/slang.log && exit $$PIPESTATUS )
+	@echo "slang finished $(shell date -R) "
+
+newt.o:
+	@echo "newt started $(shell date -R) "
+	( make -C newt 2>&1 | tee $(PKGLOGDIR)/newt.log && exit $$PIPESTATUS )
+	@echo "newt finished $(shell date -R) "
+
+openjpeg.o:
+	@echo "openjpeg started $(shell date -R) "
+	( make -C openjpeg 2>&1 | tee $(PKGLOGDIR)/openjpeg.log && exit $$PIPESTATUS )
+	@echo "openjpeg finished $(shell date -R) "
+
+fftw.o:
+	@echo "fftw started $(shell date -R) "
+	( make -C fftw 2>&1 | tee $(PKGLOGDIR)/fftw.log && exit $$PIPESTATUS )
+	@echo "fftw finished $(shell date -R) "
+
+gsl.o:
+	@echo "gsl started $(shell date -R) "
+	( make -C gsl 2>&1 | tee $(PKGLOGDIR)/gsl.log && exit $$PIPESTATUS )
+	@echo "gsl finished $(shell date -R) "
+
+libev.o:
+	@echo "libev started $(shell date -R) "
+	( make -C libev 2>&1 | tee $(PKGLOGDIR)/libev.log && exit $$PIPESTATUS )
+	@echo "libev finished $(shell date -R) "
+
+libseccomp.o:
+	@echo "libseccomp started $(shell date -R) "
+	( make -C libseccomp 2>&1 | tee $(PKGLOGDIR)/libseccomp.log && exit $$PIPESTATUS )
+	@echo "libseccomp finished $(shell date -R) "
+
+libsigsegv.o:
+	@echo "libsigsegv started $(shell date -R) "
+	( make -C libsigsegv 2>&1 | tee $(PKGLOGDIR)/libsigsegv.log && exit $$PIPESTATUS )
+	@echo "libsigsegv finished $(shell date -R) "
+
+aspell.o:
+	@echo "aspell started $(shell date -R) "
+	( make -C aspell 2>&1 | tee $(PKGLOGDIR)/aspell.log && exit $$PIPESTATUS )
+	@echo "aspell finished $(shell date -R) "
+
+hunspell.o:
+	@echo "hunspell started $(shell date -R) "
+	( make -C hunspell 2>&1 | tee $(PKGLOGDIR)/hunspell.log && exit $$PIPESTATUS )
+	@echo "hunspell finished $(shell date -R) "
+
+clucene.o:
+	@echo "clucene started $(shell date -R) "
+	( make -C clucene 2>&1 | tee $(PKGLOGDIR)/clucene.log && exit $$PIPESTATUS )
+	@echo "clucene finished $(shell date -R) "
+
+enchant.o:
+	@echo "enchant started $(shell date -R) "
+	( make -C enchant 2>&1 | tee $(PKGLOGDIR)/enchant.log && exit $$PIPESTATUS )
+	@echo "enchant finished $(shell date -R) "
+
+exempi.o:
+	@echo "exempi started $(shell date -R) "
+	( make -C exempi 2>&1 | tee $(PKGLOGDIR)/exempi.log && exit $$PIPESTATUS )
+	@echo "exempi finished $(shell date -R) "
+
+krb5.o:
+	@echo "krb5 started $(shell date -R) "
+	( make -C krb5 2>&1 | tee $(PKGLOGDIR)/krb5.log && exit $$PIPESTATUS )
+	@echo "krb5 finished $(shell date -R) "
+
+gpgme.o:
+	@echo "gpgme started $(shell date -R) "
+	( make -C gpgme 2>&1 | tee $(PKGLOGDIR)/gpgme.log && exit $$PIPESTATUS )
+	@echo "gpgme finished $(shell date -R) "
+
+gmime2.o:
+	@echo "gmime2 started $(shell date -R) "
+	( make -C gmime2 2>&1 | tee $(PKGLOGDIR)/gmime2.log && exit $$PIPESTATUS )
+	@echo "gmime2 finished $(shell date -R) "
+
+libxslt.o:
+	@echo "libxslt started $(shell date -R) "
+	( make -C libxslt 2>&1 | tee $(PKGLOGDIR)/libxslt.log && exit $$PIPESTATUS )
+	@echo "libxslt finished $(shell date -R) "
+
+gmime3.o:
+	@echo "gmime3 started $(shell date -R) "
+	( make -C gmime3 2>&1 | tee $(PKGLOGDIR)/gmime3.log && exit $$PIPESTATUS )
+	@echo "gmime3 finished $(shell date -R) "
+
+keyutils.o:
+	@echo "keyutils started $(shell date -R) "
+	( make -C keyutils 2>&1 | tee $(PKGLOGDIR)/keyutils.log && exit $$PIPESTATUS )
+	@echo "keyutils finished $(shell date -R) "
+
+libarchive.o:
+	@echo "libarchive started $(shell date -R) "
+	( make -C libarchive 2>&1 | tee $(PKGLOGDIR)/libarchive.log && exit $$PIPESTATUS )
+	@echo "libarchive finished $(shell date -R) "
+
+libdaemon.o:
+	@echo "libdaemon started $(shell date -R) "
+	( make -C libdaemon 2>&1 | tee $(PKGLOGDIR)/libdaemon.log && exit $$PIPESTATUS )
+	@echo "libdaemon finished $(shell date -R) "
+
+libmbim.o:
+	@echo "libmbim started $(shell date -R) "
+	( make -C libmbim 2>&1 | tee $(PKGLOGDIR)/libmbim.log && exit $$PIPESTATUS )
+	@echo "libmbim finished $(shell date -R) "
+
+libqmi.o:
+	@echo "libqmi started $(shell date -R) "
+	( make -C libqmi 2>&1 | tee $(PKGLOGDIR)/libqmi.log && exit $$PIPESTATUS )
+	@echo "libqmi finished $(shell date -R) "
+
+libssh2.o:
+	@echo "libssh2 started $(shell date -R) "
+	( make -C libssh2 2>&1 | tee $(PKGLOGDIR)/libssh2.log && exit $$PIPESTATUS )
+	@echo "libssh2 finished $(shell date -R) "
+
+libstatgrab.o:
+	@echo "libstatgrab started $(shell date -R) "
+	( make -C libstatgrab 2>&1 | tee $(PKGLOGDIR)/libstatgrab.log && exit $$PIPESTATUS )
+	@echo "libstatgrab finished $(shell date -R) "
+
+c-ares.o:
+	@echo "c-ares started $(shell date -R) "
+	( make -C c-ares 2>&1 | tee $(PKGLOGDIR)/c-ares.log && exit $$PIPESTATUS )
+	@echo "c-ares finished $(shell date -R) "
+
+libuv.o:
+	@echo "libuv started $(shell date -R) "
+	( make -C libuv 2>&1 | tee $(PKGLOGDIR)/libuv.log && exit $$PIPESTATUS )
+	@echo "libuv finished $(shell date -R) "
+
+http-parser.o:
+	@echo "http-parser started $(shell date -R) "
+	( make -C http-parser 2>&1 | tee $(PKGLOGDIR)/http-parser.log && exit $$PIPESTATUS )
+	@echo "http-parser finished $(shell date -R) "
+
+nodejs.o:
+	@echo "nodejs started $(shell date -R) "
+	( make -C nodejs 2>&1 | tee $(PKGLOGDIR)/nodejs.log && exit $$PIPESTATUS )
+	@echo "nodejs finished $(shell date -R) "
+
+xapian.o:
+	@echo "xapian started $(shell date -R) "
+	( make -C xapian 2>&1 | tee $(PKGLOGDIR)/xapian.log && exit $$PIPESTATUS )
+	@echo "xapian finished $(shell date -R) "
+
+libssh.o:
+	@echo "libssh started $(shell date -R) "
+	( make -C libssh 2>&1 | tee $(PKGLOGDIR)/libssh.log && exit $$PIPESTATUS )
+	@echo "libssh finished $(shell date -R) "
+
+libpwquality.o:
+	@echo "libpwquality started $(shell date -R) "
+	( make -C libpwquality 2>&1 | tee $(PKGLOGDIR)/libpwquality.log && exit $$PIPESTATUS )
+	@echo "libpwquality finished $(shell date -R) "
+
+libatasmart.o:
+	@echo "libatasmart started $(shell date -R) "
+	( make -C libatasmart 2>&1 | tee $(PKGLOGDIR)/libatasmart.log && exit $$PIPESTATUS )
+	@echo "libatasmart finished $(shell date -R) "
+
+libbytesize.o:
+	@echo "libbytesize started $(shell date -R) "
+	( make -C libbytesize 2>&1 | tee $(PKGLOGDIR)/libbytesize.log && exit $$PIPESTATUS )
+	@echo "libbytesize finished $(shell date -R) "
+
+xfsprogs.o:
+	@echo "xfsprogs started $(shell date -R) "
+	( make -C xfsprogs 2>&1 | tee $(PKGLOGDIR)/xfsprogs.log && exit $$PIPESTATUS )
+	@echo "xfsprogs finished $(shell date -R) "
+
+mdadm.o:
+	@echo "mdadm started $(shell date -R) "
+	( make -C mdadm 2>&1 | tee $(PKGLOGDIR)/mdadm.log && exit $$PIPESTATUS )
+	@echo "mdadm finished $(shell date -R) "
+
+thin-provisioning-tools.o:
+	@echo "thin-provisioning-tools started $(shell date -R) "
+	( make -C thin-provisioning-tools 2>&1 | tee $(PKGLOGDIR)/thin-provisioning-tools.log && exit $$PIPESTATUS )
+	@echo "thin-provisioning-tools finished $(shell date -R) "
+
+reiserfsprogs.o:
+	@echo "reiserfsprogs started $(shell date -R) "
+	( make -C reiserfsprogs 2>&1 | tee $(PKGLOGDIR)/reiserfsprogs.log && exit $$PIPESTATUS )
+	@echo "reiserfsprogs finished $(shell date -R) "
+
+lvm2.o:
+	@echo "lvm2 started $(shell date -R) "
+	( make -C lvm2 2>&1 | tee $(PKGLOGDIR)/lvm2.log && exit $$PIPESTATUS )
+	@echo "lvm2 finished $(shell date -R) "
+
+btrfs-progs.o:
+	@echo "btrfs-progs started $(shell date -R) "
+	( make -C btrfs-progs 2>&1 | tee $(PKGLOGDIR)/btrfs-progs.log && exit $$PIPESTATUS )
+	@echo "btrfs-progs finished $(shell date -R) "
+
+argon2.o:
+	@echo "argon2 started $(shell date -R) "
+	( make -C argon2 2>&1 | tee $(PKGLOGDIR)/argon2.log && exit $$PIPESTATUS )
+	@echo "argon2 finished $(shell date -R) "
+
+cryptsetup.o:
+	@echo "cryptsetup started $(shell date -R) "
+	( make -C cryptsetup 2>&1 | tee $(PKGLOGDIR)/cryptsetup.log && exit $$PIPESTATUS )
+	@echo "cryptsetup finished $(shell date -R) "
+
+dosfstools.o:
+	@echo "dosfstools started $(shell date -R) "
+	( make -C dosfstools 2>&1 | tee $(PKGLOGDIR)/dosfstools.log && exit $$PIPESTATUS )
+	@echo "dosfstools finished $(shell date -R) "
+
+fuse3.o:
+	@echo "fuse3 started $(shell date -R) "
+	( make -C fuse3 2>&1 | tee $(PKGLOGDIR)/fuse3.log && exit $$PIPESTATUS )
+	@echo "fuse3 finished $(shell date -R) "
+
+jfsutils.o:
+	@echo "jfsutils started $(shell date -R) "
+	( make -C jfsutils 2>&1 | tee $(PKGLOGDIR)/jfsutils.log && exit $$PIPESTATUS )
+	@echo "jfsutils finished $(shell date -R) "
+
+squashfs-tools.o:
+	@echo "squashfs-tools started $(shell date -R) "
+	( make -C squashfs-tools 2>&1 | tee $(PKGLOGDIR)/squashfs-tools.log && exit $$PIPESTATUS )
+	@echo "squashfs-tools finished $(shell date -R) "
+
+ntfs-3g.o:
+	@echo "ntfs-3g started $(shell date -R) "
+	( make -C ntfs-3g 2>&1 | tee $(PKGLOGDIR)/ntfs-3g.log && exit $$PIPESTATUS )
+	@echo "ntfs-3g finished $(shell date -R) "
+
+gptfdisk.o:
+	@echo "gptfdisk started $(shell date -R) "
+	( make -C gptfdisk 2>&1 | tee $(PKGLOGDIR)/gptfdisk.log && exit $$PIPESTATUS )
+	@echo "gptfdisk finished $(shell date -R) "
+
+parted.o:
+	@echo "parted started $(shell date -R) "
+	( make -C parted 2>&1 | tee $(PKGLOGDIR)/parted.log && exit $$PIPESTATUS )
+	@echo "parted finished $(shell date -R) "
+
+smartmontools.o:
+	@echo "smartmontools started $(shell date -R) "
+	( make -C smartmontools 2>&1 | tee $(PKGLOGDIR)/smartmontools.log && exit $$PIPESTATUS )
+	@echo "smartmontools finished $(shell date -R) "
+
+sshfs.o:
+	@echo "sshfs started $(shell date -R) "
+	( make -C sshfs 2>&1 | tee $(PKGLOGDIR)/sshfs.log && exit $$PIPESTATUS )
+	@echo "sshfs finished $(shell date -R) "
+
+alsa-lib.o:
+	@echo "alsa-lib started $(shell date -R) "
+	( make -C alsa-lib 2>&1 | tee $(PKGLOGDIR)/alsa-lib.log && exit $$PIPESTATUS )
+	@echo "alsa-lib finished $(shell date -R) "
+
+libogg.o:
+	@echo "libogg started $(shell date -R) "
+	( make -C libogg 2>&1 | tee $(PKGLOGDIR)/libogg.log && exit $$PIPESTATUS )
+	@echo "libogg finished $(shell date -R) "
+
+flac.o:
+	@echo "flac started $(shell date -R) "
+	( make -C flac 2>&1 | tee $(PKGLOGDIR)/flac.log && exit $$PIPESTATUS )
+	@echo "flac finished $(shell date -R) "
+
+audiofile.o:
+	@echo "audiofile started $(shell date -R) "
+	( make -C audiofile 2>&1 | tee $(PKGLOGDIR)/audiofile.log && exit $$PIPESTATUS )
+	@echo "audiofile finished $(shell date -R) "
+
+faac.o:
+	@echo "faac started $(shell date -R) "
+	( make -C faac 2>&1 | tee $(PKGLOGDIR)/faac.log && exit $$PIPESTATUS )
+	@echo "faac finished $(shell date -R) "
+
+faad2.o:
+	@echo "faad2 started $(shell date -R) "
+	( make -C faad2 2>&1 | tee $(PKGLOGDIR)/faad2.log && exit $$PIPESTATUS )
+	@echo "faad2 finished $(shell date -R) "
+
+fdk-aac.o:
+	@echo "fdk-aac started $(shell date -R) "
+	( make -C fdk-aac 2>&1 | tee $(PKGLOGDIR)/fdk-aac.log && exit $$PIPESTATUS )
+	@echo "fdk-aac finished $(shell date -R) "
+
+gstreamer.o:
+	@echo "gstreamer started $(shell date -R) "
+	( make -C gstreamer 2>&1 | tee $(PKGLOGDIR)/gstreamer.log && exit $$PIPESTATUS )
+	@echo "gstreamer finished $(shell date -R) "
+
+id3lib.o:
+	@echo "id3lib started $(shell date -R) "
+	( make -C id3lib 2>&1 | tee $(PKGLOGDIR)/id3lib.log && exit $$PIPESTATUS )
+	@echo "id3lib finished $(shell date -R) "
+
+a52dec.o:
+	@echo "a52dec started $(shell date -R) "
+	( make -C a52dec 2>&1 | tee $(PKGLOGDIR)/a52dec.log && exit $$PIPESTATUS )
+	@echo "a52dec finished $(shell date -R) "
+
+libvorbis.o:
+	@echo "libvorbis started $(shell date -R) "
+	( make -C libvorbis 2>&1 | tee $(PKGLOGDIR)/libvorbis.log && exit $$PIPESTATUS )
+	@echo "libvorbis finished $(shell date -R) "
+
+libcddb.o:
+	@echo "libcddb started $(shell date -R) "
+	( make -C libcddb 2>&1 | tee $(PKGLOGDIR)/libcddb.log && exit $$PIPESTATUS )
+	@echo "libcddb finished $(shell date -R) "
+
+libcdio.o:
+	@echo "libcdio started $(shell date -R) "
+	( make -C libcdio 2>&1 | tee $(PKGLOGDIR)/libcdio.log && exit $$PIPESTATUS )
+	@echo "libcdio finished $(shell date -R) "
+
+libcdio-paranoia.o:
+	@echo "libcdio-paranoia started $(shell date -R) "
+	( make -C libcdio-paranoia 2>&1 | tee $(PKGLOGDIR)/libcdio-paranoia.log && exit $$PIPESTATUS )
+	@echo "libcdio-paranoia finished $(shell date -R) "
+
+libdiscid.o:
+	@echo "libdiscid started $(shell date -R) "
+	( make -C libdiscid 2>&1 | tee $(PKGLOGDIR)/libdiscid.log && exit $$PIPESTATUS )
+	@echo "libdiscid finished $(shell date -R) "
+
+libdvdcss.o:
+	@echo "libdvdcss started $(shell date -R) "
+	( make -C libdvdcss 2>&1 | tee $(PKGLOGDIR)/libdvdcss.log && exit $$PIPESTATUS )
+	@echo "libdvdcss finished $(shell date -R) "
+
+libdvdread.o:
+	@echo "libdvdread started $(shell date -R) "
+	( make -C libdvdread 2>&1 | tee $(PKGLOGDIR)/libdvdread.log && exit $$PIPESTATUS )
+	@echo "libdvdread finished $(shell date -R) "
+
+libdvdnav.o:
+	@echo "libdvdnav started $(shell date -R) "
+	( make -C libdvdnav 2>&1 | tee $(PKGLOGDIR)/libdvdnav.log && exit $$PIPESTATUS )
+	@echo "libdvdnav finished $(shell date -R) "
+
+libmad.o:
+	@echo "libmad started $(shell date -R) "
+	( make -C libmad 2>&1 | tee $(PKGLOGDIR)/libmad.log && exit $$PIPESTATUS )
+	@echo "libmad finished $(shell date -R) "
+
+libmusicbrainz2.o:
+	@echo "libmusicbrainz2 started $(shell date -R) "
+	( make -C libmusicbrainz2 2>&1 | tee $(PKGLOGDIR)/libmusicbrainz2.log && exit $$PIPESTATUS )
+	@echo "libmusicbrainz2 finished $(shell date -R) "
+
+libsndfile.o:
+	@echo "libsndfile started $(shell date -R) "
+	( make -C libsndfile 2>&1 | tee $(PKGLOGDIR)/libsndfile.log && exit $$PIPESTATUS )
+	@echo "libsndfile finished $(shell date -R) "
+
+libsamplerate.o:
+	@echo "libsamplerate started $(shell date -R) "
+	( make -C libsamplerate 2>&1 | tee $(PKGLOGDIR)/libsamplerate.log && exit $$PIPESTATUS )
+	@echo "libsamplerate finished $(shell date -R) "
+
+libtheora.o:
+	@echo "libtheora started $(shell date -R) "
+	( make -C libtheora 2>&1 | tee $(PKGLOGDIR)/libtheora.log && exit $$PIPESTATUS )
+	@echo "libtheora finished $(shell date -R) "
+
+libvpx.o:
+	@echo "libvpx started $(shell date -R) "
+	( make -C libvpx 2>&1 | tee $(PKGLOGDIR)/libvpx.log && exit $$PIPESTATUS )
+	@echo "libvpx finished $(shell date -R) "
+
+opus.o:
+	@echo "opus started $(shell date -R) "
+	( make -C opus 2>&1 | tee $(PKGLOGDIR)/opus.log && exit $$PIPESTATUS )
+	@echo "opus finished $(shell date -R) "
+
+sbc.o:
+	@echo "sbc started $(shell date -R) "
+	( make -C sbc 2>&1 | tee $(PKGLOGDIR)/sbc.log && exit $$PIPESTATUS )
+	@echo "sbc finished $(shell date -R) "
+
+speex.o:
+	@echo "speex started $(shell date -R) "
+	( make -C speex 2>&1 | tee $(PKGLOGDIR)/speex.log && exit $$PIPESTATUS )
+	@echo "speex finished $(shell date -R) "
+
+speexdsp.o:
+	@echo "speexdsp started $(shell date -R) "
+	( make -C speexdsp 2>&1 | tee $(PKGLOGDIR)/speexdsp.log && exit $$PIPESTATUS )
+	@echo "speexdsp finished $(shell date -R) "
+
+sound-theme-freedesktop.o:
+	@echo "sound-theme-freedesktop started $(shell date -R) "
+	( make -C sound-theme-freedesktop 2>&1 | tee $(PKGLOGDIR)/sound-theme-freedesktop.log && exit $$PIPESTATUS )
+	@echo "sound-theme-freedesktop finished $(shell date -R) "
+
+soundtouch.o:
+	@echo "soundtouch started $(shell date -R) "
+	( make -C soundtouch 2>&1 | tee $(PKGLOGDIR)/soundtouch.log && exit $$PIPESTATUS )
+	@echo "soundtouch finished $(shell date -R) "
+
+taglib.o:
+	@echo "taglib started $(shell date -R) "
+	( make -C taglib 2>&1 | tee $(PKGLOGDIR)/taglib.log && exit $$PIPESTATUS )
+	@echo "taglib finished $(shell date -R) "
+
+x264.o:
+	@echo "x264 started $(shell date -R) "
+	( make -C x264 2>&1 | tee $(PKGLOGDIR)/x264.log && exit $$PIPESTATUS )
+	@echo "x264 finished $(shell date -R) "
+
+x265.o:
+	@echo "x265 started $(shell date -R) "
+	( make -C x265 2>&1 | tee $(PKGLOGDIR)/x265.log && exit $$PIPESTATUS )
+	@echo "x265 finished $(shell date -R) "
+
+libcuefile.o:
+	@echo "libcuefile started $(shell date -R) "
+	( make -C libcuefile 2>&1 | tee $(PKGLOGDIR)/libcuefile.log && exit $$PIPESTATUS )
+	@echo "libcuefile finished $(shell date -R) "
+
+libreplaygain.o:
+	@echo "libreplaygain started $(shell date -R) "
+	( make -C libreplaygain 2>&1 | tee $(PKGLOGDIR)/libreplaygain.log && exit $$PIPESTATUS )
+	@echo "libreplaygain finished $(shell date -R) "
+
+webrtc-audio-processing.o:
+	@echo "webrtc-audio-processing started $(shell date -R) "
+	( make -C webrtc-audio-processing 2>&1 | tee $(PKGLOGDIR)/webrtc-audio-processing.log && exit $$PIPESTATUS )
+	@echo "webrtc-audio-processing finished $(shell date -R) "
+
+wavpack.o:
+	@echo "wavpack started $(shell date -R) "
+	( make -C wavpack 2>&1 | tee $(PKGLOGDIR)/wavpack.log && exit $$PIPESTATUS )
+	@echo "wavpack finished $(shell date -R) "
+
+xvidcore.o:
+	@echo "xvidcore started $(shell date -R) "
+	( make -C xvidcore 2>&1 | tee $(PKGLOGDIR)/xvidcore.log && exit $$PIPESTATUS )
+	@echo "xvidcore finished $(shell date -R) "
+
+babl.o:
+	@echo "babl started $(shell date -R) "
+	( make -C babl 2>&1 | tee $(PKGLOGDIR)/babl.log && exit $$PIPESTATUS )
+	@echo "babl finished $(shell date -R) "
+
+exiv2.o:
+	@echo "exiv2 started $(shell date -R) "
+	( make -C exiv2 2>&1 | tee $(PKGLOGDIR)/exiv2.log && exit $$PIPESTATUS )
+	@echo "exiv2 finished $(shell date -R) "
+
+ijs.o:
+	@echo "ijs started $(shell date -R) "
+	( make -C ijs 2>&1 | tee $(PKGLOGDIR)/ijs.log && exit $$PIPESTATUS )
+	@echo "ijs finished $(shell date -R) "
+
+libexif.o:
+	@echo "libexif started $(shell date -R) "
+	( make -C libexif 2>&1 | tee $(PKGLOGDIR)/libexif.log && exit $$PIPESTATUS )
+	@echo "libexif finished $(shell date -R) "
+
+libmng.o:
+	@echo "libmng started $(shell date -R) "
+	( make -C libmng 2>&1 | tee $(PKGLOGDIR)/libmng.log && exit $$PIPESTATUS )
+	@echo "libmng finished $(shell date -R) "
+
+libmypaint.o:
+	@echo "libmypaint started $(shell date -R) "
+	( make -C libmypaint 2>&1 | tee $(PKGLOGDIR)/libmypaint.log && exit $$PIPESTATUS )
+	@echo "libmypaint finished $(shell date -R) "
+
+libraw.o:
+	@echo "libraw started $(shell date -R) "
+	( make -C libraw 2>&1 | tee $(PKGLOGDIR)/libraw.log && exit $$PIPESTATUS )
+	@echo "libraw finished $(shell date -R) "
+
+libwebp.o:
+	@echo "libwebp started $(shell date -R) "
+	( make -C libwebp 2>&1 | tee $(PKGLOGDIR)/libwebp.log && exit $$PIPESTATUS )
+	@echo "libwebp finished $(shell date -R) "
+
+mypaint-brushes.o:
+	@echo "mypaint-brushes started $(shell date -R) "
+	( make -C mypaint-brushes 2>&1 | tee $(PKGLOGDIR)/mypaint-brushes.log && exit $$PIPESTATUS )
+	@echo "mypaint-brushes finished $(shell date -R) "
+
+slang.o:
+	@echo "slang started $(shell date -R) "
+	( make -C slang 2>&1 | tee $(PKGLOGDIR)/slang.log && exit $$PIPESTATUS )
+	@echo "slang finished $(shell date -R) "
+
+newt.o:
+	@echo "newt started $(shell date -R) "
+	( make -C newt 2>&1 | tee $(PKGLOGDIR)/newt.log && exit $$PIPESTATUS )
+	@echo "newt finished $(shell date -R) "
+
+openjpeg.o:
+	@echo "openjpeg started $(shell date -R) "
+	( make -C openjpeg 2>&1 | tee $(PKGLOGDIR)/openjpeg.log && exit $$PIPESTATUS )
+	@echo "openjpeg finished $(shell date -R) "
+
+bubblewrap.o:
+	@echo "bubblewrap started $(shell date -R) "
+	( make -C bubblewrap 2>&1 | tee $(PKGLOGDIR)/bubblewrap.log && exit $$PIPESTATUS )
+	@echo "bubblewrap finished $(shell date -R) "
+
+nghttp2.o:
+	@echo "nghttp2 started $(shell date -R) "
+	( make -C nghttp2 2>&1 | tee $(PKGLOGDIR)/nghttp2.log && exit $$PIPESTATUS )
+	@echo "nghttp2 finished $(shell date -R) "
+
+gtk-doc.o:
+	@echo "gtk-doc started $(shell date -R) "
+	( make -C gtk-doc 2>&1 | tee $(PKGLOGDIR)/gtk-doc.log && exit $$PIPESTATUS )
+	@echo "gtk-doc finished $(shell date -R) "
+
+fftw.o:
+	@echo "fftw started $(shell date -R) "
+	( make -C fftw 2>&1 | tee $(PKGLOGDIR)/fftw.log && exit $$PIPESTATUS )
+	@echo "fftw finished $(shell date -R) "
+
+gsl.o:
+	@echo "gsl started $(shell date -R) "
+	( make -C gsl 2>&1 | tee $(PKGLOGDIR)/gsl.log && exit $$PIPESTATUS )
+	@echo "gsl finished $(shell date -R) "
+
+libev.o:
+	@echo "libev started $(shell date -R) "
+	( make -C libev 2>&1 | tee $(PKGLOGDIR)/libev.log && exit $$PIPESTATUS )
+	@echo "libev finished $(shell date -R) "
+
+libseccomp.o:
+	@echo "libseccomp started $(shell date -R) "
+	( make -C libseccomp 2>&1 | tee $(PKGLOGDIR)/libseccomp.log && exit $$PIPESTATUS )
+	@echo "libseccomp finished $(shell date -R) "
+
+libsigsegv.o:
+	@echo "libsigsegv started $(shell date -R) "
+	( make -C libsigsegv 2>&1 | tee $(PKGLOGDIR)/libsigsegv.log && exit $$PIPESTATUS )
+	@echo "libsigsegv finished $(shell date -R) "
+
+aspell.o:
+	@echo "aspell started $(shell date -R) "
+	( make -C aspell 2>&1 | tee $(PKGLOGDIR)/aspell.log && exit $$PIPESTATUS )
+	@echo "aspell finished $(shell date -R) "
+
+hunspell.o:
+	@echo "hunspell started $(shell date -R) "
+	( make -C hunspell 2>&1 | tee $(PKGLOGDIR)/hunspell.log && exit $$PIPESTATUS )
+	@echo "hunspell finished $(shell date -R) "
+
+clucene.o:
+	@echo "clucene started $(shell date -R) "
+	( make -C clucene 2>&1 | tee $(PKGLOGDIR)/clucene.log && exit $$PIPESTATUS )
+	@echo "clucene finished $(shell date -R) "
+
+enchant.o:
+	@echo "enchant started $(shell date -R) "
+	( make -C enchant 2>&1 | tee $(PKGLOGDIR)/enchant.log && exit $$PIPESTATUS )
+	@echo "enchant finished $(shell date -R) "
+
+exempi.o:
+	@echo "exempi started $(shell date -R) "
+	( make -C exempi 2>&1 | tee $(PKGLOGDIR)/exempi.log && exit $$PIPESTATUS )
+	@echo "exempi finished $(shell date -R) "
+
+krb5.o:
+	@echo "krb5 started $(shell date -R) "
+	( make -C krb5 2>&1 | tee $(PKGLOGDIR)/krb5.log && exit $$PIPESTATUS )
+	@echo "krb5 finished $(shell date -R) "
+
+gpgme.o:
+	@echo "gpgme started $(shell date -R) "
+	( make -C gpgme 2>&1 | tee $(PKGLOGDIR)/gpgme.log && exit $$PIPESTATUS )
+	@echo "gpgme finished $(shell date -R) "
+
+gmime2.o:
+	@echo "gmime2 started $(shell date -R) "
+	( make -C gmime2 2>&1 | tee $(PKGLOGDIR)/gmime2.log && exit $$PIPESTATUS )
+	@echo "gmime2 finished $(shell date -R) "
+
+libxslt.o:
+	@echo "libxslt started $(shell date -R) "
+	( make -C libxslt 2>&1 | tee $(PKGLOGDIR)/libxslt.log && exit $$PIPESTATUS )
+	@echo "libxslt finished $(shell date -R) "
+
+gmime3.o:
+	@echo "gmime3 started $(shell date -R) "
+	( make -C gmime3 2>&1 | tee $(PKGLOGDIR)/gmime3.log && exit $$PIPESTATUS )
+	@echo "gmime3 finished $(shell date -R) "
+
+keyutils.o:
+	@echo "keyutils started $(shell date -R) "
+	( make -C keyutils 2>&1 | tee $(PKGLOGDIR)/keyutils.log && exit $$PIPESTATUS )
+	@echo "keyutils finished $(shell date -R) "
+
+libarchive.o:
+	@echo "libarchive started $(shell date -R) "
+	( make -C libarchive 2>&1 | tee $(PKGLOGDIR)/libarchive.log && exit $$PIPESTATUS )
+	@echo "libarchive finished $(shell date -R) "
+
+libdaemon.o:
+	@echo "libdaemon started $(shell date -R) "
+	( make -C libdaemon 2>&1 | tee $(PKGLOGDIR)/libdaemon.log && exit $$PIPESTATUS )
+	@echo "libdaemon finished $(shell date -R) "
+
+libmbim.o:
+	@echo "libmbim started $(shell date -R) "
+	( make -C libmbim 2>&1 | tee $(PKGLOGDIR)/libmbim.log && exit $$PIPESTATUS )
+	@echo "libmbim finished $(shell date -R) "
+
+libqmi.o:
+	@echo "libqmi started $(shell date -R) "
+	( make -C libqmi 2>&1 | tee $(PKGLOGDIR)/libqmi.log && exit $$PIPESTATUS )
+	@echo "libqmi finished $(shell date -R) "
+
+libssh2.o:
+	@echo "libssh2 started $(shell date -R) "
+	( make -C libssh2 2>&1 | tee $(PKGLOGDIR)/libssh2.log && exit $$PIPESTATUS )
+	@echo "libssh2 finished $(shell date -R) "
+
+libstatgrab.o:
+	@echo "libstatgrab started $(shell date -R) "
+	( make -C libstatgrab 2>&1 | tee $(PKGLOGDIR)/libstatgrab.log && exit $$PIPESTATUS )
+	@echo "libstatgrab finished $(shell date -R) "
+
+c-ares.o:
+	@echo "c-ares started $(shell date -R) "
+	( make -C c-ares 2>&1 | tee $(PKGLOGDIR)/c-ares.log && exit $$PIPESTATUS )
+	@echo "c-ares finished $(shell date -R) "
+
+libuv.o:
+	@echo "libuv started $(shell date -R) "
+	( make -C libuv 2>&1 | tee $(PKGLOGDIR)/libuv.log && exit $$PIPESTATUS )
+	@echo "libuv finished $(shell date -R) "
+
+http-parser.o:
+	@echo "http-parser started $(shell date -R) "
+	( make -C http-parser 2>&1 | tee $(PKGLOGDIR)/http-parser.log && exit $$PIPESTATUS )
+	@echo "http-parser finished $(shell date -R) "
+
+nodejs.o:
+	@echo "nodejs started $(shell date -R) "
+	( make -C nodejs 2>&1 | tee $(PKGLOGDIR)/nodejs.log && exit $$PIPESTATUS )
+	@echo "nodejs finished $(shell date -R) "
+
+xapian.o:
+	@echo "xapian started $(shell date -R) "
+	( make -C xapian 2>&1 | tee $(PKGLOGDIR)/xapian.log && exit $$PIPESTATUS )
+	@echo "xapian finished $(shell date -R) "
+
+libssh.o:
+	@echo "libssh started $(shell date -R) "
+	( make -C libssh 2>&1 | tee $(PKGLOGDIR)/libssh.log && exit $$PIPESTATUS )
+	@echo "libssh finished $(shell date -R) "
+
+libpwquality.o:
+	@echo "libpwquality started $(shell date -R) "
+	( make -C libpwquality 2>&1 | tee $(PKGLOGDIR)/libpwquality.log && exit $$PIPESTATUS )
+	@echo "libpwquality finished $(shell date -R) "
+
+libatasmart.o:
+	@echo "libatasmart started $(shell date -R) "
+	( make -C libatasmart 2>&1 | tee $(PKGLOGDIR)/libatasmart.log && exit $$PIPESTATUS )
+	@echo "libatasmart finished $(shell date -R) "
+
+libbytesize.o:
+	@echo "libbytesize started $(shell date -R) "
+	( make -C libbytesize 2>&1 | tee $(PKGLOGDIR)/libbytesize.log && exit $$PIPESTATUS )
+	@echo "libbytesize finished $(shell date -R) "
+
+xfsprogs.o:
+	@echo "xfsprogs started $(shell date -R) "
+	( make -C xfsprogs 2>&1 | tee $(PKGLOGDIR)/xfsprogs.log && exit $$PIPESTATUS )
+	@echo "xfsprogs finished $(shell date -R) "
+
+mdadm.o:
+	@echo "mdadm started $(shell date -R) "
+	( make -C mdadm 2>&1 | tee $(PKGLOGDIR)/mdadm.log && exit $$PIPESTATUS )
+	@echo "mdadm finished $(shell date -R) "
+
+thin-provisioning-tools.o:
+	@echo "thin-provisioning-tools started $(shell date -R) "
+	( make -C thin-provisioning-tools 2>&1 | tee $(PKGLOGDIR)/thin-provisioning-tools.log && exit $$PIPESTATUS )
+	@echo "thin-provisioning-tools finished $(shell date -R) "
+
+reiserfsprogs.o:
+	@echo "reiserfsprogs started $(shell date -R) "
+	( make -C reiserfsprogs 2>&1 | tee $(PKGLOGDIR)/reiserfsprogs.log && exit $$PIPESTATUS )
+	@echo "reiserfsprogs finished $(shell date -R) "
+
+lvm2.o:
+	@echo "lvm2 started $(shell date -R) "
+	( make -C lvm2 2>&1 | tee $(PKGLOGDIR)/lvm2.log && exit $$PIPESTATUS )
+	@echo "lvm2 finished $(shell date -R) "
+
+btrfs-progs.o:
+	@echo "btrfs-progs started $(shell date -R) "
+	( make -C btrfs-progs 2>&1 | tee $(PKGLOGDIR)/btrfs-progs.log && exit $$PIPESTATUS )
+	@echo "btrfs-progs finished $(shell date -R) "
+
+argon2.o:
+	@echo "argon2 started $(shell date -R) "
+	( make -C argon2 2>&1 | tee $(PKGLOGDIR)/argon2.log && exit $$PIPESTATUS )
+	@echo "argon2 finished $(shell date -R) "
+
+cryptsetup.o:
+	@echo "cryptsetup started $(shell date -R) "
+	( make -C cryptsetup 2>&1 | tee $(PKGLOGDIR)/cryptsetup.log && exit $$PIPESTATUS )
+	@echo "cryptsetup finished $(shell date -R) "
+
+dosfstools.o:
+	@echo "dosfstools started $(shell date -R) "
+	( make -C dosfstools 2>&1 | tee $(PKGLOGDIR)/dosfstools.log && exit $$PIPESTATUS )
+	@echo "dosfstools finished $(shell date -R) "
+
+fuse3.o:
+	@echo "fuse3 started $(shell date -R) "
+	( make -C fuse3 2>&1 | tee $(PKGLOGDIR)/fuse3.log && exit $$PIPESTATUS )
+	@echo "fuse3 finished $(shell date -R) "
+
+jfsutils.o:
+	@echo "jfsutils started $(shell date -R) "
+	( make -C jfsutils 2>&1 | tee $(PKGLOGDIR)/jfsutils.log && exit $$PIPESTATUS )
+	@echo "jfsutils finished $(shell date -R) "
+
+squashfs-tools.o:
+	@echo "squashfs-tools started $(shell date -R) "
+	( make -C squashfs-tools 2>&1 | tee $(PKGLOGDIR)/squashfs-tools.log && exit $$PIPESTATUS )
+	@echo "squashfs-tools finished $(shell date -R) "
+
+ntfs-3g.o:
+	@echo "ntfs-3g started $(shell date -R) "
+	( make -C ntfs-3g 2>&1 | tee $(PKGLOGDIR)/ntfs-3g.log && exit $$PIPESTATUS )
+	@echo "ntfs-3g finished $(shell date -R) "
+
+gptfdisk.o:
+	@echo "gptfdisk started $(shell date -R) "
+	( make -C gptfdisk 2>&1 | tee $(PKGLOGDIR)/gptfdisk.log && exit $$PIPESTATUS )
+	@echo "gptfdisk finished $(shell date -R) "
+
+parted.o:
+	@echo "parted started $(shell date -R) "
+	( make -C parted 2>&1 | tee $(PKGLOGDIR)/parted.log && exit $$PIPESTATUS )
+	@echo "parted finished $(shell date -R) "
+
+smartmontools.o:
+	@echo "smartmontools started $(shell date -R) "
+	( make -C smartmontools 2>&1 | tee $(PKGLOGDIR)/smartmontools.log && exit $$PIPESTATUS )
+	@echo "smartmontools finished $(shell date -R) "
+
+sshfs.o:
+	@echo "sshfs started $(shell date -R) "
+	( make -C sshfs 2>&1 | tee $(PKGLOGDIR)/sshfs.log && exit $$PIPESTATUS )
+	@echo "sshfs finished $(shell date -R) "
+
+alsa-lib.o:
+	@echo "alsa-lib started $(shell date -R) "
+	( make -C alsa-lib 2>&1 | tee $(PKGLOGDIR)/alsa-lib.log && exit $$PIPESTATUS )
+	@echo "alsa-lib finished $(shell date -R) "
+
+libogg.o:
+	@echo "libogg started $(shell date -R) "
+	( make -C libogg 2>&1 | tee $(PKGLOGDIR)/libogg.log && exit $$PIPESTATUS )
+	@echo "libogg finished $(shell date -R) "
+
+flac.o:
+	@echo "flac started $(shell date -R) "
+	( make -C flac 2>&1 | tee $(PKGLOGDIR)/flac.log && exit $$PIPESTATUS )
+	@echo "flac finished $(shell date -R) "
+
+audiofile.o:
+	@echo "audiofile started $(shell date -R) "
+	( make -C audiofile 2>&1 | tee $(PKGLOGDIR)/audiofile.log && exit $$PIPESTATUS )
+	@echo "audiofile finished $(shell date -R) "
+
+faac.o:
+	@echo "faac started $(shell date -R) "
+	( make -C faac 2>&1 | tee $(PKGLOGDIR)/faac.log && exit $$PIPESTATUS )
+	@echo "faac finished $(shell date -R) "
+
+faad2.o:
+	@echo "faad2 started $(shell date -R) "
+	( make -C faad2 2>&1 | tee $(PKGLOGDIR)/faad2.log && exit $$PIPESTATUS )
+	@echo "faad2 finished $(shell date -R) "
+
+fdk-aac.o:
+	@echo "fdk-aac started $(shell date -R) "
+	( make -C fdk-aac 2>&1 | tee $(PKGLOGDIR)/fdk-aac.log && exit $$PIPESTATUS )
+	@echo "fdk-aac finished $(shell date -R) "
+
+gstreamer.o:
+	@echo "gstreamer started $(shell date -R) "
+	( make -C gstreamer 2>&1 | tee $(PKGLOGDIR)/gstreamer.log && exit $$PIPESTATUS )
+	@echo "gstreamer finished $(shell date -R) "
+
+id3lib.o:
+	@echo "id3lib started $(shell date -R) "
+	( make -C id3lib 2>&1 | tee $(PKGLOGDIR)/id3lib.log && exit $$PIPESTATUS )
+	@echo "id3lib finished $(shell date -R) "
+
+a52dec.o:
+	@echo "a52dec started $(shell date -R) "
+	( make -C a52dec 2>&1 | tee $(PKGLOGDIR)/a52dec.log && exit $$PIPESTATUS )
+	@echo "a52dec finished $(shell date -R) "
+
+libvorbis.o:
+	@echo "libvorbis started $(shell date -R) "
+	( make -C libvorbis 2>&1 | tee $(PKGLOGDIR)/libvorbis.log && exit $$PIPESTATUS )
+	@echo "libvorbis finished $(shell date -R) "
+
+libcddb.o:
+	@echo "libcddb started $(shell date -R) "
+	( make -C libcddb 2>&1 | tee $(PKGLOGDIR)/libcddb.log && exit $$PIPESTATUS )
+	@echo "libcddb finished $(shell date -R) "
+
+libcdio.o:
+	@echo "libcdio started $(shell date -R) "
+	( make -C libcdio 2>&1 | tee $(PKGLOGDIR)/libcdio.log && exit $$PIPESTATUS )
+	@echo "libcdio finished $(shell date -R) "
+
+libcdio-paranoia.o:
+	@echo "libcdio-paranoia started $(shell date -R) "
+	( make -C libcdio-paranoia 2>&1 | tee $(PKGLOGDIR)/libcdio-paranoia.log && exit $$PIPESTATUS )
+	@echo "libcdio-paranoia finished $(shell date -R) "
+
+libdiscid.o:
+	@echo "libdiscid started $(shell date -R) "
+	( make -C libdiscid 2>&1 | tee $(PKGLOGDIR)/libdiscid.log && exit $$PIPESTATUS )
+	@echo "libdiscid finished $(shell date -R) "
+
+libdvdcss.o:
+	@echo "libdvdcss started $(shell date -R) "
+	( make -C libdvdcss 2>&1 | tee $(PKGLOGDIR)/libdvdcss.log && exit $$PIPESTATUS )
+	@echo "libdvdcss finished $(shell date -R) "
+
+libdvdread.o:
+	@echo "libdvdread started $(shell date -R) "
+	( make -C libdvdread 2>&1 | tee $(PKGLOGDIR)/libdvdread.log && exit $$PIPESTATUS )
+	@echo "libdvdread finished $(shell date -R) "
+
+libdvdnav.o:
+	@echo "libdvdnav started $(shell date -R) "
+	( make -C libdvdnav 2>&1 | tee $(PKGLOGDIR)/libdvdnav.log && exit $$PIPESTATUS )
+	@echo "libdvdnav finished $(shell date -R) "
+
+libmad.o:
+	@echo "libmad started $(shell date -R) "
+	( make -C libmad 2>&1 | tee $(PKGLOGDIR)/libmad.log && exit $$PIPESTATUS )
+	@echo "libmad finished $(shell date -R) "
+
+libmusicbrainz2.o:
+	@echo "libmusicbrainz2 started $(shell date -R) "
+	( make -C libmusicbrainz2 2>&1 | tee $(PKGLOGDIR)/libmusicbrainz2.log && exit $$PIPESTATUS )
+	@echo "libmusicbrainz2 finished $(shell date -R) "
+
+libmusicbrainz5.o:
+	@echo "libmusicbrainz5 started $(shell date -R) "
+	( make -C libmusicbrainz5 2>&1 | tee $(PKGLOGDIR)/libmusicbrainz5.log && exit $$PIPESTATUS )
+	@echo "libmusicbrainz5 finished $(shell date -R) "
+
+libsndfile.o:
+	@echo "libsndfile started $(shell date -R) "
+	( make -C libsndfile 2>&1 | tee $(PKGLOGDIR)/libsndfile.log && exit $$PIPESTATUS )
+	@echo "libsndfile finished $(shell date -R) "
+
+libsamplerate.o:
+	@echo "libsamplerate started $(shell date -R) "
+	( make -C libsamplerate 2>&1 | tee $(PKGLOGDIR)/libsamplerate.log && exit $$PIPESTATUS )
+	@echo "libsamplerate finished $(shell date -R) "
+
+libtheora.o:
+	@echo "libtheora started $(shell date -R) "
+	( make -C libtheora 2>&1 | tee $(PKGLOGDIR)/libtheora.log && exit $$PIPESTATUS )
+	@echo "libtheora finished $(shell date -R) "
+
+libvpx.o:
+	@echo "libvpx started $(shell date -R) "
+	( make -C libvpx 2>&1 | tee $(PKGLOGDIR)/libvpx.log && exit $$PIPESTATUS )
+	@echo "libvpx finished $(shell date -R) "
+
+opus.o:
+	@echo "opus started $(shell date -R) "
+	( make -C opus 2>&1 | tee $(PKGLOGDIR)/opus.log && exit $$PIPESTATUS )
+	@echo "opus finished $(shell date -R) "
+
+sbc.o:
+	@echo "sbc started $(shell date -R) "
+	( make -C sbc 2>&1 | tee $(PKGLOGDIR)/sbc.log && exit $$PIPESTATUS )
+	@echo "sbc finished $(shell date -R) "
+
+speex.o:
+	@echo "speex started $(shell date -R) "
+	( make -C speex 2>&1 | tee $(PKGLOGDIR)/speex.log && exit $$PIPESTATUS )
+	@echo "speex finished $(shell date -R) "
+
+speexdsp.o:
+	@echo "speexdsp started $(shell date -R) "
+	( make -C speexdsp 2>&1 | tee $(PKGLOGDIR)/speexdsp.log && exit $$PIPESTATUS )
+	@echo "speexdsp finished $(shell date -R) "
+
+sound-theme-freedesktop.o:
+	@echo "sound-theme-freedesktop started $(shell date -R) "
+	( make -C sound-theme-freedesktop 2>&1 | tee $(PKGLOGDIR)/sound-theme-freedesktop.log && exit $$PIPESTATUS )
+	@echo "sound-theme-freedesktop finished $(shell date -R) "
+
+soundtouch.o:
+	@echo "soundtouch started $(shell date -R) "
+	( make -C soundtouch 2>&1 | tee $(PKGLOGDIR)/soundtouch.log && exit $$PIPESTATUS )
+	@echo "soundtouch finished $(shell date -R) "
+
+taglib.o:
+	@echo "taglib started $(shell date -R) "
+	( make -C taglib 2>&1 | tee $(PKGLOGDIR)/taglib.log && exit $$PIPESTATUS )
+	@echo "taglib finished $(shell date -R) "
+
+x264.o:
+	@echo "x264 started $(shell date -R) "
+	( make -C x264 2>&1 | tee $(PKGLOGDIR)/x264.log && exit $$PIPESTATUS )
+	@echo "x264 finished $(shell date -R) "
+
+x265.o:
+	@echo "x265 started $(shell date -R) "
+	( make -C x265 2>&1 | tee $(PKGLOGDIR)/x265.log && exit $$PIPESTATUS )
+	@echo "x265 finished $(shell date -R) "
+
+libcuefile.o:
+	@echo "libcuefile started $(shell date -R) "
+	( make -C libcuefile 2>&1 | tee $(PKGLOGDIR)/libcuefile.log && exit $$PIPESTATUS )
+	@echo "libcuefile finished $(shell date -R) "
+
+libreplaygain.o:
+	@echo "libreplaygain started $(shell date -R) "
+	( make -C libreplaygain 2>&1 | tee $(PKGLOGDIR)/libreplaygain.log && exit $$PIPESTATUS )
+	@echo "libreplaygain finished $(shell date -R) "
+
+webrtc-audio-processing.o:
+	@echo "webrtc-audio-processing started $(shell date -R) "
+	( make -C webrtc-audio-processing 2>&1 | tee $(PKGLOGDIR)/webrtc-audio-processing.log && exit $$PIPESTATUS )
+	@echo "webrtc-audio-processing finished $(shell date -R) "
+
+wavpack.o:
+	@echo "wavpack started $(shell date -R) "
+	( make -C wavpack 2>&1 | tee $(PKGLOGDIR)/wavpack.log && exit $$PIPESTATUS )
+	@echo "wavpack finished $(shell date -R) "
+
+xvidcore.o:
+	@echo "xvidcore started $(shell date -R) "
+	( make -C xvidcore 2>&1 | tee $(PKGLOGDIR)/xvidcore.log && exit $$PIPESTATUS )
+	@echo "xvidcore finished $(shell date -R) "
+
+babl.o:
+	@echo "babl started $(shell date -R) "
+	( make -C babl 2>&1 | tee $(PKGLOGDIR)/babl.log && exit $$PIPESTATUS )
+	@echo "babl finished $(shell date -R) "
+
+exiv2.o:
+	@echo "exiv2 started $(shell date -R) "
+	( make -C exiv2 2>&1 | tee $(PKGLOGDIR)/exiv2.log && exit $$PIPESTATUS )
+	@echo "exiv2 finished $(shell date -R) "
+
+ijs.o:
+	@echo "ijs started $(shell date -R) "
+	( make -C ijs 2>&1 | tee $(PKGLOGDIR)/ijs.log && exit $$PIPESTATUS )
+	@echo "ijs finished $(shell date -R) "
+
+libexif.o:
+	@echo "libexif started $(shell date -R) "
+	( make -C libexif 2>&1 | tee $(PKGLOGDIR)/libexif.log && exit $$PIPESTATUS )
+	@echo "libexif finished $(shell date -R) "
+
+libmng.o:
+	@echo "libmng started $(shell date -R) "
+	( make -C libmng 2>&1 | tee $(PKGLOGDIR)/libmng.log && exit $$PIPESTATUS )
+	@echo "libmng finished $(shell date -R) "
+
+libmypaint.o:
+	@echo "libmypaint started $(shell date -R) "
+	( make -C libmypaint 2>&1 | tee $(PKGLOGDIR)/libmypaint.log && exit $$PIPESTATUS )
+	@echo "libmypaint finished $(shell date -R) "
+
+libraw.o:
+	@echo "libraw started $(shell date -R) "
+	( make -C libraw 2>&1 | tee $(PKGLOGDIR)/libraw.log && exit $$PIPESTATUS )
+	@echo "libraw finished $(shell date -R) "
+
+libwebp.o:
+	@echo "libwebp started $(shell date -R) "
+	( make -C libwebp 2>&1 | tee $(PKGLOGDIR)/libwebp.log && exit $$PIPESTATUS )
+	@echo "libwebp finished $(shell date -R) "
+
+mypaint-brushes.o:
+	@echo "mypaint-brushes started $(shell date -R) "
+	( make -C mypaint-brushes 2>&1 | tee $(PKGLOGDIR)/mypaint-brushes.log && exit $$PIPESTATUS )
+	@echo "mypaint-brushes finished $(shell date -R) "
+
+slang.o:
+	@echo "slang started $(shell date -R) "
+	( make -C slang 2>&1 | tee $(PKGLOGDIR)/slang.log && exit $$PIPESTATUS )
+	@echo "slang finished $(shell date -R) "
+
+newt.o:
+	@echo "newt started $(shell date -R) "
+	( make -C newt 2>&1 | tee $(PKGLOGDIR)/newt.log && exit $$PIPESTATUS )
+	@echo "newt finished $(shell date -R) "
+
+openjpeg.o:
+	@echo "openjpeg started $(shell date -R) "
+	( make -C openjpeg 2>&1 | tee $(PKGLOGDIR)/openjpeg.log && exit $$PIPESTATUS )
+	@echo "openjpeg finished $(shell date -R) "
+
+bubblewrap.o:
+	@echo "bubblewrap started $(shell date -R) "
+	( make -C bubblewrap 2>&1 | tee $(PKGLOGDIR)/bubblewrap.log && exit $$PIPESTATUS )
+	@echo "bubblewrap finished $(shell date -R) "
+
+nghttp2.o:
+	@echo "nghttp2 started $(shell date -R) "
+	( make -C nghttp2 2>&1 | tee $(PKGLOGDIR)/nghttp2.log && exit $$PIPESTATUS )
+	@echo "nghttp2 finished $(shell date -R) "
+
+gtk-doc.o:
+	@echo "gtk-doc started $(shell date -R) "
+	( make -C gtk-doc 2>&1 | tee $(PKGLOGDIR)/gtk-doc.log && exit $$PIPESTATUS )
+	@echo "gtk-doc finished $(shell date -R) "
+
+ldns.o:
+	@echo "ldns started $(shell date -R) "
+	( make -C ldns 2>&1 | tee $(PKGLOGDIR)/ldns.log && exit $$PIPESTATUS )
+	@echo "ldns finished $(shell date -R) "
+
+libtirpc.o:
+	@echo "libtirpc started $(shell date -R) "
+	( make -C libtirpc 2>&1 | tee $(PKGLOGDIR)/libtirpc.log && exit $$PIPESTATUS )
+	@echo "libtirpc finished $(shell date -R) "
+
+neon.o:
+	@echo "neon started $(shell date -R) "
+	( make -C neon 2>&1 | tee $(PKGLOGDIR)/neon.log && exit $$PIPESTATUS )
+	@echo "neon finished $(shell date -R) "
+
+rpcsvc-proto.o:
+	@echo "rpcsvc-proto started $(shell date -R) "
+	( make -C rpcsvc-proto 2>&1 | tee $(PKGLOGDIR)/rpcsvc-proto.log && exit $$PIPESTATUS )
+	@echo "rpcsvc-proto finished $(shell date -R) "
+
+uhttpmock.o:
+	@echo "uhttpmock started $(shell date -R) "
+	( make -C uhttpmock 2>&1 | tee $(PKGLOGDIR)/uhttpmock.log && exit $$PIPESTATUS )
+	@echo "uhttpmock finished $(shell date -R) "
+
+asciidoc.o:
+	@echo "asciidoc started $(shell date -R) "
+	( make -C asciidoc 2>&1 | tee $(PKGLOGDIR)/asciidoc.log && exit $$PIPESTATUS )
+	@echo "asciidoc finished $(shell date -R) "
+
+bogofilter.o:
+	@echo "bogofilter started $(shell date -R) "
+	( make -C bogofilter 2>&1 | tee $(PKGLOGDIR)/bogofilter.log && exit $$PIPESTATUS )
+	@echo "bogofilter finished $(shell date -R) "
+
+compface.o:
+	@echo "compface started $(shell date -R) "
+	( make -C compface 2>&1 | tee $(PKGLOGDIR)/compface.log && exit $$PIPESTATUS )
+	@echo "compface finished $(shell date -R) "
+
+desktop-file-utils.o:
+	@echo "desktop-file-utils started $(shell date -R) "
+	( make -C desktop-file-utils 2>&1 | tee $(PKGLOGDIR)/desktop-file-utils.log && exit $$PIPESTATUS )
+	@echo "desktop-file-utils finished $(shell date -R) "
+
+hd2u.o:
+	@echo "hd2u started $(shell date -R) "
+	( make -C hd2u 2>&1 | tee $(PKGLOGDIR)/hd2u.log && exit $$PIPESTATUS )
+	@echo "hd2u finished $(shell date -R) "
+
+highlight.o:
+	@echo "highlight started $(shell date -R) "
+	( make -C highlight 2>&1 | tee $(PKGLOGDIR)/highlight.log && exit $$PIPESTATUS )
+	@echo "highlight finished $(shell date -R) "
+
+lsof.o:
+	@echo "lsof started $(shell date -R) "
+	( make -C lsof 2>&1 | tee $(PKGLOGDIR)/lsof.log && exit $$PIPESTATUS )
+	@echo "lsof finished $(shell date -R) "
+
+libsecret.o:
+	@echo "libsecret started $(shell date -R) "
+	( make -C libsecret 2>&1 | tee $(PKGLOGDIR)/libsecret.log && exit $$PIPESTATUS )
+	@echo "libsecret finished $(shell date -R) "
+
+rarian.o:
+	@echo "rarian started $(shell date -R) "
+	( make -C rarian 2>&1 | tee $(PKGLOGDIR)/rarian.log && exit $$PIPESTATUS )
+	@echo "rarian finished $(shell date -R) "
+
+screen.o:
+	@echo "screen started $(shell date -R) "
+	( make -C screen 2>&1 | tee $(PKGLOGDIR)/screen.log && exit $$PIPESTATUS )
+	@echo "screen finished $(shell date -R) "
+
+sharutils.o:
+	@echo "sharutils started $(shell date -R) "
+	( make -C sharutils 2>&1 | tee $(PKGLOGDIR)/sharutils.log && exit $$PIPESTATUS )
+	@echo "sharutils finished $(shell date -R) "
+
+telepathy-logger.o:
+	@echo "telepathy-logger started $(shell date -R) "
+	( make -C telepathy-logger 2>&1 | tee $(PKGLOGDIR)/telepathy-logger.log && exit $$PIPESTATUS )
+	@echo "telepathy-logger finished $(shell date -R) "
+
+tidy-html5.o:
+	@echo "tidy-html5 started $(shell date -R) "
+	( make -C tidy-html5 2>&1 | tee $(PKGLOGDIR)/tidy-html5.log && exit $$PIPESTATUS )
+	@echo "tidy-html5 finished $(shell date -R) "
+
+time.o:
+	@echo "time started $(shell date -R) "
+	( make -C time 2>&1 | tee $(PKGLOGDIR)/time.log && exit $$PIPESTATUS )
+	@echo "time finished $(shell date -R) "
+
+tree.o:
+	@echo "tree started $(shell date -R) "
+	( make -C tree 2>&1 | tee $(PKGLOGDIR)/tree.log && exit $$PIPESTATUS )
+	@echo "tree finished $(shell date -R) "
+
+xdg-user-dirs.o:
+	@echo "xdg-user-dirs started $(shell date -R) "
+	( make -C xdg-user-dirs 2>&1 | tee $(PKGLOGDIR)/xdg-user-dirs.log && exit $$PIPESTATUS )
+	@echo "xdg-user-dirs finished $(shell date -R) "
+
+wireless-tools.o:
+	@echo "wireless-tools started $(shell date -R) "
+	( make -C wireless-tools 2>&1 | tee $(PKGLOGDIR)/wireless-tools.log && exit $$PIPESTATUS )
+	@echo "wireless-tools finished $(shell date -R) "
+
+hdparm.o:
+	@echo "hdparm started $(shell date -R) "
+	( make -C hdparm 2>&1 | tee $(PKGLOGDIR)/hdparm.log && exit $$PIPESTATUS )
+	@echo "hdparm finished $(shell date -R) "
+
+fcron.o:
+	@echo "fcron started $(shell date -R) "
+	( make -C fcron 2>&1 | tee $(PKGLOGDIR)/fcron.log && exit $$PIPESTATUS )
+	@echo "fcron finished $(shell date -R) "
+
+logrotate.o:
+	@echo "logrotate started $(shell date -R) "
+	( make -C logrotate 2>&1 | tee $(PKGLOGDIR)/logrotate.log && exit $$PIPESTATUS )
+	@echo "logrotate finished $(shell date -R) "
+
+ethtool.o:
+	@echo "ethtool started $(shell date -R) "
+	( make -C ethtool 2>&1 | tee $(PKGLOGDIR)/ethtool.log && exit $$PIPESTATUS )
+	@echo "ethtool finished $(shell date -R) "
+
+libx86.o:
+	@echo "libx86 started $(shell date -R) "
+	( make -C libx86 2>&1 | tee $(PKGLOGDIR)/libx86.log && exit $$PIPESTATUS )
+	@echo "libx86 finished $(shell date -R) "
+
+pciutils.o:
+	@echo "pciutils started $(shell date -R) "
+	( make -C pciutils 2>&1 | tee $(PKGLOGDIR)/pciutils.log && exit $$PIPESTATUS )
+	@echo "pciutils finished $(shell date -R) "
+
+vbetool.o:
+	@echo "vbetool started $(shell date -R) "
+	( make -C vbetool 2>&1 | tee $(PKGLOGDIR)/vbetool.log && exit $$PIPESTATUS )
+	@echo "vbetool finished $(shell date -R) "
+
+zip.o:
+	@echo "zip started $(shell date -R) "
+	( make -C zip 2>&1 | tee $(PKGLOGDIR)/zip.log && exit $$PIPESTATUS )
+	@echo "zip finished $(shell date -R) "
+
+unzip.o:
+	@echo "unzip started $(shell date -R) "
+	( make -C unzip 2>&1 | tee $(PKGLOGDIR)/unzip.log && exit $$PIPESTATUS )
+	@echo "unzip finished $(shell date -R) "
+
+lynx.o:
+	@echo "lynx started $(shell date -R) "
+	( make -C lynx 2>&1 | tee $(PKGLOGDIR)/lynx.log && exit $$PIPESTATUS )
+	@echo "lynx finished $(shell date -R) "
+
+pm-utils.o:
+	@echo "pm-utils started $(shell date -R) "
+	( make -C pm-utils 2>&1 | tee $(PKGLOGDIR)/pm-utils.log && exit $$PIPESTATUS )
+	@echo "pm-utils finished $(shell date -R) "
+
+cpio.o:
+	@echo "cpio started $(shell date -R) "
+	( make -C cpio 2>&1 | tee $(PKGLOGDIR)/cpio.log && exit $$PIPESTATUS )
+	@echo "cpio finished $(shell date -R) "
+
+mc.o:
+	@echo "mc started $(shell date -R) "
+	( make -C mc 2>&1 | tee $(PKGLOGDIR)/mc.log && exit $$PIPESTATUS )
+	@echo "mc finished $(shell date -R) "
+
+p7zip.o:
+	@echo "p7zip started $(shell date -R) "
+	( make -C p7zip 2>&1 | tee $(PKGLOGDIR)/p7zip.log && exit $$PIPESTATUS )
+	@echo "p7zip finished $(shell date -R) "
+
+libnfc.o:
+	@echo "libnfc started $(shell date -R) "
+	( make -C libnfc 2>&1 | tee $(PKGLOGDIR)/libnfc.log && exit $$PIPESTATUS )
+	@echo "libnfc finished $(shell date -R) "
+
+yajl.o:
+	@echo "yajl started $(shell date -R) "
+	( make -C yajl 2>&1 | tee $(PKGLOGDIR)/yajl.log && exit $$PIPESTATUS )
+	@echo "yajl finished $(shell date -R) "
+
+raptor2.o:
+	@echo "raptor2 started $(shell date -R) "
+	( make -C raptor2 2>&1 | tee $(PKGLOGDIR)/raptor2.log && exit $$PIPESTATUS )
+	@echo "raptor2 finished $(shell date -R) "
+
+rasqal.o:
+	@echo "rasqal started $(shell date -R) "
+	( make -C rasqal 2>&1 | tee $(PKGLOGDIR)/rasqal.log && exit $$PIPESTATUS )
+	@echo "rasqal finished $(shell date -R) "
+
+redland.o:
+	@echo "redland started $(shell date -R) "
+	( make -C redland 2>&1 | tee $(PKGLOGDIR)/redland.log && exit $$PIPESTATUS )
+	@echo "redland finished $(shell date -R) "
+
+unrar.o:
+	@echo "unrar started $(shell date -R) "
+	( make -C unrar 2>&1 | tee $(PKGLOGDIR)/unrar.log && exit $$PIPESTATUS )
+	@echo "unrar finished $(shell date -R) "
+
+bridge-utils.o:
+	@echo "bridge-utils started $(shell date -R) "
+	( make -C bridge-utils 2>&1 | tee $(PKGLOGDIR)/bridge-utils.log && exit $$PIPESTATUS )
+	@echo "bridge-utils finished $(shell date -R) "
+
+rsync.o:
+	@echo "rsync started $(shell date -R) "
+	( make -C rsync 2>&1 | tee $(PKGLOGDIR)/rsync.log && exit $$PIPESTATUS )
+	@echo "rsync finished $(shell date -R) "
+
+rest.o:
+	@echo "rest started $(shell date -R) "
+	( make -C rest 2>&1 | tee $(PKGLOGDIR)/rest.log && exit $$PIPESTATUS )
+	@echo "rest finished $(shell date -R) "
+
+whois.o:
+	@echo "whois started $(shell date -R) "
+	( make -C whois 2>&1 | tee $(PKGLOGDIR)/whois.log && exit $$PIPESTATUS )
+	@echo "whois finished $(shell date -R) "
+
+libxfce4util.o:
+	@echo "libxfce4util started $(shell date -R) "
+	( make -C libxfce4util 2>&1 | tee $(PKGLOGDIR)/libxfce4util.log && exit $$PIPESTATUS )
+	@echo "libxfce4util finished $(shell date -R) "
+
+xfconf.o:
+	@echo "xfconf started $(shell date -R) "
+	( make -C xfconf 2>&1 | tee $(PKGLOGDIR)/xfconf.log && exit $$PIPESTATUS )
+	@echo "xfconf finished $(shell date -R) "
+
+nss.o:
+	@echo "nss started $(shell date -R) "
+	( make -C nss 2>&1 | tee $(PKGLOGDIR)/nss.log && exit $$PIPESTATUS )
+	@echo "nss finished $(shell date -R) "
+

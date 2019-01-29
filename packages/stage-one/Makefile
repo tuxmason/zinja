@@ -6,7 +6,7 @@ all: xtools
 xtools: host-tools host-pl pkgmgr x-compiler fhs-pkg.o kheaders-pkg.o musl-pkg.o musl-extras
 
 host-tools: pkg-config-lite.o libtool.o autoconf.o automake.o bc.o file.o m4.o ncurses.o \
-	wayland.o perl.o whois.o
+	wayland.o perl.o whois.o autoconf213.o
 
 host-pl: pl-syshostnamelong.o pl-mailsendmail.o pl-timedate.o pl-termreadkey.o \
 	pl-localegettext.o pl-textcharwidth.o pl-textwrapi18n.o pl-compressrawbzip2.o \
@@ -19,7 +19,7 @@ host-pl: pl-syshostnamelong.o pl-mailsendmail.o pl-timedate.o pl-termreadkey.o \
 	pl-lwpmediatypes.o pl-trytiny.o pl-testneeds.o pl-uri.o pl-httpmessage.o \
 	pl-httpcookies.o pl-httpdaemon.o pl-httpnegotiate.o pl-nethttp.o pl-testfatal.o \
 	pl-testrequiresinternet.o pl-wwwrobotrules.o pl-libwww.o pl-xmlparser.o \
-	pl-develsymdump.o pl-podcoverage.o pl-testpodcoverage.o pl-configfile.o
+	pl-develsymdump.o pl-podcoverage.o pl-testpodcoverage.o pl-configfile.o pl-xmlsimple.o
 
 x-compiler: fhs-sysroot.o kheaders-sysroot.o gmp.o mpfr.o mpc.o isl.o \
 	binutils.o gcc-stage1.o musl-sysroot.o gcc-stage2.o
@@ -90,6 +90,11 @@ whois.o:
 	@echo "whois started $(shell date -R) "
 	( make -C whois 2>&1 | tee $(PKGLOGDIR)/whois.log && exit $$PIPESTATUS )
 	@echo "whois finished $(shell date -R) "
+
+autoconf213.o: 
+	@echo "autoconf213 started $(shell date -R) "
+	( make -C autoconf213 2>&1 | tee $(PKGLOGDIR)/autoconf213.log && exit $$PIPESTATUS )
+	@echo "autoconf213 finished $(shell date -R) "
 
 libtool.o: 
 	@echo "libtool cross started $(shell date -R) "
@@ -440,6 +445,11 @@ pl-configfile.o:
 	@echo "pl-configfile started $(shell date -R) "
 	(make -C pl-configfile 2>&1 | tee $(PKGLOGDIR)/pl-configfile.log && exit $$PIPESTATUS)
 	@echo "pl-configfile finished $(shell date -R) "
+
+pl-xmlsimple.o:
+	@echo "pl-xmlsimple started $(shell date -R) "
+	(make -C pl-xmlsimple 2>&1 | tee $(PKGLOGDIR)/pl-xmlsimple.log && exit $$PIPESTATUS)
+	@echo "pl-xmlsimple finished $(shell date -R) "
 
 intltool.o:
 	@echo "intltool started $(shell date -R) "

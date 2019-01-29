@@ -1,0 +1,4 @@
+CVE-2016-2037.patch
+cast-arguments-to-printf.patch
+fix-bash-sequence-expression.patch
+fix-signed-integer-overflow-big-block-sizes.patch

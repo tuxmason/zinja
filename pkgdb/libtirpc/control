@@ -1,0 +1,36 @@
+Source: libtirpc
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: e2fsprogs-dev, libkrb5-dev
+Standards-Version: 3.9.5
+Homepage: http://libtirpc.sourceforge.net/
+
+Package: libtirpc
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Transport Independent RPC library 
+ This package provides libtirpc, a shared library which 
+ contains Remote Procedure Call (RPC) API functions.
+
+Package: libtirpc-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libtirpc (= ${binary:Version}), e2fsprogs-dev, 
+ libkrb5-dev 
+Description: libtirpc headers and static library
+ This package provides the libtirpc static library, 
+ pkgconfig data and header files required to develop
+ applications which use libtirpc API functions.
+
+Package: libtirpc-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libtirpc (= ${binary:Version})
+Recommends: man-db
+Description: libtirpc documentation
+ This package provides manual pages for the libtirpc API. 

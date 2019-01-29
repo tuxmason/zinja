@@ -1,0 +1,6 @@
+zip-3.0-build.patch
+zip-3.0-exec-stack.patch
+zip-3.0-format-security.patch
+zip-3.0-no-crypt.patch
+zip-3.0-pic.patch
+zip-3.0-zipnote-freeze.patch

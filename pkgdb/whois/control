@@ -1,0 +1,24 @@
+Source: whois
+Section: utils
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libidn2-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/rfc1036/whois
+
+Package: whois
+Section: utils
+Architecture: ARCH
+Priority: standard
+Depends: ${shlibs:Depends}
+Description: an intelligent WHOIS client 
+ This package provides whois, an intelligent WHOIS client.
+
+Package: whois-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: whois (= ${binary:Version})
+Recommends: man-db
+Description: documentation for whois
+ This package provides manual pages for whois.

@@ -1,0 +1,46 @@
+Source: libnfc
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libusb-compat-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/nfc-tools/libnfc
+
+Package: libnfc
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Platform independent Near Field Communication (NFC) library 
+ This package provides libnfc, a shared library which 
+ contains platform-independent, low level NFC SDK and 
+ Programmers API.
+
+Package: libnfc-bin
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: NFC tools
+ This package provides tools for locating and managing
+ NFC enabled devices. 
+
+Package: libnfc-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libnfc (= ${binary:Version}), libusb-compat-dev
+Description: libnfc headers and static library
+ This package provides pkgconfig data and header files 
+ required to develop applications which use libnfc API 
+ functions.
+
+Package: libnfc-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: libnfc (= ${binary:Version})
+Recommends: man-db
+Description: libnfc documentation
+ This package provides manual pages for libnfc's userspace 
+ tools. 

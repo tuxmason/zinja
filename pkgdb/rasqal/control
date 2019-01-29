@@ -1,0 +1,51 @@
+Source: rasqal
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgcrypt-dev, libgpg-error-dev, libmpfr-dev, 
+ libpcre-dev, libraptor2-dev, util-linux-dev
+Standards-Version: 3.9.5
+Homepage: http://librdf.org/rasqal
+
+Package: librasqal
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: library which handles RDF query syntaxes, construction and execution 
+ This package provides librasqal, a shared library which 
+ contains functions for handling Resource Description 
+ Framework (RDF) query syntaxes, query construction and 
+ query execution returning results as bindings, boolean, 
+ RDF graphs/triples or syntaxes.
+
+Package: rasqal
+Section: utils
+Architecture: ARCH
+Priority: optional
+Provides: roqet (= ${binary:Version})
+Depends: ${shlibs:Depends}
+Description: an RDF query utility
+ This package provides roqet, an RDF query utility.
+
+Package: librasqal-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: rasqal-dev (= ${binary:Version})
+Depends: rasqal (= ${binary:Version}), libgcrypt-dev, libgpg-error-dev, 
+ libmpfr-dev, libpcre-dev, libraptor2-dev, util-linux-dev
+Description: rasqal headers and static library
+ This package provides the librasqal static library, 
+ pkgconfig data and header files required to develop
+ applications which use librasqal API functions.
+
+Package: rasqal-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: rasqal (= ${binary:Version})
+Recommends: man-db
+Description: documentation for rasqal
+ This package provides manual pages and html documentation 
+ for roqet and librasqal API functions.

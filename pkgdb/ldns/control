@@ -1,0 +1,45 @@
+Source: ldns
+Section: net
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://www.nlnetlabs.nl/projects/ldns/
+
+Package: libldns
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Fast DNS library 
+ This package provides libldns, a shared library which 
+ contains DNS/DNSSEC API functions.
+
+Package: ldns
+Section: utils
+Architecture: ARCH
+Priority: optional
+Provides: drill (= ${binary:Version})
+Depends: ${shlibs:Depends}
+Description: ldns userspace tools
+ This package provides ldns userspace tools. 
+
+Package: libldns-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: ldns-dev (= ${binary:Version}) 
+Depends: ldns (= ${binary:Version}), openssl-dev 
+Description: ldns headers and static library
+ This package provides the ldns static library, 
+ pkgconfig data and header files required to develop
+ applications which use libldns API functions.
+
+Package: ldns-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: ldns (= ${binary:Version})
+Recommends: man-db
+Description: ldns documentation
+ This package provides man pages for ldns userspace tools.

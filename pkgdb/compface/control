@@ -1,0 +1,47 @@
+Source: compface
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://ftp.xemacs.org/pub/xemacs/aux/
+
+Package: libcompface
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a library to convert from/to X-Face format
+ This package provides libcompface, a shared library which 
+ provides functions used to convert from/to X-Face format, 
+ a 48x48 bitmap format used to carry thumbnails of email 
+ authors in a mail header. 
+
+Package: compface
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for converting from/to X-Face format
+ This package provides utilities used to convert from/to 
+ X-Face format, a 48x48 bitmap format used to carry 
+ thumbnails of email authors in a mail header.
+
+Package: libcompface-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: compface (= ${binary:Version}), gcc-dev
+Description: compface headers and static library
+ This package provides pkgconfig data and header files 
+ required to develop applications which use libcompface 
+ API functions.
+
+Package: compface-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: compface (= ${binary:Version})
+Recommends: man-db
+Description: compface documentation
+ This package provides manual pages for compface tools.

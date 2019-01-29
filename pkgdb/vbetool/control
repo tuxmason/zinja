@@ -1,0 +1,28 @@
+Source: vbetool
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libpci-dev, libx86-dev
+Standards-Version: 3.9.5
+Homepage: http://www.codon.org.uk/~mjg59/vbetool/
+
+Package: vbetool
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: utility used to execute code from your video card's BIOS.
+ vbetool is a tool used to execute code from your video 
+ card's BIOS.
+ .
+ This is mostly useful for reinitialising the hardware, 
+ for instance after ACPI suspend/resuming.
+
+Package: vbetool-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: vbetool (= ${binary:Version})
+Recommends: man-db
+Description: documentation for vbetool
+ This package provides the manual page for vbetool.

@@ -1,0 +1,26 @@
+Source: ethtool
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://mirrors.edge.kernel.org/pub/software/network/ethtool/
+
+Package: ethtool
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: utility for controlling network drivers and hardware
+ This package provides ethtool, the standard Linux 
+ utility for controlling network drivers and hardware, 
+ particularly for wired Ethernet devices.
+
+Package: ethtool-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: ethtool (= ${binary:Version})
+Recommends: man-db
+Description: ethtool documentation
+ This package provides the manual page for ethtool. 

@@ -1,0 +1,9 @@
+--- telepathy-logger-0.8.2/data/org.freedesktop.Telepathy.Logger.gschema.xml.in.orig	2015-04-28 19:46:29.000000000 +0300
++++ telepathy-logger-0.8.2/data/org.freedesktop.Telepathy.Logger.gschema.xml.in	2019-01-24 13:29:54.832982697 +0300
+@@ -1,5 +1,5 @@
+ <schemalist>
+-  <schema id="org.freedesktop.Telepathy.Logger" path="/apps/telepathy-logger/">
++  <schema id="org.freedesktop.Telepathy.Logger" path="/org/freedesktop/telepathy-logger/">
+     <key name="enabled" type="b">
+       <default>true</default>
+       <_summary>Enable logging</_summary>

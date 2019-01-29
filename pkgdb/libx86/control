@@ -1,0 +1,27 @@
+Source: libx86
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.codon.org.uk/~mjg59/libx86/
+
+Package: libx86
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides an API for making real-mode x86 BIOS calls from userland.
+ This package provides libx86, a shared library which
+ contains functions for making real-mode x86 BIOS calls 
+ from userland. 
+
+Package: libx86-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Depends: libx86 (= ${binary:Version}), gcc-dev
+Description: libx86 headers and static library
+ This package provides the libx86 static library,
+ and headers required to build applications, 
+ libraries or plugins which use libx86 API functions.

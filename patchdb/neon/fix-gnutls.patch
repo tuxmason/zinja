@@ -1,0 +1,29 @@
+--- ./src/ne_gnutls.c.orig	2015-09-02 23:53:32.000000000 +0300
++++ ./src/ne_gnutls.c	2019-01-21 15:02:33.339501237 +0300
+@@ -570,7 +570,7 @@
+                                unsigned int *pcert_length, 
+                                gnutls_privkey_t *pkey
+ #else
+-                               gnutls_retr2_st *st
++                               gnutls_retr22_st *st
+ #endif
+     )
+ {
+@@ -664,7 +664,7 @@
+             gnutls_pcert_import_x509(*pcert, sess->client_cert->cert.subject, 0);
+             *pcert_length = 1;
+ #else /* !HAVE_GNUTLS_CERTIFICATE_SET_RETRIEVE_FUNCTION2 */
+-            st->cert_type = type;
++            st->cert_cert_type = type;
+             st->ncerts = 1;
+             st->cert.x509 = &sess->client_cert->cert.subject;
+             st->key.x509 = sess->client_cert->pkey;
+@@ -703,7 +703,7 @@
+ #ifdef HAVE_GNUTLS_CERTIFICATE_SET_RETRIEVE_FUNCTION2
+         gnutls_certificate_set_retrieve_function2(ctx->cred, provide_client_cert);
+ #else
+-        gnutls_certificate_client_set_retrieve_function(ctx->cred,
++        gnutls_certificate_set_retrieve_function(ctx->cred,
+                                                         provide_client_cert);
+ #endif
+     }

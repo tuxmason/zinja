@@ -1,0 +1,45 @@
+Source: telepathy-logger
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: dbus-dev, libdbus-glib-dev, glib2-dev, 
+ sqlite3-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: http://telepathy.freedesktop.org/wiki/Logger
+
+Package: libtelepathy-logger
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides Telepathy Logger API functions. 
+ This package provides libtelepathy-logger, a shared 
+ library which contains the Telepathy Logger API 
+ functions.
+
+Package: telepathy-logger
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Telepathy framework logging daemon
+ Telepathy-logger is a daemon that centralizes the 
+ logging of all communication within the Telepathy 
+ framework. 
+ .
+ This prevents the UIs from having to implement their 
+ own solution that would end up into having multiple 
+ incomplete databases.
+
+Package: libtelepathy-logger-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: telepathy-logger-dev (= ${binary:Version}) 
+Depends: telepathy-logger (= ${binary:Version}), dbus-dev, 
+ libdbus-glib-dev, glib2-dev, sqlite3-dev, libxml2-dev 
+Description: telepathy-logger headers and static library
+ This package provides the libtelepathy-logger static 
+ library, pkgconfig data and header files required to 
+ develop applications which use libtelepathy-logger 
+ API functions.

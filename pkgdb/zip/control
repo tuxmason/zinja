@@ -1,0 +1,25 @@
+Source: zip
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev, libbz2-dev
+Standards-Version: 3.9.5
+Homepage: http://www.info-zip.org/
+
+Package: zip
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Compressor/archiver for creating and modifying .zip files
+ This package provides tools for creating, modifying and
+ encrypting zip archives. 
+
+Package: zip-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: zip (= ${binary:Version})
+Recommends: man-db
+Description: documentation for zip
+ This package provides manual pages for zip tools. 

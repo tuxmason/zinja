@@ -1,0 +1,4 @@
+etc
+lib
+var/spool/fcron
+usr/{bin,lib,sbin}

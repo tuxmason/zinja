@@ -1,0 +1,29 @@
+Source: rest
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libsoup-dev, libxml2-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Projects/Librest
+
+Package: librest
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Helper library for RESTful services 
+ This package provides librest, a shared library which 
+ contains convenience functions for libsoup and libxml 
+ to ease remote use of the RESTful API.
+
+Package: librest-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: librest (= ${binary:Version}), glib2-dev, 
+ libsoup-dev, libxml2-dev 
+Description: REST headers and static library
+ This package provides the librest static library, 
+ pkgconfig data and header files required to develop
+ applications which use librest API functions.
+

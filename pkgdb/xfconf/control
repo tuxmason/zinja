@@ -1,0 +1,36 @@
+Source: xfconf
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libxfce4util-dev
+Standards-Version: 3.9.5
+Homepage: http://www.xfce.org/
+
+Package: libxfconf
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A simple client-server configuration storage and query system 
+ This package provides libxfconf, a shared library which 
+ contains basic functions for Xfce configuration.
+
+Package: xfconf
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tool used to view or change any setting stored in Xfconf.
+ This package provides xfconf-query, a commandline utility
+ used for viewing or modifying any setting stored in Xfconf.
+
+Package: libxfconf-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: xfconf (= ${binary:Version}), glib2-dev, 
+ libxfce4util-dev 
+Description: xfconf headers and static library
+ This package provides the libxfconf static library, 
+ pkgconfig data and header files required to develop
+ applications which use libxfconf API functions.

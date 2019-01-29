@@ -1,0 +1,21 @@
+PKGNAME := tree
+PKGVER := 1.8.0
+PKGSRC := $(PKGNAME)-$(PKGVER).tgz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := ftp://mama.indstate.edu/linux/tree/$(PKGSRC)
+
+COPTS :=
+
+CC := "${CC}"
+CXX := "${CXX}"
+
+MANDIR := usr/share/man/man1
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

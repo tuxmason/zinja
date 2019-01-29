@@ -1,0 +1,28 @@
+Source: cpio
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.gnu.org/software/cpio
+
+Package: cpio
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A tool to copy files into or out of a cpio or tar archive
+ GNU cpio copies files into or out of a cpio or tar 
+ archive. 
+ .
+ The archive can be another file on the disk, a 
+ magnetic tape, or a pipe. 
+
+Package: cpio-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: cpio (= ${binary:Version})
+Recommends: man-db, texinfo
+Description: documentation for cpio
+ This package provides info and manual pages for cpio.

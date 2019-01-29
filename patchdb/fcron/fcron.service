@@ -1,0 +1,22 @@
+#systemd service configuration file for fcron
+
+[Unit]
+Description=fcron periodical command scheduler
+After=remote-fs.target syslog.target time-sync.target
+Before=shutdown.target
+
+[Service]
+Type=forking
+PIDFile=/run/fcron/fcron.pid
+ExecStartPre=/bin/bash -c "if [ ! -f /var/spool/fcron/systab ] ; then /usr/bin/fcrontab -z -u systab ; fi"
+ExecStartPre=/bin/bash -c "if ! /bin/grep -q -c '^fcron' /etc/group ; then /usr/sbin/groupadd -g 22 fcron ; fi"
+ExecStartPre=/bin/bash -c "if ! /bin/grep -q -c '^fcron' /etc/passwd ; then /usr/sbin/useradd -d /dev/null -c "Fcron Daemon" -g fcron -s /bin/false -u 22 fcron ; fi"
+ExecStart=/usr/sbin/fcron -b
+ExecReload=/bin/kill -USR1 $MAINPID
+Restart=always
+KillMode=process
+# 128MB
+LimitCORE=134217728
+
+[Install]
+WantedBy=multi-user.target

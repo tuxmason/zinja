@@ -1,0 +1,37 @@
+Source: rarian
+Section: doc
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libxslt-dev
+Standards-Version: 3.9.5
+Homepage: https://rarian.freedesktop.org/
+
+Package: librarian
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: documentation meta-data library
+ This package provides librarian, a shared library which
+ contains rarian API functions. 
+
+Package: rarian
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}, xsltproc
+Description: Rarian userspace tools
+ This package provides secret-tool, a command line 
+ utility used to store and retrieve passwords.
+
+Package: librarian-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: rarian-dev (= ${binary:Version})
+Depends: rarian (= ${binary:Version}), libxslt-dev
+Description: rarian headers and static library
+ This package provides the rarian static library, 
+ headers and pkgconfig data required to build 
+ applications, libraries or plugins which use rarian 
+ API functions.

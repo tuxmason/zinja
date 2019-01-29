@@ -1,0 +1,6 @@
+usr/lib/*.a
+usr/include
+usr/lib/pkgconfig
+usr/share/redland
+usr/lib/redland/*.a
+usr/bin/redland-config

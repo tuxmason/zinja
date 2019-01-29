@@ -1,0 +1,31 @@
+Source: p7zip
+Section: utils
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://p7zip.sourceforge.net/
+
+Package: p7zip
+Section: utils
+Architecture: ARCH
+Priority: standard
+Depends: ${shlibs:Depends}
+Description: Port of 7-Zip archiver for Unix
+ p7zip is the Unix command-line port of 7-Zip, a file 
+ archiver that archives with high compression ratios. 
+ .
+ It handles 7z, ZIP, GZIP, BZIP2, XZ, TAR, APM, ARJ, 
+ CAB, CHM, CPIO, CramFS, DEB, DMG, FAT, HFS, ISO, LZH, 
+ LZMA, LZMA2, MBR, MSI, MSLZ, NSIS, NTFS, RAR, RPM, 
+ SquashFS, UDF, VHD, WIM, XAR and Z formats. 
+
+Package: p7zip-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: p7zip (= ${binary:Version})
+Recommends: man-db
+Description: documentation for p7zip
+ This package provides text, html and manual pages for 
+ p7zip tools and API. 

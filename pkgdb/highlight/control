@@ -1,0 +1,25 @@
+Source: highlight
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev, boost-dev, lua-dev
+Standards-Version: 3.9.5
+Homepage: http://www.andre-simon.de/doku/highlight/highlight.html
+
+Package: highlight
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Fast and flexible source code highlighter 
+ This package provides highlight, a utility that converts 
+ source code to formatted text with syntax highlighting. 
+
+Package: highlight-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: highlight (= ${binary:Version})
+Recommends: man-db
+Description: highlight documentation
+ This package provides manual pages for highlight.

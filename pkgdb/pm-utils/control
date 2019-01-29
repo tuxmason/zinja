@@ -1,0 +1,30 @@
+Source: pm-utils
+Section: admin
+Priority: important
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: http://pm-utils.freedesktop.org
+
+Package: pm-utils
+Section: admin
+Architecture: ARCH
+Priority: important
+Depends: ${shlibs:Depends}, hdparm, wireless-tools, ethtool, 
+ vbetool
+Description: scripts that handle suspend and resume operations
+ Power Management utilities provide shell scripts used to 
+ suspend and hibernate the computer. 
+ .
+ They can also be used to run user supplied scripts on 
+ suspend and resume.
+
+Package: pm-utils-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: pm-utils (= ${binary:Version})
+Recommends: man-db, vi
+Description: documentation for power management utilities
+ This package provides manual pages and README files for
+ for power management utilities.

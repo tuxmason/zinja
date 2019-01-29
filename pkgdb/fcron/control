@@ -1,0 +1,27 @@
+Source: fcron
+Section: admin
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libpam-dev, readline-dev
+Standards-Version: 3.9.5
+Homepage: http://fcron.free.fr/
+
+Package: fcron
+Section: admin
+Architecture: ARCH
+Priority: standard
+Depends: ${shlibs:Depends}
+Description: Feature rich command scheduler
+ Fcron is a feature rich command scheduler which executes
+ commands at predefined times. This is especially usefull 
+ when your system is not up all the day long.
+
+Package: fcron-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: fcron (= ${binary:Version})
+Recommends: man-db, links
+Description: documentation for fcron
+ This package provides manual pages and html documentation 
+ for fcron. 

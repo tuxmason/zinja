@@ -1,0 +1,25 @@
+Source: rsync
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libacl-dev, libattr-dev, libpopt-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: https://rsync.samba.org/
+
+Package: rsync
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tool for synchronizing large file archives over a network.
+ This package provides rsync, a utility which provides 
+ fast incremental file transfer. 
+
+Package: rsync-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: rsync (= ${binary:Version})
+Recommends: man-db
+Description: documentation for rsync
+ This package provides man pages rsync. 

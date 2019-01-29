@@ -1,0 +1,26 @@
+Source: libxfce4util
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev
+Standards-Version: 3.9.5
+Homepage: http://www.xfce.org/
+
+Package: libxfce4util
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides basic utility non-GUI functions for Xfce 
+ This package provides libxfce4util, a shared library which 
+ contains basic utility non-GUI functions for Xfce.
+
+Package: libxfce4util-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: libxfce4util (= ${binary:Version}), glib2-dev 
+Description: libxfce4util headers and static library
+ This package provides the libxfce4util static library, 
+ pkgconfig data and header files required to develop
+ applications which use libxfce4util API functions.

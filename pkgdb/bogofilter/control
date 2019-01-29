@@ -1,0 +1,29 @@
+Source: bogofilter
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgsl-dev, sqlite3-dev
+Standards-Version: 3.9.5
+Homepage: http://bogofilter.sourceforge.net/
+
+Package: bogofilter
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A fast Bayesian spam filtering tool
+ Bogofilter is a mail filter that classifies mail as 
+ spam or ham (non-spam) by a statistical analysis of 
+ the message's header and content (body). 
+ .
+ The program is able to learn from the user's 
+ classifications and corrections. 
+
+Package: bogofilter-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: bogofilter (= ${binary:Version})
+Recommends: man-db
+Description: bogofilter documentation
+ This package provides manual pages for bogofilter. 

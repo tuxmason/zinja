@@ -1,0 +1,11 @@
+--- lsof_4.91_src/dialects/linux/machine.h.orig	2019-01-23 02:59:28.622685517 +0300
++++ lsof_4.91_src/dialects/linux/machine.h	2019-01-23 02:59:41.676685233 +0300
+@@ -432,7 +432,7 @@
+  * (the one that its user logged on with) of the lsof process.
+  */
+ 
+-/* #define	HASSECURITY	1 */
++#define	HASSECURITY	1
+ 
+ 
+ /*

@@ -1,0 +1,23 @@
+PKGNAME := libx86
+PKGVER := 1.1
+PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
+PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
+PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
+PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
+PATCHDIR := $(PATCHDB)/$(PKGNAME)
+SRCURL := http://www.codon.org.uk/~mjg59/libx86/downloads/$(PKGSRC)
+
+MAKEOPTS :=
+
+ifeq ($(ARCH),x86_64)
+	MAKEOPTS := $(MAKEOPTS) BACKEND=x86emu
+endif 
+
+CC := "${CC}"
+CXX := "${CXX}"
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

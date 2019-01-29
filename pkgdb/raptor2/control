@@ -1,0 +1,50 @@
+Source: raptor2
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: icu-dev, curl-dev, xz-dev, libxml2-dev, 
+ libxslt-dev, libyajl-dev, libz-dev
+Standards-Version: 3.9.5
+Homepage: http://librdf.org/raptor2
+
+Package: libraptor2
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A C library which parses RDF/XML/N-Triples into RDF triples 
+ This package provides libraptor2, a shared library which 
+ contains functions for parsing RDF/XML/N-Triples into 
+ RDF triples.
+
+Package: raptor2
+Section: utils
+Architecture: ARCH
+Priority: optional
+Provides: rapper (= ${binary:Version}) 
+Depends: ${shlibs:Depends}
+Description: RDF parsing and serializing utility
+ This provides rapper, an RDF parsing and serializing 
+ utility.
+
+Package: libraptor2-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: raptor2-dev (= ${binary:Version}) 
+Depends: raptor2 (= ${binary:Version}), icu-dev, curl-dev, xz-dev, 
+ libxml2-dev, libxslt-dev, libyajl-dev, libz-dev 
+Description: libraptor2 headers and static library
+ This package provides the libraptor2 static library, 
+ pkgconfig data and header files required to develop
+ applications which use libraptor2 API functions.
+
+Package: raptor2-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: raptor2 (= ${binary:Version})
+Recommends: man-db
+Description: raptor2 documentation
+ This package provides manual pages for rapper and
+ libraptor2 API functions. 

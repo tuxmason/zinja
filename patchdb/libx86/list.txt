@@ -1,0 +1,3 @@
+libx86-mmap-offset.patch
+0001-assume-zero-is-valid-address.patch
+makefile-add-ldflags.patch

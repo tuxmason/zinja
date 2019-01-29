@@ -1,0 +1,26 @@
+Source: time
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://directory.fsf.org/wiki/Time
+
+Package: time
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Utility which monitors a program's use of system resources 
+ This package provides time, a utility which measures 
+ a program's use of CPU resources, such as execution 
+ time and memory usage.
+
+Package: time-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: time (= ${binary:Version})
+Recommends: texinfo
+Description: documentation for time
+ This package provides the info page for time.

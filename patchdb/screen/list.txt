@@ -1,0 +1,7 @@
+Remove-redundant-compiler-sanity-checks.patch
+Provide-cross-compile-alternatives-for-AC_TRY_RUN.patch
+Skip-host-file-system-checks-when-cross-compiling.patch
+Avoid-mis-identifying-systems-as-SVR4.patch
+0002-comm.h-now-depends-on-term.h.patch
+0001-fix-for-multijob-build.patch
+0001-configure.ac-fix-configure-failed-while-build-dir-ha.patch

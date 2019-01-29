@@ -1,0 +1,48 @@
+Source: wireless-tools
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://hewlettpackard.github.io/wireless-tools/Tools.html
+
+Package: libiw
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: provides functions required by wireless programs
+ This package provides libiw, a shared library which 
+ contains functions required by the wireless programs 
+ and provides an API for other programs.
+
+Package: wireless-tools
+Section: utils
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: tools used to manipulate Wireless Extensions
+ This package provides a set of tools used to manipulate 
+ Wireless Extensions. 
+ .
+ They use a textual interface to support the full Wireless 
+ Extension.
+
+Package: libiw-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: wireless-tools-dev (= ${binary:Version})
+Depends: wireless-tools (= ${binary:Version}), gcc-dev
+Description: wireless-tools headers and static library
+ This package provides headers required to build applications, 
+ libraries or plugins which use libiw API functions.
+
+Package: wireless-tools-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: wireless-tools (= ${binary:Version})
+Description: documentation for wireless tools
+ This package provides manual pages for wireless tools.

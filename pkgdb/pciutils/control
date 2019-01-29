@@ -1,0 +1,46 @@
+Source: pciutils
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: systemd-dev, kmod-dev
+Standards-Version: 3.9.5
+Homepage: http://mj.ucw.cz/sw/pciutils/
+
+Package: libpci
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides an API for accessing the PCI subsystem 
+ This package provides libpci, a shared library which 
+ contains functions for accessing the PCI subsystem.
+
+Package: pciutils
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}, wget
+Description: tools for listing PCI devices and inspecting their status
+ This package provides tools for listing devices 
+ connected to the PCI bus, inspecting their status 
+ and setting their configuration registers. 
+
+Package: libpci-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: pciutils (= ${binary:Version}), systemd-dev, 
+ kmod-dev 
+Description: libpci headers and static library
+ This package provides pkgconfig data and header 
+ files required to develop applications which use 
+ libpci API functions.
+
+Package: pciutils-doc
+Section: doc
+Architecture: all
+Priority: optional
+Recommends: man-db
+Depends: pciutils (= ${binary:Version})
+Description: documentation for pciutils
+ This package provides man pages for pciutils.

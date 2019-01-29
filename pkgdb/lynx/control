@@ -1,0 +1,26 @@
+Source: lynx
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libbz2-dev, libncursesw-dev, libz-dev, 
+ openssl-dev
+Standards-Version: 3.9.5
+Homepage: https://lynx.browser.org/
+
+Package: lynx
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}, zip, unzip, sharutils
+Description: A text browser for the World Wide Web
+ This package provides lynx, a text browser for the 
+ World Wide Web. 
+
+Package: lynx-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: lynx (= ${binary:Version})
+Recommends: man-db
+Description: documentation for lynx
+ This package provides manual pages for lynx. 

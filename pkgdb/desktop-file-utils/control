@@ -1,0 +1,31 @@
+Source: desktop-file-utils
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev
+Standards-Version: 3.9.5
+Homepage: https://www.freedesktop.org/wiki/Software/desktop-file-utils
+
+Package: desktop-file-utils
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Command line utilities for working with desktop entries
+ This package provides command line utilities for 
+ working with Desktop entries. 
+ .
+ These utilities are used by Desktop Environments 
+ and other applications to manipulate the MIME-types 
+ application databases and help adhere to the Desktop 
+ Entry Specification. 
+
+Package: desktop-file-utils-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: desktop-file-utils (= ${binary:Version})
+Recommends: man-db
+Description: desktop-file-utils documentation
+ This package provides manual pages for Desktop File 
+ Utils.

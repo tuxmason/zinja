@@ -1,0 +1,32 @@
+--- ./Makefile.in.orig	2019-01-25 03:38:55.909874360 +0300
++++ ./Makefile.in	2019-01-25 03:39:30.940873597 +0300
+@@ -138,9 +138,9 @@
+ documentation:
+ 	$(MAKE) -C doc doc-if-none
+ 
+-install: install-staged strip perms 
++install: install-staged strip
+ ifeq ($(BOOTINSTALL), 1)
+-	$(SRCDIR)/script/boot-install "$(INSTALL) -o $(ROOTNAME)" $(DESTSBIN) $(DEBUG) $(FCRONTABS) $(ANSWERALL) $(SRCDIR)
++	$(SRCDIR)/script/boot-install "$(INSTALL) " $(DESTSBIN) $(DEBUG) $(FCRONTABS) $(ANSWERALL) $(SRCDIR)
+ endif
+ ifneq ($(SYSTEMD_DIR), no)
+ 	if test ! -d $(DESTDIR)$(SYSTEMD_DIR); then $(INSTALL) -m 755 -d $(DESTDIR)$(SYSTEMD_DIR) ; fi
+@@ -152,8 +152,6 @@
+ # needed by boot-install script :
+ 	echo `fcron -V 2>&1 | grep "^fcron "` > PREVIOUS_VERSION && chmod a+rw PREVIOUS_VERSION
+ 
+-	$(SRCDIR)/script/user-group $(USERNAME) $(GROUPNAME) $(ANSWERALL) $(SRCDIR)
+-
+ # check if the directories we use exist, and if not, create them
+ 	if test ! -d $(DESTDIR)$(DESTSBIN); then $(INSTALL) -m 755 -d $(DESTDIR)$(DESTSBIN) ; fi
+ 	if test ! -d $(DESTDIR)$(DESTBIN); then $(INSTALL) -m 755 -d $(DESTDIR)$(DESTBIN) ; fi
+@@ -230,7 +228,7 @@
+ 	rm -f $(DESTDIR)$(FCRONTABS)/fcrontab.sig
+ 	find $(DESTDIR)$(FCRONTABS) -type f ! -name "*.orig" -exec chown $(ROOTNAME) {} \; -exec chgrp $(ROOTGROUP) {} \; -exec chmod 600 {} \;
+ 
+-	$(MAKE) -C doc perms
++	$(MAKE) -C doc
+ 
+ # strip executables
+ strip: install-staged

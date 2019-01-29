@@ -1,0 +1,18 @@
+Source: hd2u
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev, libpopt-dev
+Standards-Version: 3.9.5
+Homepage: http://hany.sk/~hany/software/hd2u/
+
+Package: hd2u
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Provides: dos2unix (= ${binary:Version})
+Description: provides an any to any text format converter
+ This package provides dos2unix, a commandline tool
+ which converts text between various OS formats ( such 
+ as converting from DOS format to Unix ). 

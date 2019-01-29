@@ -1,0 +1,25 @@
+Source: tree
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://mama.indstate.edu/users/ice/tree/
+
+Package: tree
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: directory listing tool
+ This package provides tree, a tool which displays a
+ depth indented list of files in a directory.
+
+Package: tree-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: tree (= ${binary:Version})
+Recommends: man-db
+Description: documentation for tree
+ This package provides the manual page for tree.

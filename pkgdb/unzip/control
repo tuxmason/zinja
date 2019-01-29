@@ -1,0 +1,25 @@
+Source: unzip
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev, libbz2-dev
+Standards-Version: 3.9.5
+Homepage: http://www.info-zip.org/
+
+Package: unzip
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for extracting and viewing files in .zip archives
+ This package provides tools for extracting and viewing 
+ files in .zip archives.
+
+Package: unzip-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: unzip (= ${binary:Version})
+Recommends: man-db
+Description: documentation for unzip
+ This package provides manual pages for unzip tools. 

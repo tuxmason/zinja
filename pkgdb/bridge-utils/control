@@ -1,0 +1,26 @@
+Source: bridge-utils
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.linuxfoundation.org/collaborate/workgroups/networking/bridge
+
+Package: bridge-utils
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Provides: brctl (= ${binary:Version})
+Description: utility for configuring Linux Ethernet bridges
+ This package provides brctl, a commandline tool used 
+ for configuring Ethernet bridges. 
+
+Package: bridge-utils-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: bridge-utils (= ${binary:Version})
+Recommends: man-db
+Description: documentation for bridge-utils
+ This package provides the manual page for brctl.

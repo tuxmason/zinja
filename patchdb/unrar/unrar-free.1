@@ -1,0 +1,83 @@
+.TH "UNRAR-FREE" "1" 
+.SH "NAME" 
+unrar-free \(em extract files from rar archives 
+.SH "SYNOPSIS" 
+.PP 
+\fBunrar-free\fR [\-xtfp?V]  [\-\-extract]  [\-\-list]  [\-\-force]  [\-\-extract-newer]  [\-\-extract-no-paths]  [\-\-password]  [\-\-help]  [\-\-usage]  [\-\-version] ARCHIVE  [FILE \&...]  	    [DESTINATION]   
+.SH "DESCRIPTION" 
+.PP 
+\fBunrar-free\fR is a program for extracting 
+files from rar archives. 
+.SH "OPTIONS" 
+.PP 
+These programs follow the usual GNU command line syntax, 
+with long options starting with two dashes (`\-').  A summary of 
+options is included below.   
+.IP "\fB-x\fP 	\fB\-\-extract\fP         " 10 
+Extract files from archive (default). 
+.IP "\fB-t\fP 	\fB\-\-list\fP         " 10 
+List files in archive. 
+.IP "\fB-f\fP 	\fB\-\-force\fP         " 10 
+Overwrite files when extracting. 
+.IP "\fB\-\-extract-newer\fP         " 10 
+Only extract newer files from the archive. 
+.IP "\fB\-\-extract-no-paths\fP         " 10 
+Don't create directories while extracting. 
+.IP "\fB-p\fP 	\fB\-\-password\fP         " 10 
+Decrypt archive using a password. 
+.IP "\fB-?\fP 	\fB\-\-help\fP         " 10 
+Show program help. 
+.IP "\fB\-\-usage\fP         " 10 
+Show short program usage message. 
+.IP "\fB-V\fP           \fB\-\-version\fP         " 10 
+Show version of program. 
+.SH "NON-FREE UNRAR COMPATIBLE SYNOPSIS" 
+.PP 
+\fBunrar-free\fR [elvx]  [\-ep]  [\-o+]  [\-o-]  [\-p\fBpassword\fP]  [\-u]  [\-\-] ARCHIVE  [FILE \&...]  	    [DESTINATION]   
+.PP 
+This syntax should only be used in front-end programs which 
+are using non-free unrar as a back-end. It is recommended to use 
+this program by GNU command line syntax. 
+ 
+.IP "\fBe\fP         " 10 
+Extract files from archive without full path. 
+.IP "\fBl\fP         " 10 
+List files in archive. 
+.IP "\fBv\fP         " 10 
+Verbose list files in archive. 
+.IP "\fBx\fP         " 10 
+Extract files from archive with full path. 
+.IP "\fB-ep\fP         " 10 
+Don't create directories while extracting. 
+.IP "\fB-o+\fP         " 10 
+Overwrite files when extracting. 
+.IP "\fB-o-\fP         " 10 
+Don't overwrite files when extracting. 
+.IP "\fB-p\fP         " 10 
+Decrypt archive using a \fBpassword\fP. 
+.IP "\fB-u\fP         " 10 
+Only extract newer files from the archive. 
+.IP "\fB\-\-\fP         " 10 
+Disable further switch processing. Any switch after the \-\- 
+are treated as filenames and destination. 
+.SH "BUGS" 
+.PP 
+Advanced features of version 3.0 archives are not currently 
+supported. 
+.SH "AUTHORS" 
+.PP 
+unrar-free was written by Ben Asselstine based on UniquE 
+RAR File Library by Christian Scheurer and Johannes Winkelmann. 
+ 
+.PP 
+This manual page was written by Niklas Vainio <niklas.vainio@iki.fi> for 
+the \fBDebian\fP system (but may be used by others).  Permission is 
+granted to copy, distribute and/or modify this document under 
+the terms of the GNU General Public License, Version 2 any 
+later version published by the Free Software Foundation. 
+ 
+.PP 
+On Debian systems, the complete text of the GNU General Public 
+License can be found in /usr/share/common-licenses/GPL. 
+ 
+.\" created by instant / docbook-to-man 

@@ -1,0 +1,45 @@
+Source: yajl
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: https://github.com/lloyd/yajl
+
+Package: libyajl
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: A fast streaming JSON parsing library.
+ This package provides libyajl, a shared library which 
+ provides functions for parsing JSON data. 
+
+Package: yajl
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Tools for formatting and verifying JSON data
+ This package provides tools for formatting and verifying 
+ JSON data.
+
+Package: libyajl-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: yajl (= ${binary:Version}), gcc-dev 
+Description: yajl headers and static library
+ This package provides the libyajl static library, 
+ pkgconfig data and header files required to develop
+ applications which use libyajl API functions.
+
+Package: yajl-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: yajl (= ${binary:Version})
+Recommends: man-db, links
+Description: yajl documentation
+ This package provides man pages and html documentation 
+ for yajl API. 

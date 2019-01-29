@@ -1,0 +1,49 @@
+Source: libsecret
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libgcrypt-dev, glib2-dev, libgpg-error-dev
+Standards-Version: 3.9.5
+Homepage: https://wiki.gnome.org/Projects/Libsecret
+
+Package: libsecret
+Section: libs
+Priority: optional
+Architecture: ARCH
+Depends: ${shlibs:Depends}
+Description: Library for storing and retrieving passwords and other secrets
+ This package provides libsecret, a shared library 
+ which contains GObject functions for accessing the 
+ Secret Service API.
+
+Package: libsecret-bin
+Section: utils
+Priority: optional
+Architecture: ARCH
+Provides: secret-tool (= ${binary:Version})
+Depends: ${shlibs:Depends}
+Description: a command line tool used to store and retrieve passwords.
+ This package provides secret-tool, a command line 
+ utility used to store and retrieve passwords.
+
+Package: libsecret-dev
+Section: libdevel
+Priority: optional
+Architecture: ARCH
+Provides: secret-dev (= ${binary:Version})
+Depends: libsecret (= ${binary:Version}), libgcrypt-dev, 
+ glib2-dev, libgpg-error-dev
+Description: libsecret headers and static library
+ This package provides the libsecret static library, 
+ headers and pkgconfig data required to build 
+ applications, libraries or plugins which use libsecret 
+ API functions.
+
+Package: libsecret-doc
+Section: doc
+Priority: optional
+Architecture: all
+Recommends: man-db
+Depends: libsecret-bin (= ${binary:Version})
+Description: documentation for secret
+ This package provides the manual page for secret-tool.

@@ -1,0 +1,43 @@
+Source: tidy-html5
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/htacg/tidy-html5
+
+Package: libtidy
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: provides the Tidy HTML5 API 
+ This package provides libtidy, a shared library which 
+ contains functions used to read HTML, XHTML and XML 
+ files and write cleaned up markup. 
+
+Package: tidy-html5
+Section: utils
+Architecture: ARCH
+Priority: optional
+Provides: tidy (= ${binary:Version})
+Depends: ${shlibs:Depends}
+Description: a utility used to read HTML, XHTML and XML files 
+ This package provides tidy, a command line tool used 
+ to read HTML, XHTML and XML files and write cleaned 
+ up markup. 
+ .
+ It detects and corrects many common coding errors and 
+ strives to produce visually equivalent markup that is 
+ both W3C compliant and compatible with most browsers.
+
+Package: libtidy-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: tidy-html5 (= ${binary:Version}) 
+Description: tidy-html5 headers and static library
+ This package provides the libtidy static library, 
+ pkgconfig data and header files required to develop
+ applications which use libtidy API functions.
+

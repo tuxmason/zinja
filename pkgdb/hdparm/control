@@ -1,0 +1,26 @@
+Source: hdparm
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://sourceforge.net/projects/hdparm/
+
+Package: hdparm
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: a tool used to get/set ATA/SATA drive parameters
+ This package provides hdparm, a command-line interface to 
+ various hard disk ioctls supported by the stock Linux 
+ ATA/IDE device driver subsystem.
+
+Package: hdparm-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: hdparm (= ${binary:Version})
+Recommends: man-db
+Description: documentation for hdparm
+ This package provides the manual page for hdparm. 

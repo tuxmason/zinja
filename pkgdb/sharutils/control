@@ -1,0 +1,30 @@
+Source: sharutils
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.gnu.org/software/sharutils/
+
+Package: sharutils
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: tools for creating shell archives
+ GNU shar makes so-called shell archives out of many 
+ files, preparing them for transmission by electronic 
+ mail services. 
+ .
+ A shell archive is a collection of files that can be 
+ unpacked by /bin/sh.  
+
+Package: sharutils-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: sharutils (= ${binary:Version})
+Recommends: man-db
+Description: sharutils documentation
+ This package provides info and manual pages for 
+ sharutils. 

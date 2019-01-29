@@ -1,0 +1,30 @@
+Source: screen
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: libncursesw-dev, libpam-dev
+Standards-Version: 3.9.5
+Homepage: http://www.gnu.org/software/screen/
+
+Package: screen
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Full-screen window manager that multiplexes a physical terminal
+ Screen is a full-screen window manager that multiplexes 
+ a physical terminal between several processes, typically 
+ interactive shells. 
+ .
+ Each virtual terminal provides the functions of the DEC 
+ VT100 terminal and, in addition, several control functions 
+ from the ANSI X3.64 (ISO 6429) and ISO 2022 standards. 
+
+Package: screen-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: screen (= ${binary:Version})
+Recommends: man-db
+Description: screen documentation
+ This package provides info and manual pages for screen.

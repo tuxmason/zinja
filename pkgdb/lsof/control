@@ -1,0 +1,25 @@
+Source: lsof
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev, libtirpc-dev
+Standards-Version: 3.9.5
+Homepage: http://people.freebsd.org/~abe/
+
+Package: lsof
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Lists open files for running Unix processes
+ This package provides lsof, a command line utility which
+ lists open files for a given running application or process. 
+
+Package: lsof-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: lsof (= ${binary:Version})
+Recommends: man-db
+Description: lsof documentation
+ This package provides the manual page for lsof.

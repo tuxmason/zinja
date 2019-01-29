@@ -1,0 +1,47 @@
+Source: redland
+Section: utils
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: db-dev, libltdl-dev, libraptor2-dev, librasqal-dev, 
+ sqlite3-dev, libunixodbc-dev
+Standards-Version: 3.9.5
+Homepage: http://librdf.org/
+
+Package: librdf
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Library which provides a high-level interface to RDF data 
+ This package provides librdf, a shared library which 
+ contains Resource Description Framework (RDF) support
+ functions.
+
+Package: redland
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: RDF processing tools
+ This package provides redland userspace tools. 
+
+Package: librdf-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Depends: redland (= ${binary:Version}), db-dev, libltdl-dev, 
+ libraptor2-dev, librasqal-dev, sqlite3-dev, libunixodbc-dev 
+Description: redland headers and static library
+ This package provides the librdf static library, 
+ pkgconfig data and header files required to develop
+ applications which use librdf API functions.
+
+Package: redland-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: redland (= ${binary:Version})
+Recommends: man-db, links
+Description: redland documentation
+ This package provides man pages and html documentation 
+ for redland API. 

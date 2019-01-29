@@ -1,0 +1,45 @@
+Source: unrar
+Section: utils
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.rarlab.com/rar_add.htm
+
+Package: libunrar
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: C library for decompressing RAR archives 
+ This package provides libunrar, a shared library which 
+ functions for decompressing RAR archives.
+
+Package: unrar
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: utility for decompressing RAR archives
+ This package provides unrar, a commandline tool for
+ decompressing RAR archives.  
+
+Package: libunrar-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: unrar-dev (= ${binary:Version}) 
+Depends: unrar (= ${binary:Version}), gcc-dev 
+Description: unrar headers and static library
+ This package provides the libunrar static library, 
+ and header files required to develop applications 
+ which use libunrar API functions.
+
+Package: unrar-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: unrar (= ${binary:Version})
+Recommends: man-db
+Description: documentation for unrar
+ This package provides the manual page for unrar.

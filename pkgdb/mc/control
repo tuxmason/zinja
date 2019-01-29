@@ -1,0 +1,30 @@
+Source: mc
+Section: utils
+Priority: standard
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gpm-dev, glib2-dev, libslang-dev, libssh2-dev
+Standards-Version: 3.9.5
+Homepage: https://midnight-commander.org/
+
+Package: mc
+Section: utils
+Architecture: ARCH
+Priority: standard
+Depends: ${shlibs:Depends}
+Description: a text-mode full-screen file manager and visual shell
+ MC (Midnight Commander) is a text-mode full-screen file 
+ manager and visual shell. 
+ .
+ It provides a clear, user-friendly, and somewhat protected 
+ interface to a Unix system while making many frequent file 
+ operations more efficient and preserving the full power of 
+ the command prompt. 
+
+Package: mc-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: mc (= ${binary:Version})
+Recommends: man-db
+Description: documentation for Midnight Commander
+ This package provides manual pages for Midnight Commander.

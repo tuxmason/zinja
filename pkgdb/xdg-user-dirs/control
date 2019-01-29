@@ -1,0 +1,28 @@
+Source: xdg-user-dirs
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: gcc-dev
+Standards-Version: 3.9.5
+Homepage: http://www.freedesktop.org/wiki/Software/xdg-user-dirs
+
+Package: xdg-user-dirs
+Section: utils
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: Manage user directories like ~/Desktop and ~/Music
+ Xdg-user-dirs is a tool to help manage "well known" user 
+ directories like the desktop folder and the music folder. 
+ .
+ It also handles localization (i.e. translation) of the 
+ filenames. 
+
+Package: xdg-user-dirs-doc
+Section: doc
+Architecture: all
+Priority: optional
+Depends: xdg-user-dirs (= ${binary:Version})
+Recommends: man-db
+Description: documentation for xdg-user-dirs
+ This package provides manual pages for xdg-user-dirs.

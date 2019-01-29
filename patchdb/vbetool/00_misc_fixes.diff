@@ -1,0 +1,22 @@
+Description: build on kfreebsd-amd64
+Author: Petr Salinger <Petr.Salinger@seznam.cz>
+Last-Update: 2007-05-17
+
+Index: vbetool-1.1/Makefile.am
+===================================================================
+--- vbetool-1.1.orig/Makefile.am	2008-05-16 14:52:33.000000000 +0200
++++ vbetool-1.1/Makefile.am	2010-12-12 03:37:28.840851001 +0100
+@@ -2,7 +2,7 @@
+ 
+ sbin_PROGRAMS = vbetool
+ 
+-vbetool_LDADD = $(libdir)/libpci.a
++vbetool_LDADD = -lx86 -lpci
+ 
+ man_MANS = vbetool.1
+ vbetool_SOURCES = vbetool.c $(x86)
+@@ -14,4 +14,3 @@
+ 	$(RM) Makefile.in aclocal.m4 config.h.in stamp-h.in configure
+ 
+ AM_CFLAGS = -g -Wall -pedantic -std=gnu99
+-AM_LDFLAGS = -lz -lx86

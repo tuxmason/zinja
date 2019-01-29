@@ -1,0 +1,30 @@
+Source: uhttpmock
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: glib2-dev, libsoup-dev
+Standards-Version: 3.9.5
+Homepage: https://gitlab.com/uhttpmock/uhttpmock
+
+Package: libuhttpmock
+Section: libs
+Architecture: ARCH
+Priority: optional
+Provides: uhttpmock (= ${binary:Version}) 
+Depends: ${shlibs:Depends}
+Description: a library for mocking web service APIs which use HTTP or HTTPS.  
+ This package provides libuhttpmock, a shared library 
+ which implements recording and playback of HTTP 
+ request-response traces.
+
+Package: libuhttpmock-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: uhttpmock-dev (= ${binary:Version}) 
+Depends: libuhttpmock (= ${binary:Version}), 
+ glib2-dev, libsoup-dev 
+Description: uhttpmock headers and static library
+ This package provides the libuhttpmock static library, 
+ pkgconfig data and header files required to develop
+ applications which use libuhttpmock API functions.

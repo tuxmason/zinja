@@ -1,0 +1,42 @@
+Source: neon
+Section: libs
+Priority: optional
+Maintainer: Tux Mason <tuxmason@gmail.com>
+Build-Depends: e2fsprogs-dev, libexpat-dev, libkrb5-dev, 
+ libproxy-dev, libz-dev, openssl-dev
+Standards-Version: 3.9.5
+Homepage: http://www.webdav.org/neon/
+
+Package: libneon
+Section: libs
+Architecture: ARCH
+Priority: optional
+Depends: ${shlibs:Depends}
+Description: an HTTP and WebDAV client library 
+ This package provides libneon, a shared library which 
+ contains a high-level interface to common HTTP and 
+ WebDAV methods.
+
+Package: libneon-dev
+Section: libdevel
+Architecture: ARCH
+Priority: optional
+Provides: neon-dev (= ${binary:Version}) 
+Depends: libneon (= ${binary:Version}), e2fsprogs-dev, 
+ libexpat-dev, libkrb5-dev, libproxy-dev, libz-dev, 
+ openssl-dev
+Description: neon headers and static library
+ This package provides the libneon static library, 
+ pkgconfig data and header files required to develop
+ applications which use libneon API functions.
+
+Package: libneon-doc
+Section: doc
+Architecture: all
+Priority: optional
+Provides: neon-doc (= ${binary:Version}) 
+Depends: libneon (= ${binary:Version})
+Recommends: man-db, links
+Description: neon documentation
+ This package provides man pages and html documentation 
+ for the neon API. 

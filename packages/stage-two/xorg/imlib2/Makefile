@@ -65,6 +65,8 @@ install-sysroot: pkg-src
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		cp -v $(PKGBINDIR)/usr/bin/imlib2-config $(CROSSTOOLS)/bin/imlib2-config || exit 1 ;\
+		sed -i -e "s@/usr@$(SYSROOTDIR)&@g" $(CROSSTOOLS)/bin/imlib2-config || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/libImlib2.la || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/imlib2/{loaders/*,filters/*}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\

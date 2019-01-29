@@ -7,6 +7,7 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/$(PKGSRC)
 COPTS := --prefix=/usr \
+	--enable-sql \
 	--enable-bdb=no \
 	--enable-perl=no \
 	--enable-ndb=no \
@@ -17,6 +18,8 @@ COPTS := --prefix=/usr \
 	--enable-modules \
 	--enable-dynamic \
 	--with-cyrus-sasl \
+	--enable-slapd \
+	--with-tls=openssl \
 	--enable-overlays=mod \
 	--enable-rlookups \
 	--enable-backends=mod \

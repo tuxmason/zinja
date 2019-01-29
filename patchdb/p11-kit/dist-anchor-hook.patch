@@ -1,0 +1,24 @@
+diff -uraN a/trust/trust-extract-compat.in b/trust/trust-extract-compat.in
+--- a/trust/trust-extract-compat.in	2017-01-24 18:30:03.000000000 +0300
++++ b/trust/trust-extract-compat.in	2019-01-06 13:32:33.100816122 +0300
+@@ -17,16 +17,8 @@
+         exit 0
+ fi
+ 
+-echo "trust: the placeholder extract-compat command has not been customized by your distribution." >&2
++# Copy existing anchor modifications to /etc/ssl/local
++/usr/libexec/make-ca/copy-trust-modifications
+ 
+-# You can use commands like this to extract data from trust modules
+-# into appropriate locations for your distribution.
+-#
+-# trust extract --format=openssl-bundle --filter=ca-anchors \
+-# 	--overwrite /tmp/openssl-bundle.pem
+-# trust extract --format=pem-bundle --filter=ca-anchors --overwrite \
+-# 	--purpose server-auth /tmp/server-auth-bundle.pem
+-# trust extract --format=java-cacerts --filter=ca-anchors --overwrite \
+-# 	--purpose server-auth /tmp/cacerts
+-
+-exit 1
++# Generate a new trust store
++/usr/sbin/make-ca -f -g

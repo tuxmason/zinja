@@ -2,7 +2,7 @@ Source: p11-kit
 Section: utils
 Priority: optional
 Maintainer: Tux Mason <tuxmason@gmail.com>
-Build-Depends: libffi-dev, libtasn1-dev
+Build-Depends: libffi-dev, libtasn1-dev, systemd-dev, libxslt-dev
 Standards-Version: 3.9.5
 Homepage: https://p11-glue.github.io/p11-glue/p11-kit.html
 
@@ -10,7 +10,7 @@ Package: libp11-kit
 Section: libs
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: provides API functions used to load and enumerate PKCS#11 modules
  libp11-kit provides API functions used to load and enumerate PKCS#11
  modules.
@@ -21,7 +21,7 @@ Package: p11-kit
 Section: utils
 Priority: optional
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: tools used to perform operations on PKCS#11 modules
  p11-kit provides tools used to examine and modify the shared trust policy
  store and to perform operations on PKCS#11 modules.
@@ -31,7 +31,8 @@ Section: libdevel
 Provides: p11-kit-dev
 Priority: optional
 Architecture: ARCH
-Depends: libp11-kit (= ${binary:Version}), libffi-dev, libtasn1-dev
+Depends: libp11-kit (= ${binary:Version}), libffi-dev, libtasn1-dev,
+ libxslt-dev, systemd-dev
 Description: Development headers and libp11-kit static library
  This package provides libp11-kit.a, headers and pkgconfig data required
  to build applications, libraries or plugins using the libp11-kit API.

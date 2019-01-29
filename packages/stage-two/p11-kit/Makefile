@@ -7,7 +7,7 @@ include ./config.mk
 
 all: targets
 
-targets: clean extract patch configure build pkg-src install-deps build-pkg install-pkg
+targets: clean extract patch autoconf configure build pkg-src install-deps build-pkg install-pkg
 
 extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
@@ -29,7 +29,14 @@ patch: extract
 		touch $(PKGOBJDIR)/patch-stamp ;\
 	fi
 
-configure: patch
+autoconf: patch
+	@if [ ! -f $(PKGOBJDIR)/autoconf-stamp  ]; then \
+		cd $(PKGSRCDIR) ;\
+		( PATH=$(PATH) autoreconf -vif -I $(SYSROOTDIR)/usr/share/aclocal ) || exit 1 ;\
+		touch $(PKGOBJDIR)/autoconf-stamp ;\
+	fi
+
+configure: autoconf
 	@if [ ! -f $(PKGOBJDIR)/configure-stamp  ]; then \
 		cd $(PKGOBJDIR) ;\
 		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) $(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
@@ -57,16 +64,16 @@ install-deps: install-sysroot install-pkgroot
 install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/lib$(PKGNAME).la || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/pkcs11/*.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libnssckbi-p11-kit,libp11-kit}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/pkcs11/{p11-kit-client,p11-kit-trust}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
 
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/lib$(PKGNAME).la || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/pkcs11/*.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libnssckbi-p11-kit,libp11-kit}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/pkcs11/{p11-kit-client,p11-kit-trust}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

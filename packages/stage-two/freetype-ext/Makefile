@@ -55,6 +55,7 @@ pkg-src: build
 install-bin: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-bin-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		cp -v $(PKGBINDIR)/usr/bin/freetype-config $(CROSSTOOLS)/bin || exit 1 ;\
 		rm -vf $(PKGBINDIR)/usr/lib/lib$(PKGNAME).la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-bin-stamp ;\
 	fi

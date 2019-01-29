@@ -1,1 +1,8 @@
-nss-3.34.1-standalone-1.patch
+0001-nss-fix-support-cross-compiling.patch
+add_spi+cacert_ca_certs.patch
+disable-Wvarargs-with-clang.patch
+nss-3.41.1-standalone-1.patch
+nss-fix-SHA_HTONL-bug-for-arm-32be.patch
+nss-fix-incorrect-shebang-of-perl.patch
+nss-no-rpath-for-cross-compiling.patch
+pqg.c-ULL_addend.patch

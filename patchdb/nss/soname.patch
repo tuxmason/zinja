@@ -1,0 +1,11 @@
+--- ./nss/coreconf/Linux.mk.orig	2019-01-29 01:28:56.779556086 +0300
++++ ./nss/coreconf/Linux.mk	2019-01-29 01:40:59.079556991 +0300
+@@ -190,7 +190,7 @@
+ endif
+ endif
+ 
+-MKSHLIB         = $(CC) $(DSO_LDOPTS) -Wl,-soname -Wl,$(@:$(OBJDIR)/%.so=%.so) $(RPATH)
++MKSHLIB         = $(CC) $(DSO_LDOPTS) -Wl,-soname -Wl,$(@:$(OBJDIR)/%.so=%.so.3) $(RPATH)
+ 
+ ifdef MAPFILE
+ 	MKSHLIB += -Wl,--version-script,$(MAPFILE)

@@ -1,12 +1,37 @@
 PKGNAME := nss
-PKGVER := 3.34.1
+PKGVER := 3.41.1
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.gz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
 PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
-SRCURL := https://archive.mozilla.org/pub/security/nss/releases/NSS_3_34_1_RTM/src/$(PKGSRC)
-COPTS := 
-CC := "${CC} "
-CXX := "${CXX} "
+SRCURL := https://archive.mozilla.org/pub/security/nss/releases/NSS_3_41_1_RTM/src/$(PKGSRC)
+
+MOPTS := BUILD_OPT=1 \
+	ZLIB_LIBS=-lz \
+	CROSS_COMPILE=1 \
+	USE_SYSTEM_ZLIB=1 \
+	NSS_ENABLE_WERROR=0 \
+	NSS_DISABLE_GTESTS=1 \
+	NSS_USE_SYSTEM_SQLITE=1 \
+	NSPR_LIB_DIR=$(SYSROOTDIR)/usr/lib \
+	NSPR_INCLUDE_DIR=$(SYSROOTDIR)/usr/include/nspr
+
+CC := "${CC}"
+CXX := "${CXX}"
 HOST_CC := gcc
+
+OS_TARGET := Linux
+OS_ARCH := Linux
+OS_TEST := $(ARCH)
+OS_RELEASE := 3.4
+
+ifeq ($(ARCH),$(filter $(ARCH),x86_64 aarch64))
+	MOPTS := $(MOPTS) USE_64=1
+endif
+
+PKGDIR := $(PKGDB)/$(PKGNAME)
+ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz
+PKGROOT := $(DISTRIBROOT)/$(PKGNAME)
+DISTRIBSRC := $(PKGROOT)/$(PKGNAME)-$(PKGVER)
+PKGBINDIR := $(DISTRIBSRC)/debian/pkg

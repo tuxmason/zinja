@@ -7,6 +7,7 @@ PATCHLIST := $(PATCHDB)/$(PKGNAME)/list.txt
 PATCHDIR := $(PATCHDB)/$(PKGNAME)
 SRCURL := https://github.com/NVIDIA/libglvnd/archive/v1.1.0.tar.gz
 COPTS := --prefix=/usr \
+	--disable-gles \
 	--sysconfdir=/etc \
 	--localstatedir=/var \
 	--build=$(BUILDARCH) \

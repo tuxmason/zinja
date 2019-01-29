@@ -64,16 +64,16 @@ install-deps: install-sysroot install-pkgroot
 install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libEGL,libGL,libGLESv1_CM}.la || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libGLESv2,libGLX,libGLdispatch,libOpenGL}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libGLX,libGLdispatch,libOpenGL}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libEGL,libGL}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
 
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/{libEGL,libGL,libGLESv1_CM}.la || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/{libGLESv2,libGLX,libGLdispatch,libOpenGL}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libGLX,libGLdispatch,libOpenGL}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libEGL,libGL}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

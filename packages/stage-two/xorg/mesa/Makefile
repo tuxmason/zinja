@@ -41,6 +41,7 @@ configure: autoconf
 		cd $(PKGOBJDIR) ;\
 		( PATH=$(PATH) CC=$(CC) CXX=$(CXX) \
 			WAYLAND_SCANNER=$(WAYLAND_SCANNER) \
+			WAYLAND_PROTOCOLS_DATADIR=$(WAYLAND_PROTOCOLS_DATADIR) \
 			$(PKGSRCDIR)/configure $(COPTS) ) || exit 1 ;\
 		touch $(PKGOBJDIR)/configure-stamp ;\
 	fi
@@ -66,8 +67,9 @@ install-deps: install-sysroot install-pkgroot
 install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libEGL,libGL,libGLESv1_CM,libGLESv2,libvulkan_intel}.la || exit 1 ;\
-		rm -v $(SYSROOTDIR)/usr/lib/{libOSMesa,libgbm,libglapi,libwayland-egl,libxatracker}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libEGL_mesa,libGLX_mesa,libOSMesa,libgbm}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libglapi,libvulkan_intel,libxatracker}.la || exit 1 ;\
+		rm -v $(SYSROOTDIR)/usr/lib/{libGLESv1_CM,libGLESv2}.la || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/bellagio/libomx_mesa.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
 	fi
@@ -75,8 +77,9 @@ install-sysroot: pkg-src
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/{libEGL,libGL,libGLESv1_CM,libGLESv2}.la || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/{libOSMesa,libgbm,libglapi,libwayland-egl,libxatracker}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libEGL_mesa,libGLX_mesa,libOSMesa,libgbm}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libglapi,libvulkan_intel,libxatracker}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libGLESv1_CM,libGLESv2}.la || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/bellagio/libomx_mesa.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi

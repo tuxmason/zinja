@@ -1,10 +1,6 @@
-0001-Makefile.vulkan.am-explictly-add-lib-expat-to-intel-.patch
-0001-Use-wayland-scanner-in-the-path.patch
-0001-anv_icd.py-improve-reproducible-builds.patch
-0001-link-mesautil-with-pthreads.patch
-0001-winsys-svga-drm-Include-sys-types.h.patch
-0002-glvnd-fix-gl-dot-pc.patch
-0002-hardware-gloat.patch
-disable-asm-on-non-gcc.patch
-llvm-config-version.patch
-replace_glibc_check_with_linux.patch
+0002-winsys-svga-drm-Include-sys-types.h.patch
+0006-use-PKG_CHECK_VAR-for-defining-WAYLAND_PROTOCOLS_DAT.patch
+adjust-cache-deflate-buffer.patch
+drmdeps.patch
+glx_ro_text_segm.patch
+musl-fix-includes.patch

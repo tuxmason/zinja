@@ -1,5 +1,5 @@
 PKGNAME := mesa
-PKGVER := 17.3.3
+PKGVER := 18.3.2
 PKGSRC := $(PKGNAME)-$(PKGVER).tar.xz
 PKGSRCDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)
 PKGOBJDIR := $(TCBUILDROOT)/$(PKGNAME)-$(PKGVER)-obj
@@ -13,10 +13,10 @@ COPTS := --prefix=/usr \
 	--enable-shared \
 	--enable-glx-tls \
 	--sysconfdir=/etc \
+	--enable-libglvnd \
 	--enable-omx-bellagio \
 	--enable-shared-glapi \
 	--enable-driglx-direct \
-	--enable-texture-float \
 	--enable-gallium-osmesa \
 	--with-platforms="drm,x11,wayland" \
 	--localstatedir=/var \
@@ -42,6 +42,8 @@ CC := "${CC}"
 CXX := "${CXX}"
 
 WAYLAND_SCANNER := "$(CROSSTOOLS)/bin/wayland-scanner"
+
+WAYLAND_PROTOCOLS_DATADIR := $(SYSROOTDIR)/usr/share/wayland-protocols
 
 PKGDIR := $(PKGDB)/xorg/$(PKGNAME)
 ORIGSRC := $(PKGNAME)_$(PKGVER).orig.tar.xz

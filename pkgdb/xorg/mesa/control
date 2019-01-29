@@ -2,11 +2,10 @@ Source: mesa
 Section: libs
 Priority: optional
 Maintainer: Tux Mason <tuxmason@gmail.com>
-Build-Depends: debhelper (>= 9), libdrm-dev, libexpat-dev, 
- libomxil-bellagio-dev, libunwind-dev, libwayland-dev, 
- libx11-dev, libxcb-dev, libxdamage-dev, libxext-dev, 
- libxfixes-dev, libxshmfence-dev, libxv-dev, libxvmc-dev, 
- libxxf86vm-dev
+Build-Depends: libdrm-dev, libexpat-dev, libomxil-bellagio-dev, 
+ libunwind-dev, libwayland-dev, libx11-dev, libxcb-dev, 
+ libxdamage-dev, libxext-dev, libxfixes-dev, libxshmfence-dev, 
+ libxv-dev, libxvmc-dev, libxxf86vm-dev, libz-dev
 Standards-Version: 3.9.5
 Homepage: https://www.mesa3d.org/
 
@@ -26,11 +25,10 @@ Section: libdevel
 Priority: optional
 Provides: mesa-dev
 Architecture: ARCH
-Depends: libmesa (= ${binary:Version}), libdrm-dev,
- libomxil-bellagio-dev, libunwind-dev, libwayland-dev,
- libx11-dev, libxcb-dev, libxdamage-dev, libxext-dev,
- libxfixes-dev, libxshmfence-dev, libxv-dev, libxvmc-dev, 
- libxxf86vm-dev, libexpat-dev
+Depends: libmesa (= ${binary:Version}), libdrm-dev, libexpat-dev, 
+ libomxil-bellagio-dev, libunwind-dev, libwayland-dev, libx11-dev, 
+ libxcb-dev, libxdamage-dev, libxext-dev, libxfixes-dev, 
+ libxshmfence-dev, libxv-dev, libxvmc-dev, libxxf86vm-dev, libz-dev
 Description: libmesa development headers and pkgconfig data
  This package provides libmesa pkgconfig data and header 
  files required for developing applications which use 

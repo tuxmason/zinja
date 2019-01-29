@@ -1,0 +1,14 @@
+Based on patch by Khem Raj 
+http://cgit.openembedded.org/openembedded-core/plain/meta/recipes-graphics/mesa/files/0006-use-PKG_CHECK_VAR-for-defining-WAYLAND_PROTOCOLS_DAT.patch
+
+--- ./configure.ac.orig	2019-01-28 19:28:55.557529022 +0300
++++ ./configure.ac	2019-01-28 19:29:12.737529044 +0300
+@@ -1839,7 +1839,7 @@
+         if test "x$enable_egl" = xyes; then
+           PKG_CHECK_MODULES([WAYLAND_EGL], [wayland-egl-backend >= $WAYLAND_EGL_BACKEND_REQUIRED])
+         fi
+-        WAYLAND_PROTOCOLS_DATADIR=`$PKG_CONFIG --variable=pkgdatadir wayland-protocols`
++        PKG_CHECK_VAR([WAYLAND_PROTOCOLS_DATADIR], [wayland-protocols >= $WAYLAND_PROTOCOLS_REQUIRED], pkgdatadir)
+ 
+         PKG_CHECK_MODULES([WAYLAND_SCANNER], [wayland-scanner],
+                           WAYLAND_SCANNER=`$PKG_CONFIG --variable=wayland_scanner wayland-scanner`,

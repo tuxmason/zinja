@@ -1,3 +1,11 @@
+usr/lib/libEGL_mesa.so.0.0.0 usr/lib/libEGL_mesa.so.0
+usr/lib/libEGL_mesa.so.0 usr/lib/libEGL_mesa.so
+usr/lib/libGLESv1_CM.so.1.1.0 usr/lib/libGLESv1_CM.so.1
+usr/lib/libGLESv1_CM.so.1 usr/lib/libGLESv1_CM.so
+usr/lib/libGLESv2.so.2.0.0 usr/lib/libGLESv2.so.2
+usr/lib/libGLESv2.so.2 usr/lib/libGLESv2.so
+usr/lib/libGLX_mesa.so.0.0.0 usr/lib/libGLX_mesa.so.0
+usr/lib/libGLX_mesa.so.0 usr/lib/libGLX_mesa.so
 usr/lib/libOSMesa.so.8.0.0 usr/lib/libOSMesa.so.8
 usr/lib/libOSMesa.so.8 usr/lib/libOSMesa.so
 usr/lib/libXvMCnouveau.so.1.0.0 usr/lib/libXvMCnouveau.so.1
@@ -6,5 +14,8 @@ usr/lib/libgbm.so.1.0.0 usr/lib/libgbm.so.1
 usr/lib/libgbm.so.1 usr/lib/libgbm.so
 usr/lib/libglapi.so.0.0.0 usr/lib/libglapi.so.0
 usr/lib/libglapi.so.0 usr/lib/libglapi.so
-usr/lib/libxatracker.so.2.3.0 usr/lib/libxatracker.so.2
+usr/lib/libxatracker.so.2.4.0 usr/lib/libxatracker.so.2
 usr/lib/libxatracker.so.2 usr/lib/libxatracker.so
+usr/lib/vdpau/libvdpau_nouveau.so.1.0.0 usr/lib/vdpau/libvdpau_nouveau.so.1.0
+usr/lib/vdpau/libvdpau_nouveau.so.1.0 usr/lib/vdpau/libvdpau_nouveau.so.1
+usr/lib/vdpau/libvdpau_nouveau.so.1 usr/lib/vdpau/libvdpau_nouveau.so

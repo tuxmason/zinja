@@ -1,0 +1,20 @@
+--- ./libusb/usb.h.orig	2019-01-26 23:08:14.472468077 +0300
++++ ./libusb/usb.h	2019-01-26 23:09:21.098466627 +0300
+@@ -29,6 +29,8 @@
+ #include <stdlib.h>
+ #include <limits.h>
+ 
++#include <stdint.h>
++
+ #include <dirent.h>
+ 
+ /*
+@@ -266,7 +268,7 @@
+   char dirname[PATH_MAX + 1];
+ 
+   struct usb_device *devices;
+-  u_int32_t location;
++  uint32_t location;
+ 
+   struct usb_device *root_dev;
+ };

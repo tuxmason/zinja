@@ -1,6 +1,6 @@
 Source: libusb-compat
 Section: libs
-Priority: required
+Priority: important
 Maintainer: Tux Mason <tuxmason@gmail.com>
 Build-Depends: libusb-dev
 Standards-Version: 3.9.5
@@ -8,9 +8,9 @@ Homepage: https://github.com/hjelmn/libusb-compat-0.1
 
 Package: libusb-compat
 Section: libs
-Priority: required
+Priority: important
 Architecture: ARCH
-Depends: libc (>= 1.1.8), ${shlibs:Depends}
+Depends: ${shlibs:Depends}
 Description: a compatibility layer for the libusb-1.0 API
  libusb-compat is a compatibility layer needed by applications 
  that have not been upgraded to the libusb-1.0 API.

@@ -1,2 +1,4 @@
+etc
 usr/bin
+lib/systemd
 usr/share/thumbnailers

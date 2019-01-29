@@ -1,0 +1,11 @@
+#systemd service configuration file for Gdk Pixbuf
+
+[Unit]
+Description=Updates Gdk Pixbuf cache
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/gdk-pixbuf-query-loaders --update-cache
+
+[Install]
+WantedBy=graphical.target

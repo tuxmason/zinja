@@ -13,7 +13,8 @@ extract:
 	@if [ ! -f $(PKGOBJDIR)/extract-stamp  ]; then \
 		( tar -C $(TCBUILDROOT) -xf $(SRCDIR)/$(PKGSRC) ) || exit 1 ;\
 		mkdir $(PKGOBJDIR) ;\
-		mkdir -pv $(PKGBINDIR) ;\
+		install -d -v -m 755 $(SYSROOTDIR)/etc/systemd/system/graphical.target.wants ;\
+		mkdir -pv $(PKGBINDIR)/{lib/systemd/system,etc/systemd/system/graphical.target.wants} ;\
 		touch $(PKGOBJDIR)/extract-stamp ;\
 	fi
 
@@ -59,6 +60,9 @@ install-deps: install-sysroot install-pkgroot
 install-sysroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-sysroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(SYSROOTDIR) install ) || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/$(PKGNAME).service $(SYSROOTDIR)/lib/systemd/system || exit 1 ;\
+		ln -svf /lib/systemd/system/$(PKGNAME).service \
+			$(SYSROOTDIR)/etc/systemd/system/graphical.target.wants/$(PKGNAME).service || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/*.la || exit 1 ;\
 		rm -v $(SYSROOTDIR)/usr/lib/{libgdk_pixbuf-2.0,libgdk_pixbuf_xlib-2.0}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-sysroot-stamp ;\
@@ -67,6 +71,9 @@ install-sysroot: pkg-src
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		install -v -m 644 $(PATCHDIR)/$(PKGNAME).service $(PKGBINDIR)/lib/systemd/system || exit 1 ;\
+		ln -svf /lib/systemd/system/$(PKGNAME).service \
+			$(PKGBINDIR)/etc/systemd/system/graphical.target.wants/$(PKGNAME).service || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/*.la || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/{libgdk_pixbuf-2.0,libgdk_pixbuf_xlib-2.0}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\

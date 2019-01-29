@@ -64,8 +64,8 @@ pkg-src: build
 install-bin: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/{libEGL,libGL,libGLESv1_CM}.la || exit 1 ;\
-		rm -v $(PKGBINDIR)/usr/lib/{libGLESv2,libGLX,libGLdispatch,libOpenGL}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libEGL,libGL}.la || exit 1 ;\
+		rm -v $(PKGBINDIR)/usr/lib/{libGLX,libGLdispatch,libOpenGL}.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

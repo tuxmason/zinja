@@ -72,6 +72,8 @@ install-pkgroot: pkg-src
 		install -v -m644 $(PATCHDIR)/{krb5-kadmind,krb5-kdc,krb5-kpropd}.service \
 			$(PKGBINDIR)/lib/systemd/system || exit 1 ;\
 		install -v -m644 $(PATCHDIR)/krb5-dirs.conf $(PKGBINDIR)/etc/tmpfiles.d/krb5.conf || exit 1 ;\
+		cp -v $(PKGBINDIR)/usr/bin/krb5-config $(CROSSTOOLS)/bin/krb5-config || exit 1 ;\
+		sed -i -e "s@/usr@$(SYSROOTDIR)&@g" $(CROSSTOOLS)/bin/krb5-config || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
 	fi
 

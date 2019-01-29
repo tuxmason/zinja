@@ -65,6 +65,8 @@ install-sysroot: pkg-src
 install-pkgroot: pkg-src
 	@if [ ! -f $(PKGOBJDIR)/install-pkgroot-stamp  ]; then \
 		( PATH=$(PATH) make -C $(PKGOBJDIR) DESTDIR=$(PKGBINDIR) install ) || exit 1 ;\
+		cp -v $(PKGBINDIR)/usr/bin/xslt-config $(CROSSTOOLS)/bin/xslt-config || exit 1 ;\
+		sed -i -e "s@/usr@$(SYSROOTDIR)&@g" $(CROSSTOOLS)/bin/xslt-config || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/{libexslt,$(PKGNAME)}.la || exit 1 ;\
 		rm -v $(PKGBINDIR)/usr/lib/python2.7/site-packages/*.la || exit 1 ;\
 		touch $(PKGOBJDIR)/install-pkgroot-stamp ;\
